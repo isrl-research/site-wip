@@ -1,0 +1,41 @@
+---
+title: Logs of major decisions as we make them and pivot points
+format:
+  html:
+    reference-location: margin
+    filters:
+    - highlight-span.lua
+    css: styles.css
+        
+---
+
+## 23 March 2026
+
+We released [Indian Food Ingredients & Label Variants](https://doi.org/10.34740/KAGGLE/DSV/14783287) (v1) with the goal of making ingredient label text parseable by machines. The dataset standardised ingredient names — mapping `kashmiri chilli` to `chilli`, for instance — on the assumption that a normalised vocabulary would make automated parsing tractable.
+
+Two problems emerged as data collection continued.
+
+First, the approach trades away information the project is now explicitly committed to preserving. `Kashmiri chilli` is not a noisy variant of `chilli` — it is a distinct cultural referent. The v1 mapping treats it as noise.
+
+Second, the ingredient name space in Indian packaged food is too diverse for automated mapping to be reliable. The problem splits into two structurally different cases:
+
+- **Semantic variants** — spelling differences, typos, punctuation variation — can be resolved with a comprehensive mapping table, because the variation is noise around a stable referent. `Chenna`, `bengal gram flour`, and `chickpea flour` are different names for the same thing. `Palmitate` and `palm oil` are not — they are similar-sounding but distinct ingredients.
+- **Cultural and linguistic variants** — regional names, transliterations, variety-level distinctions (like alphonso mango)— cannot be mapped reliably because the variation itself carries meaning. A model trained on such a mapping would not learn the differences; it would erase them.
+
+Maintaining a single mapping table that handles both cases conflates the problem. In practice, it means tracking every normalisation decision made during data cleaning — effectively a log of every typo fixed across thousands of rows — with no mechanism to distinguish meaningful variation from noise.
+
+The ingredient substrate under development makes this mapping unnecessary. A deterministic identity layer — one that assigns canonical identifiers to ingredients independent of how they are written on any given label — eliminates the need for probabilistic name matching at parse time. Labels are parsed against the substrate, not against a maintained vocabulary of variants.
+
+The v1 dataset will remain available for reference. The label variants mapping will not be maintained going forward.
+
+This brings us to the question of how do we extract the variants in a way that preserves the signal then?
+
+How do we formalize milk solids feels like it should be under milk while butter 'feels' different?
+
+How do we measure the difference of the variants from it's source?
+
+Led us to the food classification framework inspired by 1933 Colon Classification[^cc][^cce], grounded in Indian judicial/regulatory precedents (FSSAI, ITC-HS, Court rulings) - [Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity](https://doi.org/10.5281/zenodo.18714526) and it's [justification companion](https://doi.org/10.5281/zenodo.18713318).
+
+[^cc]: Colon Classification aka Faceted Classification by SR Ranganathan, Father of Indian Library Science.
+
+[^cce]: Instead of a flat mapping of ingredients as a list, this helps us express single object as a facet of values - think how we filter products on amazon by it's different attributes like price, type etc?

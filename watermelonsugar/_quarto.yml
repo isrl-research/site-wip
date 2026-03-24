@@ -1,0 +1,32 @@
+project:
+ type: website
+
+website:
+ title: "iSRL"
+ navbar:
+  pinned: true
+  right:
+   - href: index.qmd
+     text: Home
+   - about.qmd
+   - href: roadmap.qmd
+     text: Roadmap
+   - href: outputs/index.qmd
+     text: Data Paper
+   - href: https://zenodo.org/communities/isrl/records
+     text: Zenodo
+
+
+format:
+ html:
+  theme:
+   - litera
+   - brand
+   - custom.scss
+  css: styles.css
+  toc: true
+  fontsize: 17px
+  backgroundcolor: '#f7f6f2'
+  filters: 
+    - highlight-span.lua
+  reference-location: margin

@@ -1,0 +1,8 @@
+/*-- scss:defaults --*/
+$body-bg: #f7f6f2;
+
+/*-- scss:rules --*/
+.sidebar nav[role="doc-toc"] a.active {
+  color: #2c346b;
+  border-left-color: #2c346b;
+}

@@ -1,0 +1,67 @@
+---
+title: Where we started and where we are
+---
+
+It started with a question that felt almost too simple to ask.
+
+[Why does a computer not understand that rice is healthier than Maggi?]{.highlight}[^bs]
+
+[^bs]: Backstory and how we are approaching the problem - the WHY is in [here](index.qmd)
+
+Not a trick question. Pull on it and you find that the system cannot answer it because it does not know what is *in* either product — not really. It has ingredient lists, but it has no way to know that `maida` and `refined wheat flour` are the same thing, or that `palmitate` and `palm oil` are not, despite looking similar. To answer a nutrition question, you first need to know what the ingredients actually are. To know that, you need a reference layer that maps the names labels actually use to the identities they actually mean.
+
+That layer does not exist for Indian packaged food. Building it is what we are doing.
+
+---
+
+## How we got here
+
+The first question was: what does India eat? The answer turned out to be: we do not fully know, because no comprehensive, up-to-date database of Indian packaged food exists.
+
+So we started building one — a starter set, sampled directly from products on Indian shelves, inviting more as we went.
+
+Then came the next problem. Product 1 has `maida` on the label. Product 2 has `refined wheat flour`. Same ingredient. The system sees two different things. Can we just map them?
+
+That question — [maybe we can just map maida = refined wheat flour?]{.highlight} — turned out to be harder than it looks. `Maida` and `refined wheat flour` are the same substance, yes. But `kashmiri chilli` is not just a noisy version of `chilli`. And `butter` is not `milk`[^mp]. String similarity and automated matching cannot tell the difference.
+
+[^mp]: Does this mean milk = milk powder? acaiberry = acaiberry flavouring? These are questions that we needed a deterministic way to answer.
+
+So before we could map anything, we had to answer a harder question: what does *equal* even mean for an ingredient? When is one thing a subset of another? What do domestic food laws[^law] say about this? What does nutrition science say? What do international trade codes say?
+
+[^law]: You may ask, why do we have to bring law into this? Think about it, if we say something is mango pulp, and a brand uses that name because that's what our system says so - but the law names it differently, it's a downstream error that will cascade through. See [Regulatory Texts and Case Law as Ground Truth in Emerging Domains](https://doi.org/10.5281/zenodo.18741725) for more background on this approach. 
+
+We went looking. Domestic laws, nutritional definitions, international standards and HSN codes — each says something different, and the differences are real and informative.
+
+That work produced the [EMF Framework](https://github.com/orgs/isrl-research/discussions/22) — a way of defining what an ingredient *is* across three axes: its energy profile, its material identity, and its function on a label. Consolidated in January–February 2026. The mapping problem now has a framework to work within.
+
+---
+
+## Where we are now
+
+The core research team works across two tracks.
+
+**Data profiling** — what data do we actually have? 896 SKUs sampled from verified Indian market listings. 2,291 unique ingredient variant strings extracted and cleaned [^data][^caas]. The same ingredient appearing as `chenna`, `bengal gram flour`, and `chickpea flour` — all documented, none flattened.
+
+[^data]: See [Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India's Packaged Food Labels Actually Say]() for how we collected data.
+
+[^caas]: See [Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists]() for generalizable framework that we can apply to other domains like Google Research did for Flood Data.
+
+**Data interoperability** — how do we connect what we have to global data standards? Allergen declaration rules across jurisdictions. Taxonomy metadata. Access architecture. The pieces that make IFID legible to the systems that need to use it.
+
+Open threads, if you want to see where the thinking is live right now:
+
+- [Allergen Declaration in India — Rules, Reality, and Gaps](https://github.com/orgs/isrl-research/discussions/4)
+- [What Does Healthy Mean in India?](https://github.com/orgs/isrl-research/discussions/22)
+- [EMF Taxonomy — Relationship Tree Structure for Ingredient Expressions](https://github.com/orgs/isrl-research/discussions/)
+- [Taxonomy Metadata — What Should a Canonical Entry Know About Itself?](https://github.com/orgs/isrl-research/discussions/)
+- [Data Governance Principles — Protecting Every Stakeholder in the IFID Ecosystem](https://github.com/orgs/isrl-research/discussions/)
+
+---
+
+## A track for people in food and beverage
+
+The "what does healthy mean" question is not just a research question. It is a question that people working in F&B — product development, nutrition, compliance, sourcing — are sitting with every day.
+
+[iSRL-26-XX-R-Nourish](https://github.com/orgs/isrl-research/discussions/22) is the thread for this. If you work in the industry and have a perspective on how healthy is defined, debated, or operationalised in practice — that perspective belongs in the room.
+
+If this is pulling you, [come in](join-us.qmd).
