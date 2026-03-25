@@ -16,6 +16,8 @@ website:
      text: Outputs
    - href: https://zenodo.org/communities/isrl/records
      text: Zenodo
+   - href: team/index.qmd
+     text: Team
    - about.qmd
 
 

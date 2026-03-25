@@ -1,7 +1,23 @@
 ---
-title: 'Our kinda people <33'
+title: "Our kinda people <33"
 listing:
-  contents:
-    - '*.qmd'
-  
+  id: team-listing
+  contents: 
+    - "*.qmd"
+    - "!team-item.ejs.md"
+
+  type: custom
+  template: team-item.ejs.md
+  fields:
+    - title
+    - subtitle
+    - description
+    - image
+    - path
+    - team-role
+    - team-track
+  sort: "order asc"
 ---
+
+::: {#team-listing}
+:::

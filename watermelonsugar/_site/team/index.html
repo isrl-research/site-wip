@@ -43,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7fc99d5a225a3e42b75dc77887e4bd32.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fc6dea8f80d14b1e028c55a40a25551f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,20 +74,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-team-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-description','listing-image','listing-path','listing-team-role','listing-team-track',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-subtitle","listing-description","listing-order","listing-team-role","listing-team-track","listing-image","listing-about","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-team-listing'] = new List('listing-team-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -172,6 +172,10 @@ window.Quarto = {
 <span class="menu-text">Zenodo</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="../team/index.html" aria-current="page"> 
+<span class="menu-text">Team</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -211,37 +215,31 @@ window.Quarto = {
 </header>
 
 
+<div id="listing-team-listing" class="quarto-listing quarto-listing-container-custom">
 
+<div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #ddd;">
 
+  
+  <img src="../team/images/lalithaar.png" style="width:60px;height:60px;object-fit:cover;border-radius:50%;float:left;margin-right:1rem;">
+  
 
+  <strong><a href="../team/lalithaar.html">Lalitha A R</a></strong><br>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1774424513003" data-listing-reading-time-sort="2" data-listing-word-count-sort="310">
-<div class="thumbnail"><a href="../team/lalithaar.html" class="no-external">
+  <em>Lead Researcher, iSRL</em><br>
+  <small><strong>Role:</strong> Lead Researcher / PI</small><br>
+  <small><strong>Team:</strong> Core Team 1</small><br>
+  <p style="margin-top:0.4rem;">PI at iSRL. Research direction, coordination, and hands-on data profiling in Core Team 1.</p>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../team/lalithaar.html" class="no-external">Lalitha A R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../team/lalithaar.html" class="no-external">Lead Researcher, iSRL</a>
+  <div style="clear:both;"></div>
 </div>
-<div class="delink listing-description"><a href="../team/lalithaar.html" class="no-external">
-Lead Researcher aka PI at iSRL. I set the overall direction for the lab, manage the research agenda, and coordinate across teams — and also do hands-on work in Core Team 1…<sup></sup><sup></sup>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../team/lalithaar.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
+
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

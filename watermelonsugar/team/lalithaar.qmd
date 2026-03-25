@@ -1,6 +1,11 @@
 ---
 title: "Lalitha A R"
 subtitle: "Lead Researcher, iSRL"
+description: "PI at iSRL. Research direction, coordination, and hands-on data profiling in Core Team 1."
+order: 1
+team-role: "Lead Researcher / PI"
+team-track: "Core Team 1"
+image: images/lalithaar.png
 about:
   template: trestles
   image: images/lalithaar.png
@@ -19,7 +24,7 @@ about:
 
 Lead Researcher aka PI at iSRL. I set the overall direction for the lab, manage the research agenda, and coordinate across teams — and also do hands-on work in Core Team 1, where my focus is data profiling[^basically][^also]. I tell everyone to rest and take breaks. I am actively working on following this advice myself.
 
-[^basically]: Involves searching "_is humectant or ingredient or process or property of an ingredient in terms of use in food as in is is a property or nature of an ingredient or chemicals or is it an ingredient one can buy standalone by itself or is it like class of ingreidnets that is of that nature as in can one buy ‘humectant’_" in google at 2 pm randomly. 
+[^basically]: Involves searching "_is humectant or ingredient or process or property of an ingredient in terms of use in food as in is is a property or nature of an ingredient or chemicals or is it an ingredient one can buy standalone by itself or is it like class of ingreidnets that is of that nature as in can one buy 'humectant'_" in google at 2 pm randomly. 
 
 [^also]: Exclusive for anyone who ever questioned my sanity - [here](https://github.com/isrl-research/lar-workshop) you go is my live workshop to see what I am working on.
 

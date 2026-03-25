@@ -697,6 +697,13 @@
     "href": "team/index.html",
     "title": "Our kinda people <33",
     "section": "",
-    "text": "Lalitha A R\n\n\nLead Researcher, iSRL\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Lalitha A R\n\n  Lead Researcher, iSRL\n  Role: Lead Researcher / PI\n  Team: Core Team 1\n  PI at iSRL. Research direction, coordination, and hands-on data profiling in Core Team 1.\n\n  \n\n\nNo matching items"
+  },
+  {
+    "objectID": "team/team-item.ejs.html",
+    "href": "team/team-item.ejs.html",
+    "title": "iSRL",
+    "section": "",
+    "text": "&lt;% for (const item of items) { %&gt;\n\n\n  &lt;% if (item.image) { %&gt;\n  \n  &lt;% } %&gt;\n\n  &lt;%= item.title %&gt;\n\n  &lt;% if (item.subtitle) { %&gt;&lt;%= item.subtitle %&gt;&lt;% } %&gt;\n  &lt;% if (item['team-role']) { %&gt;Role: &lt;%= item['team-role'] %&gt;&lt;% } %&gt;\n  &lt;% if (item['team-track']) { %&gt;Team: &lt;%= item['team-track'] %&gt;&lt;% } %&gt;\n  &lt;% if (item.description) { %&gt;&lt;%= item.description %&gt;&lt;% } %&gt;\n\n  \n\n&lt;% } %&gt;"
   }
 ]
