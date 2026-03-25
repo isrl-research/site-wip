@@ -32,9 +32,9 @@ draft-mode: visible
 ---
 
 ## Abstract
+Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
 
-Structured data collection typically assumes either a population that can be enumerated or a schema that can be targeted. Many domains satisfy neither condition: the information exists, scattered across unstructured text, but no authoritative reference organises it and no standard cleaning pipeline can handle the domain-specific variation reliably. This report describes Constrained AI-Assisted Sampling (CAAS), a framework for data collection in these conditions. The core argument is not methodological novelty but an asymmetry in error economics: when source data already exists in retrievable form, the cost of correcting a wrong extraction is a refetch, not a repeated physical act. This asymmetry makes constrained AI retrieval viable even without determinism guarantees, provided failure is explicit rather than silent and validation is statistical rather than exhaustive. Two independent implementations of this approach --- one building an ingredient vocabulary for Indian packaged food labels, the other constructing a historical record of global flash floods from news archives --- arrived at the same architectural decisions without coordination. That convergence is the primary evidence this report presents.
-
+They do not hold in fragmented textual spaces.
 # The Problem This Solves {#sec-problem}
 
 Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
