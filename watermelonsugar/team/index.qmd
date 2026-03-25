@@ -1,0 +1,7 @@
+---
+title: 'Our kinda people <33'
+listing:
+  contents:
+    - '*.qmd'
+  
+---

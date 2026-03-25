@@ -1,0 +1,34 @@
+---
+title: "Lalitha A R"
+subtitle: "Lead Researcher, iSRL"
+about:
+  template: trestles
+  image: images/lalithaar.png
+  image-shape: round
+  links:
+    - icon: envelope
+      text: lalithaar.research@gmail.com
+      href: "mailto:lalithaar.research@gmail.com"
+    - icon: github
+      text: lalithaar
+      href: https://github.com/lalithaar
+    - icon: linkedin
+      text: lalithaar
+      href: https://linkedin.com/in/lalithaar
+---
+
+Lead Researcher aka PI at iSRL. I set the overall direction for the lab, manage the research agenda, and coordinate across teams — and also do hands-on work in Core Team 1, where my focus is data profiling[^basically][^also]. I tell everyone to rest and take breaks. I am actively working on following this advice myself.
+
+[^basically]: Involves searching "_is humectant or ingredient or process or property of an ingredient in terms of use in food as in is is a property or nature of an ingredient or chemicals or is it an ingredient one can buy standalone by itself or is it like class of ingreidnets that is of that nature as in can one buy ‘humectant’_" in google at 2 pm randomly. 
+
+[^also]: Exclusive for anyone who ever questioned my sanity - [here](https://github.com/isrl-research/lar-workshop) you go is my live workshop to see what I am working on.
+
+My digital life started with a book blog in 2021, which led to publisher collaborations, freelance marketing, mental health advocacy work, and eventually a deep interest in how systems are built and whether they actually hold up to the complexity of real life. 
+
+I'm currently a BS Data Science and Applications student at IIT Madras. I care about open access, honesty in documentation, community, and balance — including the kind that "hustle culture" tends to make you feel guilty about. 
+
+You are amazing and I am so glad you exist, you are so inherently worthy of all love and goodness regardless of anything you could ever do or don't :>
+
+Outside the lab: reading, and trying to sleep at reasonable hours.
+
+P.s - it's a picture I took like half a decade ago or so; I don't take pictures usually. If you love taking photos, I respect it and I am glad you do so; people are beautiful when their eyes crinkle when smiling to the camera

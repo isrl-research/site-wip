@@ -8,5 +8,11 @@
       "/outputs/delta-paper/index.html",
       "/outputs/caas-paper/index.html"
     ]
+  },
+  {
+    "listing": "/team/index.html",
+    "items": [
+      "/team/lalithaar.html"
+    ]
   }
 ]
