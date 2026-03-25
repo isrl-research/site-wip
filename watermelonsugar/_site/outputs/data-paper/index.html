@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lalitha A R">
+<meta name="dcterms.date" content="2026-03-01">
+
+<title>Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India’s Packaged Food Labels Actually Say – iSRL</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-762c95526d5534b52d200e12418ea290.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">iSRL</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../roadmap.html"> 
+<span class="menu-text">Roadmap</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../outputs/index.html"> 
+<span class="menu-text">Outputs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://zenodo.org/communities/isrl/records"> 
+<span class="menu-text">Zenodo</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#the-question-that-starts-everything" id="toc-the-question-that-starts-everything" class="nav-link" data-scroll-target="#the-question-that-starts-everything"><span class="header-section-number">1</span> The Question That Starts Everything</a></li>
+  <li><a href="#why-the-diversity-is-not-the-problem" id="toc-why-the-diversity-is-not-the-problem" class="nav-link" data-scroll-target="#why-the-diversity-is-not-the-problem"><span class="header-section-number">2</span> Why the Diversity Is Not the Problem</a></li>
+  <li><a href="#the-wall-and-who-is-already-working-on-it" id="toc-the-wall-and-who-is-already-working-on-it" class="nav-link" data-scroll-target="#the-wall-and-who-is-already-working-on-it"><span class="header-section-number">3</span> The Wall, and Who Is Already Working on It</a></li>
+  <li><a href="#two-sources-one-problem" id="toc-two-sources-one-problem" class="nav-link" data-scroll-target="#two-sources-one-problem"><span class="header-section-number">4</span> Two Sources, One Problem</a>
+  <ul class="collapse">
+  <li><a href="#why-off-could-not-be-the-only-source" id="toc-why-off-could-not-be-the-only-source" class="nav-link" data-scroll-target="#why-off-could-not-be-the-only-source"><span class="header-section-number">4.1</span> Why OFF Could Not Be the Only Source</a></li>
+  <li><a href="#why-direct-sampling-was-necessary" id="toc-why-direct-sampling-was-necessary" class="nav-link" data-scroll-target="#why-direct-sampling-was-necessary"><span class="header-section-number">4.2</span> Why Direct Sampling Was Necessary</a></li>
+  </ul></li>
+  <li><a href="#why-standard-automated-parsing-fails-here" id="toc-why-standard-automated-parsing-fails-here" class="nav-link" data-scroll-target="#why-standard-automated-parsing-fails-here"><span class="header-section-number">5</span> Why Standard Automated Parsing Fails Here</a></li>
+  <li><a href="#the-extraction-pipeline" id="toc-the-extraction-pipeline" class="nav-link" data-scroll-target="#the-extraction-pipeline"><span class="header-section-number">6</span> The Extraction Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#constrained-retrieval" id="toc-constrained-retrieval" class="nav-link" data-scroll-target="#constrained-retrieval"><span class="header-section-number">6.1</span> Constrained Retrieval</a></li>
+  <li><a href="#structure-preserving-parsing" id="toc-structure-preserving-parsing" class="nav-link" data-scroll-target="#structure-preserving-parsing"><span class="header-section-number">6.2</span> Structure-Preserving Parsing</a></li>
+  <li><a href="#artifact-removal" id="toc-artifact-removal" class="nav-link" data-scroll-target="#artifact-removal"><span class="header-section-number">6.3</span> Artifact Removal</a></li>
+  <li><a href="#semantic-decomposition" id="toc-semantic-decomposition" class="nav-link" data-scroll-target="#semantic-decomposition"><span class="header-section-number">6.4</span> Semantic Decomposition</a></li>
+  </ul></li>
+  <li><a href="#combining-the-two-sources" id="toc-combining-the-two-sources" class="nav-link" data-scroll-target="#combining-the-two-sources"><span class="header-section-number">7</span> Combining the Two Sources</a></li>
+  <li><a href="#what-this-corpus-makes-possible" id="toc-what-this-corpus-makes-possible" class="nav-link" data-scroll-target="#what-this-corpus-makes-possible"><span class="header-section-number">8</span> What This Corpus Makes Possible</a></li>
+  <li><a href="#claims-and-verification" id="toc-claims-and-verification" class="nav-link" data-scroll-target="#claims-and-verification"><span class="header-section-number">9</span> Claims and Verification</a>
+  <ul class="collapse">
+  <li><a href="#claims" id="toc-claims" class="nav-link" data-scroll-target="#claims"><span class="header-section-number">9.1</span> Claims</a></li>
+  <li><a href="#evidence-per-claim" id="toc-evidence-per-claim" class="nav-link" data-scroll-target="#evidence-per-claim"><span class="header-section-number">9.2</span> Evidence Per Claim</a></li>
+  </ul></li>
+  <li><a href="#appendix-a-sample-cleaning-rounds" id="toc-appendix-a-sample-cleaning-rounds" class="nav-link" data-scroll-target="#appendix-a-sample-cleaning-rounds">Appendix A: Sample Cleaning Rounds</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><p>Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India’s Packaged Food Labels Actually Say</p></h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Lalitha A R <a href="mailto:lalithaar.research@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0001-7466-3531" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            iSRL
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 1, 2026</p>
+    </div>
+  </div>
+  
+    
+    <div>
+    <div class="quarto-title-meta-heading">Doi</div>
+    <div class="quarto-title-meta-contents">
+      <p class="doi">
+        <a href="https://doi.org/10.5281/zenodo.1871452">10.5281/zenodo.1871452</a>
+      </p>
+    </div>
+  </div>
+  </div>
+  
+
+
+</header>
+
+
+<div style="display:flex;gap:2rem;"><div><p><small><strong>Contributor</strong></small></p><p>Subrat Sethi, Purnendu Shukla</p></div><div><p><small><strong>Reviewer</strong></small></p><p>Radhakrishna KV, Anand S</p></div></div>
+<section id="abstract" class="level3 unnumbered abstract">
+<h3 class="unnumbered anchored" data-anchor-id="abstract">Abstract</h3>
+<p>Indian packaged food labels do not share a common ingredient vocabulary. The same substance appears under regional names, transliterations, INS codes, and brand-specific terms — sometimes across labels from the same manufacturer. No reference layer exists that maps these expressions to shared identities. This report documents the construction of a first ingredient variant corpus from two sources: 896 directly sampled products collected from verified Indian market listings, and English ingredient strings from OpenFoodFacts filtered to rows with a traceable Indian product name. Both sets were processed through a constrained parsing pipeline — one atomic operation per API call, temperature set to 0, explicit failure rather than approximation when data was unavailable. After combining both sources and iterative cleaning, the corpus contains 2,291 unique ingredient variant strings. These variants are not noise to eliminate. They are documentation of how ingredient identity is expressed in practice across Indian commercial food labels. The question of which variants refer to the same ingredient — and by what logic — is addressed in EMF Model <span class="citation" data-cites="arIdentityTransformationFunction2026">(<a href="#ref-arIdentityTransformationFunction2026" role="doc-biblioref">A R 2026</a>)</span>.</p>
+</section>
+<section id="the-question-that-starts-everything" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-question-that-starts-everything"><span class="header-section-number">1</span> The Question That Starts Everything</h2>
+<p>A computer cannot tell you whether rice is healthier than Maggi. Not because the comparison is philosophically difficult, but because the infrastructure required to answer it does not exist.</p>
+<p>To answer the question, the system needs to know what is in both products. To know what is in them, it needs ingredient data. To use ingredient data, it needs to know that “maida” and “refined wheat flour” refer to the same thing — and that “palm oil” and “palmite” do not, even though automated similarity measures would score them close. To know that, it needs a stable reference layer that maps the names labels actually use to the identities they actually mean.</p>
+<p>That reference layer does not exist for Indian packaged food. This report documents the first step toward building it: a collection of ingredient variant strings extracted from commercial Indian food labels, captured as they appear, without flattening the diversity that makes them what they are.</p>
+</section>
+<section id="why-the-diversity-is-not-the-problem" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="why-the-diversity-is-not-the-problem"><span class="header-section-number">2</span> Why the Diversity Is Not the Problem</h2>
+<p>A label from a major Indian snack brand might read:</p>
+<blockquote class="blockquote">
+<p>Seasoning Mix {Iodised Salt, Chilli Powder (1.1%), #Spices &amp; Condiments, Onion, Maltodextrin, Wheat Flour, Milk Solids, Black Salt, Tomato Powder [Tomato Paste, Anticaking Agent (INS 551)], Refined Sugar, Hydrolyzed Vegetable Protein, Acidity Regulators (INS 296, INS 330, INS 334), Garlic, Anticaking Agent (INS 551), Flavour Enhancers (INS 627, INS 631)} And Iodised Salt.</p>
+</blockquote>
+<p>This is not poorly formatted data. This is a brand communicating ingredient relationships to consumers across India’s 22 official languages and hundreds of regional contexts, within the structure FSSAI Labelling Rules 2020 require. The nested brackets encode functional relationships: “Acidity Regulators” governs three INS codes as a category. “Tomato Powder” contains both a base ingredient and an additive. A Tamil-speaking consumer and a Hindi-speaking consumer both need to read this label correctly. The formatting serves them.</p>
+<p>The goal of this project is not to make that label simpler. It is to build the layer underneath it that makes it machine-queryable — without asking ITC, or any other brand, to change a word.</p>
+<p>A substrate is the layer that makes other things possible to build. Concrete is a substrate: you do not live in concrete, you live in the building the concrete made possible. The substrate does not care what the building looks like. IFID — Indian Food Informatics Data — is being built as that layer for ingredient identity. Tamil names stay Tamil. INS codes stay in their FSSAI-specified format. The nested bracket structure a brand uses to communicate to its consumers stays exactly as designed. The substrate sits underneath and makes them interoperable: queryable as the same ingredient when that is what you need, distinguishable as different expressions when that matters.</p>
+<p>Coordination without convergence. That is the specific goal.</p>
+</section>
+<section id="the-wall-and-who-is-already-working-on-it" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="the-wall-and-who-is-already-working-on-it"><span class="header-section-number">3</span> The Wall, and Who Is Already Working on It</h2>
+<p>Everyone who works with Indian packaged food data hits the same wall from a different direction.</p>
+<p>The nutritionist has fifty product samples and is spending half her time cleaning label data before she can begin her actual analysis. The e-commerce platform has the same ingredient listed seventeen different ways across seventeen brands and cannot build a consistent product catalogue. The compliance team is manually reconciling ingredient declarations across FSSAI requirements, retailer formats, and export documentation — separately, every time. The researcher who could build a tool to flag allergen risks has found there is no labelled dataset to train on.</p>
+<p>None of these people are doing it wrong. The wall is not their failure. The wall is that no shared ingredient identity layer exists.</p>
+<p>The most serious open effort to build one globally is OpenFoodFacts (OFF). OFF has documented food products across dozens of countries through crowdsourced and scraped contributions. The scale of that work is significant and the intent is the same as this project’s: make food data open, structured, and usable. The gap in Indian product coverage that this report documents is not a gap in OFF’s effort. It is a direct reflection of how fragmented and underdocumented the Indian packaged food space actually is — which is precisely what makes the problem worth working on, and precisely what makes collaboration across efforts like these necessary.</p>
+</section>
+<section id="two-sources-one-problem" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="two-sources-one-problem"><span class="header-section-number">4</span> Two Sources, One Problem</h2>
+<p>Building the ingredient vocabulary required two separate collection strategies, for the same underlying reason: no single existing source reliably answers whether a product is a current, shelf-available Indian packaged food with a verifiable ingredient list.</p>
+<section id="why-off-could-not-be-the-only-source" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="why-off-could-not-be-the-only-source"><span class="header-section-number">4.1</span> Why OFF Could Not Be the Only Source</h3>
+<p>OFF contains thousands of English ingredient lists for products with Indian brand names. Those lists are valuable. But the dataset structure does not reliably distinguish a product currently on Indian supermarket shelves from an imported variant, an export formulation, or a historical listing no longer in distribution.</p>
+<p>For the purpose of this corpus — documenting what Indian consumers actually encounter today — that distinction matters. An ingredient list attached to a product that is not in the Indian market does not reflect the vocabulary Indian food systems use.</p>
+<p>The null rates in the OFF data confirm the scale of the gap. Of 19,748 rows in the raw export:</p>
+<ul>
+<li>Only 4,104 pass a minimum filter: brand present, English product name present, English ingredient text present. That is 20.78 percent.</li>
+<li><code>ingredients_text_en</code> is the only ingredient column with coverage above 1 percent. All 29 other language columns combined add 69 rows to that count.</li>
+<li>6,905 rows have both a brand identifier and an English product name — the product exists, it has a name — but no ingredient text in any language. The gap is specifically at the ingredient field.</li>
+<li>The four core macronutrient fields (energy, fat, protein, carbohydrates) have null rates between 65.61 and 66.00 percent across the full dataset.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th style="text-align: right;">Non-null</th>
+<th style="text-align: right;">Null %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>energy_value</td>
+<td style="text-align: right;">6,792</td>
+<td style="text-align: right;">65.61</td>
+</tr>
+<tr class="even">
+<td>fat_value</td>
+<td style="text-align: right;">6,715</td>
+<td style="text-align: right;">66.00</td>
+</tr>
+<tr class="odd">
+<td>proteins_value</td>
+<td style="text-align: right;">6,737</td>
+<td style="text-align: right;">65.89</td>
+</tr>
+<tr class="even">
+<td>carbohydrates_value</td>
+<td style="text-align: right;">6,759</td>
+<td style="text-align: right;">65.77</td>
+</tr>
+</tbody>
+</table>
+<p>These numbers are not a criticism. They are a measurement of the space. The gap in documented Indian food data is real, it is large, and it exists because the underlying ecosystem is genuinely fragmented — not because anyone has failed to document it well enough.</p>
+<p>What OFF does have — the 4,104 rows with a brand, a product name, and an English ingredient list — is usable for this project. The product name provides the minimum anchor needed to verify the product is Indian. Those rows were taken through the same constrained parsing pipeline described below, and their ingredient strings added to the vocabulary set. The filter that kept them is described in the claims document.</p>
+</section>
+<section id="why-direct-sampling-was-necessary" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="why-direct-sampling-was-necessary"><span class="header-section-number">4.2</span> Why Direct Sampling Was Necessary</h3>
+<p>For a reliable picture of what is currently on Indian shelves, the corpus needed to be collected directly. The methodology: select products from companies with documented Indian market presence, retrieve ingredient lists from verifiable online sources, extract and parse.</p>
+<p><strong>Company and product selection.</strong> Ten companies were selected based on market presence across major packaged food categories — snacks, beverages, staples, dairy, condiments. Within each company, selection moved through sub-brands (ITC’s portfolio spans Aashirvaad, Sunfeast, Bingo, YiPPee — each with a different ingredient vocabulary) and then to individual SKUs meeting four criteria:</p>
+<ol type="1">
+<li>Ingredient list traceable on a whitelisted domain</li>
+<li>Product available in the Indian market, not an export or international variant</li>
+<li>Specificity to a single SKU, not a product range — “Aashirvaad Turmeric Powder 200g” not “Aashirvaad Spices”</li>
+<li>One representative retained per formulation across pack sizes</li>
+</ol>
+<p>The third criterion produced the most rejections. References like “Cadbury Chocolates” or “Aashirvaad Spices” denote product families, not individual items with specific ingredient lists. Every such reference required disambiguation before it could enter the corpus.</p>
+<p>After validation: 1,000 SKUs across 42 companies, 153 brands, 8 macro-categories.</p>
+</section>
+</section>
+<section id="why-standard-automated-parsing-fails-here" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="why-standard-automated-parsing-fails-here"><span class="header-section-number">5</span> Why Standard Automated Parsing Fails Here</h2>
+<p>Before describing what the pipeline does, it is worth being precise about why standard approaches do not work for this specific problem.</p>
+<p>Palm oil and palmite are chemically and functionally distinct ingredients. An automated similarity measure — edit distance, embedding cosine similarity, fuzzy matching — would score them as near-identical. Acting on that score would silently corrupt the vocabulary.</p>
+<p>Besan flour and chana dal are the same ingredient in different languages and forms. A similarity measure that does not carry cultural and linguistic knowledge would treat them as unrelated.</p>
+<p>These are not edge cases. They are representative of how Indian food labelling works: regional names, transliterations, preparation-state variants, and INS codes all coexist on the same label, sometimes referring to the same thing, sometimes to things that are genuinely distinct. Standard clustering and normalisation algorithms cannot reliably navigate this space. The cost of a silent error — a wrong merge, a missed distinction — propagates forward into every analysis built on the vocabulary.</p>
+<p>The approach used here trades throughput for verifiability: one atomic operation per API call, constrained to prevent approximation, with explicit failure when the data is not there.</p>
+</section>
+<section id="the-extraction-pipeline" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="the-extraction-pipeline"><span class="header-section-number">6</span> The Extraction Pipeline</h2>
+<section id="constrained-retrieval" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="constrained-retrieval"><span class="header-section-number">6.1</span> Constrained Retrieval</h3>
+<p>The model retrieved ingredient lists from whitelisted domains only, in priority order: brand official website, then Amazon India, BigBasket, Blinkit. If no source returned the ingredient list, the output was <code>DATA_NOT_FOUND</code>. The instruction was explicit: do not infer typical ingredients from product category, do not approximate based on similar products.</p>
+<p>Temperature was set to 0. This means the model selects the highest-probability token at each step and produces identical output for identical input. The practical effect: if you run the same extraction twice, you get the same result. Validation becomes tractable. Fabrication through sampling variation is eliminated.</p>
+<p>Batch size was tested across 1 to 20 SKUs per call. At batch sizes above 10, constraint violations increased measurably — the model began returning approximations instead of <code>DATA_NOT_FOUND</code> for products it could not find, and formatting inconsistencies appeared. Six SKUs per batch produced the best balance of throughput and constraint adherence.</p>
+<p>Results across 1,000 SKUs:</p>
+<ul>
+<li>First pass: 871 successful extractions (87.1%), 129 <code>DATA_NOT_FOUND</code></li>
+<li>Second pass on the 129 failures: 25 additional extractions, 104 persistent failures</li>
+<li>Final corpus: 896 extracted (89.6%), 104 excluded</li>
+</ul>
+<p>The 104 persistent failures validate that the constraint held. Those products either had no verifiable online ingredient list or were no longer in active distribution. The pipeline returned an explicit gap rather than a filled approximation. An explicit gap can be addressed later. A fabricated entry corrupts the vocabulary invisibly.</p>
+<p>Manual audit of 90 extractions from the 896: 1 error identified (the model merged content from two adjacent sections of a product page). Error rate: 1 in 896 (0.11 percent).</p>
+</section>
+<section id="structure-preserving-parsing" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="structure-preserving-parsing"><span class="header-section-number">6.2</span> Structure-Preserving Parsing</h3>
+<p>The 896 extracted ingredient lists were not fed to the pipeline as whole strings. Each list went through parsing as a discrete operation, because the structure of Indian food labels encodes relationships that naive splitting destroys.</p>
+<p>Consider what happens when a comma-splitter treats every comma equally:</p>
+<p><strong>Input:</strong> <code>Acidity Regulators (INS 296, INS 330, INS 334)</code></p>
+<p><strong>Naive output:</strong></p>
+<ul>
+<li><code>Acidity Regulators (INS 296</code></li>
+<li><code>INS 330</code></li>
+<li><code>INS 334)</code></li>
+</ul>
+<p>The functional context — that INS 296, 330, and 334 are all acidity regulators — is gone. The fragments <code>INS 330</code> and <code>INS 334)</code> have no meaning without it.</p>
+<p>The structure-aware parser tracks nesting depth. It splits on commas only at depth zero — the root level. Everything inside brackets is treated as a unit until the brackets close. Applied to the same input:</p>
+<p><strong>Structure-aware output:</strong> <code>Acidity Regulators (INS 296, INS 330, INS 334)</code> — intact, ready for decomposition with context preserved.</p>
+<p>896 ingredient lists → 2,926 parsed strings with functional relationships intact.</p>
+</section>
+<section id="artifact-removal" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="artifact-removal"><span class="header-section-number">6.3</span> Artifact Removal</h3>
+<p>Each of the 2,926 strings went through a single-purpose cleaning pass: remove presentation artifacts, preserve identity information.</p>
+<p>Removed: percentage values (<code>55.7%</code> — quantity, not identity), marketing text (<code>BINGO!</code>, <code>NEW!</code>), usage annotations (<code>#Used As Natural Flavouring Agent</code>).</p>
+<p>Preserved: INS codes and E-numbers (regulatory identifiers), preparation specifications (<code>Salt (Iodised)</code> — the bracketed term distinguishes a specific variety), functional classifications (<code>Acidity Regulator</code>, <code>Emulsifier</code>).</p>
+<p>The distinction matters because it is not always obvious. <code>55.7%</code> is presentation — removing it loses nothing about what the ingredient is. <code>(Iodised)</code> is identity — removing it collapses iodised salt and table salt into the same entry, which is wrong.</p>
+<p>Batch sizes for this stage were set inversely to string complexity: short strings processed in batches of 40, complex multi-bracket strings processed one at a time. Attention dilution at scale produces the same constraint violations as in the retrieval stage.</p>
+</section>
+<section id="semantic-decomposition" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="semantic-decomposition"><span class="header-section-number">6.4</span> Semantic Decomposition</h3>
+<p>After cleaning, compound structures were decomposed with context propagation. Each atomic operation took one compound and returned its components, with the functional classification carried forward to each:</p>
+<p><strong>Input:</strong> <code>Flavour Enhancers (INS 627, INS 631)</code><br>
+<strong>Output:</strong> <code>Flavour Enhancer INS 627</code>, <code>Flavour Enhancer INS 631</code></p>
+<p><strong>Input:</strong> <code>Stabilizing &amp; Emulsifying Agents (412, 410, 407, 471, 466)</code><br>
+<strong>Output:</strong> <code>Stabilizer INS 412</code>, <code>Stabilizer INS 410</code>, <code>Stabilizer INS 407</code>, <code>Emulsifier INS 471</code>, <code>Stabilizer INS 466</code></p>
+<p><strong>Input:</strong> <code>Black Pepper Powder, Ginger Powder, Clove Powder</code><br>
+<strong>Output:</strong> unchanged — already atomic</p>
+<p>2,926 cleaned strings → 3,452 decomposed ingredient mentions → 1,987 unique variants after deduplication across all 896 products from the sampling pipeline.</p>
+<p>The full transformation for one product (Bingo Original Style, ITC Ltd.) produced 21 ingredient mentions, including:</p>
+<blockquote class="blockquote">
+<p>‘Black Salt’, ‘Chilli’, ‘Citric Acid (INS 330)’, ‘Disodium Guanylate (INS 627)’, ‘Disodium Inosinate (INS 631)’, ‘Garlic’, ‘Hydrolyzed Vegetable Protein’, ‘Maida’, ‘Malic Acid (INS 296)’, ‘Maltodextrin’, ‘Milk Solids’, ‘Onion’, ‘Palm Oil’, ‘Potato’, ‘Salt’, ‘Silicon Dioxide (INS 551)’, ‘Spices and Condiments’, ‘Sugar’, ‘Tartaric Acid (INS 334)’, ‘Tomato’</p>
+</blockquote>
+</section>
+</section>
+<section id="combining-the-two-sources" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="combining-the-two-sources"><span class="header-section-number">7</span> Combining the Two Sources</h2>
+<p>The sampling pipeline produced 1,987 unique variant strings from 896 directly collected products. The OFF pipeline — 4,104 rows filtered to those with a verifiable product name, passed through the same constrained parsing stages — contributed an additional set of ingredient strings from a different cross-section of the label space.</p>
+<p>Combined and deduplicated across both sources, then cleaned through multiple iterative audit rounds (documented in Appendix A), the final corpus contains <strong>2,291 unique ingredient variant strings</strong>.</p>
+<p>These are not errors to correct or synonyms to collapse. They are documentation of how ingredient identity is expressed across Indian commercial food labels. The same ingredient appears in multiple forms because Indian food labelling reflects genuine linguistic and cultural diversity:</p>
+<ul>
+<li><code>Chilli</code> / <code>Chili</code> / <code>Chillies</code> — orthographic variants, all in use</li>
+<li><code>Maida</code> / <code>Refined Wheat Flour</code> / <code>All-Purpose Flour</code> — the same ingredient across language registers</li>
+<li><code>Onion Powder</code> / <code>Dried Onion</code> / <code>Dehydrated Onion</code> — preparation-state variants</li>
+<li><code>INS 330</code> / <code>Citric Acid</code> / <code>Acidity Regulator INS 330</code> — the same compound at different levels of regulatory specificity</li>
+<li><code>Iodised Salt</code> / <code>Salt (Iodised)</code> / <code>Table Salt</code> — formatting alternatives for the same distinction</li>
+</ul>
+<p>Each of these variants appears on labels that consumers read, regulators review, and supply chains track. The infrastructure this project is building needs to work with all of them — not by picking one as canonical and discarding the rest, but by organising them so that a query for any one returns the right set.</p>
+<p>The Tamil name on a label stays Tamil. The INS code stays in its FSSAI format. The regional cultivar name stays as the brand printed it. The substrate underneath makes them queryable as the same ingredient when that is what the question requires.</p>
+</section>
+<section id="what-this-corpus-makes-possible" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="what-this-corpus-makes-possible"><span class="header-section-number">8</span> What This Corpus Makes Possible</h2>
+<p>The output of this report is two open datasets:</p>
+<ul>
+<li>896 SKUs with verified ingredient lists, sourced from 42 companies across 8 macro-categories</li>
+<li>Ingredient variant strings extracted from OFF data, filtered to rows with a verifiable Indian product name, cleaned through the same pipeline</li>
+</ul>
+<p>Combined: a documented vocabulary of 2,291 unique ingredient expressions from Indian packaged food labels, with extraction methodology, constraint architecture, and quality validation documented in full.</p>
+<p>The next question the corpus raises is: which of these 2,291 variants refer to the same ingredient, and by what logic? <code>Maida</code> and <code>Refined Wheat Flour</code> are the same substance. <code>Palm Oil</code> and <code>Palmite</code> are not, despite surface similarity. <code>Besan flour</code> and <code>chana dal</code> are related but distinct in preparation state. Answering that question requires a classification framework capable of handling identity, equivalence, and subset relationships across a space where standard similarity measures are unreliable.</p>
+<p>That framework — the EMF Model (Energy, Matter, Function) — is defined in A R (2026). Further progress on the mapping problem is deferred to future reports.</p>
+</section>
+<section id="claims-and-verification" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="claims-and-verification"><span class="header-section-number">9</span> Claims and Verification</h2>
+<p>All numerical claims in this report are independently verifiable against the source datasets. The full claims list with evidence per claim is available at</p>
+<section id="claims" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="claims"><span class="header-section-number">9.1</span> Claims</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OFF.C.01</td>
+<td>Of 19,748 rows in the raw OpenFoodFacts export, 4,104 pass the minimum filter (brand, product name in English, ingredient text in English), a pass rate of 20.78 percent.</td>
+</tr>
+<tr class="even">
+<td>OFF.C.02</td>
+<td>ingredients_text_en is the only ingredient column with coverage above 1 percent. It has 4,592 non-null rows (23.25 percent). All 29 other language columns combined add 69 additional rows.</td>
+</tr>
+<tr class="odd">
+<td>OFF.C.03</td>
+<td>6,905 rows have both a brand identifier and an English product name but no ingredient text in any language. The data gap is at the ingredient field, not at product identity.</td>
+</tr>
+<tr class="even">
+<td>OFF.C.04</td>
+<td>The four core macronutrient fields have null rates between 65.61 and 66.00 percent across all 19,748 rows: energy_value 65.61 percent (6,792 non-null), fat_value 66.00 percent (6,715 non-null), proteins_value 65.89 percent (6,737 non-null), carbohydrates_value 65.77 percent (6,759 non-null).</td>
+</tr>
+<tr class="odd">
+<td>OFF.C.05</td>
+<td>The three Hindi language columns have the following non-null counts across 19,748 rows: product_name_hi 111, ingredients_text_hi 11, generic_name_hi 2.</td>
+</tr>
+<tr class="even">
+<td>OFF.C.06</td>
+<td>Replacing product_name_en OR generic_name_en with product_name_en alone as a filter condition reduces the output from 4,105 rows to 4,104 rows. generic_name_en contributes one unique row.</td>
+</tr>
+<tr class="odd">
+<td>OFF.C.07</td>
+<td>The raw dataset has 486 columns. The filtered dataset retains 4 columns: product_name_en, brands, brands_tags, and ingredients_text_en.</td>
+</tr>
+<tr class="even">
+<td>SAMP.C.01</td>
+<td>The sampling corpus spans 42 companies, 153 consumer-facing brands, and 896 SKUs across 8 product macro-categories and 30 sub-categories.</td>
+</tr>
+<tr class="odd">
+<td>SAMP.C.02</td>
+<td>The five highest-SKU companies — Tata Consumer Products (104), Amul / GCMMF (82), Haldiram’s (68), Hindustan Unilever (67), and ITC Ltd (65) — account for 386 SKUs, or 43.1 percent of the 896-SKU corpus.</td>
+</tr>
+<tr class="even">
+<td>SAMP.C.03</td>
+<td>SKU distribution across eight macro-categories derived from top-3 category fields per company: beverages (200), sweets and desserts (176), staples and spices (174), ready to eat and ready to cook (100), snacks and namkeen (67), pantry and condiments (47), health and wellness (43), dairy and breakfast (30). These sum to 837 of 896 total SKUs; the remaining 59 fall into sub-categories not captured in the top-3 field per company.</td>
+</tr>
+<tr class="odd">
+<td>SAMP.C.04</td>
+<td>Of 1,000 SKUs submitted for extraction, 871 returned successful ingredient lists on first pass (87.1 percent). A second-pass retry on the 129 failures yielded 25 additional extractions (2.5 percent). Final corpus: 896 successful extractions (89.6 percent). 104 SKUs returned DATA_NOT_FOUND across both passes and are excluded.</td>
+</tr>
+<tr class="even">
+<td>SAMP.C.05</td>
+<td>Manual audit of 90 extractions from the 896-SKU corpus identified 1 hallucination instance. Rate: 1 in 896 (0.11 percent).</td>
+</tr>
+<tr class="odd">
+<td>SAMP.C.06</td>
+<td>Four SKU validation criteria were applied before extraction: (1) ingredient list traceable within whitelisted domains; (2) product available in the Indian market, not an export or international variant; (3) specificity to a single SKU, not a product range; (4) one representative retained per formulation across pack sizes.</td>
+</tr>
+<tr class="even">
+<td>SAMP.C.07</td>
+<td>Extraction operated under five constraints: (1) temperature = 0; (2) domain whitelist: brand official website, Amazon India, BigBasket, Blinkit, in priority order; (3) DATA_NOT_FOUND returned when all sources exhausted; (4) JSON output schema enforced with four required fields (product_name, ingredient_list, source_url, confidence); (5) brand official website given precedence over retailer listings on conflict.</td>
+</tr>
+<tr class="odd">
+<td>SAMP.C.08</td>
+<td>Batch sizes from 1 to 20 SKUs per API call were tested. 6 SKUs per batch was identified as optimal. Batches exceeding 10 SKUs produced measurably increased constraint violations including inappropriate DATA_NOT_FOUND omissions and formatting inconsistencies.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="evidence-per-claim" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="evidence-per-claim"><span class="header-section-number">9.2</span> Evidence Per Claim</h3>
+<section id="off.c.01" class="level4" data-number="9.2.1">
+<h4 data-number="9.2.1" class="anchored" data-anchor-id="off.c.01"><span class="header-section-number">9.2.1</span> OFF.C.01</h4>
+<p>Raw row count: 19,748. Filter applied: brands OR brands_tags non-empty, AND product_name_en non-empty, AND ingredients_text_en non-empty. Rows passing all three conditions: 4,104. Pass rate: 20.78 percent. Rows removed: 15,644 (79.22 percent).</p>
+</section>
+<section id="off.c.02" class="level4" data-number="9.2.2">
+<h4 data-number="9.2.2" class="anchored" data-anchor-id="off.c.02"><span class="header-section-number">9.2.2</span> OFF.C.02</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th style="text-align: right;">Non-null rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ingredients_text_en</td>
+<td style="text-align: right;">4,592</td>
+</tr>
+<tr class="even">
+<td>ingredients_text_fr</td>
+<td style="text-align: right;">94</td>
+</tr>
+<tr class="odd">
+<td>ingredients_text_de</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td>ingredients_text_hi</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td>All remaining 26 language columns (de-duplicated against English)</td>
+<td style="text-align: right;">69</td>
+</tr>
+</tbody>
+</table>
+<p>Pooling all 30 ingredient language columns yields 4,661 rows with any ingredient text, against 4,592 for English alone.</p>
+</section>
+<section id="off.c.03" class="level4" data-number="9.2.3">
+<h4 data-number="9.2.3" class="anchored" data-anchor-id="off.c.03"><span class="header-section-number">9.2.3</span> OFF.C.03</h4>
+<p>Rows passing (brands OR brands_tags) AND product_name_en: 11,009. Of these, rows also passing ingredients_text_en: 4,104. Rows with brand and name but no ingredient text: 6,905.</p>
+</section>
+<section id="off.c.04" class="level4" data-number="9.2.4">
+<h4 data-number="9.2.4" class="anchored" data-anchor-id="off.c.04"><span class="header-section-number">9.2.4</span> OFF.C.04</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th style="text-align: right;">Null</th>
+<th style="text-align: right;">Non-null</th>
+<th style="text-align: right;">Null %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>energy_value</td>
+<td style="text-align: right;">12,956</td>
+<td style="text-align: right;">6,792</td>
+<td style="text-align: right;">65.61</td>
+</tr>
+<tr class="even">
+<td>fat_value</td>
+<td style="text-align: right;">13,033</td>
+<td style="text-align: right;">6,715</td>
+<td style="text-align: right;">66.00</td>
+</tr>
+<tr class="odd">
+<td>proteins_value</td>
+<td style="text-align: right;">13,011</td>
+<td style="text-align: right;">6,737</td>
+<td style="text-align: right;">65.89</td>
+</tr>
+<tr class="even">
+<td>carbohydrates_value</td>
+<td style="text-align: right;">12,989</td>
+<td style="text-align: right;">6,759</td>
+<td style="text-align: right;">65.77</td>
+</tr>
+</tbody>
+</table>
+<p>Computed on the full 19,748-row dataset.</p>
+</section>
+<section id="off.c.05" class="level4" data-number="9.2.5">
+<h4 data-number="9.2.5" class="anchored" data-anchor-id="off.c.05"><span class="header-section-number">9.2.5</span> OFF.C.05</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Column</th>
+<th style="text-align: right;">Non-null</th>
+<th style="text-align: right;">Null</th>
+<th style="text-align: right;">Null %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>product_name_hi</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">19,637</td>
+<td style="text-align: right;">99.44</td>
+</tr>
+<tr class="even">
+<td>ingredients_text_hi</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">19,737</td>
+<td style="text-align: right;">99.94</td>
+</tr>
+<tr class="odd">
+<td>generic_name_hi</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">19,746</td>
+<td style="text-align: right;">99.99</td>
+</tr>
+</tbody>
+</table>
+<p>Computed on the full 19,748-row dataset.</p>
+</section>
+<section id="off.c.06" class="level4" data-number="9.2.6">
+<h4 data-number="9.2.6" class="anchored" data-anchor-id="off.c.06"><span class="header-section-number">9.2.6</span> OFF.C.06</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Filter</th>
+<th>Condition</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Filter A</td>
+<td>(brands OR brands_tags) AND (product_name_en OR generic_name_en) AND ingredients_text_en</td>
+<td style="text-align: right;">4,105 rows</td>
+</tr>
+<tr class="even">
+<td>Filter B</td>
+<td>(brands OR brands_tags) AND product_name_en AND ingredients_text_en</td>
+<td style="text-align: right;">4,104 rows</td>
+</tr>
+</tbody>
+</table>
+<p>Difference: 1 row. That row had generic_name_en populated and product_name_en empty. In the 4,105-row set, generic_name_en has 451 non-null values (10.99 percent non-null, 89.01 percent null).</p>
+</section>
+<section id="off.c.07" class="level4" data-number="9.2.7">
+<h4 data-number="9.2.7" class="anchored" data-anchor-id="off.c.07"><span class="header-section-number">9.2.7</span> OFF.C.07</h4>
+<p>Raw column count: 486. Columns retained after filter: product_name_en, brands, brands_tags, ingredients_text_en. Column count in working dataset: 4. The 482 removed columns include all non-English name and ingredient variants, all nutrient sub-fields, environmental scores, packaging fields, and contributor metadata.</p>
+</section>
+<section id="samp.c.01" class="level4" data-number="9.2.8">
+<h4 data-number="9.2.8" class="anchored" data-anchor-id="samp.c.01"><span class="header-section-number">9.2.8</span> SAMP.C.01</h4>
+<p>Roster file header: Total SKUs: 896 | Brands: 153 | Companies: 42 | Parent cats: 8 | Sub-cats: 30.</p>
+</section>
+<section id="samp.c.02" class="level4" data-number="9.2.9">
+<h4 data-number="9.2.9" class="anchored" data-anchor-id="samp.c.02"><span class="header-section-number">9.2.9</span> SAMP.C.02</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Company</th>
+<th style="text-align: right;">SKUs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tata Consumer Products</td>
+<td style="text-align: right;">104</td>
+</tr>
+<tr class="even">
+<td>Amul / GCMMF</td>
+<td style="text-align: right;">82</td>
+</tr>
+<tr class="odd">
+<td>Haldiram’s</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td>Hindustan Unilever</td>
+<td style="text-align: right;">67</td>
+</tr>
+<tr class="odd">
+<td>ITC Ltd</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="even">
+<td><strong>Total (top 5)</strong></td>
+<td style="text-align: right;"><strong>386</strong></td>
+</tr>
+</tbody>
+</table>
+<p>386 / 896 = 43.1 percent of corpus.</p>
+</section>
+<section id="samp.c.03" class="level4" data-number="9.2.10">
+<h4 data-number="9.2.10" class="anchored" data-anchor-id="samp.c.03"><span class="header-section-number">9.2.10</span> SAMP.C.03</h4>
+<p>Summed from top-3 category fields across all 42 company rows in roster. Sum: 837. Difference from 896: 59 SKUs assigned to sub-categories below each company’s top three.</p>
+</section>
+<section id="samp.c.04" class="level4" data-number="9.2.11">
+<h4 data-number="9.2.11" class="anchored" data-anchor-id="samp.c.04"><span class="header-section-number">9.2.11</span> SAMP.C.04</h4>
+<p>First pass: 871 extracted, 129 DATA_NOT_FOUND. Second pass on 129: 25 additional, 104 persistent DATA_NOT_FOUND. Total extracted: 896. Total excluded: 104. Pass rate: 896 / 1000 = 89.6 percent.</p>
+</section>
+<section id="samp.c.05" class="level4" data-number="9.2.12">
+<h4 data-number="9.2.12" class="anchored" data-anchor-id="samp.c.05"><span class="header-section-number">9.2.12</span> SAMP.C.05</h4>
+<p>Audit sample: 90 SKUs. Errors found: 1 (model merged content from multiple webpage sections). Rate: 1 / 896 = 0.0011.</p>
+</section>
+<section id="samp.c.06" class="level4" data-number="9.2.13">
+<h4 data-number="9.2.13" class="anchored" data-anchor-id="samp.c.06"><span class="header-section-number">9.2.13</span> SAMP.C.06</h4>
+<p>Four criteria applied at SKU selection stage. Documented rejection categories: product range references requiring disambiguation to individual SKU (e.g., “Aashirvaad Spices” to “Aashirvaad Turmeric Powder 200g”); products not in Indian market distribution.</p>
+</section>
+<section id="samp.c.07" class="level4" data-number="9.2.14">
+<h4 data-number="9.2.14" class="anchored" data-anchor-id="samp.c.07"><span class="header-section-number">9.2.14</span> SAMP.C.07</h4>
+<p>Five constraints applied uniformly to all 1,000 attempted SKUs. System instruction for DATA_NOT_FOUND: “If ingredient list not found in whitelisted domains, return DATA_NOT_FOUND. DO NOT infer typical ingredients from product category. DO NOT approximate based on similar products.”</p>
+</section>
+<section id="samp.c.08" class="level4" data-number="9.2.15">
+<h4 data-number="9.2.15" class="anchored" data-anchor-id="samp.c.08"><span class="header-section-number">9.2.15</span> SAMP.C.08</h4>
+<p>Batch sizes 1–20 tested during extraction development. Optimal: 6 SKUs per batch. Violations at &gt;10 SKUs: DATA_NOT_FOUND omissions and formatting inconsistencies.</p>
+</section>
+</section>
+</section>
+<section id="appendix-a-sample-cleaning-rounds" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="appendix-a-sample-cleaning-rounds">Appendix A: Sample Cleaning Rounds</h2>
+<p>The iterative cleaning process that produced the final 2,291 variant set from the combined corpus was not individually logged. Individual round logs were not maintained by design: the changes involved — correcting a transliteration typo, removing a fragment like <code>dried-powder</code> that parsed as an ingredient but was a formatting artifact, deciding whether <code>monohydrate</code> belonged in the corpus at all — were too granular and numerous to document round by round without the log itself becoming unmanageable.</p>
+<p>What follows is a representative excerpt from the audit scripts used during this process. It shows what the review actually looked like: automated flagging, human decision at each boundary case, iterative convergence toward a clean set.</p>
+<p><strong>One audit pass — executive summary:</strong></p>
+<pre><code>=============================================
+      AI AUDIT EXECUTIVE SUMMARY
+=============================================
+Total Entries Audited : 709
+
+APPROVED               :  623 (87.9%)
+MODIFIED               :   51 (7.2%)
+INVALID                :   35 (4.9%)
+=============================================</code></pre>
+<p><strong>Entries flagged as INVALID — strings that were not ingredients:</strong></p>
+<pre><code>atlantic · center-filling · cfu · chips · compound · dessert
+dried-powder · dry · energy · flakes · food-additives · lubrication
+moisture · monohydrate · mononitrate · only · pizza · plant-base
+powder-mix · preservative · protein · savouries · test · toppings
+vegetable · vegetable-mix · ...</code></pre>
+<p><strong>Interactive kill review — the monohydrate decision:</strong></p>
+<p>The boundary cases required a human in the loop. <code>monohydrate</code> and <code>mononitrate</code> are not ingredients — they are suffixes that appear on ingredient labels (as in <code>thiamine mononitrate</code>) but carry no identity when extracted alone. They were saved on first pass, then removed on second review:</p>
+<pre><code>KILL 'monohydrate'? (y/n): n
+Saving 'monohydrate'...
+
+ Surgery Complete. Your files are now 'Steel'. 
+
+[second pass]
+
+KILL 'monohydrate'? (y/n): y
+Executing 'monohydrate'...
+
+ Surgery Complete. Your files are now 'Steel'. </code></pre>
+<p><strong>Reclassification pass — where the judgments were not straightforward:</strong></p>
+<pre><code>ITEM: fish
+FROM: Additives &amp; Functional  →  TO: Proteins &amp; Meats
+Accept? y 
+
+ITEM: gluten
+FROM: Staples (Grains/Dals)  →  TO: Proteins &amp; Meats
+Accept? n   Added to manual review.
+
+ITEM: spirulina
+FROM: Additives &amp; Functional  →  TO: Fruits, Veg &amp; Botanicals
+Accept? n   Added to manual review.
+
+ITEM: fava-bean-protein
+FROM: Additives &amp; Functional  →  TO: Proteins &amp; Meats
+Accept? n   Added to manual review.</code></pre>
+<p><code>gluten</code>, <code>spirulina</code>, and <code>fava-bean-protein</code> are examples where the automated reclassification suggestion was defensible but not settled — each sits at a category boundary that requires a classification framework to resolve, not a cleaning pass. They were held for the mapping stage.</p>
+<p><strong>Final state after all cleaning rounds:</strong></p>
+<pre><code>==================================================
+     FINAL MONOGRAPH DATA SUMMARY
+==================================================
+Total Raw Variants (TSV)    : 46,635
+Unique Canonical Units      : 662
+==================================================</code></pre>
+<p>The 46,635 raw variants and 662 canonical units shown here are from the OFF monograph specifically — a separate but parallel cleaning process applied to the OFF-derived strings. The 2,291 figure reported in the main body is the combined and deduplicated variant set from both sources, prior to canonical mapping. These are different counts at different stages of the pipeline and are not in conflict.</p>
+</section>
+<section id="acknowledgements" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>My deepest gratitude to Mr.&nbsp;Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests. Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.</p>
+<p>We are deeply grateful to all contributors of OFF Dataset - one of the core sources which our efforts build upon. Thank you for all that you do. This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL).</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arIdentityTransformationFunction2026" class="csl-entry" role="listitem">
+A R, Lalitha. 2026. <em>Identity, <span>Transformation</span>, and <span>Function</span>: <span>A Tri-Axial Model</span> for the <span>Classification</span> of <span>Food Ingredient Identity</span></em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.18714527">https://doi.org/10.5281/zenodo.18714527</a>.
+</div>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@report{a_r2026,
+  author = {A R, Lalitha},
+  publisher = {iSRL},
+  title = {Data {Acquisition} and {Ingredient} {Extraction:} {Building}
+    a {Vocabulary} of {What} {India’s} {Packaged} {Food} {Labels}
+    {Actually} {Say}},
+  number = {iSRL-26-04-Data},
+  date = {2026-03-01},
+  doi = {10.5281/zenodo.1871452},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-a_r2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+A R, Lalitha. 2026. <em>Data Acquisition and Ingredient Extraction:
+Building a Vocabulary of What India’s Packaged Food Labels Actually Say
+</em>. iSRL-26-04-Data. iSRL. <a href="https://doi.org/10.5281/zenodo.1871452">https://doi.org/10.5281/zenodo.1871452</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

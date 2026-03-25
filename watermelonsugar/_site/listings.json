@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/outputs/index.html",
+    "items": [
+      "/outputs/data-paper/index.html",
+      "/outputs/emf-main/index.html",
+      "/outputs/emf-companion/index.html",
+      "/outputs/delta-paper/index.html",
+      "/outputs/caas-paper/index.html"
+    ]
+  }
+]

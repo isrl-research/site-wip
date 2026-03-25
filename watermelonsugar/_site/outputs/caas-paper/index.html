@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lalitha A R">
 
-<title>Where we started and where we are – iSRL</title>
+<title>caas-paper – iSRL</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,25 +24,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc6dea8f80d14b1e028c55a40a25551f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fc6dea8f80d14b1e028c55a40a25551f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">iSRL</span>
     </a>
   </div>
@@ -92,20 +112,20 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./roadmap.html" aria-current="page"> 
+    <a class="nav-link" href="../../roadmap.html"> 
 <span class="menu-text">Roadmap</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./outputs/index.html"> 
-<span class="menu-text">Data Paper</span></a>
+    <a class="nav-link" href="../../outputs/index.html"> 
+<span class="menu-text">Outputs</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://zenodo.org/communities/isrl/records"> 
@@ -127,25 +147,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-we-got-here" id="toc-how-we-got-here" class="nav-link active" data-scroll-target="#how-we-got-here">How we got here</a></li>
-  <li><a href="#where-we-are-now" id="toc-where-we-are-now" class="nav-link" data-scroll-target="#where-we-are-now">Where we are now</a></li>
-  <li><a href="#a-track-for-people-in-food-and-beverage" id="toc-a-track-for-people-in-food-and-beverage" class="nav-link" data-scroll-target="#a-track-for-people-in-food-and-beverage">A track for people in food and beverage</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">Section</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Where we started and where we are</h1>
+<h1 class="title">caas-paper</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Lalitha A R <a href="mailto:lalithaar.research@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0001-7466-3531" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            iSRL
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -155,48 +186,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>It started with a question that felt almost too simple to ask.</p>
-<p><mark class="scan-highlight">Why does a computer not understand that rice is healthier than Maggi?</mark><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Backstory and how we are approaching the problem - the WHY is in <a href="./index.html">here</a></p></div></div><p>Not a trick question. Pull on it and you find that the system cannot answer it because it does not know what is <em>in</em> either product — not really. It has ingredient lists, but it has no way to know that <code>maida</code> and <code>refined wheat flour</code> are the same thing, or that <code>palmitate</code> and <code>palm oil</code> are not, despite looking similar. To answer a nutrition question, you first need to know what the ingredients actually are. To know that, you need a reference layer that maps the names labels actually use to the identities they actually mean.</p>
-<p>That layer does not exist for Indian packaged food. Building it is what we are doing.</p>
-<hr>
-<section id="how-we-got-here" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="how-we-got-here">How we got here</h2>
-<p>The first question was: what does India eat? The answer turned out to be: we do not fully know, because no comprehensive, up-to-date database of Indian packaged food exists.</p>
-<p>So we started building one — a starter set, sampled directly from products on Indian shelves, inviting more as we went.</p>
-<p>Then came the next problem. Product 1 has <code>maida</code> on the label. Product 2 has <code>refined wheat flour</code>. Same ingredient. The system sees two different things. Can we just map them?</p>
-<p>That question — <mark class="scan-highlight">maybe we can just map maida = refined wheat flour?</mark> — turned out to be harder than it looks. <code>Maida</code> and <code>refined wheat flour</code> are the same substance, yes. But <code>kashmiri chilli</code> is not just a noisy version of <code>chilli</code>. And <code>butter</code> is not <code>milk</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. String similarity and automated matching cannot tell the difference.</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Does this mean milk = milk powder? acaiberry = acaiberry flavouring? These are questions that we needed a deterministic way to answer.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;You may ask, why do we have to bring law into this? Think about it, if we say something is mango pulp, and a brand uses that name because that’s what our system says so - but the law names it differently, it’s a downstream error that will cascade through. See <a href="https://doi.org/10.5281/zenodo.18741725">Regulatory Texts and Case Law as Ground Truth in Emerging Domains</a> for more background on this approach.</p></div></div><p>So before we could map anything, we had to answer a harder question: what does <em>equal</em> even mean for an ingredient? When is one thing a subset of another? What do domestic food laws<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> say about this? What does nutrition science say? What do international trade codes say?</p>
-<p>We went looking. Domestic laws, nutritional definitions, international standards and HSN codes — each says something different, and the differences are real and informative.</p>
-<p>That work produced the <a href="https://github.com/orgs/isrl-research/discussions/22">EMF Framework</a> — a way of defining what an ingredient <em>is</em> across three axes: its energy profile, its material identity, and its function on a label. Consolidated in January–February 2026. The mapping problem now has a framework to work within.</p>
-<hr>
-</section>
-<section id="where-we-are-now" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="where-we-are-now">Where we are now</h2>
-<p>The core research team works across two tracks.</p>
-<p><strong>Data profiling</strong> — what data do we actually have? 896 SKUs sampled from verified Indian market listings. 2,291 unique ingredient variant strings extracted and cleaned <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. The same ingredient appearing as <code>chenna</code>, <code>bengal gram flour</code>, and <code>chickpea flour</code> — all documented, none flattened.</p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;See <a href="">Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India’s Packaged Food Labels Actually Say</a> for how we collected data.</p></div><div id="fn5"><p><sup>5</sup>&nbsp;See <a href="">Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists</a> for generalizable framework that we can apply to other domains like Google Research did for Flood Data.</p></div></div><p><strong>Data interoperability</strong> — how do we connect what we have to global data standards? Allergen declaration rules across jurisdictions. Taxonomy metadata. Access architecture. The pieces that make IFID legible to the systems that need to use it.</p>
-<p>Open threads, if you want to see where the thinking is live right now:</p>
-<ul>
-<li><a href="https://github.com/orgs/isrl-research/discussions/4">Allergen Declaration in India — Rules, Reality, and Gaps</a></li>
-<li><a href="https://github.com/orgs/isrl-research/discussions/22">What Does Healthy Mean in India?</a></li>
-<li><a href="https://github.com/orgs/isrl-research/discussions/">EMF Taxonomy — Relationship Tree Structure for Ingredient Expressions</a></li>
-<li><a href="https://github.com/orgs/isrl-research/discussions/">Taxonomy Metadata — What Should a Canonical Entry Know About Itself?</a></li>
-<li><a href="https://github.com/orgs/isrl-research/discussions/">Data Governance Principles — Protecting Every Stakeholder in the IFID Ecosystem</a></li>
-</ul>
-<hr>
-</section>
-<section id="a-track-for-people-in-food-and-beverage" class="level2">
-<h2 class="anchored" data-anchor-id="a-track-for-people-in-food-and-beverage">A track for people in food and beverage</h2>
-<p>The “what does healthy mean” question is not just a research question. It is a question that people working in F&amp;B — product development, nutrition, compliance, sourcing — are sitting with every day.</p>
-<p><a href="https://github.com/orgs/isrl-research/discussions/22">iSRL-26-XX-R-Nourish</a> is the thread for this. If you work in the industry and have a perspective on how healthy is defined, debated, or operationalised in practice — that perspective belongs in the room.</p>
-<p>If this is pulling you, <a href="join-us.qmd">come in</a>.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">Section</h2>
+<p>This is a simple placeholder for the manuscript’s main document <span class="citation" data-cites="knuth84">(<a href="#ref-knuth84" role="doc-biblioref">Knuth 1984</a>)</span>.</p>
+
 
 
 </section>
 
-
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-knuth84" class="csl-entry" role="listitem">
+Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> (USA) 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

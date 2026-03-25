@@ -8,13 +8,15 @@ website:
   right:
    - href: index.qmd
      text: Home
-   - about.qmd
    - href: roadmap.qmd
      text: Roadmap
+   - href: join-us.qmd
+     text: Join us
    - href: outputs/index.qmd
-     text: Data Paper
+     text: Outputs
    - href: https://zenodo.org/communities/isrl/records
      text: Zenodo
+   - about.qmd
 
 
 format:

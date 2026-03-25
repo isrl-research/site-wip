@@ -131,3 +131,20 @@ code, pre {
   border-radius: 3px;        /* Slightly softens the edges like a felt tip */
   margin: 0 0.1em;
 }
+
+header.quarto-title-block.entry-header h1.title,
+.quarto-title .title,
+h1.title {
+  font-family: $font-family-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  /* If Litera still fights you, add !important here as a last resort */
+}
+
+div.quarto-post .thumbnail {
+    display: none;
+}
+
+.quarto-listing-default .listing-item .body {
+    width: 100%;
+}

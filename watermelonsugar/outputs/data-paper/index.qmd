@@ -1,0 +1,450 @@
+---
+title: |
+  Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India's Packaged Food Labels Actually Say
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+x-contributor:
+  - name: Subrat Sethi
+  - name: Purnendu Shukla
+x-reviewer:
+  - name: Radhakrishna KV
+  - name: Anand S
+doc-id: iSRL-26-04-R-Data
+date: March 2026
+format:
+  html:
+    toc: true
+    number-sections: true
+    filters:
+      - contributors.lua
+    theme:
+      - default
+      - custom.scss
+  pdf:
+    toc: true
+    number-sections: true
+doi: 10.5281/zenodo.1871452
+bibliography: references.bib
+license: "CC BY"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-04-Data
+  
+
+---
+
+::: {.abstract}
+### Abstract {.unnumbered}
+Indian packaged food labels do not share a common ingredient vocabulary. The same substance appears under regional names, transliterations, INS codes, and brand-specific terms --- sometimes across labels from the same manufacturer. No reference layer exists that maps these expressions to shared identities. This report documents the construction of a first ingredient variant corpus from two sources: 896 directly sampled products collected from verified Indian market listings, and English ingredient strings from OpenFoodFacts filtered to rows with a traceable Indian product name. Both sets were processed through a constrained parsing pipeline --- one atomic operation per API call, temperature set to 0, explicit failure rather than approximation when data was unavailable. After combining both sources and iterative cleaning, the corpus contains 2,291 unique ingredient variant strings. These variants are not noise to eliminate. They are documentation of how ingredient identity is expressed in practice across Indian commercial food labels. The question of which variants refer to the same ingredient --- and by what logic --- is addressed in EMF Model [@arIdentityTransformationFunction2026].
+:::
+
+## The Question That Starts Everything {#the-question-that-starts-everything}
+
+A computer cannot tell you whether rice is healthier than Maggi. Not because the comparison is philosophically difficult, but because the infrastructure required to answer it does not exist.
+
+To answer the question, the system needs to know what is in both products. To know what is in them, it needs ingredient data. To use ingredient data, it needs to know that "maida" and "refined wheat flour" refer to the same thing --- and that "palm oil" and "palmite" do not, even though automated similarity measures would score them close. To know that, it needs a stable reference layer that maps the names labels actually use to the identities they actually mean.
+
+That reference layer does not exist for Indian packaged food. This report documents the first step toward building it: a collection of ingredient variant strings extracted from commercial Indian food labels, captured as they appear, without flattening the diversity that makes them what they are.
+
+## Why the Diversity Is Not the Problem {#why-the-diversity-is-not-the-problem}
+
+A label from a major Indian snack brand might read:
+
+> Seasoning Mix {Iodised Salt, Chilli Powder (1.1%), #Spices & Condiments, Onion, Maltodextrin, Wheat Flour, Milk Solids, Black Salt, Tomato Powder [Tomato Paste, Anticaking Agent (INS 551)], Refined Sugar, Hydrolyzed Vegetable Protein, Acidity Regulators (INS 296, INS 330, INS 334), Garlic, Anticaking Agent (INS 551), Flavour Enhancers (INS 627, INS 631)} And Iodised Salt.
+
+This is not poorly formatted data. This is a brand communicating ingredient relationships to consumers across India's 22 official languages and hundreds of regional contexts, within the structure FSSAI Labelling Rules 2020 require. The nested brackets encode functional relationships: "Acidity Regulators" governs three INS codes as a category. "Tomato Powder" contains both a base ingredient and an additive. A Tamil-speaking consumer and a Hindi-speaking consumer both need to read this label correctly. The formatting serves them.
+
+The goal of this project is not to make that label simpler. It is to build the layer underneath it that makes it machine-queryable --- without asking ITC, or any other brand, to change a word.
+
+A substrate is the layer that makes other things possible to build. Concrete is a substrate: you do not live in concrete, you live in the building the concrete made possible. The substrate does not care what the building looks like. IFID --- Indian Food Informatics Data --- is being built as that layer for ingredient identity. Tamil names stay Tamil. INS codes stay in their FSSAI-specified format. The nested bracket structure a brand uses to communicate to its consumers stays exactly as designed. The substrate sits underneath and makes them interoperable: queryable as the same ingredient when that is what you need, distinguishable as different expressions when that matters.
+
+Coordination without convergence. That is the specific goal.
+
+## The Wall, and Who Is Already Working on It {#the-wall-and-who-is-already-working-on-it}
+
+Everyone who works with Indian packaged food data hits the same wall from a different direction.
+
+The nutritionist has fifty product samples and is spending half her time cleaning label data before she can begin her actual analysis. The e-commerce platform has the same ingredient listed seventeen different ways across seventeen brands and cannot build a consistent product catalogue. The compliance team is manually reconciling ingredient declarations across FSSAI requirements, retailer formats, and export documentation --- separately, every time. The researcher who could build a tool to flag allergen risks has found there is no labelled dataset to train on.
+
+None of these people are doing it wrong. The wall is not their failure. The wall is that no shared ingredient identity layer exists.
+
+The most serious open effort to build one globally is OpenFoodFacts (OFF). OFF has documented food products across dozens of countries through crowdsourced and scraped contributions. The scale of that work is significant and the intent is the same as this project's: make food data open, structured, and usable. The gap in Indian product coverage that this report documents is not a gap in OFF's effort. It is a direct reflection of how fragmented and underdocumented the Indian packaged food space actually is --- which is precisely what makes the problem worth working on, and precisely what makes collaboration across efforts like these necessary.
+
+## Two Sources, One Problem {#two-sources-one-problem}
+
+Building the ingredient vocabulary required two separate collection strategies, for the same underlying reason: no single existing source reliably answers whether a product is a current, shelf-available Indian packaged food with a verifiable ingredient list.
+
+### Why OFF Could Not Be the Only Source {#why-off-could-not-be-the-only-source}
+
+OFF contains thousands of English ingredient lists for products with Indian brand names. Those lists are valuable. But the dataset structure does not reliably distinguish a product currently on Indian supermarket shelves from an imported variant, an export formulation, or a historical listing no longer in distribution.
+
+For the purpose of this corpus --- documenting what Indian consumers actually encounter today --- that distinction matters. An ingredient list attached to a product that is not in the Indian market does not reflect the vocabulary Indian food systems use.
+
+The null rates in the OFF data confirm the scale of the gap. Of 19,748 rows in the raw export:
+
+- Only 4,104 pass a minimum filter: brand present, English product name present, English ingredient text present. That is 20.78 percent.
+- `ingredients_text_en` is the only ingredient column with coverage above 1 percent. All 29 other language columns combined add 69 rows to that count.
+- 6,905 rows have both a brand identifier and an English product name --- the product exists, it has a name --- but no ingredient text in any language. The gap is specifically at the ingredient field.
+- The four core macronutrient fields (energy, fat, protein, carbohydrates) have null rates between 65.61 and 66.00 percent across the full dataset.
+
+| Field | Non-null | Null % |
+|---|---:|---:|
+| energy_value | 6,792 | 65.61 |
+| fat_value | 6,715 | 66.00 |
+| proteins_value | 6,737 | 65.89 |
+| carbohydrates_value | 6,759 | 65.77 |
+
+These numbers are not a criticism. They are a measurement of the space. The gap in documented Indian food data is real, it is large, and it exists because the underlying ecosystem is genuinely fragmented --- not because anyone has failed to document it well enough.
+
+What OFF does have --- the 4,104 rows with a brand, a product name, and an English ingredient list --- is usable for this project. The product name provides the minimum anchor needed to verify the product is Indian. Those rows were taken through the same constrained parsing pipeline described below, and their ingredient strings added to the vocabulary set. The filter that kept them is described in the claims document.
+
+### Why Direct Sampling Was Necessary {#why-direct-sampling-was-necessary}
+
+For a reliable picture of what is currently on Indian shelves, the corpus needed to be collected directly. The methodology: select products from companies with documented Indian market presence, retrieve ingredient lists from verifiable online sources, extract and parse.
+
+**Company and product selection.** Ten companies were selected based on market presence across major packaged food categories --- snacks, beverages, staples, dairy, condiments. Within each company, selection moved through sub-brands (ITC's portfolio spans Aashirvaad, Sunfeast, Bingo, YiPPee --- each with a different ingredient vocabulary) and then to individual SKUs meeting four criteria:
+
+1. Ingredient list traceable on a whitelisted domain
+2. Product available in the Indian market, not an export or international variant
+3. Specificity to a single SKU, not a product range --- "Aashirvaad Turmeric Powder 200g" not "Aashirvaad Spices"
+4. One representative retained per formulation across pack sizes
+
+The third criterion produced the most rejections. References like "Cadbury Chocolates" or "Aashirvaad Spices" denote product families, not individual items with specific ingredient lists. Every such reference required disambiguation before it could enter the corpus.
+
+After validation: 1,000 SKUs across 42 companies, 153 brands, 8 macro-categories.
+
+## Why Standard Automated Parsing Fails Here {#why-standard-automated-parsing-fails-here}
+
+Before describing what the pipeline does, it is worth being precise about why standard approaches do not work for this specific problem.
+
+Palm oil and palmite are chemically and functionally distinct ingredients. An automated similarity measure --- edit distance, embedding cosine similarity, fuzzy matching --- would score them as near-identical. Acting on that score would silently corrupt the vocabulary.
+
+Besan flour and chana dal are the same ingredient in different languages and forms. A similarity measure that does not carry cultural and linguistic knowledge would treat them as unrelated.
+
+These are not edge cases. They are representative of how Indian food labelling works: regional names, transliterations, preparation-state variants, and INS codes all coexist on the same label, sometimes referring to the same thing, sometimes to things that are genuinely distinct. Standard clustering and normalisation algorithms cannot reliably navigate this space. The cost of a silent error --- a wrong merge, a missed distinction --- propagates forward into every analysis built on the vocabulary.
+
+The approach used here trades throughput for verifiability: one atomic operation per API call, constrained to prevent approximation, with explicit failure when the data is not there.
+
+## The Extraction Pipeline {#the-extraction-pipeline}
+
+### Constrained Retrieval {#constrained-retrieval}
+
+The model retrieved ingredient lists from whitelisted domains only, in priority order: brand official website, then Amazon India, BigBasket, Blinkit. If no source returned the ingredient list, the output was `DATA_NOT_FOUND`. The instruction was explicit: do not infer typical ingredients from product category, do not approximate based on similar products.
+
+Temperature was set to 0. This means the model selects the highest-probability token at each step and produces identical output for identical input. The practical effect: if you run the same extraction twice, you get the same result. Validation becomes tractable. Fabrication through sampling variation is eliminated.
+
+Batch size was tested across 1 to 20 SKUs per call. At batch sizes above 10, constraint violations increased measurably --- the model began returning approximations instead of `DATA_NOT_FOUND` for products it could not find, and formatting inconsistencies appeared. Six SKUs per batch produced the best balance of throughput and constraint adherence.
+
+Results across 1,000 SKUs:
+
+- First pass: 871 successful extractions (87.1%), 129 `DATA_NOT_FOUND`
+- Second pass on the 129 failures: 25 additional extractions, 104 persistent failures
+- Final corpus: 896 extracted (89.6%), 104 excluded
+
+The 104 persistent failures validate that the constraint held. Those products either had no verifiable online ingredient list or were no longer in active distribution. The pipeline returned an explicit gap rather than a filled approximation. An explicit gap can be addressed later. A fabricated entry corrupts the vocabulary invisibly.
+
+Manual audit of 90 extractions from the 896: 1 error identified (the model merged content from two adjacent sections of a product page). Error rate: 1 in 896 (0.11 percent).
+
+### Structure-Preserving Parsing {#structure-preserving-parsing}
+
+The 896 extracted ingredient lists were not fed to the pipeline as whole strings. Each list went through parsing as a discrete operation, because the structure of Indian food labels encodes relationships that naive splitting destroys.
+
+Consider what happens when a comma-splitter treats every comma equally:
+
+**Input:** `Acidity Regulators (INS 296, INS 330, INS 334)`
+
+**Naive output:**
+
+- `Acidity Regulators (INS 296`
+- `INS 330`
+- `INS 334)`
+
+The functional context --- that INS 296, 330, and 334 are all acidity regulators --- is gone. The fragments `INS 330` and `INS 334)` have no meaning without it.
+
+The structure-aware parser tracks nesting depth. It splits on commas only at depth zero --- the root level. Everything inside brackets is treated as a unit until the brackets close. Applied to the same input:
+
+**Structure-aware output:** `Acidity Regulators (INS 296, INS 330, INS 334)` --- intact, ready for decomposition with context preserved.
+
+896 ingredient lists → 2,926 parsed strings with functional relationships intact.
+
+### Artifact Removal {#artifact-removal}
+
+Each of the 2,926 strings went through a single-purpose cleaning pass: remove presentation artifacts, preserve identity information.
+
+Removed: percentage values (`55.7%` --- quantity, not identity), marketing text (`BINGO!`, `NEW!`), usage annotations (`#Used As Natural Flavouring Agent`).
+
+Preserved: INS codes and E-numbers (regulatory identifiers), preparation specifications (`Salt (Iodised)` --- the bracketed term distinguishes a specific variety), functional classifications (`Acidity Regulator`, `Emulsifier`).
+
+The distinction matters because it is not always obvious. `55.7%` is presentation --- removing it loses nothing about what the ingredient is. `(Iodised)` is identity --- removing it collapses iodised salt and table salt into the same entry, which is wrong.
+
+Batch sizes for this stage were set inversely to string complexity: short strings processed in batches of 40, complex multi-bracket strings processed one at a time. Attention dilution at scale produces the same constraint violations as in the retrieval stage.
+
+### Semantic Decomposition {#semantic-decomposition}
+
+After cleaning, compound structures were decomposed with context propagation. Each atomic operation took one compound and returned its components, with the functional classification carried forward to each:
+
+**Input:** `Flavour Enhancers (INS 627, INS 631)`  
+**Output:** `Flavour Enhancer INS 627`, `Flavour Enhancer INS 631`
+
+**Input:** `Stabilizing & Emulsifying Agents (412, 410, 407, 471, 466)`  
+**Output:** `Stabilizer INS 412`, `Stabilizer INS 410`, `Stabilizer INS 407`, `Emulsifier INS 471`, `Stabilizer INS 466`
+
+**Input:** `Black Pepper Powder, Ginger Powder, Clove Powder`  
+**Output:** unchanged --- already atomic
+
+2,926 cleaned strings → 3,452 decomposed ingredient mentions → 1,987 unique variants after deduplication across all 896 products from the sampling pipeline.
+
+The full transformation for one product (Bingo Original Style, ITC Ltd.) produced 21 ingredient mentions, including:
+
+> 'Black Salt', 'Chilli', 'Citric Acid (INS 330)', 'Disodium Guanylate (INS 627)', 'Disodium Inosinate (INS 631)', 'Garlic', 'Hydrolyzed Vegetable Protein', 'Maida', 'Malic Acid (INS 296)', 'Maltodextrin', 'Milk Solids', 'Onion', 'Palm Oil', 'Potato', 'Salt', 'Silicon Dioxide (INS 551)', 'Spices and Condiments', 'Sugar', 'Tartaric Acid (INS 334)', 'Tomato'
+
+## Combining the Two Sources {#combining-the-two-sources}
+
+The sampling pipeline produced 1,987 unique variant strings from 896 directly collected products. The OFF pipeline --- 4,104 rows filtered to those with a verifiable product name, passed through the same constrained parsing stages --- contributed an additional set of ingredient strings from a different cross-section of the label space.
+
+Combined and deduplicated across both sources, then cleaned through multiple iterative audit rounds (documented in Appendix A), the final corpus contains **2,291 unique ingredient variant strings**.
+
+These are not errors to correct or synonyms to collapse. They are documentation of how ingredient identity is expressed across Indian commercial food labels. The same ingredient appears in multiple forms because Indian food labelling reflects genuine linguistic and cultural diversity:
+
+- `Chilli` / `Chili` / `Chillies` --- orthographic variants, all in use
+- `Maida` / `Refined Wheat Flour` / `All-Purpose Flour` --- the same ingredient across language registers
+- `Onion Powder` / `Dried Onion` / `Dehydrated Onion` --- preparation-state variants
+- `INS 330` / `Citric Acid` / `Acidity Regulator INS 330` --- the same compound at different levels of regulatory specificity
+- `Iodised Salt` / `Salt (Iodised)` / `Table Salt` --- formatting alternatives for the same distinction
+
+Each of these variants appears on labels that consumers read, regulators review, and supply chains track. The infrastructure this project is building needs to work with all of them --- not by picking one as canonical and discarding the rest, but by organising them so that a query for any one returns the right set.
+
+The Tamil name on a label stays Tamil. The INS code stays in its FSSAI format. The regional cultivar name stays as the brand printed it. The substrate underneath makes them queryable as the same ingredient when that is what the question requires.
+
+## What This Corpus Makes Possible {#what-this-corpus-makes-possible}
+
+The output of this report is two open datasets:
+
+- 896 SKUs with verified ingredient lists, sourced from 42 companies across 8 macro-categories
+- Ingredient variant strings extracted from OFF data, filtered to rows with a verifiable Indian product name, cleaned through the same pipeline
+
+Combined: a documented vocabulary of 2,291 unique ingredient expressions from Indian packaged food labels, with extraction methodology, constraint architecture, and quality validation documented in full.
+
+The next question the corpus raises is: which of these 2,291 variants refer to the same ingredient, and by what logic? `Maida` and `Refined Wheat Flour` are the same substance. `Palm Oil` and `Palmite` are not, despite surface similarity. `Besan flour` and `chana dal` are related but distinct in preparation state. Answering that question requires a classification framework capable of handling identity, equivalence, and subset relationships across a space where standard similarity measures are unreliable.
+
+That framework --- the EMF Model (Energy, Matter, Function) --- is defined in A R (2026). Further progress on the mapping problem is deferred to future reports.
+
+## Claims and Verification {#claims-and-verification}
+
+All numerical claims in this report are independently verifiable against the source datasets. The full claims list with evidence per claim is available at
+
+### Claims {#claims}
+
+| ID | Claim |
+|---|---|
+| OFF.C.01 | Of 19,748 rows in the raw OpenFoodFacts export, 4,104 pass the minimum filter (brand, product name in English, ingredient text in English), a pass rate of 20.78 percent. |
+| OFF.C.02 | ingredients_text_en is the only ingredient column with coverage above 1 percent. It has 4,592 non-null rows (23.25 percent). All 29 other language columns combined add 69 additional rows. |
+| OFF.C.03 | 6,905 rows have both a brand identifier and an English product name but no ingredient text in any language. The data gap is at the ingredient field, not at product identity. |
+| OFF.C.04 | The four core macronutrient fields have null rates between 65.61 and 66.00 percent across all 19,748 rows: energy_value 65.61 percent (6,792 non-null), fat_value 66.00 percent (6,715 non-null), proteins_value 65.89 percent (6,737 non-null), carbohydrates_value 65.77 percent (6,759 non-null). |
+| OFF.C.05 | The three Hindi language columns have the following non-null counts across 19,748 rows: product_name_hi 111, ingredients_text_hi 11, generic_name_hi 2. |
+| OFF.C.06 | Replacing product_name_en OR generic_name_en with product_name_en alone as a filter condition reduces the output from 4,105 rows to 4,104 rows. generic_name_en contributes one unique row. |
+| OFF.C.07 | The raw dataset has 486 columns. The filtered dataset retains 4 columns: product_name_en, brands, brands_tags, and ingredients_text_en. |
+| SAMP.C.01 | The sampling corpus spans 42 companies, 153 consumer-facing brands, and 896 SKUs across 8 product macro-categories and 30 sub-categories. |
+| SAMP.C.02 | The five highest-SKU companies --- Tata Consumer Products (104), Amul / GCMMF (82), Haldiram's (68), Hindustan Unilever (67), and ITC Ltd (65) --- account for 386 SKUs, or 43.1 percent of the 896-SKU corpus. |
+| SAMP.C.03 | SKU distribution across eight macro-categories derived from top-3 category fields per company: beverages (200), sweets and desserts (176), staples and spices (174), ready to eat and ready to cook (100), snacks and namkeen (67), pantry and condiments (47), health and wellness (43), dairy and breakfast (30). These sum to 837 of 896 total SKUs; the remaining 59 fall into sub-categories not captured in the top-3 field per company. |
+| SAMP.C.04 | Of 1,000 SKUs submitted for extraction, 871 returned successful ingredient lists on first pass (87.1 percent). A second-pass retry on the 129 failures yielded 25 additional extractions (2.5 percent). Final corpus: 896 successful extractions (89.6 percent). 104 SKUs returned DATA_NOT_FOUND across both passes and are excluded. |
+| SAMP.C.05 | Manual audit of 90 extractions from the 896-SKU corpus identified 1 hallucination instance. Rate: 1 in 896 (0.11 percent). |
+| SAMP.C.06 | Four SKU validation criteria were applied before extraction: (1) ingredient list traceable within whitelisted domains; (2) product available in the Indian market, not an export or international variant; (3) specificity to a single SKU, not a product range; (4) one representative retained per formulation across pack sizes. |
+| SAMP.C.07 | Extraction operated under five constraints: (1) temperature = 0; (2) domain whitelist: brand official website, Amazon India, BigBasket, Blinkit, in priority order; (3) DATA_NOT_FOUND returned when all sources exhausted; (4) JSON output schema enforced with four required fields (product_name, ingredient_list, source_url, confidence); (5) brand official website given precedence over retailer listings on conflict. |
+| SAMP.C.08 | Batch sizes from 1 to 20 SKUs per API call were tested. 6 SKUs per batch was identified as optimal. Batches exceeding 10 SKUs produced measurably increased constraint violations including inappropriate DATA_NOT_FOUND omissions and formatting inconsistencies. |
+
+### Evidence Per Claim {#evidence-per-claim}
+
+#### OFF.C.01 {#off.c.01}
+
+Raw row count: 19,748. Filter applied: brands OR brands_tags non-empty, AND product_name_en non-empty, AND ingredients_text_en non-empty. Rows passing all three conditions: 4,104. Pass rate: 20.78 percent. Rows removed: 15,644 (79.22 percent).
+
+#### OFF.C.02 {#off.c.02}
+
+| Column | Non-null rows |
+|---|---:|
+| ingredients_text_en | 4,592 |
+| ingredients_text_fr | 94 |
+| ingredients_text_de | 15 |
+| ingredients_text_hi | 11 |
+| All remaining 26 language columns (de-duplicated against English) | 69 |
+
+Pooling all 30 ingredient language columns yields 4,661 rows with any ingredient text, against 4,592 for English alone.
+
+#### OFF.C.03 {#off.c.03}
+
+Rows passing (brands OR brands_tags) AND product_name_en: 11,009. Of these, rows also passing ingredients_text_en: 4,104. Rows with brand and name but no ingredient text: 6,905.
+
+#### OFF.C.04 {#off.c.04}
+
+| Field | Null | Non-null | Null % |
+|---|---:|---:|---:|
+| energy_value | 12,956 | 6,792 | 65.61 |
+| fat_value | 13,033 | 6,715 | 66.00 |
+| proteins_value | 13,011 | 6,737 | 65.89 |
+| carbohydrates_value | 12,989 | 6,759 | 65.77 |
+
+Computed on the full 19,748-row dataset.
+
+#### OFF.C.05 {#off.c.05}
+
+| Column | Non-null | Null | Null % |
+|---|---:|---:|---:|
+| product_name_hi | 111 | 19,637 | 99.44 |
+| ingredients_text_hi | 11 | 19,737 | 99.94 |
+| generic_name_hi | 2 | 19,746 | 99.99 |
+
+Computed on the full 19,748-row dataset.
+
+#### OFF.C.06 {#off.c.06}
+
+| Filter | Condition | Result |
+|---|---|---:|
+| Filter A | (brands OR brands_tags) AND (product_name_en OR generic_name_en) AND ingredients_text_en | 4,105 rows |
+| Filter B | (brands OR brands_tags) AND product_name_en AND ingredients_text_en | 4,104 rows |
+
+Difference: 1 row. That row had generic_name_en populated and product_name_en empty. In the 4,105-row set, generic_name_en has 451 non-null values (10.99 percent non-null, 89.01 percent null).
+
+#### OFF.C.07 {#off.c.07}
+
+Raw column count: 486. Columns retained after filter: product_name_en, brands, brands_tags, ingredients_text_en. Column count in working dataset: 4. The 482 removed columns include all non-English name and ingredient variants, all nutrient sub-fields, environmental scores, packaging fields, and contributor metadata.
+
+#### SAMP.C.01 {#samp.c.01}
+
+Roster file header: Total SKUs: 896 | Brands: 153 | Companies: 42 | Parent cats: 8 | Sub-cats: 30.
+
+#### SAMP.C.02 {#samp.c.02}
+
+| Company | SKUs |
+|---|---:|
+| Tata Consumer Products | 104 |
+| Amul / GCMMF | 82 |
+| Haldiram's | 68 |
+| Hindustan Unilever | 67 |
+| ITC Ltd | 65 |
+| **Total (top 5)** | **386** |
+
+386 / 896 = 43.1 percent of corpus.
+
+#### SAMP.C.03 {#samp.c.03}
+
+Summed from top-3 category fields across all 42 company rows in roster. Sum: 837. Difference from 896: 59 SKUs assigned to sub-categories below each company's top three.
+
+#### SAMP.C.04 {#samp.c.04}
+
+First pass: 871 extracted, 129 DATA_NOT_FOUND. Second pass on 129: 25 additional, 104 persistent DATA_NOT_FOUND. Total extracted: 896. Total excluded: 104. Pass rate: 896 / 1000 = 89.6 percent.
+
+#### SAMP.C.05 {#samp.c.05}
+
+Audit sample: 90 SKUs. Errors found: 1 (model merged content from multiple webpage sections). Rate: 1 / 896 = 0.0011.
+
+#### SAMP.C.06 {#samp.c.06}
+
+Four criteria applied at SKU selection stage. Documented rejection categories: product range references requiring disambiguation to individual SKU (e.g., "Aashirvaad Spices" to "Aashirvaad Turmeric Powder 200g"); products not in Indian market distribution.
+
+#### SAMP.C.07 {#samp.c.07}
+
+Five constraints applied uniformly to all 1,000 attempted SKUs. System instruction for DATA_NOT_FOUND: "If ingredient list not found in whitelisted domains, return DATA_NOT_FOUND. DO NOT infer typical ingredients from product category. DO NOT approximate based on similar products."
+
+#### SAMP.C.08 {#samp.c.08}
+
+Batch sizes 1--20 tested during extraction development. Optimal: 6 SKUs per batch. Violations at >10 SKUs: DATA_NOT_FOUND omissions and formatting inconsistencies.
+
+## Appendix A: Sample Cleaning Rounds {#appendix-a-sample-cleaning-rounds .unnumbered}
+
+The iterative cleaning process that produced the final 2,291 variant set from the combined corpus was not individually logged. Individual round logs were not maintained by design: the changes involved --- correcting a transliteration typo, removing a fragment like `dried-powder` that parsed as an ingredient but was a formatting artifact, deciding whether `monohydrate` belonged in the corpus at all --- were too granular and numerous to document round by round without the log itself becoming unmanageable.
+
+What follows is a representative excerpt from the audit scripts used during this process. It shows what the review actually looked like: automated flagging, human decision at each boundary case, iterative convergence toward a clean set.
+
+**One audit pass --- executive summary:**
+
+```
+=============================================
+      AI AUDIT EXECUTIVE SUMMARY
+=============================================
+Total Entries Audited : 709
+
+APPROVED               :  623 (87.9%)
+MODIFIED               :   51 (7.2%)
+INVALID                :   35 (4.9%)
+=============================================
+```
+
+**Entries flagged as INVALID --- strings that were not ingredients:**
+
+```
+atlantic · center-filling · cfu · chips · compound · dessert
+dried-powder · dry · energy · flakes · food-additives · lubrication
+moisture · monohydrate · mononitrate · only · pizza · plant-base
+powder-mix · preservative · protein · savouries · test · toppings
+vegetable · vegetable-mix · ...
+```
+
+**Interactive kill review --- the monohydrate decision:**
+
+The boundary cases required a human in the loop. `monohydrate` and `mononitrate` are not ingredients --- they are suffixes that appear on ingredient labels (as in `thiamine mononitrate`) but carry no identity when extracted alone. They were saved on first pass, then removed on second review:
+
+```
+KILL 'monohydrate'? (y/n): n
+Saving 'monohydrate'...
+
+ Surgery Complete. Your files are now 'Steel'. 
+
+[second pass]
+
+KILL 'monohydrate'? (y/n): y
+Executing 'monohydrate'...
+
+ Surgery Complete. Your files are now 'Steel'. 
+```
+
+**Reclassification pass --- where the judgments were not straightforward:**
+
+```
+ITEM: fish
+FROM: Additives & Functional  →  TO: Proteins & Meats
+Accept? y 
+
+ITEM: gluten
+FROM: Staples (Grains/Dals)  →  TO: Proteins & Meats
+Accept? n   Added to manual review.
+
+ITEM: spirulina
+FROM: Additives & Functional  →  TO: Fruits, Veg & Botanicals
+Accept? n   Added to manual review.
+
+ITEM: fava-bean-protein
+FROM: Additives & Functional  →  TO: Proteins & Meats
+Accept? n   Added to manual review.
+```
+
+`gluten`, `spirulina`, and `fava-bean-protein` are examples where the automated reclassification suggestion was defensible but not settled --- each sits at a category boundary that requires a classification framework to resolve, not a cleaning pass. They were held for the mapping stage.
+
+**Final state after all cleaning rounds:**
+
+```
+==================================================
+     FINAL MONOGRAPH DATA SUMMARY
+==================================================
+Total Raw Variants (TSV)    : 46,635
+Unique Canonical Units      : 662
+==================================================
+```
+
+The 46,635 raw variants and 662 canonical units shown here are from the OFF monograph specifically --- a separate but parallel cleaning process applied to the OFF-derived strings. The 2,291 figure reported in the main body is the combined and deduplicated variant set from both sources, prior to canonical mapping. These are different counts at different stages of the pipeline and are not in conflict.
+
+## Acknowledgements {#acknowledgements .unnumbered}
+
+My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests. Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
+
+We are deeply grateful to all contributors of OFF Dataset - one of the core sources which our efforts build upon. Thank you for all that you do. This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL).
+
+## References {#references .unnumbered}
+
+::: {#refs}
+:::

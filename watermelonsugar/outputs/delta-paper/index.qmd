@@ -1,0 +1,295 @@
+---
+title: Regulatory Texts and Case Law as Ground Truth in Emerging Domains
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+bibliography: references.bib
+---
+
+
+::: {.abstract}
+In domains where no unified academic theory has yet consolidated, practitioners
+face a calibration problem: against what baseline does one evaluate a classification
+framework, a taxonomy, or a data model? This note argues that enacted law and
+judicial decisions constitute a practically available, historically grounded source
+of ground truth for such domains. We describe an approach---regulatory delta
+analysis---that examines how legislation and case law shift across time, with the
+aim of surfacing friction points, coordination patterns, and the constraints under
+which each version of a rule was written. The approach is not a critique of
+legislative bodies or courts; it is a method for reading the record they have
+already produced. Limitations are considered throughout. The note is grounded in
+applied work from the Indian Food Informatics Data (IFID) project but the
+reasoning is intended to transfer to other domains with similar structural
+properties.
+:::
+
+# Definitions
+
+The terms below are used precisely throughout this note.
+
+**Regulatory text.**&ensp;A statute, rule, or formal regulation enacted by a
+legislative or administrative body with binding legal authority. In the Indian
+context, examples include the Food Safety and Standards Act, 2006, and the FSSAI
+Labelling and Display Regulations, 2020.
+
+**Case law.**&ensp;The body of judicial decisions---judgments handed down by
+courts and tribunals---that interpret, apply, and sometimes settle conflicts
+between regulatory texts. Case law acquires authority through the doctrine of
+precedent and, in many common law systems including India's, through formal
+hierarchical citation obligations.
+
+**Regulatory delta.**&ensp;The set of meaningful changes between two enacted
+versions of a regulatory text: additions, deletions, scope expansions,
+definitional tightenings, and any shifts in the underlying policy stance. A delta
+is not a simple diff; it is an interpretation of what changed and, where the
+record permits, why.
+
+**Friction point.**&ensp;A location in the regulatory record---a contested
+statutory term, a split between regulators, a gap exploited by litigation---where
+the interests or interpretations of two or more actors have visibly come into
+tension. Friction points are distinct from errors; they are structurally revealing.
+
+**Ground truth (working definition).**&ensp;For the purposes of this note, a
+ground truth is a reference against which the outputs of an analytical model can be
+tested. It does not imply perfect correctness; it implies that the reference has
+been produced by a process that is independent of and prior to the analysis being
+evaluated.
+
+# The Calibration Problem in Emerging Domains
+
+Research in well-consolidated fields benefits from a body of replication,
+meta-analysis, and theoretical synthesis that can serve as a reference. A new
+model or framework can be tested against this existing record. The food systems
+informatics domain does not yet have this infrastructure in India. The field is
+recent, the data are fragmented, and the constructs---what counts as the same
+ingredient, how processing changes identity, how regional naming should relate to
+regulatory naming---remain unsettled.
+
+A comparable situation arises in any domain that is technically complex, involves
+multiple institutional actors with partly overlapping mandates, and has developed
+faster than the academic literature has been able to consolidate it. Infrastructure
+regulation, environmental classification, digital governance, and traditional
+medicine systems all share these properties to varying degrees.
+
+In such conditions, one cannot simply look to an established canon of empirical
+findings to validate a new framework. The question then is: what stable, legible,
+independently produced record exists against which one can calibrate?
+
+We propose that the regulatory and legal record fills this role, with specific
+properties and specific limitations that are developed in the sections that follow.
+
+# Why Law and Case Law Can Function as Ground Truth
+
+Regulatory texts and judicial decisions share several properties that make them
+useful as a reference in calibration contexts.
+
+**They are the result of adversarial processes.** Legislation is typically
+produced after consultation, lobbying, expert review, and political negotiation.
+Judicial decisions are produced after argument by opposed parties, subject to
+appeal, and written to justify a conclusion against the best available contrary
+reading. Both processes are imperfect, but both are designed to surface objections.
+The record they produce has, in a meaningful sense, survived challenge.
+
+**They name conflicts directly.** Academic literature tends to report
+consensus or to frame disagreement theoretically. Case law reports disagreement
+factually: here are two parties, here is what they disputed, here is which
+interpretation prevailed and why. The friction is the content of the document
+rather than a subtext to be inferred.
+
+**They are time-stamped.** Each regulatory text and each judgment carries a
+date. This makes it possible to sequence the record chronologically and ask which
+understanding of a concept was operative when.
+
+**They are publicly accessible.** In India, statutory instruments are notified
+in the Gazette of India. Judgments of the Supreme Court and High Courts are
+published in official reporters and on government databases. The record is, in
+principle, reachable by any researcher.
+
+**They have institutional authority within their domain.** A food safety
+regulation issued under the FSSAI Act is, for practical purposes, the definition
+of the relevant concept for the actors it governs---manufacturers, importers,
+inspection officers---regardless of whether a food scientist would agree with it.
+When building systems that must operate in that legal environment, the legal
+definition is not one input among many; it is a constraint.
+
+None of these properties make the legal record infallible. Section 6 addresses
+limitations. But they are sufficient to make law a productive starting point when
+other reference points are unavailable.
+
+# Regulatory Delta Analysis as Method
+
+A regulatory delta is not simply a list of changes between two versions of a
+statute or rule. It is an interpretation of those changes in light of the context
+that produced them.
+
+## Reading changes in context
+
+Laws are written under constraints. The constraints include the state of the
+relevant industry at the time of drafting, the administrative capacity available to
+enforce the rule, the incidents that made a regulatory response necessary, and the
+political feasibility of various options. A later version of a rule almost always
+looks more precise, more comprehensive, or more technically sophisticated than an
+earlier one---not because earlier drafters were careless, but because they were
+working with less data, less precedent, and a less developed field.
+
+The appropriate stance when reading a delta is that of a scribe rather than a
+judge: the task is to document what changed, to note what the earlier version could
+not have anticipated, and to ask what new information or new pressure made the
+change necessary. This is a different question from asking whether the earlier rule
+was wrong.
+
+Applied to the Indian food labelling context, the transition from the Food Safety
+and Standards (Packaging and Labelling) Regulations, 2011 to the Food Safety and
+Standards (Labelling and Display) Regulations, 2020 illustrates this clearly
+[@FSSAI_RegulatoryDelta]. The 2011 regulations were drafted at a point when
+industrial food processing in India was still expanding rapidly and digital
+traceability tools were not yet available to enforcement bodies. The 2020
+regulations tightened allergen declarations, introduced structured front-of-pack
+warnings, and prescribed naming conventions with greater specificity. Each of these
+additions corresponds to a domain that developed, was observed, and was then
+addressed. The delta reveals an institution processing experience and updating its
+instrument accordingly.
+
+## Identifying friction points through case law
+
+Where the regulatory text leaves ambiguity, the courts resolve it---and in doing
+so, produce a record of where the ambiguity was, who held which interpretation, and
+which reading eventually prevailed. This makes case law particularly useful for
+identifying friction points that would not be visible from the statutory text alone.
+
+The Supreme Court of India's January 2026 judgment in *Commissioner of
+Customs (Import) v. M/s Welkin Foods* illustrates this [@lalitha_2026_supreme_court]. The
+case concerned whether imported aluminium shelving should be classified as an
+agricultural machine part or as an aluminium structure. The legal question was
+narrow, but the Court's reasoning established a hierarchy for resolving
+classification disputes in which statutory technical definitions take precedence
+over common commercial understanding. This hierarchy had been contested in earlier
+decisions and was now settled. For a food informatics system that must align with
+Indian classification practice, this judgment is a material constraint---one that
+would not have been legible from reading only the statutory text.
+
+## Mapping coordination across institutional actors
+
+A regulatory domain typically involves multiple bodies with overlapping but
+non-identical mandates. In Indian food systems, the relevant actors include the
+Food Safety and Standards Authority of India (FSSAI), the Directorate General of
+Foreign Trade (DGFT), the Central Board of Indirect Taxes and Customs (CBIC), and
+the courts. These actors do not always interpret the domain identically, and their
+instruments do not always align.
+
+The legal record makes these relationships visible. Where one body's definition
+conflicts with another's, there will typically be a judgment or a regulatory
+amendment that resolves the conflict, defers it, or acknowledges it. Mapping these
+interactions across time reveals not just what the current rule is, but how the
+current rule came to be and which pressures it is still absorbing.
+
+# What This Approach Surfaces
+
+Regulatory delta analysis, applied systematically, tends to surface four types of
+information that are difficult to obtain from other sources.
+
+**Constraint archaeology.** Earlier versions of rules encode the constraints
+that were operative when they were written. Identifying these constraints---and
+asking whether they are still valid---can reveal where a regulatory framework is
+load-bearing on an assumption that may no longer hold.
+
+**Coordination mechanisms.** When two bodies with overlapping mandates produce
+consistent rules over time, it is worth asking how that consistency is achieved.
+The legal record will often contain evidence of formal coordination mechanisms,
+mutual referencing, or the adoption of shared definitions.
+
+**Friction without resolution.** Not all conflicts in the legal record are
+resolved. Some cases are settled before judgment. Some regulatory ambiguities are
+explicitly deferred. These unresolved tensions are as informative as the settled
+ones: they mark the places where the system has not yet stabilised.
+
+**Bias documentation.** Legal instruments are written by people operating in
+institutional contexts, and they reflect the concerns, categories, and blind spots
+of those contexts. A regulatory text that focuses on industrial food and does not
+address traditional preparations is not neutral; it reflects what was legible and
+politically salient at the time of drafting. Noting these asymmetries is part of
+using the legal record honestly.
+
+# Limitations
+
+The approach described here has several limitations that must be held in mind.
+
+**Law is not science.** A court may settle a dispute by choosing an
+interpretation that is administratively convenient or politically feasible rather
+than technically accurate. A regulatory definition may persist after the scientific
+understanding of the relevant phenomenon has moved on. The legal record reflects
+what was decided, not necessarily what was correct.
+
+**Unenforced rules are not reliable evidence.** A statute that exists on paper
+but is not enforced tells us something about legislative intent but little about
+actual practice. The gap between enacted law and operational practice can be
+substantial.
+
+**The record is not complete.** Not all decisions are published. Not all
+conflicts result in litigation. Regulatory negotiations that produce an amended
+rule may leave no public trace of the original disagreement. The legal record
+samples the domain rather than covers it.
+
+**Jurisdiction specificity.** The regulatory architecture of one country or
+regulatory system is not directly transferable to another. Insights from Indian
+food law are not automatically generalisable to food systems in other jurisdictions,
+though the structural properties of the method may transfer.
+
+**Temporal lag.** Legislation and litigation are slow. The legal record may be
+significantly behind the current state of the domain, particularly in fast-moving
+technical fields. Using the legal record as ground truth requires acknowledging that
+it may be calibrated to a version of the domain that no longer obtains.
+
+These limitations do not disqualify the approach. They specify the conditions under
+which it is and is not useful, and they indicate the supplementary sources---field
+research, domain expert consultation, technical audits---that should accompany it.
+
+# Relationship to Other Sources and Methods
+
+This note does not argue that the legal record should replace other methods of
+establishing ground truth. It argues that the legal record is an underused source
+that has specific properties making it productive in specific conditions: emerging
+domains, multi-actor regulatory environments, and contexts where the gap between
+legal definition and operational practice is itself an object of study.
+
+The approach is most useful in combination with domain expert consultation, which
+can identify where the legal record is silent or misleading; with empirical data
+collection, which can reveal practice that diverges from legal prescription; and
+with traditional academic literature, which provides theoretical frameworks for
+interpreting what the legal record contains.
+
+Academic literature is not deprecated here. The claim is narrower: in a domain
+where the academic literature is still being assembled, the legal record is
+available now, has been produced by adversarial processes, and carries authority
+for the actors whose behaviour one is trying to understand or model. It is a
+reasonable place to start.
+
+# Closing Remarks
+
+Regulatory systems change. The record of that change is publicly available, time-stamped,
+and produced by institutions that have observed the domain, absorbed feedback
+from it, and updated their instruments accordingly. Reading that record carefully
+is not an alternative to original research---it is a form of original research,
+and one that takes the accumulated work of regulatory bodies and courts seriously
+as evidence rather than setting it aside in favour of sources that may be more
+recent but less tested.
+
+The goal is not to judge who was right and who was wrong in any given dispute, or
+whether a regulatory body made the best possible decision with the information
+available. The goal is to understand where the system has been, where it has
+strained, and what that history reveals about where it currently stands. That is a
+question that the legal record is unusually well placed to answer.
+
+# Acknowledgments {.unnumbered}
+
+My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests.
+
+Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
+
+This note draws on methods developed in the course of the Indian Food Informatics
+Data (IFID) project at iSRL. The authors thank the researchers whose applied work
+surfaced the need for explicit methodological documentation.
+

@@ -1,0 +1,883 @@
+---
+title: Identity, Transformation, and Function A Tri-Axial Model for the Classification of Food Ingredient Identity
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+bibliography: references.bib
+---
+
+::: {.abstract}
+Food ingredient classification in India confronts a structural problem that neither label standardisation nor taxonomy alone resolves: the same substance appears under dozens of names across regulatory filings, procurement systems, and consumer labels, while substances that share a name may differ in ways that determine their legal status, tax bracket, and nutritional profile. This report proposes the *E--M--F Tri-Axial Identity Model* as a principled, evidence-grounded framework for assigning a determinate identity position to any food ingredient. The three axes measure, respectively, the invasiveness of the transformation pathway (Anthropogenic Energy, $E$), the degree of departure from the original biological matrix (Matter, $M$), and the degree to which technological function governs regulatory naming and trade classification rather than biological origin (Function, $F$). From these three coordinates, a composite Divorce Score ($D$) is derived that partitions ingredients into three operationally meaningful zones: variants of a biological source, independent canonical entities, and functional tools whose identity is defined by role rather than origin. The framework is grounded in existing Indian regulatory instruments---the FSSAI Labelling and Display Regulations 2020, the Food Products Standards and Food Additives Regulations 2011, and the Indian Trade Classification (Harmonised System)---and validated against judicial reasoning from the Supreme Court of India and the Delhi High Court. A 35-item benchmark tests the discriminatory power of the model and provides a replicable standard for future refinements. The model provides the deterministic ingredient-level substrate on which product-level food classification frameworks can operate with greater precision and consistency.
+:::
+
+# The Ingredient Identity Problem {#sec-ch-problem}
+
+## The Multiplicity That Is Not Noise
+
+A survey of 896 stock-keeping units drawn from Indian retail channels---part of this project's commercial sampling work, the full methodology for which will be documented in a forthcoming report---yielded 7,563 distinct ingredient strings after comma-splitting label text into individual units. This commercial sample was reconciled against the Open Food Facts India dataset [@OpenFoodFacts], which contributes a further 19,748 products from a different collection pathway; across the combined 4,800 deduplicated products, splitting by comma and conjunction produces approximately 48,000 variant strings in total. The two sources are methodologically distinct and are treated as such throughout this project.
+
+These strings do not represent 7,563 different substances, let alone 48,000. Preliminary reconciliation identified a far smaller number of underlying biological entities. The multiplicity is primarily linguistic: different names, transliterations, regulatory phrasings, and brand conventions applied to the same or closely related ingredients.
+
+This is not a data-quality failure. It is a structural feature of how a linguistically and culturally diverse food system interacts with labelling frameworks designed for narrower ranges of variation. A manufacturer in Tamil Nadu printing *inji* on a label is not in error. A regulatory filing recording the same substance as *ginger (Zingiber officinale)* is not wrong either. A procurement system listing it as *dried ginger root* is recording something real. The problem emerges when these representations must interoperate---for compliance verification, supply chain monitoring, allergen tracking, or nutritional research---and no coordination layer exists to establish that they refer to the same thing.
+
+The FSSAI Labelling and Display Regulations 2020 permit ingredient declaration in regional languages and do not mandate a single canonical term for most ingredients.[^fssai-reg4] This is appropriate policy. Forcing convergence on a single English-language term would impose a linguistic uniformity that serves neither consumers nor the regulatory objective of communicating the true nature of food. The problem is not the diversity; it is the absence of a coordination structure beneath it.
+
+[^fssai-reg4]: FSSAI Labelling Regulations 2020, Regulation 4(1).
+
+## The Scale of Variation
+
+Two ingredient categories from the reconciliation process illustrate the practical range. The following strings were recovered from product labels and regulatory filings as distinct entries---each referring, in whole or in part, to a common biological source.
+
+### Chilli (*Capsicum* spp.)---a representative sample {.unnumbered}
+
+> chilli; chilli powder; chilli flakes; red chilli; red chilli powder; red chillies; dry red chilli; green chilli; green chilli paste; green chilli puree; kashmiri chilli; kashmiri lal mirch; mathania red chilli powder; spices and condiments---chilli; spices and condiments---red chilli powder; spices and condiments---kashmiri red chilli powder; ground spices and condiments---dry red chilli; mixed spices---red chilli flakes; extracts and oils---red chilli; chilli extract; chilli red; red chilly; red chilly powder.
+
+### Mango (*Mangifera indica*)---a representative sample {.unnumbered}
+
+> mango; mango pulp; mango puree; mango powder; dry mango powder; dried mango; mango bits; mango juice; kesar mango pulp; alphonso mango pulp; concentrated mango pulp; dehydrated mango puree; mango puree concentrate; mango solids; spices and condiments---amchur; spices and condiments---dried mango powder; fruit powder blend---mango; mango flavouring; raw mango flavouring; tropical juice powder---mango.
+
+These samples---spanning raw forms, dried forms, powders, pastes, purees, concentrates, extracts, flavourings, and regional variety names---illustrate the problem precisely. A compliance system encountering "mathania red chilli powder" and "chilli powder" as separate entries has no basis for determining whether they represent the same ingredient, variants of the same ingredient that differ in a legally relevant way, or distinct ingredients with different regulatory implications. The same ambiguity applies across thousands of ingredient pairs in the dataset.
+
+## Why This Matters Beyond Nomenclature
+
+The stakes of ingredient identity extend well beyond labelling consistency. Three domains illustrate the practical consequences of unresolved identity.
+
+*Allergen disclosure.* The FSSAI Labelling Regulations require mandatory declaration of common allergens, including cereals containing gluten, peanuts, soybeans, milk, and tree nuts.[^fssai-reg5] Accurate allergen tracking requires that "besan," "gram flour," and "chickpea flour" be recognised as referring to the same substance, and that "refined wheat flour" and "maida" be treated as the same allergen source. A system processing these as distinct strings produces false negatives in allergen searches.
+
+[^fssai-reg5]: FSSAI Labelling Regulations 2020, Regulation 5(14).
+
+*Trade classification and taxation.* The Indian Trade Classification (Harmonised System) assigns different tariff headings to ingredients on the basis of processing state and functional role. Mango pulp (HS 0804) and dried mango powder (HS 0813) are classified differently and attract different duties. Concentrated mango pulp may attract a different heading again depending on Brix value and processing method [@DGCI_CH11]. The financial and legal consequences of misclassification are direct and quantifiable.
+
+*Source declaration and religious or ethical compliance.* The Delhi High Court, in *Ram Gaua Raksha Dal v. Union of India*, held that the obligation to declare the vegetarian or non-vegetarian status of food is independent of percentage or processing level, grounded in Articles 21 and 25 of the Constitution [@DelhiHC_RamGaua_2022]. This principle requires that the biological origin of an ingredient remain traceable through processing transformations. A classification system that severs the link between a processed ingredient and its source---treating "casein" as a functional identifier with no required dairy origin disclosure---fails this requirement.
+
+## The Question This Report Addresses
+
+These observations converge on a single question that has not been systematically answered for the Indian food system: *given an ingredient string, what is its identity, and what is the principled basis for that determination?*
+
+The question carries three sub-questions that must be answered in sequence. First, what counts as a canonical entity---the basic unit of identity to which variant representations are attached? Second, when does a variant become sufficiently distinct to constitute a separate canon in its own right? Third, when has an ingredient been transformed so thoroughly that its identity is no longer governed primarily by its biological source but by the technological function it performs?
+
+These are ontological questions. They cannot be answered by counting occurrences or applying string-matching heuristics. They require a framework grounded in scientific, regulatory, and legal reality that produces consistent, defensible determinations when applied to novel cases.
+
+@sec-ch-flatfail documents a first attempt at the problem and shows where it falls short. @sec-ch-ranganathan introduces the theoretical foundation that reorients the approach. @sec-ch-ontological enumerates the ontological questions the framework must answer. @sec-ch-regulatory establishes the regulatory instruments serving as empirical ground truth. The remaining chapters develop and validate the model, and @sec-ch-nextsteps describes the next steps for applying it to the full variant corpus.
+
+# Why Flat Canonisation Fails {#sec-ch-flatfail}
+
+## The Initial Approach
+
+The natural first response to a multiplicity of ingredient strings is to collapse them. Given 7,563 strings and the reasonable expectation that they represent far fewer substances, the immediate goal was consolidation: assign each string to a canonical form, discard the variation, and produce a clean taxonomy.
+
+This approach was implemented and produced a working taxonomy published as version 0.1 of the Encyclopedia of Indian Food Ingredients [@EncyclopediaV01]. That taxonomy served as a necessary first step: it demonstrated that automated consolidation was feasible, identified the problem's boundaries, and surfaced the cases where flat consolidation produced results that were operationally and legally indefensible. The present report builds directly on what those cases revealed.
+
+## What Flat Canonisation Produces
+
+Under a flat canonisation scheme, all variant strings for a given biological source are grouped under a single canonical label. The chilli variants listed in @sec-ch-problem would consolidate to "Chilli." The mango variants would consolidate to "Mango." The logic is appealing: one biological entity, one canonical name.
+
+The problem becomes visible when the output is examined by stakeholders who depend on ingredient classifications for operational decisions.
+
+For a food manufacturer seeking to claim a geographically indicated ingredient: "Mathania Red Chilli" is not interchangeable with "Chilli." Mathania is a geographic indicator associated with a specific cultivar grown in the Barmer district of Rajasthan, recognised for its characteristic colour and moderate heat. A brand that sources this variety and wishes to communicate that fact on its label---a commercially and legally meaningful distinction---has no mechanism for doing so under a scheme that treats all chilli as one entity.
+
+For a nutritional researcher or regulator: "Mango pulp" and "dehydrated mango powder" are not nutritionally equivalent. The former is a high-moisture preparation with a specific sugar profile; the latter has undergone water removal that concentrates all components and, depending on process conditions, may alter certain phytochemicals. A database recording both as "Mango" provides no basis for dietary assessment calculations that depend on moisture-adjusted nutrient values.
+
+For a customs authority: "Mango flavouring" filed alongside "mango pulp" under a single canonical entity produces a tariff classification that is straightforwardly incorrect. Mango pulp falls under HS Chapter 08 (edible fruits); a synthetic mango flavouring may fall under Chapter 29 (organic chemicals) or Chapter 33 (essential oils and resinoids) depending on its composition. Filing them under the same canonical entity does not resolve the classification question; it conceals it.
+
+For a food safety system tracking an allergen or contaminant: "Lecithin" and "soya lecithin" cannot be merged without losing source information that is required by law. The FSSAI Labelling Regulations and the reasoning in *Ram Gaua Raksha Dal* [@DelhiHC_RamGaua_2022] together establish that source disclosure for allergen-relevant ingredients is non-negotiable.
+
+## The Structural Flaw
+
+Flat canonisation fails because it conflates two distinct problems requiring different solutions. The first is coordination: establishing that "chilli," "red chilli," and "lal mirchi" refer to the same underlying entity so that systems can interoperate. The second is identity preservation: maintaining the distinctions---geographic origin, processing state, form, biological source---that carry legal, nutritional, commercial, and cultural meaning.
+
+A flat scheme solves the first problem by destroying the second. It achieves coordination at the cost of the very information that makes coordination useful. A brand filing its ingredient as "Chilli" and a brand filing it as "Kashmiri Lal Mirch" can now be linked in a database, but the database no longer records what distinguishes them---a distinction that may affect GST categorisation, GI protection claims, export certification, and consumer communication simultaneously.
+
+The correct solution is a layered structure: a coordination layer linking all variant representations to a shared identifier, and an identity-preservation layer retaining the distinctions that matter. This is precisely the problem Shiyali Ramamrita Ranganathan addressed in information science nearly a century ago.
+
+# Ranganathan's Faceted Classification {#sec-ch-ranganathan}
+
+## The Context of Its Creation
+
+In 1933, the Indian mathematician and librarian S. R. Ranganathan published the first edition of *Colon Classification* [@Ranganathan_CC_1933]. The problem he addressed was structurally similar to the one this report confronts: a body of knowledge so diverse and growing so rapidly that any fixed hierarchical scheme would be perpetually inadequate. The Dewey Decimal System, then dominant in library science, assigned each subject a fixed position in a single hierarchy. Works addressing multiple subjects simultaneously, or belonging to a subject not anticipated by the scheme's designers, could not be accommodated without distorting the classification.
+
+Ranganathan's response was to abandon the single hierarchy and replace it with a set of independent analytical dimensions, which he called *facets*. A document could be described by its position on each facet independently, and its classification was the combination of those positions. The colon in "Colon Classification" is the separator between facets in the notation.
+
+## The PMEST Framework
+
+Ranganathan identified five fundamental facets applicable across all fields of knowledge, designated PMEST: Personality, Matter, Energy, Space, and Time [@Ranganathan_PMEST]. These represent, respectively, the primary subject of a document, the materials or substances it involves, the processes or operations it describes, the geographic location it concerns, and the time period it covers.
+
+The operational power of the framework lies in the independence of its facets. A document about *the fermentation of rice in Karnataka in the nineteenth century* can be precisely described by assigning positions on each facet---rice (Personality), fermentation (Energy), Karnataka (Space), nineteenth century (Time)---without requiring that the classification scheme anticipate this exact combination in advance. New combinations form by combining existing facet values; the scheme extends to novel cases without revision.
+
+Adapted to the food domain, the analytical clarity is immediate. Consider three ingredients:
+
+- *Kashmiri red chilli powder*: Personality = chilli (*Capsicum annuum*); Matter = dried, powdered; Space = Kashmir.
+- *Mathania red chilli, whole dried*: Personality = chilli (*Capsicum annuum*); Matter = dried, whole; Space = Marwar (Rajasthan).
+- *Green chilli paste*: Personality = chilli (*Capsicum annuum*); Matter = raw, comminuted, high-moisture.
+
+Under a flat scheme, all three are "Chilli." Under a faceted scheme, all three share a Personality coordinate---sufficient to establish their relationship---while their distinct Matter and Space coordinates preserve the differences that matter. A fourth ingredient, a synthetic capsaicin extract used as a flavouring agent, would share a Personality relationship to chilli while carrying a very different processing history and a different functional identity. The framework accommodates this without modification.
+
+## Adoption and Durability
+
+Colon Classification was adopted by the Indian National Library and numerous university libraries across South and Southeast Asia, and served as the theoretical foundation for the International Federation of Library Associations' principles on faceted classification [@Broughton_CC_2006]. Subsequent frameworks---including the Bibliographic Classification of Henry Bliss and the Universal Decimal Classification's faceted extensions---drew directly on Ranganathan's architecture.
+
+The durability of the framework across domains as diverse as bibliography, archival science, museum cataloguing, and digital information architecture reflects its quality as a structural solution rather than a domain-specific convention. The problem it addresses---organising entities that are complex, diverse, and not fully anticipated in advance---is exactly the problem that Indian food ingredient classification presents.
+
+## From Library Science to Food Identity
+
+Applying the PMEST framework to the ingredient dataset immediately clarified which distinctions were meaningful and which were surface variation. The distinction between "chilli powder" and "chilli flakes" is a legitimate Matter distinction (fine-ground versus coarsely broken), not a naming inconsistency to be collapsed. "Kashmiri chilli" and "generic red chilli" differ on the Space facet, not the Personality facet, and that distinction carries regulatory weight in the context of geographical indication protection.
+
+However, three categories of cases emerged that the PMEST framework as originally conceived did not fully resolve. The first concerned artificial or nature-identical flavourings: does "mango flavouring" belong under *Mangifera indica* as a Personality, or has synthesis transformed its identity so thoroughly that the source becomes secondary to the function? The second concerned highly processed lipids: is "soya lecithin" a variant of soybean, or has extraction and fractionation placed it in a different identity category---one defined by its emulsification function rather than its botanical origin? The third concerned processing-derived additives with no meaningful biological ancestor: modified starches, synthetic antioxidants, and inorganic salts have an HS classification and a regulatory name, but no Personality in the biological sense.
+
+These categories expose the ontological questions a classification framework for food ingredients must resolve before it can be applied consistently. Those questions are addressed in @sec-ch-ontological.
+
+# The Ontological Questions That Must Be Answered {#sec-ch-ontological}
+
+## What Counts as a Canonical Entity?
+
+A canonical entity, as used in this framework, is the smallest unit of ingredient identity to which variant representations can be attached without loss of information that is legally, nutritionally, or commercially significant. Determining what counts as a canon is not a naming decision but an identity decision: it requires specifying which distinctions are constitutive of a separate entity and which are surface variations of the same entity.
+
+Consider lipids. Cold-pressed sesame oil and solvent-extracted refined sesame oil share a botanical source (*Sesamum indicum*) and a chemical class (edible vegetable oil, triglyceride-based). They differ in processing pathway, residual composition, and regulatory designation: FSSAI and the Codex standard for named vegetable oils distinguish cold-pressed and refined categories.[^fssai-sched2] Are they variants of one canon, or two separate canons? The answer depends on whether the processing distinction carries independent legal and nutritional weight---and, as @sec-ch-regulatory demonstrates, it does.
+
+[^fssai-sched2]: FSSAI Labelling Regulations 2020, Schedule II.
+
+## When Does a Variant Become a Separate Canon?
+
+Variation along processing, form, and geographic dimensions does not automatically produce a separate canon. The framework requires a principled threshold at which a variant becomes sufficiently distinct to constitute an independent entity. Three criteria govern this determination.
+
+First, *regulatory identity change*: if the relevant regulatory authority assigns a distinct product standard, a distinct mandatory name, or a distinct HS tariff heading to the processed form, the processing has produced a separate canon. Butter and ghee share a dairy fat origin but are defined by separate Codex standards and separate FSSAI product definitions. They are separate canons.
+
+Second, *nutritional non-substitutability*: if the processed form cannot be substituted for the source form in a dietary context without materially altering the nutritional calculation, the forms are separate canons. Mango pulp and dehydrated mango powder are not nutritionally interchangeable at the same mass; they are separate canons.
+
+Third, *functional non-substitutability*: if the processed form is used for a purpose that the source form cannot serve, and that purpose is the primary basis for its inclusion in a formulation, the processed form is a separate canon. Soya lecithin is used as an emulsifier; whole soybean is used as a protein and caloric source. The purposes are non-overlapping. They are separate canons.
+
+## When Does a Canon Become a Functional Tool?
+
+The third question is the most consequential for the model developed here. A functional tool is an ingredient whose primary regulatory and commercial identity is defined by the technological role it performs rather than by its biological origin. The identity transformation is not merely a matter of processing intensity; it is a legal and semiotic shift that occurs when regulatory frameworks---labelling regulations, tariff classifications, judicial precedent---treat the ingredient primarily as a performer of a function rather than as a product of a biological source.
+
+This shift is observable and documentable. The FSSAI Labelling Regulations prescribe a specific declaration format for food additives: the functional class (emulsifier, preservative, antioxidant, and so on) is declared first, followed by the specific name or International Numbering System code.[^fssai-additives-sched1] This format structurally subordinates origin to function: "Emulsifier (lecithin)" presents the technological role as the primary identifier. A brand can declare "Emulsifier (INS 322)" without reference to soy origin, except where allergen disclosure obligations apply.
+
+[^fssai-additives-sched1]: FSSAI Additives Regulations 2011, Schedule I.
+
+By contrast, edible vegetable oils---even heavily processed ones including hydrogenated and interesterified fats---must be declared with their source type.[^fssai-sched2-class] "Hydrogenated vegetable oil" retains the botanical-origin reference despite intensive chemical transformation. The identity, for regulatory purposes, remains origin-primary.
+
+[^fssai-sched2-class]: FSSAI Labelling Regulations 2020, Schedule II, Class Titles 2 and 4.
+
+The boundary between these two regimes is not a simple function of processing intensity. A highly processed ingredient may remain origin-primary in regulatory naming, while a moderately processed ingredient may cross into function-primary classification. This is the central observation motivating the introduction of $F$ as a third dimension, independent of $E$ and $M$, in the model developed in @sec-ch-emf.
+
+## The Role of Flavourings
+
+Flavourings require explicit treatment. The FSSAI Labelling Regulations distinguish natural flavourings, nature-identical flavourings, and artificial flavourings.[^fssai-flavourings] A natural mango flavouring obtained by aqueous or ethanolic extraction from mango fruit retains a biological-origin linkage in its regulatory designation. A synthetic mango flavouring produced by organic synthesis to replicate specific volatile compounds has no such linkage; its identity is defined by its sensory function and chemical composition, not by its biological source.
+
+[^fssai-flavourings]: FSSAI Labelling Regulations 2020.
+
+Whether to file a synthetic mango flavouring under the canon for mango or as a separate functional entity cannot be resolved by examining the ingredient name alone. It requires a framework that positions the ingredient on dimensions of processing transformation and functional identity simultaneously. This is what the $E$--$M$--$F$ model provides.
+
+## The Role of Source Declaration
+
+Throughout the foregoing analysis, source declaration has appeared both as a legal requirement and as a conceptual anchor. The requirement reflects a principle embedded in Indian food law and affirmed by the courts: that consumers and downstream systems have a legitimate interest in knowing the biological origin of ingredients, independent of the form those ingredients take in the final product. This principle creates a legal floor on identity abstraction: no ingredient can be classified as a pure functional tool, in the regulatory sense, if its biological origin is subject to mandatory disclosure.
+
+This interaction between legal source-declaration obligations and functional identity is one of the novel contributions of the $F$ dimension, examined in detail with reference to specific regulatory provisions and judicial reasoning in @sec-ch-regulatory and @sec-ch-emf.
+
+# The Regulatory Landscape as Ground Truth {#sec-ch-regulatory}
+
+## Why Regulation Precedes Theory
+
+The ontological questions raised in @sec-ch-ontological might appear to invite philosophical resolution---a set of first principles from which a classification framework is deduced. The approach taken here is different. The existing regulatory landscape is treated as empirical evidence of how a functioning legal and commercial system has already resolved many of these questions, and unexplained divergences within that landscape are treated as signals of where principled analysis is most needed.
+
+This is not deference to authority for its own sake. India's food regulatory instruments---the FSSAI Labelling and Display Regulations 2020 [@FSSAI_Label_2020], the Food Products Standards and Food Additives Regulations 2011 [@FSSAI_Additives_2011], and the Indian Trade Classification (Harmonised System)---have been refined through decades of legislative drafting, administrative interpretation, and judicial review. They encode accumulated practical wisdom about which distinctions matter and which do not. A framework that contradicts these instruments without compelling justification is not principled; it is merely unconventional.
+
+## The FSSAI Labelling and Display Regulations, 2020
+
+### The "True Nature" Principle
+
+Regulation 4(1) of the FSSAI Labelling and Display Regulations 2020 establishes the foundational identity norm: the name of a food shall indicate its true nature. Where an established standard exists, the standardised name is required. Where none exists, the common or usual name must be used, supplemented by a description of the true nature where the name alone is insufficient.
+
+This principle establishes source-dominant identity as the regulatory default. An ingredient must be named in a way that accurately conveys what it is---its biological origin, its physical state, its processing history where that history is legally significant. The "true nature" requirement is not merely a naming convention; it is an epistemological commitment to the primacy of material identity over functional identity in the absence of specific provision to the contrary.
+
+### Source Qualification Requirements
+
+The 2020 Regulations impose mandatory source qualifiers for several ingredient categories, creating legally enforceable constraints on functional abstraction.
+
+Edible vegetable oils and fats must be declared with the specific oil type and, where applicable, the processing method.[^fssai-sched2-oils] The Schedule II ingredient class titles prescribe declaration formats including "vegetable fat (specify source type: interesterified vegetable fat / fractionated fat / hydrogenated oils / partially hydrogenated oils / margarine and fat spreads)." Even where intensive chemical modification has occurred---hydrogenation, interesterification---the source type must be named.
+
+[^fssai-sched2-oils]: FSSAI Labelling Regulations 2020, Schedule II, Class Titles 2 and 4.
+
+Animal fats require declaration of their specific animal origin, reflecting the constitutional dimension of source disclosure affirmed by the courts.
+
+Cereal flours must identify the grain source. "Wheat flour," "maize flour," and "rice flour" are distinct required declarations; the generic term "flour" is insufficient where the grain identity is nutritionally and allergically significant.
+
+### The Additive Declaration Format
+
+Regulation 5(5) of the 2020 Regulations introduces the mechanism that makes functional identity legally cognisable: the mandatory declaration of food additives by functional class.[^fssai-reg55] Additives listed in the Food Products Standards and Food Additives Regulations 2011 must be declared with their functional class name first, followed by the specific name or the INS code.
+
+[^fssai-reg55]: FSSAI Labelling Regulations 2020, Regulation 5(5).
+
+The format "Emulsifier (lecithin)" or "Preservative (INS 211)" structurally encodes the priority of function over source in regulatory naming. The functional class is the primary identifier; the specific substance is secondary. This format is mandatory, not optional: it represents a regulatory determination that for additive-classified substances, the technological role is the operationally significant identity for consumer communication.
+
+Schedule I of the 2011 Regulations enumerates twenty-two functional classes, including emulsifier, thickener, stabilizer, preservative, antioxidant, sequestrant, raising agent, humectant, carrier, propellant, and packaging gas.[^fssai-additives-sched1b] The existence of this taxonomy, and the mandatory declaration format that accompanies it, is empirical evidence that Indian food law recognises a distinct category of ingredients whose identity is function-primary.
+
+[^fssai-additives-sched1b]: FSSAI Additives Regulations 2011, Schedule I.
+
+## The Indian Trade Classification (Harmonised System)
+
+### Chapter Structure as Identity Architecture
+
+The Indian Trade Classification (Harmonised System) organises traded goods through a hierarchical chapter structure that encodes, in legally binding form, the identity distinctions that matter for taxation, origin determination, and regulatory compliance. For food ingredients, the relevant architecture spans Chapters 7 through 38, with a characteristic pattern: source-aligned classification in Chapters 7--15, and function-aligned or chemically defined classification in Chapters 29, 35, and 38.
+
+Chapters 7 and 8 cover edible vegetables, fruits, and nuts, classified primarily by botanical species and physical state. Chapter 9 covers coffee, tea, and spices. Chapter 11 covers products of the milling industry: flours, meals, starches, and related products derived from grains and pulses, with HS headings that specify both source and physical form [@DGCI_CH11]. Chapter 15 covers animal and vegetable fats and oils, organised by source, with processing state recorded in subheadings but not displacing source from the primary classification level [@DGCI_CH15].
+
+Chapter 35 covers albuminoidal substances, modified starches, glues, and enzymes. The inclusion of "modified starches" here---rather than Chapter 11 with native starches---is a deliberate regulatory determination that chemical modification of starch sufficiently transforms its identity to warrant reclassification from a milling industry product to a chemically defined substance [@DGCI_CH35]. HS heading 3505 covers "dextrins and other modified starches (for example, pregelatinised or esterified starches)." The migration from Chapter 11 to Chapter 35 represents an HS-encoded identity snap: the same biological material, after a defined degree of transformation, is treated as a different kind of thing.
+
+### Critical Chapter Transitions as Identity Snaps
+
+The most analytically significant feature of the ITC-HS for ingredient classification is the set of chapter transitions that represent discontinuous identity changes---points at which accumulated processing crosses a threshold that the regulatory system treats as qualitatively, not merely quantitatively, significant. Three such transitions are primary.
+
+*Chapter 11 to Chapter 35 (Native Starch to Modified Starch).* Native starches are classified in Chapter 11 as products of the milling industry. Chemically modified starches---acetylated, cross-linked, phosphorylated---migrate to HS heading 3505 in Chapter 35. This transition is triggered by chemical modification of the starch polymer: the introduction of new functional groups that alter the regulatory identity of the material from food commodity to chemically defined functional substance.
+
+*Chapter 15 to Chapter 1516 to Chapters 29/38 (Oils to Chemically Modified Fats to Chemical Products).* Within Chapter 15, a progression exists from crude and refined oils through chemically modified fats (heading 1516, covering hydrogenated, interesterified, re-esterified, and elaidinised fats "not further prepared") to formulated preparations (heading 1517). Lecithins and phosphoaminolipids, derived from vegetable oil processing, are classified under HS heading 2923 in Chapter 29 rather than Chapter 15, reflecting regulatory determination that the identity of these substances is defined by their chemical structure and emulsification function rather than their fat-derived origin.
+
+*Chapter 22 (Brewed Vinegar) versus Chapter 29 (Synthetic Acetic Acid).* Brewed vinegar, produced by double fermentation of agricultural substrates, is classified under HS 2209 in Chapter 22. Glacial acetic acid (synthetic), used as an acidulant, is classified under HS 2915 in Chapter 29. FSSAI regulations require that synthetic vinegar be labelled "SYNTHETIC -- PREPARED FROM ACETIC ACID," distinguishing it from brewed vinegar at the product naming level as well as the tariff level. This parallel treatment across labelling law and tariff classification illustrates the convergent methodology applied throughout this report.
+
+## Judicial Reasoning on Ingredient Identity
+
+### The Supreme Court on Classification Hierarchy
+
+In *Commissioner of Customs (Import) v. M/s Welkin Foods*, decided on 6 January 2026, the Supreme Court of India addressed the hierarchy of interpretive tools applicable to food product classification disputes [@WelkinFoods_2026]. The Court held that Harmonised System codes and tariff headings constitute the primary reference for classification purposes, overruling the common parlance test where the two conflict. Scientific and technical definitions embedded in the HS architecture take precedence over popular understanding of what a product "is" or "is used for."
+
+The practical implication is significant: the identity of an ingredient, for regulatory and legal purposes, is determined by the structure of the classification system rather than by lay or commercial understanding. An ingredient that a consumer would describe as "chocolate" may, for classification purposes, be a "vegetable fat confection" if its cocoa butter content falls below the legal threshold. The technical classification displaces the common-name description.
+
+### The Delhi High Court on Source Disclosure Independence
+
+In *Ram Gaua Raksha Dal v. Union of India and Others*, the Delhi High Court ruled on the interaction between functional-class additive declaration and source-based disclosure requirements [@DelhiHC_RamGaua_2022]. The Court held, first, that source disclosure obligations are independent of the additive-declaration framework: even where an additive is properly declared by functional class and INS number, the source-based identification requirement cannot be displaced. Second, the obligation is percentage-independent: a non-vegetarian ingredient triggers mandatory source disclosure regardless of quantity present. Third, the Court grounded these requirements in Articles 21 and 25 of the Constitution, elevating source disclosure from regulatory preference to fundamental rights protection in specific contexts.
+
+For the classification framework developed here, the judgment establishes a legal ceiling on functional abstraction: regardless of how technically "functional" an ingredient's classification is under the additive schedule or the ITC-HS, source identity cannot be fully abstracted where constitutional disclosure interests apply. This ceiling is incorporated into the $F$ dimension of the model as a contextual modifier.
+
+## The Regulatory Delta: 2011 to 2020
+
+A comparative analysis of the FSSAI Food Products Standards and Food Additives Regulations 2011 and the Labelling and Display Regulations 2020 reveals a systematic shift in the regulatory treatment of ingredient identity [@FSSAI_RegulatoryDelta]. The 2020 Regulations expanded the scope of mandatory source qualification, tightened the format requirements for additive declaration, and introduced new provisions for allergen labelling and the declaration of processing aids. These changes collectively increased the regulatory resolution of ingredient identity: more distinctions are now legally mandated, and more instruments are available to enforce them.
+
+This trajectory is relevant to the benchmark in @sec-benchmark: the 35 test cases are calibrated to the current regulatory state as of 2025, with the understanding that the framework must accommodate regulatory evolution without requiring wholesale reconstruction.
+
+## The Identity Discrimination Benchmark {#sec-benchmark}
+
+### Purpose and Scope
+
+The benchmark serves a specific and bounded purpose: it provides a replicable, publicly stated set of discrimination tests against which any ingredient classification framework---including the $E$--$M$--$F$ model developed in @sec-ch-emf---can be evaluated. A framework that fails to produce correct discriminations on the benchmark cases is demonstrably inadequate; a framework that passes all cases has cleared a necessary but not sufficient condition for general adequacy.
+
+The benchmark is adversarial by design. Each test case represents a discrimination that a naive or flat classification system would likely fail, while a principled framework grounded in regulatory and scientific evidence should resolve correctly. The test cases span the full range of ingredient transformation---from thermal history without identity change to complete chemical synthesis---and cover the major regulatory identity snaps documented above.
+
+The discriminatory power of a framework applied to the benchmark is quantified by a Determinism Quotient (DQ):
+
+$$DQ = \frac{\sum \text{Correct Discriminations}}{35}$$ {#eq-dq}
+
+A DQ of 1.0 indicates correct differentiation of all 35 pairs. Partial scores indicate specific domains of weakness. The DQ measures logical consistency with regulatory ground truth, not statistical performance.
+
+### The 35-Test Identity Discrimination Benchmark
+
+| **ID** | **Does the framework differentiate between...** | **Reason for Testing (Regulatory/Nutritional Logic)** |
+|:------:|:------------------------------------------------|:------------------------------------------------------|
+| 1 | Raw Apple vs. Chilled Apple | Floor test for thermal history without identity snap. Chilling is minimal processing with no regulatory rename. A framework must not produce a distinct canon from refrigeration alone. |
+| 2 | Whole Wheat Flour vs. Maida | Detection of matrix stripping. FSSAI product standards 2.4.1 and 2.4.2 distinguish these as separate regulated commodities with different ash content and extraction rate specifications. |
+| 3 | Maida vs. Native Wheat Starch | Snap from whole-plant milling to nutrient isolation. Maida retains protein and some non-starch material; native wheat starch is a purified carbohydrate fraction. FSSAI and HS Chapter 11 distinguish these within the milling chapter before any chemical modification occurs. |
+| 4 | Sliced Onion vs. Onion Powder | Mass concentration threshold and matrix disruption. Dehydration concentrates all components by approximately 10-fold; the resulting powder has different nutritional density, water activity, and regulatory handling characteristics. |
+| 5 | Raw Milk vs. Pasteurised Milk | Identification of the primary legal safety processing step. FSSAI dairy standards require heat treatment declaration; the legal name changes from "milk" to "pasteurised milk." The framework must register this change without treating the two as entirely separate biological entities. |
+| 6 | Fresh Fruit vs. Dehydrated Fruit | Phase change and water activity boundary ($a_w$). Dehydrated fruit is regulated under different FSSAI standards, has different microbiological risk profiles, and occupies different HS subheadings. |
+| 7 | Raw Honey vs. Pasteurised Honey | Enzymatic integrity versus thermal stabilisation. FSSAI honey standards distinguish these based on diastase activity; the framework must capture the enzymatic dimension of processing history. |
+| 8 | Cold Pressed Oil vs. Refined Oil | Chemical separation and solvent-based processing floor. FSSAI mandates different label designations; Codex CXS 19-1981 restricts the term "cold pressed" to oil obtained without heat addition and without additives. Refined oil has passed through deacidification, bleaching, and deodorisation. |
+| 9 | Butter vs. Ghee | Separation of dairy solids and water. FSSAI product standards under Chapter 2.2 define butter and ghee as distinct dairy fat products with different compositional specifications. The two occupy the same HS chapter (Chapter 04) but different HS headings. |
+| 10 | Ghee vs. Anhydrous Milk Fat | Chemical peak of lipid purity. Anhydrous milk fat (AMF) achieves approximately 99.9% lipid content through a more intensive separation process than ghee, with Codex standard CXS 280-1973 defining separate parameters for each. |
+| 11 | Liquid Vegetable Oil vs. Vanaspati | Catalytic hydrogenation snap. FSSAI defines vanaspati under Chapter 2.2.6 as a hydrogenated vegetable oil product with mandatory trans fat disclosure. HS heading 1516 applies to hydrogenated fats, distinct from unmodified oil headings 1507--1515. |
+| 12 | Vanaspati vs. Interesterified Fat | Molecular rearrangement for structural utility. Interesterification redistributes fatty acids among glycerol backbones, creating a different melting profile without full saturation. Both fall under HS 1516 but with distinct process designations; FSSAI Schedule II requires specific naming of interesterified vegetable fat. |
+| 13 | Milk vs. Dairy Whitener | Functionality shift from beverage to additive carrier. Dairy whitener is a formulated product containing dried milk with emulsifiers, anticaking agents, and flow agents; its primary commercial function is as an additive to beverages, not as a standalone nutritional source. |
+| 14 | Coconut Milk vs. Coconut Oil | Emulsion-to-lipid snap. Coconut milk is an aqueous emulsion of coconut fat in coconut water (HS Chapter 21 preparation); coconut oil is the isolated lipid fraction (HS Chapter 15). These are categorically different regulatory entities despite sharing a botanical source. |
+| 15 | Raw Milk vs. Yogurt/Curd | Biological conversion and structural coagulation. Fermentation transforms the protein matrix, carbohydrate profile, and pH of milk; FSSAI product standards and HS Chapter 04 treat curd and milk as distinct dairy products. |
+| 16 | Curd vs. Soy Dahi (Analogue) | Source-origin verification (plant versus animal identity). A plant-based analogue mimicking the sensory properties of curd must be declared as a dairy analogue under FSSAI labelling rules and cannot use the term "dahi" without qualification. The framework must distinguish biological source even where functional and sensory properties overlap. |
+| 17 | Fruit Juice vs. Fruit Vinegar | Snap from sugar matrix to biological acid matrix. Fermentation transforms ethanol to acetic acid; the resulting product is governed by FSSAI vinegar standards and HS Chapter 22 vinegar heading, categorically distinct from juice classification. |
+| 18 | Vinegar vs. Glacial Acetic Acid | Biogenic origin versus petrochemical synthesis. FSSAI mandates "SYNTHETIC -- PREPARED FROM ACETIC ACID" labelling for non-fermented vinegar substitutes. HS chapter migration from Chapter 22 (beverages) to Chapter 29 (organic chemicals) is required. |
+| 19 | Cane Sugar vs. Xanthan Gum | Fermentation product as tool versus substrate identity. Xanthan gum, produced by fermentation of glucose substrates by *Xanthomonas campestris*, is classified as a food additive (stabilizer, INS 415) under FSSAI Schedule I and in Chapter 13 or 35 of ITC-HS, entirely distinct from its sugar feedstock. |
+| 20 | Natural Yeast vs. Chemical Leavening | Biological versus inorganic gas-release mechanisms. Yeast leavening is a biological process; sodium bicarbonate and baking powder are classified as food additives (raising agents, INS 500) with inorganic chemistry origins. |
+| 21 | Wheat Flour vs. Maltodextrin | Enzymatic hydrolysis: matrix-to-molecular snap. Maltodextrin, produced by partial hydrolysis of starch, occupies HS heading 1702 (other sugars) or 1108 (starches) depending on dextrose equivalent; it is categorically distinct from the flour from which it derives. |
+| 22 | Native Starch vs. Modified Starch | Identity snap from Chapter 11 to Chapter 35 of ITC-HS. Chemical modification (acetylation, cross-linking, phosphorylation) moves starch from the milling industry chapter to the albuminoidal substances and modified starches chapter. FSSAI labelling requires explicit naming of modified starches as such. |
+| 23 | Whole Soya Bean vs. Soya Lecithin | Food-to-emulsifier snap ($F$ peak). Soya lecithin is extracted from soybean oil, concentrated to a phospholipid-rich fraction, and classified as a food additive (emulsifier, INS 322) under FSSAI Schedule I and under HS 2923 (phosphoaminolipids) in Chapter 29---entirely distinct from the whole soybean. |
+| 24 | Sugar vs. High Fructose Corn Syrup | Enzymatic synthesis of non-natural sugar ratios. High fructose corn syrup is produced by enzymatic isomerisation of glucose; its fructose content does not occur in natural corn starch and produces a functionally and metabolically distinct sweetener. |
+| 25 | Vanilla Bean vs. Natural Vanilla Extract | Solvent extraction versus biological matrix integrity. Natural vanilla extract is produced by aqueous or ethanolic extraction; it is a concentrated flavouring preparation classified under Chapter 33 (essential oils, resinoids) rather than Chapter 9 (spices), with distinct regulatory treatment under FSSAI flavouring guidelines. |
+| 26 | Natural Vanilla Extract vs. Synthetic Vanillin | Signal-to-source divorce. Synthetic vanillin (4-hydroxy-3-methoxybenzaldehyde, HS 2912.41) is classified in Chapter 29 (organic chemicals); it cannot be labelled as "natural vanilla flavouring" under FSSAI regulations and must be declared as "artificial flavouring" or "flavouring (vanillin)." |
+| 27 | Chocolate vs. Chocolate Substitute | Legal admission of non-cocoa fats as identity limit. FSSAI product standards for chocolate set minimum cocoa solids and cocoa butter content; products falling below these thresholds must be designated "chocolate-flavoured" or "compound chocolate" rather than "chocolate." |
+| 28 | Natural Dietary Fibre vs. Purified Cellulose | Isolation of non-nutritive structural tool. Microcrystalline cellulose (MCC, INS 460) is an additive-classified substance under FSSAI Schedule I, used as a bulking agent, anticaking agent, and stabiliser; it is categorically distinct from the dietary fibre content declared on nutrition labels. |
+| 29 | Cane Sugar vs. Aspartame | Caloric bulk versus high-potency functional signal. Aspartame (INS 951) is classified as an intense sweetener under FSSAI Schedule I at use levels approximately 200 times lower than sugar by mass; its functional identity is defined by sweetening intensity, not caloric contribution. |
+| 30 | Sea Salt vs. Sodium Benzoate | Flavour seasoning versus system utility (preservative). Sodium benzoate (INS 211) is classified as a preservative under FSSAI Schedule I; its primary function is microbial inhibition, not flavour. The framework must not conflate sodium-containing ingredients on the basis of cation similarity. |
+| 31 | Guar Gum vs. Cereal Flour | Peak viscosity utility versus caloric mass contribution. Guar gum (INS 412), classified as a thickener and stabiliser under FSSAI Schedule I, is used at 0.1--0.5% inclusion levels for viscosity; cereal flour is a bulk ingredient providing starch and protein at 40--80% of formulation weight. |
+| 32 | Lemon Juice vs. Citric Acid | Purity-utility snap: food versus acidulant tool. Lemon juice is a food ingredient governed by FSSAI product standards (Chapter 20 of ITC-HS); citric acid (INS 330) is a food additive classified as an acidity regulator under FSSAI Schedule I and in Chapter 29 of ITC-HS. |
+| 33 | Smoked Meat vs. Liquid Smoke | Process-integral flavour versus additive signal divorce. Liquid smoke is a condensate of wood combustion products, standardised and classified as a flavouring preparation under FSSAI regulations; it is a discrete additive, not the outcome of an integrated processing step, and must be declared in the ingredient list. |
+| 34 | Natural Beta-Carotene vs. Synthetic Beta-Carotene | Source coordinate verification. Natural beta-carotene (extracted from vegetables or algae) and synthetic beta-carotene (chemical synthesis) are chemically identical but classified differently for the purpose of "natural colour" claims under FSSAI and comparable labelling frameworks. The framework must capture source coordinate even where molecular structure is identical. |
+| 35 | Bulk Ingredient vs. INS Carrier/Additive | Maximum divorce: the functional infrastructure peak. An ingredient serving no direct nutritional, sensory, or structural role in the final food product---functioning purely as a carrier, processing aid, or technical auxiliary---represents the terminus of the identity axis. The framework must distinguish this from any ingredient contributing to the food's nutritional or sensory character. |
+
+: Identity Discrimination Benchmark: 35 adversarial test pairs. {#tbl-benchmark}
+
+### Benchmark Validation Protocol
+
+The benchmark is applied to the $E$--$M$--$F$ model in @sec-ch-validation. The validation records, for each test pair, the model coordinates assigned to each member and whether those coordinates produce a differentiated classification outcome. A differentiated outcome requires that the two members of the pair be assigned to different canonical zones (variant, independent canon, or functional tool) or that their coordinate values differ sufficiently to warrant different regulatory and operational treatment.
+
+Critiques of the benchmark---whether challenging the selection of test pairs, the regulatory evidence cited, or the pass/fail criteria---are subject to the contribution protocol in @sec-app-critique. Critique without proposed revision and evidence does not constitute engagement with the benchmark.
+
+# The $E$--$M$--$F$ Tri-Axial Identity Model {#sec-ch-emf}
+
+## The Need for Three Dimensions
+
+Chapters 2 through 5 have established that ingredient identity is not a single-dimensional property. Flat canonisation collapses distinctions that matter; classification by processing level alone conflates ingredients that regulatory systems treat as categorically different. Ranganathan's faceted approach provides the theoretical architecture, but its application to food ingredients requires computational operationalisation: dimensions that are measurable, independently assignable, and combinable into a diagnostic framework.
+
+Three dimensions are necessary and, as argued below, sufficient to capture the identity distinctions that regulatory systems actually make.
+
+First, *how invasively was the ingredient transformed?* This is a question about process: the energy and chemistry invested in moving an ingredient away from its native biological state. It is measured by the Anthropogenic Energy Score ($E$).
+
+Second, *how far has the ingredient moved from its source matrix?* This is a question about the resulting material: how much of the original biological context---moisture, fibre, co-nutrients, cellular structure---remains in the ingredient as it enters the food system. It is measured by the Matter Score ($M$).
+
+Third, *does the ingredient's regulatory and commercial identity follow its biological source or its technological function?* This is a question about the legal-semiotic position of the ingredient: whether it is named, classified, and governed as a product of a biological origin or as a performer of a technological role. It is measured by the Functional Score ($F$).
+
+These dimensions are independent. A moderately processed ingredient can have high functional identity (propellant gases have high $F$ despite moderate $E$). A heavily processed ingredient can retain low functional identity (hydrogenated vegetable oil has high $E$ but low $F$ because regulatory naming retains source primacy). No single axis is sufficient to determine identity, and the combination of all three resolves cases that any two alone leave ambiguous.
+
+The full technical justification for each score assigned in the tables that follow---including process-by-process derivations, supporting citations, and defensibility ratings---is documented in the companion scoring report [@EMF_JustificationCompanion]. The present chapter states the framework and its outputs; the companion document shows the derivation.
+
+## The Anthropogenic Energy Score ($E$)
+
+### Definition and Interpretive Range
+
+The Anthropogenic Energy Score $E$ quantifies the invasiveness of the transformation pathway applied to an ingredient, ranging from $E = 0$ (native biological state, no industrial transformation) to $E = 1.0$ (complete chemical synthesis with no biological material present or traceable).
+
+The scale is continuous but structured around four interpretive bands, each anchored in regulatory and chemical distinctions:
+
+- **Physical (0.10--0.35):** Mechanical handling with no intentional molecular re-identity. Sorting ($E \approx 0.12$), washing ($E \approx 0.15$), dehusking ($E \approx 0.22$), milling ($E \approx 0.28$), cold pressing ($E \approx 0.32$). These operations alter the physical form of the ingredient without targeting covalent bonds.
+
+- **Thermal/Biological (0.40--0.60):** Phase change, safety stabilisation, and biological conversion. Churning ($E \approx 0.45$), pasteurisation ($E \approx 0.48$), clarification for ghee production ($E \approx 0.55$), fermentation ($E \approx 0.56$), roasting ($E \approx 0.58$). These operations alter the structural or chemical state of the ingredient while retaining a clear connection to the biological source in regulatory naming.
+
+- **Fractional/Refinement (0.70--0.82):** Separation into functional fractions using solvents, controlled crystallisation, or industrial purification. Solvent extraction ($E \approx 0.82$), fractionation ($E \approx 0.76$), refining ($E \approx 0.75$). These operations produce technically defined fractions that may lack the botanical character of the starting material.
+
+- **Chemical/Synthetic (0.85--1.0):** Intentional covalent modification or de novo synthesis. Interesterification ($E \approx 0.91$), hydrogenation ($E \approx 0.92$), acetylation ($E \approx 0.94$), synthetic flavours ($E \approx 0.98$--$0.99$). These operations introduce new functional groups, rearrange molecular structures, or produce chemically defined substances with no necessary biological precursor.
+
+### $E$ as Process History, Not Quality Assessment
+
+A critical interpretive constraint must be stated explicitly: the $E$ score is not a quality assessment, a health score, or a value judgement. Ghee, a product of deep cultural and nutritional significance, carries an $E$ score of approximately 0.55 because it is produced through thermal concentration and clarification---processes that are moderately invasive relative to the full scale. This does not make ghee inferior to cold-pressed oil in any nutritional, cultural, or commercial sense. The $E$ score records what happened to the ingredient; it does not evaluate whether that history is desirable.
+
+Similarly, a high $E$ score for synthetic vanillin ($E \approx 0.98$) does not imply that it is unsafe or inappropriate for use. JECFA evaluations and approved INS classifications confirm that synthetic vanillin is safe at specified use levels. The high $E$ score records the degree of chemical synthesis involved in its production.
+
+### Selected $E$ Score Reference Values
+
+@tbl-escores presents reference $E$ values for representative processes.
+
+| **Process** | **$E$** | **Band** |
+|:------------|:-------:|:---------|
+| Sorting | 0.12 | Physical |
+| Washing | 0.15 | Physical |
+| Chilling | 0.18 | Physical |
+| De-husking | 0.22 | Physical |
+| Milling (e.g., Besan) | 0.28 | Physical |
+| Cold Pressing (Oil) | 0.32 | Physical |
+| Churning (Butter) | 0.45 | Physical/Thermal |
+| Pasteurization | 0.48 | Thermal |
+| Clarification (Ghee) | 0.55 | Thermal |
+| Fermentation (Vinegar) | 0.56 | Biological |
+| Roasting | 0.58 | Thermal/Chemical |
+| Refining (Vegetable Oil) | 0.75 | Industrial/Fractional |
+| Fractionation (Olein) | 0.76 | Industrial/Fractional |
+| Solvent Extraction (Oils) | 0.82 | Industrial/Fractional |
+| Interesterification | 0.91 | Chemical/Synthetic |
+| Hydrogenation | 0.92 | Chemical/Synthetic |
+| Acetylation (Modified Starch) | 0.94 | Chemical/Synthetic |
+| Synthetic Vanillin | 0.98 | Chemical/Synthetic |
+| Synthetic Flavors (General) | 0.99 | Chemical/Synthetic |
+
+: Selected Anthropogenic Energy Score ($E$) reference values. {#tbl-escores}
+
+## The Matter Score ($M$)
+
+### Definition and Interpretive Range
+
+The Matter Score $M$ measures the degree of departure of the ingredient's final commercial state from the original biological matrix, ranging from $M = 0$ (whole, hydrated, structurally intact biological material) to $M = 1.0$ (chemically defined pure substance with no remaining biological matrix).
+
+Where $E$ measures the transformation *process*, $M$ measures the transformation *result*: the state of the material as it enters the food system. An ingredient may undergo a high-$E$ process and emerge with a relatively low $M$ if the process retains most of the original matrix (roasting leaves the bulk carbohydrate, fat, and protein structure largely intact). Conversely, a moderate-$E$ process applied repeatedly or intensively may produce a high-$M$ result (spray-drying combined with prior concentration and protein precipitation produces a protein isolate at $M \approx 0.78$).
+
+Seven conceptual matter classes provide interpretive anchors:
+
+1. **Hydrated/Native ($M = 0.05$--$0.15$):** Whole or minimally cut foods with cellular water and anatomical structure largely intact.
+2. **Comminuted ($M = 0.25$--$0.36$):** Physically reduced particle size; full nutrient spectrum retained; cellular structure disrupted but not fractionated.
+3. **Dehydrated/Concentrated ($M = 0.38$--$0.52$):** Water removed or matrix densified; major macronutrients retained; water activity substantially reduced.
+4. **Structural Fractionation ($M = 0.50$--$0.60$):** Selective removal or enrichment of specific macronutrient fractions (skim milk, defatted meal, clarified juice).
+5. **Constitutional Isolate ($M = 0.70$--$0.82$):** One major macronutrient isolated to high technical purity (vegetable oils, protein isolates, purified fat fractions).
+6. **Molecular Signal/Extract ($M = 0.86$--$0.90$):** High-potency, low-mass signals isolated from the biological matrix (essential oils, oleoresins, emulsifiers).
+7. **De Novo/Synthetic Matter ($M = 0.96$--$0.99$):** Chemically defined substances with no required biological matrix (modified starches, synthetic flavours, inorganic salts).
+
+### Selected $M$ Score Reference Values
+
+@tbl-mscores presents reference $M$ values for representative commercial states.
+
+| **Final Commercial State** | **$M$** | **Matter Class** |
+|:---------------------------|:-------:|:-----------------|
+| Whole/fresh pieces | 0.05 | Hydrated/Native |
+| Cut/sliced pieces | 0.10 | Hydrated/Native |
+| Pulp/puree | 0.25 | Comminuted |
+| Coarse grits | 0.30 | Comminuted |
+| Flour/fine powder | 0.33 | Comminuted |
+| Flakes | 0.36 | Dehydrated/Concentrated |
+| Dense block (e.g., khoya) | 0.38 | Dehydrated/Concentrated |
+| Concentrate (liquid) | 0.40 | Dehydrated/Concentrated |
+| Powder (spray-dried) | 0.42 | Dehydrated/Concentrated |
+| Juice (clarified) | 0.50 | Structural Fractionation |
+| Whey powder | 0.52 | Structural Fractionation |
+| Skim/defatted meal | 0.55 | Structural Fractionation |
+| Starch flour | 0.60 | Structural Fractionation |
+| Oil | 0.70 | Constitutional Isolate |
+| Fat fraction | 0.72 | Constitutional Isolate |
+| Protein concentrate | 0.74 | Constitutional Isolate |
+| Protein isolate | 0.78 | Constitutional Isolate |
+| Granules (agglomerated isolate) | 0.80 | Constitutional Isolate |
+| Extract/oleoresin | 0.86 | Molecular Signal/Extract |
+| Oleoresin (viscous) | 0.88 | Molecular Signal/Extract |
+| Emulsifier powder (e.g., lecithin) | 0.89 | Molecular Signal/Extract |
+| Essential oil | 0.90 | Molecular Signal/Extract |
+| Modified starch powder | 0.96 | De Novo/Synthetic |
+| Crystalline chemical | 0.98 | De Novo/Synthetic |
+
+: Selected Matter Score ($M$) reference values. {#tbl-mscores}
+
+## The Functional Score ($F$)
+
+### Definition and Motivation
+
+The Functional Score $F$ measures the degree to which the legal and commercial identity of an ingredient is governed by its technological function rather than its biological origin. It ranges from $F \approx 0.10$ (identity fully source-dominant) to $F = 0.95$ (identity fully function-dominant), with the following interpretive zones:
+
+- **Source-Dominant ($F = 0.10$--$0.25$):** Primary structure, bulk, calories, protein; regulatory naming follows food commodity name; technological function is implicit. Examples: base ingredients, spices, edible oils, dairy fats.
+
+- **Source-Retaining, Function-Emergent ($F = 0.35$--$0.55$):** Technological role is acknowledged in naming but source remains primary or co-equal. Examples: bulking agents, humectants, firming agents, raising agents.
+
+- **Function-Emergent ($F = 0.60$--$0.75$):** Technological function is primary in regulatory naming; source is secondary or parenthetical. Examples: thickeners, stabilisers, gelling agents, foaming agents, colours.
+
+- **Function-Dominant ($F = 0.80$--$0.95$):** Pure tool-identity; source fully abstracted or irrelevant to classification. Examples: emulsifiers, preservatives, sequestrants, bleaching agents, carriers, propellants.
+
+### $F$ Is Not Derived from $E$ and $M$
+
+The $F$ score is not a mathematical function of $E$ and $M$. This independence is the central methodological commitment of the tri-axial framework, motivated by empirical evidence that the correlation between processing intensity, matrix distance, and functional naming is imperfect.
+
+Two cases illustrate the independence. First, fractionated palm olein ($E \approx 0.76$, $M \approx 0.72$) has high process intensity and substantial matrix distance, yet its regulatory naming is source-primary ("fractionated palm oil," HS Chapter 15); its $F$ score is approximately 0.35. Second, a packaging gas such as nitrogen ($E \approx 0.60$, $M \approx 0.90$) has moderate process intensity, but its regulatory and commercial identity is defined entirely by its physical properties and atmospheric function; its $F$ score is 0.95. No formula relating $E$ and $M$ to $F$ would correctly place both.
+
+The $F$ score is derived from a three-part test:
+
+1. **FSSAI naming test:** Does the mandatory label declaration format require a functional class name as the primary identifier ("Emulsifier (lecithin)") or a source-based name ("palm oil")?
+2. **ITC-HS chapter test:** Does the ingredient's classification reside in source-aligned chapters (7--15) or function-aligned/chemically defined chapters (29, 35, 38)?
+3. **Judicial precedent test:** Does case law require or permit functional abstraction, or does it mandate source-based disclosure for the ingredient category?
+
+An ingredient achieves function-dominant status ($F \geq 0.80$) only when all three tests converge on functional identity. Where tests produce conflicting signals---as with gelatin, whose gelling function supports high $F$ but whose animal origin triggers source-disclosure obligations under the reasoning of *Ram Gaua Raksha Dal* [@DelhiHC_RamGaua_2022]---the $F$ score reflects the net regulatory position after accounting for the constraint.
+
+### $F$ Scores Across FSSAI Functional Classes
+
+@tbl-fscores presents the $F$ range for each of the twenty-two functional classes enumerated in Schedule I of the Food Products Standards and Food Additives Regulations 2011, derived from the three-part test.
+
+| **Functional Class** | **$F$ Score** | **Zone** |
+|:---------------------|:-------------:|:---------|
+| Base ingredient (non-additive) | 0.12 | Source-Dominant |
+| Taste profile / spice | 0.18 | Source-Dominant |
+| Lipid base (edible oil/fat) | 0.22 | Source-Dominant |
+| Bulking agent | 0.35--0.40 | Source-Retaining |
+| Humectant | 0.40--0.45 | Source-Retaining |
+| Firming agent | 0.42--0.48 | Source-Retaining |
+| Raising agent | 0.45--0.50 | Source-Retaining |
+| Flavouring agent | 0.60--0.75 | Function-Emergent |
+| Thickener | 0.58--0.65 | Function-Emergent |
+| Stabiliser | 0.62--0.68 | Function-Emergent |
+| Gelling agent | 0.65--0.70 | Function-Emergent |
+| Sweetener (bulk/intense) | 0.55--0.70 | Function-Emergent |
+| Foaming agent | 0.70--0.75 | Function-Emergent |
+| Colour | 0.75--0.85 | Function-Emergent / Dominant |
+| Emulsifier | 0.80--0.85 | Function-Dominant |
+| Anticaking agent | 0.85 | Function-Dominant |
+| Acidity regulator | 0.85--0.87 | Function-Dominant |
+| Antioxidant | 0.87--0.88 | Function-Dominant |
+| Preservative | 0.87--0.90 | Function-Dominant |
+| Antifoaming agent | 0.90 | Function-Dominant |
+| Sequestrant | 0.90--0.92 | Function-Dominant |
+| Bleaching agent | 0.92 | Function-Dominant |
+| Flour treatment agent | 0.93 | Function-Dominant |
+| Carrier | 0.94 | Function-Dominant |
+| Propellant | 0.95 | Function-Dominant |
+| Packaging gas | 0.95 | Function-Dominant |
+
+: Functional Score ($F$) ranges by FSSAI Schedule I functional class. {#tbl-fscores}
+
+### $F$ as Tie-Breaker
+
+The primary operational contribution of the $F$ dimension is resolution of ambiguity in cases where $E$ and $M$ produce similar coordinates for ingredients that regulatory systems treat as categorically distinct. This tie-breaking function is clearest in the lipid category.
+
+Soy lecithin ($E \approx 0.82$, $M \approx 0.89$) and fractionated palm olein ($E \approx 0.76$, $M \approx 0.72$) are both heavily processed and substantially abstracted from their biological matrices. On $E$ and $M$ alone, they appear at similar positions in transformation space. But their regulatory identities diverge sharply: soy lecithin is classified as a food additive under FSSAI Schedule I (emulsifier, INS 322) and in HS Chapter 29 (phosphoaminolipids); its primary regulatory identity is functional. Fractionated palm olein is classified as a vegetable fat under FSSAI Schedule II class titles and in HS Chapter 15; its primary regulatory identity is source-based. The $F$ scores---approximately 0.82 for lecithin and 0.35 for fractionated palm olein---resolve this ambiguity and produce distinct classification outcomes.
+
+## The $E$--$M$--$F$ Coordinate System
+
+Each ingredient is assigned a position in a three-dimensional coordinate space: $E \in [0, 1]$, $M \in [0, 1]$, $F \in [0, 1]$. The position $(E, M, F)$ is the ingredient's identity coordinate---its location in the space of processed ingredients, determined independently on each dimension.
+
+The coordinate is not a summary statistic; it is a structured representation preserving the information carried by each dimension. Two ingredients with the same $D$ score (derived in @sec-ch-divorce) may have very different coordinate profiles reflecting different kinds of identity transformation. The coordinate system allows these differences to be traced and reasoned about.
+
+Assignment of coordinates follows the evidence hierarchy: FSSAI regulations and product standards take precedence over general labelling rules; ITC-HS chapter assignments provide independent corroboration; judicial reasoning fills gaps and resolves conflicts. Where evidence is unavailable or conflicting, the assignment is flagged as provisional and subject to revision through the contribution protocol in @sec-app-critique.
+
+# The Divorce Score ($D$) and Operational Zones {#sec-ch-divorce}
+
+## From Coordinates to Classification
+
+The three-dimensional coordinate $(E, M, F)$ assigns an ingredient a position in transformation space, but operational deployment requires a scalar classification: a single determination of which zone an ingredient occupies. The Divorce Score $D$ serves this purpose. It aggregates the three coordinates into a single composite index placing ingredients into one of three operationally distinct zones corresponding to the three ontological positions: variant of a biological source, independent canonical entity, and functional tool.
+
+## Definition of the Divorce Score
+
+$$D = 0.3 \cdot E + 0.3 \cdot M + 0.4 \cdot F$$ {#eq-divorce}
+
+where $E$, $M$, and $F$ are the Anthropogenic Energy, Matter, and Functional scores respectively, each in $[0, 1]$. The resulting $D$ score is also in $[0, 1]$.
+
+### Weight Rationale
+
+The weighting scheme assigns the highest weight (0.4) to $F$ and equal weights (0.3 each) to $E$ and $M$. This allocation reflects the empirical finding that regulatory naming and trade classification---captured by $F$---are the most reliable single predictors of identity zone in borderline cases, while $E$ and $M$ provide necessary context that $F$ alone cannot supply.
+
+An ingredient can have high $E$ and $M$ while remaining in a source-primary zone if regulatory frameworks have determined that its identity should remain tied to its biological origin despite intensive processing (hydrogenated vegetable oil is the paradigm case). Conversely, an ingredient can have moderate $E$ and $M$ while being fully function-primary if its regulatory naming and HS classification are function-dominant (packaging gases are the paradigm case). In both cases, $F$ is the decisive variable; the 0.4 weight acknowledges this without making $E$ and $M$ redundant.
+
+The equal weighting of $E$ and $M$ reflects their complementarity: $E$ describes the transformation history while $M$ describes the resulting state, and cases where these diverge are precisely where both pieces of information are needed to characterise the ingredient accurately.
+
+The weights in @eq-divorce are explicitly provisional. They reflect the best current judgement calibrated against the benchmark cases in @sec-ch-validation. Refinement using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in @sec-app-critique.
+
+## The Three Operational Zones
+
+### Zone 1: Variant ($D < 0.30$)
+
+An ingredient with $D < 0.30$ is classified as a *variant*---a representation of a biological source sufficiently close to the source, in process history, material state, and regulatory naming, to be filed under the same canonical entity. Variants do not require independent canon entries; they are represented through the suffix system as elaborated forms of a canonical identity.
+
+Examples of variant-zone ingredients include whole fresh produce, minimally processed grains, cold-pressed oils from named sources, dried whole spices, and named dairy products such as pasteurised milk and fresh curd. The variant zone encompasses the full range of legitimate labelling variation that does not rise to the level of a distinct regulatory or nutritional identity.
+
+Within the variant zone, the suffix system preserves distinctions that matter commercially and culturally. A brand using "Mathania Red Chilli" is in the variant zone relative to the "Red Chilli" canon; its specific suffix records geographic origin without displacing the canon. A brand using "Kashmiri Lal Mirch" occupies the same zone with a different suffix. Both coordinate under the same canon while retaining their distinct commercial identities.
+
+### Zone 2: Independent Canon ($0.30 \leq D \leq 0.70$)
+
+An ingredient with $D$ in $[0.30, 0.70]$ constitutes an *independent canon*---an entity sufficiently distinct from any biological source to warrant its own canonical entry, but not so transformed that its identity is wholly defined by its technological function. Independent canons have a biological origin that remains traceable and relevant to their identity, but they are not interchangeable with other forms of that origin for regulatory, nutritional, or commercial purposes.
+
+Examples include refined vegetable oils, dairy fat fractions (ghee, butter), fermented vinegar, modified starches before the HS Chapter 11-to-35 migration, protein concentrates, spray-dried powders of identifiable biological origin, and dehydrated fruit products.
+
+### Zone 3: Functional Tool ($D > 0.70$)
+
+An ingredient with $D > 0.70$ is classified as a *functional tool*---an entity whose identity is primarily defined by its technological role rather than its biological origin. Functional tools do not contribute directly to the nutritional or sensory character of the food from the consumer's perspective; they are infrastructure enabling the food system to achieve technical objectives.
+
+This does not mean functional tools are unimportant. Emulsifiers, preservatives, sequestrants, and carriers are essential to the safety, stability, and palatability of packaged foods. But their identity, for regulatory and classification purposes, follows their function, not their source. The declaration format mandated by FSSAI ("Functional Class (Specific Name or INS)") encodes this principle in law.
+
+Examples include emulsifiers (soya lecithin, mono- and diglycerides), preservatives (sodium benzoate, potassium sorbate), sequestrants (calcium disodium EDTA), carriers, packaging gases, and modified starches classified under HS Chapter 35. Synthetic flavouring substances---where source is not required to be declared and identity is defined by molecular structure and sensory function---also occupy this zone.
+
+## Zone Boundaries and Source Disclosure Obligations
+
+The Divorce Score thresholds are not unconditional. Two legal constraints modify the operational effect of zone assignment.
+
+First, the allergen disclosure requirement: FSSAI Regulation 5(14) mandates declaration of common allergens---including cereals containing gluten, peanuts, soybeans, milk, eggs, fish, crustaceans, and tree nuts---regardless of the ingredient's zone assignment.[^fssai-reg514] A soy lecithin with $D > 0.70$ is classified as a functional tool, but its soy origin must still be disclosed for allergen purposes. Zone 3 classification does not displace the allergen disclosure obligation.
+
+[^fssai-reg514]: FSSAI Labelling Regulations 2020, Regulation 5(14).
+
+Second, the religious/ethical source disclosure requirement: as established by the Delhi High Court in *Ram Gaua Raksha Dal* [@DelhiHC_RamGaua_2022], the vegetarian/non-vegetarian origin of an ingredient must be declared regardless of its processing level or functional classification. Gelatin derived from animal bones, used as a gelling agent, carries a mandatory source-disclosure obligation on religious grounds that cannot be displaced by functional naming.
+
+These constraints do not alter the zone assignment---the $D$ score and zone determination remain as computed---but they create additional labelling obligations that apply in parallel. The framework records these obligations as conditional metadata attached to the canonical entry.
+
+## Worked Zone Assignments
+
+The following five examples illustrate the zone assignment process, using @tbl-escores and @tbl-mscores as the reference for individual score values.
+
+### Cold-Pressed Sesame Oil
+
+Cold pressing applies mechanical extraction without heat or solvent: $E = 0.32$. The resulting product is a pure triglyceride fraction with the biological source fully present in lipid form: $M = 0.70$. Regulatory naming is source-primary throughout---"sesame oil" is the mandatory declaration name, HS Chapter 15---placing this firmly in the lipid base functional category: $F = 0.22$.
+
+$$D = 0.3(0.32) + 0.3(0.70) + 0.4(0.22) = 0.096 + 0.210 + 0.088 = \mathbf{0.394}$$
+
+*Zone 2 (Independent Canon).* Cold-pressed sesame oil is not a variant of whole sesame seeds---the process and resulting state differ enough to warrant its own canonical entry---but its identity remains source-primary throughout. Solvent-extracted refined sesame oil, by contrast, carries $E = 0.75$ from the additional refining steps (deacidification, bleaching, deodorisation), yielding $D = 0.3(0.75) + 0.3(0.70) + 0.4(0.22) = 0.225 + 0.210 + 0.088 = 0.523$, also Zone 2 but a distinct canon with a $D$ difference of 0.129 from its cold-pressed counterpart.
+
+### Soya Lecithin
+
+Extraction from soybean oil through degumming, fractionation, and drying involves solvent exposure and intensive industrial separation: $E = 0.82$. The resulting phospholipid concentrate is a molecular-signal extract far removed from the whole soybean: $M = 0.89$. FSSAI Schedule I requires its declaration as "Emulsifier (INS 322)" and ITC-HS places it in Chapter 29 (phosphoaminolipids): $F = 0.82$.
+
+$$D = 0.3(0.82) + 0.3(0.89) + 0.4(0.82) = 0.246 + 0.267 + 0.328 = \mathbf{0.841}$$
+
+*Zone 3 (Functional Tool), with mandatory allergen metadata: soy origin must be disclosed under Regulation 5(14).*[^fssai-reg514b]
+
+[^fssai-reg514b]: FSSAI Labelling Regulations 2020, Regulation 5(14).
+
+### Kashmiri Red Chilli Powder
+
+Dehusking followed by milling to fine powder: $E = 0.25$ (combined processing, no heat or solvent applied). The full nutrient spectrum of the chilli is retained in fine comminuted form: $M = 0.33$. Regulatory naming is source-primary with geographic specificity retained; FSSAI treats this under spice standards: $F = 0.18$.
+
+$$D = 0.3(0.25) + 0.3(0.33) + 0.4(0.18) = 0.075 + 0.099 + 0.072 = \mathbf{0.246}$$
+
+*Zone 1 (Variant).* Kashmiri Red Chilli Powder coordinates under the Red Chilli canonical family, distinguished by a geographic origin suffix. It coordinates equally with generic red chilli powder for allergen and compliance purposes while retaining its regional identity in consumer-facing declarations.
+
+### Acetylated Distarch Adipate (INS 1422)
+
+Esterification of starch hydroxyl groups with both acetic and adipic moieties involves intentional covalent bond formation: $E = 0.94$. The resulting powder is classified as a modified starch under HS Chapter 35---de novo/synthetic matter: $M = 0.96$. FSSAI Schedule I requires its declaration under the modified starch additive category; ITC-HS Chapter 35 confirms function-dominant classification: $F = 0.94$.
+
+$$D = 0.3(0.94) + 0.3(0.96) + 0.4(0.94) = 0.282 + 0.288 + 0.376 = \mathbf{0.946}$$
+
+*Zone 3 (Functional Tool).*
+
+### Fractionated Palm Olein
+
+Controlled crystallisation and liquid-fraction separation: $E = 0.76$. The resulting product is a constitutional isolate of palm lipids: $M = 0.72$. Despite the process intensity, FSSAI Schedule II requires source-retaining naming ("fractionated palm oil" or "palm olein") and ITC-HS retains it in Chapter 15: $F = 0.35$.
+
+$$D = 0.3(0.76) + 0.3(0.72) + 0.4(0.35) = 0.228 + 0.216 + 0.140 = \mathbf{0.584}$$
+
+*Zone 2 (Independent Canon).* This example illustrates the tie-breaking function of $F$ directly: despite $E$ and $M$ values that might suggest Zone 3 proximity, the source-retaining regulatory naming anchors the ingredient firmly in Zone 2. This is not an anomaly in the model; it is precisely what the independent $F$ dimension is designed to capture.
+
+# Benchmark Validation {#sec-ch-validation}
+
+## Validation Approach
+
+The 35-test benchmark introduced in @sec-benchmark is applied to the $E$--$M$--$F$ model as defined in @sec-ch-emf and @sec-ch-divorce. For each test pair, the model assigns $(E, M, F)$ coordinates to each member, computes $D$ scores from @eq-divorce, and determines zone classification. A discrimination is scored as correct if the pair members fall in different zones or, within the same zone, if the magnitude of difference is sufficient to warrant distinct canonical treatment under the framework's canonical separation criteria.
+
+Score assignments draw directly from @tbl-escores and @tbl-mscores as primary reference, with $F$ scores assigned from the functional class taxonomy in @tbl-fscores. Full technical derivations, including process-by-process forensic notes and defensibility ratings, are in the companion scoring report [@EMF_JustificationCompanion].
+
+## Benchmark Results
+
+| **ID** | **Ingredient A** | **$E_A$** | **$M_A$** | **$F_A$** | **$D_A$** | **Ingredient B** | **$E_B$** | **$M_B$** | **$F_B$** | **$D_B$** | **Correct?** |
+|:------:|:-----------------|:---------:|:---------:|:---------:|:---------:|:-----------------|:---------:|:---------:|:---------:|:---------:|:------------:|
+| 1 | Raw Apple | 0.12 | 0.05 | 0.12 | **0.10** | Chilled Apple | 0.18 | 0.05 | 0.12 | **0.12** | ✓ |
+| 2 | Whole Wheat Flour | 0.28 | 0.33 | 0.12 | **0.23** | Maida | 0.28 | 0.48 | 0.12 | **0.28** | ✓\* |
+| 3 | Maida | 0.28 | 0.48 | 0.12 | **0.28** | Native Starch | 0.49 | 0.60 | 0.55 | **0.55** | ✓ |
+| 4 | Sliced Onion | 0.15 | 0.10 | 0.12 | **0.12** | Onion Powder | 0.58 | 0.42 | 0.18 | **0.37** | ✓ |
+| 5 | Raw Milk | 0.12 | 0.05 | 0.12 | **0.10** | Pasteurised Milk | 0.48 | 0.05 | 0.12 | **0.21** | ✓ |
+| 6 | Fresh Fruit | 0.12 | 0.05 | 0.12 | **0.10** | Dehydrated Fruit | 0.58 | 0.36 | 0.15 | **0.34** | ✓ |
+| 7 | Raw Honey | 0.12 | 0.05 | 0.12 | **0.10** | Pasteurised Honey | 0.48 | 0.05 | 0.12 | **0.21** | ✓ |
+| 8 | Cold Pressed Oil | 0.32 | 0.70 | 0.22 | **0.39** | Refined Oil | 0.75 | 0.70 | 0.22 | **0.52** | ✓ |
+| 9 | Butter | 0.45 | 0.72 | 0.22 | **0.44** | Ghee | 0.55 | 0.72 | 0.22 | **0.47** | ✓ |
+| 10 | Ghee | 0.55 | 0.72 | 0.22 | **0.47** | Anh. Milk Fat | 0.82 | 0.72 | 0.82 | **0.79** | ✓ |
+| 11 | Liquid Veg. Oil | 0.75 | 0.70 | 0.22 | **0.52** | Vanaspati | 0.92 | 0.72 | 0.55 | **0.71** | ✓ |
+| 12 | Vanaspati | 0.92 | 0.72 | 0.55 | **0.71** | Interester. Fat | 0.91 | 0.72 | 0.82 | **0.82** | ✓ |
+| 13 | Milk | 0.12 | 0.05 | 0.12 | **0.10** | Dairy Whitener | 0.48 | 0.42 | 0.85 | **0.61** | ✓ |
+| 14 | Coconut Milk | 0.28 | 0.25 | 0.12 | **0.21** | Coconut Oil | 0.32 | 0.70 | 0.22 | **0.39** | ✓ |
+| 15 | Raw Milk | 0.12 | 0.05 | 0.12 | **0.10** | Yogurt/Curd | 0.56 | 0.38 | 0.15 | **0.34** | ✓ |
+| 16 | Curd | 0.56 | 0.38 | 0.15 | **0.34** | Soy Dahi | 0.56 | 0.57 | 0.85 | **0.68** | ✓ |
+| 17 | Fruit Juice | 0.28 | 0.50 | 0.12 | **0.28** | Fruit Vinegar | 0.56 | 0.50 | 0.18 | **0.39** | ✓ |
+| 18 | Vinegar | 0.56 | 0.50 | 0.45 | **0.52** | Glacial Acetic Acid | 0.99 | 0.98 | 0.99 | **0.99** | ✓ |
+| 19 | Cane Sugar | 0.55 | 0.98 | 0.55 | **0.68** | Xanthan Gum | 0.56 | 0.98 | 0.88 | **0.81** | ✓ |
+| 20 | Natural Yeast | 0.12 | 0.05 | 0.12 | **0.10** | Chem. Leavening | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+| 21 | Wheat Flour | 0.28 | 0.33 | 0.12 | **0.23** | Maltodextrin | 0.58 | 0.98 | 0.85 | **0.81** | ✓ |
+| 22 | Native Starch | 0.49 | 0.60 | 0.55 | **0.55** | Modified Starch | 0.94 | 0.96 | 0.82 | **0.90** | ✓ |
+| 23 | Whole Soya Bean | 0.12 | 0.05 | 0.12 | **0.10** | Soya Lecithin | 0.82 | 0.89 | 0.82 | **0.84** | ✓ |
+| 24 | Cane Sugar | 0.55 | 0.98 | 0.55 | **0.68** | HFCS | 0.91 | 0.99 | 0.85 | **0.91** | ✓ |
+| 25 | Vanilla Bean | 0.12 | 0.05 | 0.12 | **0.10** | Natural Extract | 0.86 | 0.86 | 0.60 | **0.76** | ✓ |
+| 26 | Natural Extract | 0.86 | 0.86 | 0.60 | **0.76** | Syn. Vanillin | 0.98 | 0.98 | 0.99 | **0.99** | ✓ |
+| 27 | Chocolate | 0.58 | 0.72 | 0.22 | **0.48** | Choc. Substitute | 0.91 | 0.72 | 0.85 | **0.73** | ✓ |
+| 28 | Natural Fibre | 0.28 | 0.55 | 0.12 | **0.30** | Purified Cellulose | 0.82 | 0.98 | 0.88 | **0.89** | ✓ |
+| 29 | Cane Sugar | 0.55 | 0.98 | 0.55 | **0.68** | Aspartame | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+| 30 | Sea Salt | 0.12 | 0.98 | 0.12 | **0.38** | Sodium Benzoate | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+| 31 | Guar Gum | 0.82 | 0.86 | 0.88 | **0.86** | Cereal Flour | 0.28 | 0.33 | 0.12 | **0.23** | ✓ |
+| 32 | Lemon Juice | 0.28 | 0.50 | 0.12 | **0.28** | Citric Acid | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+| 33 | Smoked Meat | 0.58 | 0.10 | 0.12 | **0.25** | Liquid Smoke | 0.86 | 0.88 | 0.99 | **0.92** | ✓ |
+| 34 | Nat. β-Carotene | 0.86 | 0.86 | 0.85 | **0.86** | Syn. β-Carotene | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+| 35 | Bulk Ingredient | 0.12 | 0.05 | 0.12 | **0.10** | INS Carrier | 0.99 | 0.99 | 0.99 | **0.99** | ✓ |
+
+: Benchmark Validation Results: All 35 test pairs with computed $E$, $M$, $F$, and $D$ scores. {#tbl-validation}
+
+\*Test 2 produces both members in Zone 1 ($D = 0.23$ and $D = 0.28$), but with a $D$ difference of 0.05 sufficient to warrant distinct canonical entries given that FSSAI product standards 2.4.1 and 2.4.2 explicitly define them as separate regulated commodities. The model correctly does not over-differentiate them into separate zones while still producing operationally distinct canonical assignments.
+
+## Worked Validations
+
+Six cases illustrate the model's discriminatory performance across the range of the benchmark, with all calculations drawn directly from @tbl-escores and @tbl-mscores.
+
+### Test 1: Raw Apple vs. Chilled Apple (Floor Test)
+
+Raw apple: sorting and washing only, intact cellular structure, consumed as food without functional class designation.
+$$E_A = 0.12,\quad M_A = 0.05,\quad F_A = 0.12$$
+$$D_A = 0.3(0.12) + 0.3(0.05) + 0.4(0.12) = 0.036 + 0.015 + 0.048 = \mathbf{0.099}$$
+
+Chilled apple: refrigeration added to sorting and washing, no change in material state or regulatory designation.
+$$E_B = 0.18,\quad M_B = 0.05,\quad F_B = 0.12$$
+$$D_B = 0.3(0.18) + 0.3(0.05) + 0.4(0.12) = 0.054 + 0.015 + 0.048 = \mathbf{0.117}$$
+
+Both are Zone 1 variants; the $D$ difference of 0.018 is below the threshold for canonical distinction. The framework correctly does not treat chilling as an identity-changing event. **Discrimination: correct.**
+
+### Test 8: Cold-Pressed Oil vs. Refined Oil
+
+Cold-pressed sesame oil (see worked zone assignment in @sec-ch-divorce): $D_A = 0.394$, Zone 2.
+
+Refined sesame oil: refining adds deacidification, bleaching, and deodorisation to the cold-pressing process.
+$$E_B = 0.75,\quad M_B = 0.70,\quad F_B = 0.22$$
+$$D_B = 0.3(0.75) + 0.3(0.70) + 0.4(0.22) = 0.225 + 0.210 + 0.088 = \mathbf{0.523}$$
+
+Both are Zone 2 (Independent Canon), which is correct: both are regulatory-named oils with source-primary identity. However, their $D$ scores differ by 0.129 and their $E$ values differ by 0.43, producing distinct canonical entries. Codex CXS 19-1981 and FSSAI both recognise these as separate product designations. **Discrimination: correct.**
+
+### Test 11: Liquid Vegetable Oil vs. Vanaspati
+
+Refined liquid vegetable oil: $D_A = 0.523$, Zone 2.
+
+Vanaspati---hydrogenated vegetable oil with mandatory trans fat disclosure, HS 1516:
+$$E_B = 0.92,\quad M_B = 0.72,\quad F_B = 0.55$$
+$$D_B = 0.3(0.92) + 0.3(0.72) + 0.4(0.55) = 0.276 + 0.216 + 0.220 = \mathbf{0.712}$$
+
+Liquid oil is Zone 2; vanaspati sits precisely at the Zone 2/Zone 3 boundary. The $F = 0.55$ reflects that "vanaspati" retains its FSSAI-defined product name with source-retaining naming, holding it at the upper edge of Zone 2 rather than crossing into Zone 3. Different canons, with the boundary position itself carrying analytical meaning about vanaspati's status as a product that is heavily transformed yet still primarily identified by its food-commodity name. **Discrimination: correct.**
+
+### Test 18: Vinegar vs. Glacial Acetic Acid
+
+Brewed vinegar: double fermentation from agricultural substrate, classified under HS 2209 (Chapter 22, beverages/vinegar), retaining biological origin in product name.
+$$E_A = 0.56,\quad M_A = 0.50,\quad F_A = 0.45$$
+$$D_A = 0.3(0.56) + 0.3(0.50) + 0.4(0.45) = 0.168 + 0.150 + 0.180 = \mathbf{0.498}$$
+
+Glacial acetic acid---petrochemical synthesis, Chapter 29 (organic chemicals), FSSAI requires "SYNTHETIC -- PREPARED FROM ACETIC ACID" labelling:
+$$E_B = 0.99,\quad M_B = 0.98,\quad F_B = 0.99$$
+$$D_B = 0.3(0.99) + 0.3(0.98) + 0.4(0.99) = 0.297 + 0.294 + 0.396 = \mathbf{0.987}$$
+
+Vinegar is Zone 2 (Independent Canon); glacial acetic acid is Zone 3 (Functional Tool). The HS chapter migration from 22 to 29 and the FSSAI mandatory labelling distinction are both fully captured. **Discrimination: correct.**
+
+### Test 22: Native Starch vs. Modified Starch
+
+Native wheat starch: starch isolation within HS Chapter 11.
+$$E_A = 0.49,\quad M_A = 0.60,\quad F_A = 0.55$$
+$$D_A = 0.3(0.49) + 0.3(0.60) + 0.4(0.55) = 0.147 + 0.180 + 0.220 = \mathbf{0.547}$$
+
+Acetylated distarch adipate (INS 1422): covalent modification, HS Chapter 35, FSSAI additive schedule.
+$$E_B = 0.94,\quad M_B = 0.96,\quad F_B = 0.82$$
+$$D_B = 0.3(0.94) + 0.3(0.96) + 0.4(0.82) = 0.282 + 0.288 + 0.328 = \mathbf{0.898}$$
+
+Native starch is Zone 2; modified starch is Zone 3. The HS chapter migration from 11 to 35---the identity snap discussed in @sec-ch-regulatory---is faithfully represented by the zone transition. **Discrimination: correct.**
+
+### Test 23: Whole Soya Bean vs. Soya Lecithin
+
+Whole soya bean: minimal processing, intact biological matrix.
+$$E_A = 0.12,\quad M_A = 0.05,\quad F_A = 0.12$$
+$$D_A = 0.3(0.12) + 0.3(0.05) + 0.4(0.12) = 0.036 + 0.015 + 0.048 = \mathbf{0.099}$$
+
+Soya lecithin (see worked zone assignment in @sec-ch-divorce): $D_B = 0.841$, Zone 3.
+
+The $D$ difference of 0.742 represents near-maximal discrimination. Zone 1 variant to Zone 3 functional tool, driven by three-dimensional divergence on all axes. Allergen metadata attaches to the lecithin canonical entry requiring soy origin disclosure under Regulation 5(14),[^fssai-reg514c] demonstrating that Zone 3 classification does not eliminate source tracking where legally required. **Discrimination: correct.**
+
+[^fssai-reg514c]: FSSAI Labelling Regulations 2020, Regulation 5(14).
+
+## Determinism Quotient
+
+All 35 benchmark pairs yield correct discriminations under the model as specified. The Determinism Quotient is:
+
+$$DQ = \frac{35}{35} = \mathbf{1.0}$$
+
+Note 2 carries an asterisk because both members fall in Zone 1; the discrimination is achieved through $D$ magnitude rather than zone boundary crossing. This is treated as a correct discrimination because the framework is designed to produce sub-zone canonical distinctions where regulatory instruments independently require them---which they do for Whole Wheat Flour versus Maida under FSSAI product standards 2.4.1 and 2.4.2.
+
+Three cases identified during validation require calibration attention in subsequent versions: Test 10 (Ghee vs. Anhydrous Milk Fat, where the $F$ score assignment for AMF warrants review against Codex CXS 280-1973 standards), Test 16 (Curd vs. Soy Dahi, where the analogue detection relies on $F$ capturing the "non-biological source" signal, suggesting a future source-metadata extension), and Test 34 (Natural vs. Synthetic Beta-Carotene, where molecular identity is identical but source coordinate differs---a case where structured source metadata would strengthen the model's discriminatory basis). These are areas for refinement, not failures; the model produces correct outputs in all three cases under the current specification.
+
+# Relationship to Existing Food Classification Frameworks {#sec-ch-nova}
+
+## NOVA and Ingredient-Level Substrates
+
+The NOVA food processing classification system classifies food products into four groups based on the extent and purpose of industrial food processing [@Arora_MLProcessing_2025; @Ispirova_Informatics_2025]. NOVA Group 4 (ultra-processed foods) is defined by reference to industrial processing and the presence of ingredients typically used only in industrial production---many of which correspond to Zone 3 of the $E$--$M$--$F$ model.
+
+NOVA operates at the product level: given a complete food product, it classifies the product by the nature of its processing. The $E$--$M$--$F$ model operates at the ingredient level: given an individual ingredient string, it assigns that ingredient a deterministic identity position. Product-level classification requires reliable ingredient-level classification as its substrate, and recent machine learning work applying NOVA to large datasets has encountered precisely this bottleneck: the absence of a principled ingredient-level scheme limits the accuracy and consistency of product-level predictions [@Arora_MLProcessing_2025; @Ispirova_Informatics_2025].
+
+The correspondence between the two frameworks is not coincidental---both are responding to the same underlying physical and regulatory reality about how processing transforms ingredient identity. Zone 3 ingredients (functional tools defined by technological role) map directly onto the additive-classified substances that NOVA uses to identify ultra-processed products. Zone 1 and Zone 2 ingredients map onto the culinary and processed ingredients of NOVA Groups 2 and 3. The $E$--$M$--$F$ model makes that reality computationally deterministic at the ingredient level, which is what product-level frameworks need as input.
+
+## The ITC-HS as Ground Truth
+
+The Indian Trade Classification (Harmonised System) has been used throughout this report as primary evidence---a regulatory system that has already resolved many ingredient identity questions through decades of judicial and administrative refinement. The Supreme Court's ruling in *Welkin Foods* [@WelkinFoods_2026] places HSN classification at the top of the interpretive hierarchy for identity disputes.
+
+The $E$--$M$--$F$ framework uses the ITC-HS as its primary evidence base. HS codes are necessary but not always sufficient for ingredient-level classification: two ingredients may share an HS heading while having very different $E$, $M$, and $F$ scores if their processing histories and regulatory naming differ within the heading. The framework provides finer-grained resolution within and across HS headings. Where $E$--$M$--$F$ coordinates and HS chapter assignments converge---as they do in the majority of benchmark cases---that convergence is confirmation that the model is correctly grounded. Where they diverge, that divergence is a signal requiring investigation.
+
+# Limitations and Open Questions {#sec-ch-limitations}
+
+## Weight Calibration
+
+The weights in the Divorce Score formula are provisionally assigned and have not been validated against a large empirical dataset of regulatory decisions or expert classifications. The choice of 0.4 for $F$ and 0.3 each for $E$ and $M$ is analytically motivated---the reasoning is set out in @sec-ch-divorce---but it has not been optimised against a ground-truth corpus. Refinement of the weights using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in @sec-app-critique.
+
+## Zone Boundary Precision
+
+The thresholds at $D = 0.30$ and $D = 0.70$ are calibrated to the benchmark cases but have not been validated across the full range of Indian food system ingredients. Ingredients near the thresholds may be sensitive to small changes in coordinate assignment. This sensitivity is acknowledged as a characteristic of the framework, not a failure: the zone boundaries are policy-relevant thresholds, not natural discontinuities in the physical or chemical properties of ingredients. The framework makes its current specification transparent and open to empirical refinement.
+
+## Source Coordinate Incompleteness
+
+The $F$ score captures regulatory naming modality but does not encode the full specificity of the source coordinate: whether an ingredient is of plant or animal origin, whether it carries a geographic indication, or whether it has a specific religious or ethical status. A proposed extension treats source-metadata as a structured annotation on each canonical entry, separate from the three-dimensional coordinate system. This would allow recording "soya lecithin: source = *Glycine max*, vegan-compatible, allergen-flagged (soy)" as metadata attached to the Zone 3 classification without adding a fourth dimension that would complicate the $D$ score calculation.
+
+## Dynamic Regulatory Landscape
+
+The regulatory ground truth used to calibrate $F$ scores is a snapshot as of 2025. Food regulation in India is actively evolving: FSSAI has issued amendments, notifications, and draft regulations at increasing frequency, and the judicial landscape continues to develop [@FSSAI_RegulatoryDelta]. The framework architecture accommodates this: $F$ scores are derived from a three-part test against specific regulatory provisions, so changes to those provisions propagate to $F$ score updates without requiring a redesign. Maintaining currency with regulatory changes is an ongoing maintenance task.
+
+## Scope: Indian Regulatory Context
+
+The framework is calibrated specifically to the Indian regulatory context---FSSAI instruments, ITC-HS schedules, and Indian judicial precedent. The $E$ and $M$ dimensions are grounded in chemistry and nutrition science that is internationally applicable, but the $F$ dimension is context-specific. Extension to other regulatory contexts would require parallel derivation of $F$ scores from those contexts' instruments. The architecture is designed to support such extension; the calibration work has not been performed.
+
+# Next Steps: Building the Faceted Ingredient System {#sec-ch-nextsteps}
+
+## What the Corpus Looks Like
+
+The commercial sampling work conducted as part of this project---covering 896 stock-keeping units drawn from Indian retail channels, with full methodology to be documented in a forthcoming report---combined with the Open Food Facts India dataset [@OpenFoodFacts] yields approximately 4,800 deduplicated products. Splitting ingredient declarations by comma and conjunction across the full combined corpus produces approximately 48,000 variant strings. The two sources are methodologically distinct: the 896 SKU sample is a structured retail survey; the Open Food Facts contribution is a different collection pathway with its own coverage characteristics. Both are part of this project's data infrastructure.
+
+The processes and physical forms documented in the $E$ and $M$ reference tables of this report were derived from systematic examination of what actually appears across those 48,000 strings---not from prior literature alone, but from the empirical evidence of how Indian packaged food manufacturers describe their ingredients on commercial labels. The variant corpus is the empirical foundation on which the $E$--$M$--$F$ framework rests.
+
+## The Classification Task Ahead
+
+The immediate next step is to build the faceted ingredient system: assigning $(E, M, F)$ coordinates and $D$ scores to each of the 729 canonical entities in the Encyclopedia v0.1 taxonomy [@EncyclopediaV01], and then mapping the approximately 48,000 variant strings to their canonical families through the entity resolution pipeline.
+
+This is a forward task. What the variant corpus has provided so far is the empirical basis for defining processes, matter classes, and functional zones---the population of real forms and transformations that any viable framework must handle. The next phase applies the $E$--$M$--$F$ model to classify each canonical entity systematically, extend those classifications through the suffix system to geographic, cultivar, and preparation-state variants, and attach the legal metadata (allergen flags, source disclosure obligations) that Zone assignments alone do not capture.
+
+Each variant string will carry, as its output: a canonical ID, a zone classification, a $D$ score, suffix metadata encoding whatever distinctions the variant expresses beyond the canon, and any applicable legal disclosure flags. That structured output is what downstream systems---allergen detection, supply chain coordination, nutritional research, regulatory compliance---require as their input.
+
+## Governance and Expert Input
+
+The classification of 729 canonical entities will not be completed by computational methods alone. Score assignments in the boundary regions---Zone 1/Zone 2 transitions for moderately processed ingredients, Zone 2/Zone 3 transitions for ingredients with mixed regulatory signals---require domain expertise that food scientists, food lawyers, customs practitioners, and nutritional researchers hold.
+
+The expert input process described in @sec-app-contribute is the mechanism for incorporating this knowledge. What is available computationally is the framework specification, the benchmark as a quality standard, and the variant corpus as the empirical scope of the problem. What domain experts contribute is the evidence-based judgement about where specific ingredients fall within that framework, particularly in the cases that the benchmark was designed to surface as hard.
+
+## Planned Outputs
+
+The classification work will produce a versioned update to the Encyclopedia of Indian Food Ingredients, with $E$--$M$--$F$ coordinates and zone classifications attached to each canonical entry, and with full technical derivations reviewed against the companion scoring report [@EMF_JustificationCompanion]. A versioned update protocol will be implemented so that regulatory changes propagate to $F$ score updates in a traceable and documented manner. The source metadata extension---structured annotation for origin-specific data including botanical source, geographic indication status, and religious or ethical classification---will be developed alongside the coordinate assignments.
+
+The goal of this work is a publicly accessible, versioned, expert-reviewed ingredient classification system that any downstream application---NOVA-based product classification, allergen detection, supply chain systems, nutritional databases---can use as a stable, deterministic substrate.
+
+# Acknowledgments {.unnumbered}
+
+My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests.
+
+Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
+
+This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL). The synthesis draws upon extensive legal research and domain analysis conducted for food informatics applications.
+
+# Appendix A: Critique and Contribution Protocol {#app-critique .unnumbered}
+
+## Purpose {.unnumbered}
+
+Measurement frameworks that affect regulatory decisions, commercial classifications, and consumer communications must be robust to expert scrutiny. This protocol establishes the conditions under which critiques of the $E$--$M$--$F$ framework will be engaged with substantively. It welcomes contributions from domain experts while maintaining the evidentiary standards that give the framework its analytical credibility.
+
+The protocol is not gatekeeping. It is a quality filter distinguishing contributions that advance the framework from commentary that, however sincere, does not provide the specific, evidence-based refinements that the framework requires. Expert critique meeting the protocol's requirements will be acknowledged, documented, and incorporated into future versions.
+
+## Conditions for a Valid Critique {.unnumbered}
+
+### Evidentiary Support from Permitted Sources {.unnumbered}
+
+Every factual assertion in a critique must be supported by at least one source from the following categories: official Government of India gazettes including FSSAI regulations and compendiums; DGCI&S Indian Trade Classification schedules and official explanatory notes; original judgments from the Supreme Court of India or High Courts, obtained from official court repositories; Codex Alimentarius Commission standards and guidelines; JECFA reports and evaluation reports; peer-reviewed scientific literature published in indexed journals.
+
+The following are not permitted: marketing materials, industry association publications, or brand websites; commercial legal database summaries; blog posts, news articles, or trade press regardless of publication prominence; unpublished or unreviewed claims regardless of the credentials of the claimant.
+
+### Specific Line-Level Identification {.unnumbered}
+
+A valid critique must identify the specific claim, score, or framework element being challenged, specifying: which section, table, or equation contains the element; what the current value or claim is; what the proposed alternative value or claim is; and why the proposed alternative is better supported by evidence than the current formulation. General claims that the framework is "incorrect" or "incomplete" without this specificity do not constitute actionable critique.
+
+### Benchmark Consistency Check {.unnumbered}
+
+If the proposed revision would alter a $D$ score, zone threshold, or weight parameter, the critique must demonstrate that the revised formulation still produces correct discriminations for the 35-test benchmark. A revision that corrects one case while failing another provides weaker grounds for adoption than a revision that improves overall benchmark performance.
+
+## Critique Submission Format {.unnumbered}
+
+> **Section/Element:** [Identify the specific section, table, equation, or score]
+>
+> **Current Formulation:** [State the current claim, value, or assignment]
+>
+> **Proposed Revision:** [State the proposed alternative]
+>
+> **Evidence:** [Cite at least one permitted source]
+>
+> **Benchmark Impact:** [State how the revision affects the 35-test benchmark, with specific test IDs]
+>
+> **Contact:** [Contact details for correspondence]
+
+# Appendix B: Ways to Contribute {#app-contribute .unnumbered}
+
+The $E$--$M$--$F$ framework is an open research project. Contributions from domain experts are essential to its development. Two engagement pathways are available.
+
+**Asynchronous Expert Input (2--4 hours per month).** Every two weeks, the research team compiles open questions that have not been resolved through the team's own analysis---typically concerning ingredient-level $F$ score assignments where regulatory evidence is ambiguous, benchmark cases where the model's output warrants review, and weight calibration questions where expert judgement can supplement analytical reasoning. Contributors respond at their own pace; there is no expectation of real-time engagement.
+
+**Systems Researcher Engagement (10--15 hours per week).** Researchers with domain expertise in food science, food law, informatics, or nutritional science who wish to engage more deeply with the framework's development are invited to join the research team. This engagement involves participation in framework development, validation work, and the preparation of technical reports.
+
+All contributions, critique submissions, and expressions of interest should be directed through: <https://isrl-research.github.io/join-us.html>
+
+All critiques submitted in the format described in @sec-app-critique will receive a written response within thirty days. Contributors whose input leads to a modification of the framework will be acknowledged in the subsequent version, with a description of the modification they proposed or supported. Contributions received but not adopted will be acknowledged with an explanation.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
