@@ -14,5 +14,17 @@
     "items": [
       "/team/lalithaar.html"
     ]
+  },
+  {
+    "listing": "/pub/index.html",
+    "items": [
+      "/pub/2026-02-b-encyclopedia/index.html",
+      "/pub/2026-02-ds-variants/index.html",
+      "/pub/2026-02-r-regdelta/index.html",
+      "/pub/2026-02-r-scfood/index.html",
+      "/pub/2026-02-r-emf/index.html",
+      "/pub/2026-02-d-emfjustify/index.html",
+      "/pub/2026-02-m-groundtruth/index.html"
+    ]
   }
 ]

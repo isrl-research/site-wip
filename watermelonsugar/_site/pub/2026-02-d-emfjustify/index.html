@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lalitha A R">
+
+<title>Justification Companion to EMF-Scoring Model – iSRL</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fc6dea8f80d14b1e028c55a40a25551f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">iSRL</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../roadmap.html"> 
+<span class="menu-text">Roadmap</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../join-us.html"> 
+<span class="menu-text">Join us</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pub/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://zenodo.org/communities/isrl/records"> 
+<span class="menu-text">Zenodo</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../team/index.html"> 
+<span class="menu-text">Team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-energy-scores" id="toc-sec-energy-scores" class="nav-link active" data-scroll-target="#sec-energy-scores">Table 1: Anthropogenic Energy Score (E) Assignments</a></li>
+  <li><a href="#sec-matter-scores" id="toc-sec-matter-scores" class="nav-link" data-scroll-target="#sec-matter-scores">Table 2: Final Commercial States with Matter Scores (M)</a></li>
+  <li><a href="#sec-f-scores" id="toc-sec-f-scores" class="nav-link" data-scroll-target="#sec-f-scores">Table 3: Detailed Functional (F) Score Analysis</a></li>
+  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Justification Companion to EMF-Scoring Model</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Lalitha A R <a href="mailto:lalithaar.research@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0001-7466-3531" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            iSRL
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This is a justification companion to the EMF Scoring Model as described in <strong>Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity</strong> <span class="citation" data-cites="lalitha_2026_emf_main">(<a href="#ref-lalitha_2026_emf_main" role="doc-biblioref">Lalitha 2026a</a>)</span>.</p>
+<hr>
+<section id="sec-energy-scores" class="level2">
+<h2 class="anchored" data-anchor-id="sec-energy-scores">Table 1: Anthropogenic Energy Score (E) Assignments</h2>
+<p>Anthropogenic Energy Score (E) assignments with chemical, regulatory, and trade defensibility notes.</p>
+<div id="tbl-energy-scores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-energy-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Anthropogenic Energy Score (E) assignments with chemical, regulatory, and trade defensibility notes.
+</figcaption>
+<div aria-describedby="tbl-energy-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Process</th>
+<th style="text-align: center;">E</th>
+<th style="text-align: left;">Chemical Justification</th>
+<th style="text-align: left;">Legal / Naming Justification (FSSAI/Codex) and Trade Classification</th>
+<th style="text-align: center;">Defensibility</th>
+<th style="text-align: left;">Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chilling</td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: left;">No covalent change; refrigeration is explicitly listed as “minimally processed”. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: left;">“Fresh or chilled” food categories are treated as primary commodity forms in ITC(HS) (e.g., Ch. 07). <span class="citation" data-cites="DGCI_CH07">(<a href="#ref-DGCI_CH07" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Physical stabilization; identity retained.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sorting</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: left;">Physical selection only; no molecular modification. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: left;">Generally does not create a new standardized “food name” under labelling rules; still described by true nature. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Handling step only.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Washing</td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: left;">Surface removal step; documented to reduce residues; no intended covalent change. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: left;">Treated as minimal processing (cleaning/removal of unwanted parts). <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Decontamination without re-identity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">De-husking</td>
+<td style="text-align: center;">0.22</td>
+<td style="text-align: left;">Removes inedible outer layers; does not require covalent transformation. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: left;">Fits “removing inedible or unwanted parts” under minimal processing. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Structure reduced; chemistry preserved.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Milling (e.g., Besan)</td>
+<td style="text-align: center;">0.28</td>
+<td style="text-align: left;">Comminution; macromolecules remain; cellular structure destroyed but molecules remain. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: left;">Grinding is listed as minimal processing; trade heading exists for flour/meal/powder of dried legumes (HS 1106). <span class="citation" data-cites="FSSAI_Label_2020 DGCI_CH11">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>; <a href="#ref-DGCI_CH11" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007b</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Mechanical conversion to flour with clear HS placement.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cold Pressing (Oil)</td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: left;">Mechanical extraction without heat; lipid molecules remain triglycerides. <span class="citation" data-cites="Codex_CXS19_1981">(<a href="#ref-Codex_CXS19_1981" role="doc-biblioref">Codex Alimentarius Commission (FAO/WHO) 2024</a>)</span></td>
+<td style="text-align: left;">Codex defines “cold pressed fats and oils” and restricts use of that designation to compliant products; no additives permitted in virgin/cold pressed oils. <span class="citation" data-cites="Codex_CXS19_1981">(<a href="#ref-Codex_CXS19_1981" role="doc-biblioref">Codex Alimentarius Commission (FAO/WHO) 2024</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Mechanical-only oil; limited industrial separation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Churning (Butter)</td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: left;">Phase inversion (oil-in-water to water-in-oil) and physical separation; no target covalent change. <span class="citation" data-cites="FSSAI_Dairy_2025">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>)</span></td>
+<td style="text-align: left;">FSSAI defines butter as a water-in-oil emulsion derived exclusively from milk/milk products; table butter must be from pasteurised cream. <span class="citation" data-cites="FSSAI_Dairy_2025">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Thermal/physical re-structuring with defined legal identity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fermentation (Vinegar)</td>
+<td style="text-align: center;">0.56</td>
+<td style="text-align: left;">Biochemical oxidation of ethanol to acetic acid by acetic acid bacteria; covalent re-identity of primary acid. <span class="citation" data-cites="Vinegar_Review_2024">(<a href="#ref-Vinegar_Review_2024" role="doc-biblioref"><span class="nocase">Yun et al.</span> 2024</a>)</span></td>
+<td style="text-align: left;">FSSAI treats fermentation as minimal processing in nutrition-labelling context; ITC(HS) distinguishes brewed vs synthetic vinegar under HS 2209. <span class="citation" data-cites="FSSAI_Label_2020 DGCI_CH22">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>; <a href="#ref-DGCI_CH22" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007d</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Biological conversion; product class recognized in trade.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Roasting</td>
+<td style="text-align: center;">0.58</td>
+<td style="text-align: left;">Thermal chemistry (Maillard reaction: amino acids + reducing sugars forming melanoidins and other new compounds). <span class="citation" data-cites="Maillard_2025">(<a href="#ref-Maillard_2025" role="doc-biblioref"><span class="nocase">Schaefer et al.</span> 2025</a>)</span></td>
+<td style="text-align: left;">Still generally labelled by food name with accurate description; not typically a statutory rename trigger by itself. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: left;">Chemistry occurs, but regulatory treatment is food- and claim-dependent.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pasteurization</td>
+<td style="text-align: center;">0.48</td>
+<td style="text-align: left;">Microbicidal heat treatment (defined time/temperature combinations); primarily denaturation/aggregation without designed covalent synthesis. <span class="citation" data-cites="FSSAI_Dairy_2025">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>)</span></td>
+<td style="text-align: left;">FSSAI defines pasteurization and requires heat-treatment declaration for milk; also listed as minimal processing. <span class="citation" data-cites="FSSAI_Dairy_2025 FSSAI_Label_2020">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>, <a href="#ref-FSSAI_Label_2020" role="doc-biblioref">2023a</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Standardized thermal process with explicit legal definition.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Solvent Extraction (Oils)</td>
+<td style="text-align: center;">0.82</td>
+<td style="text-align: left;">Solvent-based separation (typically hexane) and subsequent desolventizing/distillation; strong industrial separation though not necessarily covalent modification. <span class="citation" data-cites="Hexane_Substitution_2022">(<a href="#ref-Hexane_Substitution_2022" role="doc-biblioref"><span class="nocase">Boukhenfa et al.</span> 2022</a>)</span></td>
+<td style="text-align: left;">India controls “solvent-extracted oil” production/handling under a dedicated Control Order; industrial category is legally recognized. <span class="citation" data-cites="FSSAI_SolventExtracted_Order_1967">(<a href="#ref-FSSAI_SolventExtracted_Order_1967" role="doc-biblioref">Government of India (hosted on FSSAI website) 1967</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Industrial chemical-separation route with distinct legal instrument.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fractionation (Olein)</td>
+<td style="text-align: center;">0.76</td>
+<td style="text-align: left;">Physical fractionation via controlled crystallization and separation into liquid (olein) and solid fractions; no intended covalent modification. <span class="citation" data-cites="PalmOil_Processing_2023">(<a href="#ref-PalmOil_Processing_2023" role="doc-biblioref"><span class="nocase">Abdul Wahab et al.</span> 2023</a>)</span></td>
+<td style="text-align: left;">Ingredient class titles in FSSAI labelling include “fractionated fat” under edible vegetable fat declarations. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Industrial separation into functional fractions.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Clarification (Ghee)</td>
+<td style="text-align: center;">0.55</td>
+<td style="text-align: left;">Heat-driven removal of water and milk solids-not-fat; concentrated milk fat; no intended covalent synthesis. <span class="citation" data-cites="FSSAI_Dairy_2025">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>)</span></td>
+<td style="text-align: left;">FSSAI defines ghee/milk fat products as derived exclusively from milk via processes that remove water and SNF almost totally. <span class="citation" data-cites="FSSAI_Dairy_2025">(<a href="#ref-FSSAI_Dairy_2025" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025b</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Well-defined milk-fat product identity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hydrogenation</td>
+<td style="text-align: center;">0.92</td>
+<td style="text-align: left;">Addition of hydrogen to C=C double bonds (covalent saturation); may also change isomer distribution. <span class="citation" data-cites="AOCS_Hydrogenation_2024">(<a href="#ref-AOCS_Hydrogenation_2024" role="doc-biblioref">American Oil Chemists’ Society (AOCS) 2024</a>)</span></td>
+<td style="text-align: left;">ITC(HS) heading 1516 explicitly covers fats/oils “partly or wholly hydrogenated”; FSSAI ingredient class titles include “hydrogenated oils” / “partially hydrogenated oils”. <span class="citation" data-cites="DGCI_CH15 FSSAI_Label_2020">(<a href="#ref-DGCI_CH15" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007c</a>; <a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Explicit HS/legal recognition + covalent modification.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Acetylation (Modified Starch)</td>
+<td style="text-align: center;">0.94</td>
+<td style="text-align: left;">Hydroxyl groups on starch are converted to acetate esters (<em>O</em>-acetylation); acetyl groups introduced using acetic anhydride (representative modified starch). <span class="citation" data-cites="JECFA_AcetylatedDistarchAdipate">(<a href="#ref-JECFA_AcetylatedDistarchAdipate" role="doc-biblioref">Joint FAO/WHO Expert Committee on Food Additives (JECFA) 1974</a>)</span></td>
+<td style="text-align: left;">HS Chapter 35 heading 3505 covers modified starches including esterified starches; FSSAI labelling distinguishes “starches other than chemically modified starches” (implying modified starch must be specifically named). <span class="citation" data-cites="DGCI_CH35 FSSAI_Label_2020">(<a href="#ref-DGCI_CH35" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007e</a>; <a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Clear covalent modification and clear HS heading.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interesterification</td>
+<td style="text-align: center;">0.91</td>
+<td style="text-align: left;">Rearrangement of fatty acids within/between triglycerides via ester interchange (covalent bond break/re-form) while total FA composition may remain. <span class="citation" data-cites="TransFat_Review_2011">(<a href="#ref-TransFat_Review_2011" role="doc-biblioref"><span class="nocase">Mozaffarian et al.</span> 2011</a>)</span></td>
+<td style="text-align: left;">ITC(HS) heading 1516 explicitly includes “interesterified” and “re-esterified” fats/oils; FSSAI class titles include “interesterified vegetable fat”. <span class="citation" data-cites="DGCI_CH15 FSSAI_Label_2020">(<a href="#ref-DGCI_CH15" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India 2007c</a>; <a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">High</td>
+<td style="text-align: left;">Explicit HS/legal recognition + covalent modification.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Synthetic Flavors</td>
+<td style="text-align: center;">0.99</td>
+<td style="text-align: left;">Deliberate formulation of defined molecules produced by industrial chemical synthesis; mixture may be far removed from biological matrix. <span class="citation" data-cites="PubChem_Vanillin">(<a href="#ref-PubChem_Vanillin" role="doc-biblioref">National Center for Biotechnology Information (NCBI) 2025a</a>)</span></td>
+<td style="text-align: left;">FSSAI requires declaration of flavouring agents; artificial flavours require declaring the common name, and natural/nature-identical require class name declaration. <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Strong naming rules; chemistry varies by flavour system.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vanillin (Lab-made)</td>
+<td style="text-align: center;">0.98</td>
+<td style="text-align: left;">Single defined chemical entity (vanillin; 4-hydroxy-3-methoxybenzaldehyde). <span class="citation" data-cites="PubChem_Vanillin">(<a href="#ref-PubChem_Vanillin" role="doc-biblioref">National Center for Biotechnology Information (NCBI) 2025a</a>)</span></td>
+<td style="text-align: left;">Typically declared as a flavouring substance; labelling must follow flavour declaration rules (natural vs artificial/nature-identical classification depends on source and regulatory interpretation). <span class="citation" data-cites="FSSAI_Label_2020">(<a href="#ref-FSSAI_Label_2020" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023a</a>)</span></td>
+<td style="text-align: center;">Medium</td>
+<td style="text-align: left;">Chemical identity is unambiguous; regulatory class depends on production route.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sodium Glycolate</td>
+<td style="text-align: center;">0.99</td>
+<td style="text-align: left;">Defined inorganic/organic salt (sodium 2-hydroxyacetate); inherently a chemical entity not tied to a food matrix. <span class="citation" data-cites="PubChem_SodiumGlycolate">(<a href="#ref-PubChem_SodiumGlycolate" role="doc-biblioref">National Center for Biotechnology Information (NCBI) 2025b</a>)</span></td>
+<td style="text-align: left;">“Glycolate” is referenced as an impurity/specification parameter within some additive standards (e.g., CMC-related specs), but sodium glycolate itself is not a common named food. <span class="citation" data-cites="FSSAI_Additives_Chapter3_2024">(<a href="#ref-FSSAI_Additives_Chapter3_2024" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2024</a>)</span></td>
+<td style="text-align: center;">Low</td>
+<td style="text-align: left;">Presence in food law is indirect; use-case dependent.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<hr>
+</section>
+<section id="sec-matter-scores" class="level2">
+<h2 class="anchored" data-anchor-id="sec-matter-scores">Table 2: Final Commercial States with Matter Scores (M)</h2>
+<p>Final commercial states with single Matter Scores (M), primary Matter Classes, typical process/E context, and justification summary.</p>
+<div id="tbl-matter-scores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-matter-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Final commercial states with single Matter Scores (M), primary Matter Classes, typical process/E context, and justification summary.
+</figcaption>
+<div aria-describedby="tbl-matter-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Final State</th>
+<th style="text-align: center;">M</th>
+<th style="text-align: left;">Matter Class</th>
+<th style="text-align: left;">Typical Processes / E-context</th>
+<th style="text-align: left;">Justification Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Whole / Fresh pieces</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: left;">Hydrated / Native</td>
+<td style="text-align: left;">Sorting (E=0.12), washing (0.15), de-husking (0.22), chilling (0.18).</td>
+<td style="text-align: left;">Primary commodities such as whole vegetables or raw milk sold with cellular water and structure intact are treated as minimally processed in trade and labelling; matrix loss is negligible, so M is near zero. <span class="citation" data-cites="FSSAI_Label_2020_M2 DGCI_CH11_M2">(<a href="#ref-FSSAI_Label_2020_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023b</a>; <a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cut / Sliced pieces</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: left;">Hydrated / Native</td>
+<td style="text-align: left;">Sorting, washing, trimming, cutting, chilling in similar E-band as whole produce.</td>
+<td style="text-align: left;">Cutting or slicing does not remove major components; it increases surface area but retains the hydrated matrix, so M is modestly above whole state yet still in Class 1. <span class="citation" data-cites="FSSAI_Label_2020_M2">(<a href="#ref-FSSAI_Label_2020_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023b</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pulp / Puree</td>
+<td style="text-align: center;">0.25</td>
+<td style="text-align: left;">Comminuted</td>
+<td style="text-align: left;">De-husking (0.22), milling or pulping (0.28–0.32), possible pasteurisation (0.48).</td>
+<td style="text-align: left;">Fruit or vegetable pulps and purees correspond to comminuted edible portions where skin and fibre may be partially retained; composition is close to edible fraction but structure is lost, consistent with Class 2. <span class="citation" data-cites="DGCI_CH11_M2 FSSAI_Dairy_2025_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Coarse grits</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: left;">Comminuted</td>
+<td style="text-align: left;">Milling/fragmentation (E near 0.28) without extensive screening to flour fineness.</td>
+<td style="text-align: left;">Cereal groats and meals are defined in Chapter 11 as fragmented grains with specified sieve cut-offs; fragmentation preserves nutritional spectrum but destroys grain structure, giving a higher M than whole grain but still Class 2. <span class="citation" data-cites="DGCI_CH11_M2 WCO_CH11_Notes_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-WCO_CH11_Notes_M2" role="doc-biblioref">World Customs Organization 2002</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Flour / Fine powder</td>
+<td style="text-align: center;">0.33</td>
+<td style="text-align: left;">Comminuted</td>
+<td style="text-align: left;">Milling and sifting (E ≈ 0.28) to flours and powders.</td>
+<td style="text-align: left;">Fine cereal and pulse flours in HS 1101/1102 represent fully fragmented grain; anatomical integrity is lost but no targeted macronutrient removal occurs, so M is slightly higher than coarse grits yet remains in Class 2. <span class="citation" data-cites="DGCI_CH11_M2 WCO_CH11_Notes_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-WCO_CH11_Notes_M2" role="doc-biblioref">World Customs Organization 2002</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Flakes</td>
+<td style="text-align: center;">0.36</td>
+<td style="text-align: left;">Dehydrated / Concentrated</td>
+<td style="text-align: left;">Rolling/laminating (working grains), partial dehydration or toasting (E around roasting 0.58).</td>
+<td style="text-align: left;">Rolled or flaked grains are explicitly classified under heading 1104; moisture is typically lower and structure more worked than in meal, so M reflects additional matrix disruption and concentration characteristic of early Class 3. <span class="citation" data-cites="DGCI_CH11_M2 WCO_CH11_Notes_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-WCO_CH11_Notes_M2" role="doc-biblioref">World Customs Organization 2002</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Concentrate (liquid)</td>
+<td style="text-align: center;">0.40</td>
+<td style="text-align: left;">Dehydrated / Concentrated</td>
+<td style="text-align: left;">Evaporation or vacuum concentration of juices, milk, or pulps; processes in a band around pasteurisation (0.48) and clarification (0.49).</td>
+<td style="text-align: left;">Liquid concentrates such as condensed milk or concentrated juice primarily remove water; the matrix is densified but major macronutrients remain, justifying a mid-Class 3 M-score. <span class="citation" data-cites="FSSAI_Dairy_2025_M2">(<a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Powder (spray-dried)</td>
+<td style="text-align: center;">0.42</td>
+<td style="text-align: left;">Dehydrated / Concentrated</td>
+<td style="text-align: left;">Evaporation and spray-drying of liquids (e.g., milk, juices, whey) following heat treatment.</td>
+<td style="text-align: left;">Spray-dried powders such as milk powder and whey powder are recognized as distinct dried milk products; removal of nearly all water and creation of free-flowing powders increases density and handling purity but still retains a broad nutrient profile, fitting high Class 3. <span class="citation" data-cites="FSSAI_Dairy_2025_M2 Whey_Applications_2015_M2">(<a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>; <a href="#ref-Whey_Applications_2015_M2" role="doc-biblioref"><span class="nocase">Pintado et al.</span> 2015</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Juice (clarified)</td>
+<td style="text-align: center;">0.50</td>
+<td style="text-align: left;">Structural Fractionation</td>
+<td style="text-align: left;">Pulping, then clarification/filtration, sometimes centrifugation (E rising from 0.28 to ≈0.49).</td>
+<td style="text-align: left;">Clarified juices selectively remove insoluble fibre and suspended solids, leaving mainly soluble solids and water; this is a compositional subset of the fruit matrix and matches Class 4 behaviour. <span class="citation" data-cites="DGCI_CH11_M2 FSSAI_Label_2020_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-FSSAI_Label_2020_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2023b</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skim / Defatted meal</td>
+<td style="text-align: center;">0.55</td>
+<td style="text-align: left;">Structural Fractionation</td>
+<td style="text-align: left;">Cream separation (milk), solvent extraction or pressing (oilseeds), followed by drying or milling.</td>
+<td style="text-align: left;">Skimmed milk (fat-reduced) and defatted oilseed meals are produced by removing cream or oil; the remaining fraction is enriched in protein or non-fat solids and recognized as a separate commodity or feed/food ingredient, placing it in upper Class 4. <span class="citation" data-cites="FSSAI_Dairy_2025_M2 DGCI_CH15_M2 Codex_SoyProtein_175_1989_M2">(<a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>; <a href="#ref-DGCI_CH15_M2" role="doc-biblioref">DGCI&amp;S 2007a</a>; <a href="#ref-Codex_SoyProtein_175_1989_M2" role="doc-biblioref">Codex Alimentarius Commission 1989</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oil</td>
+<td style="text-align: center;">0.70</td>
+<td style="text-align: left;">Constitutional Isolate</td>
+<td style="text-align: left;">Cold pressing (E=0.32), solvent extraction (0.82), and refining/fractionation (0.76).</td>
+<td style="text-align: left;">Edible fats and oils are defined in Codex CXS 19-1981 as glyceride-based materials separated from plant or animal sources, including virgin, cold-pressed, and refined oils; the lipid fraction is isolated from the matrix, justifying a Class 5 score. <span class="citation" data-cites="Codex_FatsOils_19_1981_M2 DGCI_CH15_M2">(<a href="#ref-Codex_FatsOils_19_1981_M2" role="doc-biblioref">Codex Alimentarius Commission 2015</a>; <a href="#ref-DGCI_CH15_M2" role="doc-biblioref">DGCI&amp;S 2007a</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Protein concentrate</td>
+<td style="text-align: center;">0.74</td>
+<td style="text-align: left;">Constitutional Isolate</td>
+<td style="text-align: left;">Aqueous extraction, precipitation or membrane concentration of protein, followed by drying.</td>
+<td style="text-align: left;">Soy protein concentrate is defined as containing 65–90% protein (dry basis) after removal of substantial non-protein matter; this near-pure macronutrient fraction is more matrix-distant than skim or defatted meal but less than isolates, justifying M=0.74. <span class="citation" data-cites="Codex_SoyProtein_175_1989_M2">(<a href="#ref-Codex_SoyProtein_175_1989_M2" role="doc-biblioref">Codex Alimentarius Commission 1989</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Protein isolate</td>
+<td style="text-align: center;">0.78</td>
+<td style="text-align: left;">Constitutional Isolate</td>
+<td style="text-align: left;">Further removal of non-protein constituents (water, oil, carbohydrates) by extraction and membrane processes.</td>
+<td style="text-align: left;">Soy protein isolate (≥90%) and whey protein isolate similarly achieve very high protein purity; Codex and technical literature treat them as functional protein ingredients rather than food matrices, placing them at the top of Class 5. <span class="citation" data-cites="Codex_SoyProtein_175_1989_M2 Whey_Applications_2015_M2">(<a href="#ref-Codex_SoyProtein_175_1989_M2" role="doc-biblioref">Codex Alimentarius Commission 1989</a>; <a href="#ref-Whey_Applications_2015_M2" role="doc-biblioref"><span class="nocase">Pintado et al.</span> 2015</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fat fraction</td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: left;">Constitutional Isolate</td>
+<td style="text-align: left;">Fractionation of oils/fats (E=0.76) into olein/stearin, or separation of butterfat/ghee from milk.</td>
+<td style="text-align: left;">Fractionated fats such as palm olein and milk fat products (including ghee and butterfat) are recognized in Codex and FSSAI as specific fat fractions; they are highly enriched in triglycerides from a defined source, warranting a slightly lower M than generic oil due to preserved origin linkage yet clear Class 5 status. <span class="citation" data-cites="Codex_FatsOils_19_1981_M2 FSSAI_Dairy_2025_M2">(<a href="#ref-Codex_FatsOils_19_1981_M2" role="doc-biblioref">Codex Alimentarius Commission 2015</a>; <a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Extract / Oleoresin</td>
+<td style="text-align: center;">0.86</td>
+<td style="text-align: left;">Molecular Signal / Extract</td>
+<td style="text-align: left;">Solvent extraction of spices or herbs and evaporation of solvent to yield oleoresins.</td>
+<td style="text-align: left;">Spice oleoresins and similar extracts concentrate flavour-active and sometimes pungent components; biomass is largely removed and the material acts as a potent functional ingredient, aligning with mid-Class 6. <span class="citation" data-cites="EssentialOils_FoodApps_2024_M2 FSSAI_Additives_2022_M2">(<a href="#ref-EssentialOils_FoodApps_2024_M2" role="doc-biblioref">Rodilla et al. 2024</a>; <a href="#ref-FSSAI_Additives_2022_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2022</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Essential oil</td>
+<td style="text-align: center;">0.90</td>
+<td style="text-align: left;">Molecular Signal / Extract</td>
+<td style="text-align: left;">Steam distillation or cold expression, sometimes followed by purification or encapsulation.</td>
+<td style="text-align: left;">Essential oils are volatile, hydrophobic liquids containing concentrated aroma compounds; reviews highlight their use as natural flavourings and preservatives at very low inclusion levels, indicating high signal potency and justifying a high Class 6 score. <span class="citation" data-cites="EssentialOils_FoodApps_2024_M2">(<a href="#ref-EssentialOils_FoodApps_2024_M2" role="doc-biblioref">Rodilla et al. 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Crystalline chemical</td>
+<td style="text-align: center;">0.98</td>
+<td style="text-align: left;">De-novo / Synthetic</td>
+<td style="text-align: left;">Chemical synthesis, purification, and crystallization (e.g., vanillin, ethyl vanillin, sodium salts).</td>
+<td style="text-align: left;">Crystalline vanillin and similar flavour chemicals are single, chemically defined entities catalogued in PubChem; sodium glycolate is likewise described as a defined salt. These are essentially pure synthetic matter with negligible matrix linkage, near the Class 7 extreme. <span class="citation" data-cites="PubChem_Vanillin_1183_M2 PubChem_SodiumGlycolate_M2">(<a href="#ref-PubChem_Vanillin_1183_M2" role="doc-biblioref">National Center for Biotechnology Information 2021</a>; <a href="#ref-PubChem_SodiumGlycolate_M2" role="doc-biblioref">NCBI 2022</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Granules</td>
+<td style="text-align: center;">0.80</td>
+<td style="text-align: left;">Constitutional Isolate</td>
+<td style="text-align: left;">Agglomeration or granulation of flours, concentrates, isolates, or crystalline additives.</td>
+<td style="text-align: left;">Codex explicitly allows soy protein products to be designated by physical forms such as <em>granules</em> or <em>bits</em>; such granules usually represent agglomerated isolates or concentrates, making them slightly above generic protein isolates in perceived purity and handling regularity. <span class="citation" data-cites="Codex_SoyProtein_175_1989_M2">(<a href="#ref-Codex_SoyProtein_175_1989_M2" role="doc-biblioref">Codex Alimentarius Commission 1989</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oleoresin (viscous)</td>
+<td style="text-align: center;">0.88</td>
+<td style="text-align: left;">Molecular Signal / Extract</td>
+<td style="text-align: left;">Solvent extraction of spices followed by partial solvent removal to a viscous resin.</td>
+<td style="text-align: left;">Viscous oleoresins preserve both essential oil and non-volatile resinous components and are widely used as concentrated spice ingredients; their high potency and low-dose application justify an M-score between generic extracts and essential oils. <span class="citation" data-cites="EssentialOils_FoodApps_2024_M2 FSSAI_Additives_2022_M2">(<a href="#ref-EssentialOils_FoodApps_2024_M2" role="doc-biblioref">Rodilla et al. 2024</a>; <a href="#ref-FSSAI_Additives_2022_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2022</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Whey powder</td>
+<td style="text-align: center;">0.52</td>
+<td style="text-align: left;">Structural Fractionation</td>
+<td style="text-align: left;">Separation of whey from curd, concentration, and drying.</td>
+<td style="text-align: left;">Whey powder arises after removal of curd proteins and fat; it is recognized in dairy standards as a separate dried milk product comprised mainly of lactose and whey proteins, thus more matrix-thinned than whole milk powder but still a food fraction. <span class="citation" data-cites="FSSAI_Dairy_2025_M2 Whey_Applications_2015_M2">(<a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>; <a href="#ref-Whey_Applications_2015_M2" role="doc-biblioref"><span class="nocase">Pintado et al.</span> 2015</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Starch flour</td>
+<td style="text-align: center;">0.60</td>
+<td style="text-align: left;">Structural Fractionation</td>
+<td style="text-align: left;">Wet separation of starch from cereals or roots, followed by drying and milling.</td>
+<td style="text-align: left;">Cereal and root starches are classified separately from whole flours in Chapter 11 and in Chapter 35 when chemically modified; the isolated carbohydrate fraction retains botanical origin but little of the original matrix, placing it at the high end of Class 4. <span class="citation" data-cites="DGCI_CH11_M2 DGCI_CH35_M2">(<a href="#ref-DGCI_CH11_M2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2007</a>; <a href="#ref-DGCI_CH35_M2" role="doc-biblioref">DGCI&amp;S 2007b</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dense block / Cake (e.g., khoya)</td>
+<td style="text-align: center;">0.38</td>
+<td style="text-align: left;">Dehydrated / Concentrated</td>
+<td style="text-align: left;">Prolonged heat concentration of milk to a semi-solid or solid mass.</td>
+<td style="text-align: left;">Khoa/khoya is defined as a milk product obtained by partial dehydration of milk; solids are concentrated but composition remains broad (fat, protein, lactose), supporting a moderate Class 3 score. <span class="citation" data-cites="FSSAI_Dairy_2025_M2">(<a href="#ref-FSSAI_Dairy_2025_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2025a</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meal (e.g., defatted soya meal)</td>
+<td style="text-align: center;">0.57</td>
+<td style="text-align: left;">Structural Fractionation</td>
+<td style="text-align: left;">Oil extraction from soybeans, followed by grinding to meal.</td>
+<td style="text-align: left;">Defatted meals contain much of the non-fat matrix but have lost the bulk lipid; they are standard outputs of oilseed processing and fit upper Class 4 as protein- and fibre-rich subsets of the starting seed. <span class="citation" data-cites="DGCI_CH15_M2 Codex_SoyProtein_175_1989_M2">(<a href="#ref-DGCI_CH15_M2" role="doc-biblioref">DGCI&amp;S 2007a</a>; <a href="#ref-Codex_SoyProtein_175_1989_M2" role="doc-biblioref">Codex Alimentarius Commission 1989</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modified starch powder</td>
+<td style="text-align: center;">0.96</td>
+<td style="text-align: left;">De-novo / Synthetic</td>
+<td style="text-align: left;">Chemical modification (e.g., acetylation, cross-linking) of starch polymers, then drying and milling.</td>
+<td style="text-align: left;">JECFA describes acetylated distarch adipate as starch whose hydroxyls have been esterified with acetic and adipic moieties; this covalent modification creates a regulated food additive (INS 1422) classified under modified starches, giving it a low-end Class 7 score. <span class="citation" data-cites="JECFA_AcetylatedDistarch_2016_M2 FAO_GSFA_1422_M2 DGCI_CH35_M2">(<a href="#ref-JECFA_AcetylatedDistarch_2016_M2" role="doc-biblioref">FAO/WHO Joint Expert Committee on Food Additives 2016</a>; <a href="#ref-FAO_GSFA_1422_M2" role="doc-biblioref">FAO/WHO Codex GSFA 2025</a>; <a href="#ref-DGCI_CH35_M2" role="doc-biblioref">DGCI&amp;S 2007b</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Emulsifier powder (e.g., lecithin)</td>
+<td style="text-align: center;">0.89</td>
+<td style="text-align: left;">Molecular Signal / Extract</td>
+<td style="text-align: left;">Solvent extraction or fractionation of phospholipids from oils, followed by drying or spray-drying.</td>
+<td style="text-align: left;">Lecithins are listed in additive regulations as surface-active phospholipid mixtures obtained from edible fats and oils; their role as functional emulsifiers at low inclusion levels and their separation from bulk matrix place them high in Class 6. <span class="citation" data-cites="FSSAI_Additives_2022_M2 Codex_FatsOils_19_1981_M2">(<a href="#ref-FSSAI_Additives_2022_M2" role="doc-biblioref">Food Safety and Standards Authority of India (FSSAI) 2022</a>; <a href="#ref-Codex_FatsOils_19_1981_M2" role="doc-biblioref">Codex Alimentarius Commission 2015</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<hr>
+</section>
+<section id="sec-f-scores" class="level2">
+<h2 class="anchored" data-anchor-id="sec-f-scores">Table 3: Detailed Functional (F) Score Analysis</h2>
+<p>Detailed Functional (F) Score Analysis: Identity Shift Logic and Statutory Basis.</p>
+<div id="tbl-f-scores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-f-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Detailed Functional (F) Score Analysis: Identity Shift Logic and Statutory Basis.
+</figcaption>
+<div aria-describedby="tbl-f-scores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Functional Class</th>
+<th style="text-align: center;">F</th>
+<th style="text-align: left;">Primary Tech. Role</th>
+<th style="text-align: left;">Typical E-M Context</th>
+<th style="text-align: left;">Identity Shift Logic &amp; Statutory Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Base Ingredient</strong></td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: left;">Provide bulk, calories, protein, primary structure.</td>
+<td style="text-align: left;">E: 0.12–0.82; M: 0.05–0.78</td>
+<td style="text-align: left;">Even at very high E and M — spray-dried milk powder (E ≈ 0.48, M ≈ 0.42), solvent-extracted soy protein isolate (E ≈ 0.82, M ≈ 0.78) — regulatory frameworks mandate source-dominant naming. “Milk solids,” “soya protein isolate,” “wheat flour” are required declarations; functional roles (nutrition, structure, emulsification) remain implicit rather than named. F reflects institutional resistance to functional abstraction. F operates as a downward tie-breaker, preventing drift toward function-emergent status. FSSAI Reg 4(1) “true nature”; Reg 5(2) mandatory source-first; Sch II titles 1–3, 13–16; ITC-HS Ch 07–11 (source-aligned). <span class="citation" data-cites="legitquest_F2 DGCI_CH11_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>; <a href="#ref-DGCI_CH11_F2" role="doc-biblioref">Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S) 2022</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Taste Profile</strong></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: left;">Natural aroma, raw taste profile, herbal garnish.</td>
+<td style="text-align: left;">E: 0.15–0.45; M: 0.10–0.40</td>
+<td style="text-align: left;">Sensory function is acknowledged (elevating F above Base Ingredient), but botanical origin remains primary in regulatory naming. “Natural vanilla flavor” requires vanilla source identification where characterizing; “peppermint oil” retains species-specific designation. The “as appropriate” qualifier in Schedule II preserves contextual source judgment. Synthetic replication triggers different regulatory treatment (artificial flavor, F ≈ 0.88), confirming source-function coupling constraints. FSSAI Reg 5(2) Sch II title 8; Reg 2.6 (natural/nature-identical/artificial qualifiers); ITC-HS Ch 09, 12, 21, 33.01–33.02. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Lipid Base</strong></td>
+<td style="text-align: center;">0.22</td>
+<td style="text-align: left;">Structural fat functionality, caloric contribution, texture/mouthfeel.</td>
+<td style="text-align: left;">E: 0.32–0.92; M: 0.70–0.75</td>
+<td style="text-align: left;">Pivotal for Key Intersection Analysis. Even intensive modification — hydrogenation (E ≈ 0.92), interesterification (E ≈ 0.91) — does not trigger functional re-casting while regulatory frameworks retain source-linked naming. “Hydrogenated vegetable oil,” “interesterified palm olein” are mandatory; triglyceride structure preservation in HS 1516 (“but not further prepared”) caps F at ≈ 0.35. Baseline 0.22 reflects regulatory resilience of source identity that processing intensity alone cannot overcome. FSSAI Reg 5(2) Sch II title 2; Codex CXS 19-1981 virgin/cold-pressed; ITC-HS Ch 15 (1507–1515 specific oils; 1516 modified). <span class="citation" data-cites="legitquest_F2 Codex_CXS19_1981_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>; <a href="#ref-Codex_CXS19_1981_F2" role="doc-biblioref">General Standard for Edible Fats and Oils Not Covered by Individual Standards 1981</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Bulking Agent</strong></td>
+<td style="text-align: center;">0.38</td>
+<td style="text-align: left;">Increase volume, filler, non-nutritive bulk.</td>
+<td style="text-align: left;">E: 0.60–0.85; M: 0.60–0.80</td>
+<td style="text-align: left;">Partial functional recognition: “bulking agent” class acknowledged, but source often implicit in chemical name (maltodextrin from starch, cellulose from wood pulp/cotton). HS placement split between food-derived (Ch 11, 17) and chemically-processed (Ch 39) depending on modification degree. Reflects intermediate status: function named but not fully abstracted from material source. FSSAI Food Additives Regs 2011, Sch I class; ITC-HS 1702 (maltodextrins), 1109 (gluten), 3912 (cellulose). <span class="citation" data-cites="IndianKanoon_F2">(<a href="#ref-IndianKanoon_F2" role="doc-biblioref">Indian Kanoon Repository 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Humectant</strong></td>
+<td style="text-align: center;">0.42</td>
+<td style="text-align: left;">Retain moisture, prevent drying, wetting agent.</td>
+<td style="text-align: left;">E: 0.55–0.75; M: 0.60–0.75</td>
+<td style="text-align: left;">Moisture-retention function primary in naming, but glycerol source (vegetable/animal/synthetic) may be relevant for veg/non-veg classification. Synthetic glycerol achieves higher functional abstraction than fat-derived. Reflects moderate elevation: frameworks permit functional-class declaration but source indication remains commercially and regulatorily significant for certain applications. FSSAI Food Additives Regs 2011, Sch I class; Glycerol (INS 422), Sorbitol (INS 420), Propylene Glycol (INS 1520); ITC-HS 2905.45, 2906, 3824. <span class="citation" data-cites="IndianKanoon_F2">(<a href="#ref-IndianKanoon_F2" role="doc-biblioref">Indian Kanoon Repository 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Firming Agent</strong></td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: left;">Maintain crispness, strengthen gel.</td>
+<td style="text-align: left;">E: 0.50–0.70; M: 0.75–0.85</td>
+<td style="text-align: left;">Crispness maintenance is pure technological function with no nutritional role, yet mineral source (calcium, aluminum) retains chemical specificity. “Firming agent (calcium chloride)” presents functional priority with residual material identity. Reflects chemical-functional dual identity: higher than plant-derived due to inorganic source irrelevance to biological origin, but capped by specific naming requirements. FSSAI Food Additives Regs 2011, Sch I class; Calcium chloride (INS 509), Calcium lactate (INS 327); ITC-HS 2827, 2833, 2834, 3824. <span class="citation" data-cites="IndianKanoon_F2">(<a href="#ref-IndianKanoon_F2" role="doc-biblioref">Indian Kanoon Repository 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Raising Agent</strong></td>
+<td style="text-align: center;">0.48</td>
+<td style="text-align: left;">Liberate gas, increase volume, leavening.</td>
+<td style="text-align: left;">E: 0.45–0.65; M: 0.70–0.85</td>
+<td style="text-align: left;">Gas liberation function clearly functional, but “baking soda” (sodium bicarbonate) retains common-name source identification in consumer discourse. Prepared baking powders (mixed leavening systems) in 3824 achieve higher functional abstraction. The F = 0.48 reflects equilibrium position: chemical naming standard, functional class permitted, consumer familiarity with source-based terms moderating full abstraction. FSSAI Food Products Standards and Food Additives Regulations, 2011, Schedule I “raising agent” class: sodium bicarbonate (INS 500(ii)), ammonium bicarbonate (INS 503(ii)), sodium acid pyrophosphate (INS 450(i)); ITC-HS 2836 (carbonates), 2835 (phosphates), 3824 (prepared baking powders). <span class="citation" data-cites="IndianKanoon_F2">(<a href="#ref-IndianKanoon_F2" role="doc-biblioref">Indian Kanoon Repository 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Thickener</strong></td>
+<td style="text-align: center;">0.62</td>
+<td style="text-align: left;">Increase viscosity, bodying agent, texturizing agent.</td>
+<td style="text-align: left;">E: 0.70–0.94; M: 0.60–0.96</td>
+<td style="text-align: left;">Mandatory functional class declaration elevates F decisively. “Thickener (xanthan gum)” or “Thickener (INS 415)” presents function primary, source secondary. However, source variability within class (plant gums, animal proteins, modified starches, synthetic polymers) prevents complete abstraction: specific identification retains traceability to origin. HS migration to Chapter 35/39 for modified/cellulosic materials supports elevated F, but native gums in Chapter 13 maintain moderate source linkage. The F = 0.62 captures this regulatory-driven functional priority with residual source significance. FSSAI Regulation 5(5): mandatory functional class declaration with INS number; Food Products Standards and Food Additives Regulations, 2011, Schedule I “thickener” class; ITC-HS 1302 (vegetable saps and extracts), 3505 (modified starches), 3912 (cellulose ethers), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Stabilizer</strong></td>
+<td style="text-align: center;">0.65</td>
+<td style="text-align: left;">Maintain dispersion, prevent sedimentation, foam stabilizer.</td>
+<td style="text-align: left;">E: 0.75–0.90; M: 0.70–0.89</td>
+<td style="text-align: left;">Dispersion maintenance is more technologically specific than thickening — requires kinetic stability, not just viscosity. Broader source variability (vegetable extracts, microbial products, synthetic polymers) supports higher F than thickeners. “Stabilizer” declaration standard with optional source parenthetical; HS chemical-product placement common. The F = 0.65 reflects stronger functional dominance due to specialized technological application and greater source heterogeneity within class. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “stabilizer” class; ITC-HS 1302 (seaweed extracts), 3504 (peptones, protein substances), 3824 (prepared blends). <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Gelling Agent</strong></td>
+<td style="text-align: center;">0.68</td>
+<td style="text-align: left;">Gel formation, structure provider.</td>
+<td style="text-align: left;">E: 0.70–0.89; M: 0.75–0.90</td>
+<td style="text-align: left;">Gel formation is definitive functional transformation of food matrix — creates novel physical structure not present in starting materials. “Gelling agent” declaration standard with source parenthetical (“gelling agent (pectin)”). Gelatin (animal-derived) faces source-disclosure constraints from Ram Gaua Raksha Dal <span class="citation" data-cites="lalitha_2026_supreme_court">(<a href="#ref-lalitha_2026_supreme_court" role="doc-biblioref">Lalitha 2026b</a>)</span>, capping its effective F; plant-derived gelling agents achieve higher functional abstraction. The F = 0.68 reflects strong functional dominance with residual source significance for protein-based gels. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “gelling agent” class: gelatin, agar, pectin, carrageenan, gellan gum; ITC-HS 3503 (gelatin), 1302, 3824. <span class="citation" data-cites="legitquest_F2 SSRana_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>; <a href="#ref-SSRana_F2" role="doc-biblioref">High Court of Delhi 2021</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Foaming Agent</strong></td>
+<td style="text-align: center;">0.72</td>
+<td style="text-align: left;">Form gas dispersion, whipping agent.</td>
+<td style="text-align: left;">E: 0.75–0.95; M: 0.78–0.90</td>
+<td style="text-align: left;">Gas dispersion for volume expansion is highly technical function — requires precise surface-activity, film-forming, gas-retention properties. Foaming power, not source, defines quality: egg white, soy protein, synthetic surfactants functionally equivalent at specified performance levels. Elevated F reflects specialized technological application and performance-based selection criteria. Protein-based foaming agents retain slight source linkage (egg, soy), synthetic alternatives achieve higher abstraction. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “foaming agent” class: albumen, quillaia extract, synthetic surfactants; ITC-HS 3502 (albumin, egg white), 1302 (saponins — quillaia), 3402 (organic surface-active agents — synthetic), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Emulsifier</strong></td>
+<td style="text-align: center;">0.82</td>
+<td style="text-align: left;">Form emulsion, maintain emulsion, prevent fat separation.</td>
+<td style="text-align: left;">E: 0.82–0.94; M: 0.78–0.96</td>
+<td style="text-align: left;">The Emulsifier class exemplifies the E-M-F tie-breaker function. Lecithin: E ≈ 0.89 (solvent extraction, fractionation, drying), M ≈ 0.89 (phospholipid concentrate) — conditions suggesting ambiguous identity. Yet regulatory practice mandates “emulsifier (lecithin)” or “emulsifier (INS 322)” declaration, with ITC-HS placement in 2923.20 (chemical products) rather than 1516 (modified fats). Functional class primary, source parenthetical or absent. The F = 0.82 captures this regulatory-naming resolution of E-M ambiguity. Mono-/diglycerides similarly achieve F ≈ 0.82 through additive-schedule classification and prepared-additive HS placement, despite fat-derived origin. The lecithin vs.&nbsp;fractionated olein comparison illuminates F’s decisive role: nearly identical E-M, radically different F due to regulatory classification divergence. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “emulsifier” class: lecithins (INS 322), mono-/diglycerides (INS 471), polysorbates (INS 432–436), sucrose esters (INS 473–474); ITC-HS 2923.20, 3824, 3402. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Anticaking Agent</strong></td>
+<td style="text-align: center;">0.85</td>
+<td style="text-align: left;">Prevent clumping, improve flow, anti-stick agent.</td>
+<td style="text-align: left;">E: 0.60–0.85; M: 0.80–0.95</td>
+<td style="text-align: left;">Flow improvement is purely technical function with no nutritional, sensory, or structural role in final product. Source completely irrelevant to application: silicon dioxide from sand or synthetic, calcium silicate from mineral or industrial process — functionally equivalent. “Anticaking agent” declaration standard with chemical name or INS number; no source indication required or expected. High F reflects total identity divorce from biological origin. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “anticaking agent” class: silicon dioxide (INS 551), calcium silicate (INS 552), magnesium carbonate (INS 504(i)), various phosphates; ITC-HS 2811 (silicon dioxide), 2835 (phosphates), 3824 (prepared anticaking preparations). <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Acidity Regulator</strong></td>
+<td style="text-align: center;">0.87</td>
+<td style="text-align: left;">Control pH, acidifier, buffering agent, alkali.</td>
+<td style="text-align: left;">E: 0.55–0.90; M: 0.70–0.90</td>
+<td style="text-align: left;">pH control is chemically precise function — requires defined acid/base strength, buffer capacity, taste profile. Organic acids may retain nominal source linkage (citric “from fermentation,” lactic “from dairy”), but regulatory classification by chemical structure dominates. Synthetic production and functional-class declaration achieve near-complete abstraction. The F = 0.87 reflects very high functional dominance with minimal residual source significance. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “acidity regulator” class: citric acid (INS 330), lactic acid (INS 270), phosphoric acid (INS 338), acetic acid (INS 260), various salts; ITC-HS 2915 (saturated acyclic monocarboxylic acids), 2918 (carboxylic acids with additional oxygen functions), 2835 (phosphates), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Antioxidant</strong></td>
+<td style="text-align: center;">0.88</td>
+<td style="text-align: left;">Prevent oxidation, prevent rancidity, antibrowning.</td>
+<td style="text-align: left;">E: 0.60–0.95; M: 0.75–0.98</td>
+<td style="text-align: left;">Oxidation prevention is chemically specific function — free radical scavenging, metal chelation, oxygen absorption — mechanism-dependent, not source-dependent. Synthetic antioxidants (BHA, BHT, TBHQ) achieve complete source abstraction; natural alternatives (tocopherols, rosemary extract) retain slight source linkage moderating class average. “Antioxidant” declaration standard with specific name or INS number; mechanism of action primary, origin secondary. The F = 0.88 reflects near-complete functional dominance with chemical-mechanistic specificity. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “antioxidant” class: BHA (INS 320), BHT (INS 321), TBHQ (INS 319), tocopherols (INS 307), ascorbic acid (INS 300), rosemary extract (INS 392); ITC-HS 2907 (phenols), 2918 (carboxylic acids), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Preservative</strong></td>
+<td style="text-align: center;">0.89</td>
+<td style="text-align: left;">Inhibit microbes, retard fermentation, antimycotic.</td>
+<td style="text-align: left;">E: 0.60–0.90; M: 0.75–0.95</td>
+<td style="text-align: left;">Microbial inhibition is safety-critical function with strict regulatory control: maximum permitted levels, prohibited food categories, specific labelling requirements. Preservative efficacy independent of source: benzoic acid from gum benzoin or synthetic, sorbic acid from rowan berries or petrochemical — toxicologically and functionally equivalent. “Preservative” declaration with specific name/INS number; safety profile and antimicrobial spectrum primary, origin irrelevant. The F = 0.89 reflects maximum functional dominance for food-safety-critical additives, with regulatory-driven identity. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “preservative” class: benzoic acid/sodium benzoate (INS 210–211), sorbic acid/potassium sorbate (INS 200–202), propionic acid/calcium propionate (INS 280–282), sulfur dioxide (INS 220), nisin (INS 234), natamycin (INS 235); ITC-HS 2916 (unsaturated monocarboxylic acids), 2918 (carboxylic acids), 3824 (prepared preservative systems). <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Antifoaming Agent</strong></td>
+<td style="text-align: center;">0.90</td>
+<td style="text-align: left;">Prevent foaming, reduce surface tension.</td>
+<td style="text-align: left;">E: 0.70–0.95; M: 0.85–0.98</td>
+<td style="text-align: left;">Foam prevention is highly specialized industrial function — used at ppm levels in processing, no consumer-perceptible presence in final product. Silicone-based, mineral oil, polyglycol antifoams chemically defined with no meaningful biological source. “Antifoaming agent” declaration standard; process optimization criteria (temperature stability, dispersion, efficacy) sole selection factors. The F = 0.90 reflects near-total functional abstraction for processing-aid category. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “antifoaming agent” class: dimethylpolysiloxane (INS 900a), mineral oil (INS 905a), various fatty acid esters; ITC-HS 3910 (silicones), 2710 (mineral oils), 3824 (prepared antifoaming compositions). <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Sequestrant</strong></td>
+<td style="text-align: center;">0.91</td>
+<td style="text-align: left;">Bind metal ions, control oxidation catalyst.</td>
+<td style="text-align: left;">E: 0.75–0.95; M: 0.80–0.98</td>
+<td style="text-align: left;">Metal ion binding is precise chemical mechanism — stability constants, chelation kinetics, pH dependence define performance. EDTA, citrates, polyphosphates chemically synthesized; no biological source relevant. “Sequestrant” declaration with chemical specificity; chelating capacity primary, molecular structure secondary, origin absent. The F = 0.91 reflects advanced tool-identity for mechanistically specialized function. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “sequestrant” class: calcium disodium EDTA (INS 385), disodium EDTA (INS 386), various citrates, phosphates, polyphosphates; ITC-HS 2917 (polycarboxylic acids), 2922 (oxygen-function amino-compounds), 2835 (phosphates), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Bleaching Agent</strong></td>
+<td style="text-align: center;">0.92</td>
+<td style="text-align: left;">Decolorize food, flour bleaching.</td>
+<td style="text-align: left;">E: 0.80–0.95; M: 0.85–0.98</td>
+<td style="text-align: left;">Decolorization is aggressive chemical intervention — oxidative destruction of pigments, not nutritional or sensory contribution. Bleaching agents not consumed as food but as processing aids; residues minimized or removed. “Bleaching agent” or “flour treatment agent (bleaching)” declaration; chemical reactivity primary, source irrelevant. The F = 0.92 reflects processing-tool status with no food-component identity. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “bleaching agent” class: benzoyl peroxide (INS 928), chlorine dioxide, sulfur dioxide (INS 220); ITC-HS 2815 (inorganic bases), 2820 (manganese oxides), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Flour Treatment Agent</strong></td>
+<td style="text-align: center;">0.93</td>
+<td style="text-align: left;">Improve baking quality, dough conditioner, dough strengthener.</td>
+<td style="text-align: left;">E: 0.70–0.90; M: 0.75–0.90</td>
+<td style="text-align: left;">Dough conditioning is exquisitely application-specific — rheology modification, gluten development, fermentation control for bread quality optimization. Treatment agents transform flour functionality without becoming part of final product identity; enzymatic action consumed in processing. “Flour treatment agent” declaration with specific agent; technological outcome (dough properties) primary, chemical/enzymatic mechanism secondary, source absent. The F = 0.93 reflects extreme functional specialization for bakery-processing optimization. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “flour treatment agent” class: ascorbic acid (INS 300), L-cysteine (INS 920), various enzymes (amylases, proteases, xylanases), azodicarbonamide; ITC-HS 2936 (vitamins), 2930 (sulfur-organic compounds), 3507 (enzymes), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Carrier</strong></td>
+<td style="text-align: center;">0.94</td>
+<td style="text-align: left;">Dissolve additive, dilute nutrient, encapsulating agent.</td>
+<td style="text-align: left;">E: 0.60–0.95; M: 0.70–0.96</td>
+<td style="text-align: left;">The Carrier function represents meta-functional identity: the carrier’s purpose is to enable function of other ingredients — dissolution, dispersion, encapsulation, controlled release. Maltodextrin, modified starches, oils, glycerol as carriers: source (corn, wheat, palm, soy) irrelevant to carrier function; delivery performance (solubility, viscosity, compatibility) sole criteria. “Carrier” declaration with optional specific material; technological service function completely eclipses material identity. The F = 0.94 is second-highest assigned score, reflecting near-complete functional abstraction. Critical for lipid crossing-point analysis: when vegetable fat becomes “carrier,” F elevates from 0.22 to 0.94 — the definitive functional re-casting. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “carrier” class: starches, maltodextrins, oils, water, propylene glycol, various gums; ITC-HS 3824 (prepared carriers), with specific materials in 1106, 1520, 2905 depending on form. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Propellant</strong></td>
+<td style="text-align: center;">0.95</td>
+<td style="text-align: left;">Expel food from container.</td>
+<td style="text-align: left;">E: 0.60–0.85; M: 0.85–0.98</td>
+<td style="text-align: left;">Food expulsion is purely mechanical/physical function — pressure, expansion, flow properties define performance. Gaseous state, no nutritional function, chemically defined: nitrous oxide (N<sub>2</sub>O), carbon dioxide (CO<sub>2</sub>), nitrogen (N<sub>2</sub>) identified by molecular formula and physical properties, not biological origin. “Propellant” declaration with chemical name or INS number; pressure-temperature behavior primary, chemical identity secondary, source completely absent. The F = 0.95 is maximum assigned score, reflecting complete source abstraction and pure tool-identity. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “propellant” class: nitrous oxide (INS 942), carbon dioxide (INS 290), nitrogen (INS 941), various hydrocarbons (INS 943–945); ITC-HS 2811 (inorganic acids and oxygen compounds of non-metals), 2711 (petroleum gases), 3824. <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Packaging Gas</strong></td>
+<td style="text-align: center;">0.95</td>
+<td style="text-align: left;">Modified atmosphere, prevent oxidation in pack.</td>
+<td style="text-align: left;">E: 0.55–0.75; M: 0.85–0.98</td>
+<td style="text-align: left;">Modified atmosphere preservation is environmental control function — oxygen exclusion, carbon dioxide antimicrobial effect, inert gas displacement protect food quality. Gas identity determined by chemical/physical properties: nitrogen inertness, carbon dioxide solubility, argon density — not by biological origin. Elemental gases (atmospheric, cryogenic, synthetic) functionally equivalent; “packaging gas” declaration with specific gas; atmosphere composition primary, gas source irrelevant. The F = 0.95 matches Propellant as maximum score, reflecting complete functional abstraction from biological matrix. FSSAI Regulation 5(5): mandatory functional class declaration; Food Products Standards and Food Additives Regulations, 2011, Schedule I “packaging gas” class: nitrogen (INS 941), carbon dioxide (INS 290), argon (INS 938), oxygen (INS 948); ITC-HS 2811 (inert gases, nitrogen, carbon dioxide), 3824 (prepared atmosphere mixtures). <span class="citation" data-cites="legitquest_F2">(<a href="#ref-legitquest_F2" role="doc-biblioref">Legitquest Legal Database 2024</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<hr>
+</section>
+<section id="sec-references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-PalmOil_Processing_2023" class="csl-entry" role="listitem">
+<span class="nocase">Abdul Wahab, Siti et al.</span> 2023. <span>“Palm Oil: Processing, Characterization and Utilization in the Food Industry.”</span> <em>Frontiers in Nutrition</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10122035/">https://pmc.ncbi.nlm.nih.gov/articles/PMC10122035/</a>.
+</div>
+<div id="ref-AOCS_Hydrogenation_2024" class="csl-entry" role="listitem">
+American Oil Chemists’ Society (AOCS). 2024. <em>Hydrogenation in Practice</em>. Technical resource page. <a href="https://www.aocs.org/resource/hydrogenation-in-practice/">https://www.aocs.org/resource/hydrogenation-in-practice/</a>.
+</div>
+<div id="ref-Hexane_Substitution_2022" class="csl-entry" role="listitem">
+<span class="nocase">Boukhenfa, Hana et al.</span> 2022. <span>“Towards Substitution of Hexane as Extraction Solvent of Food Products: A Review.”</span> <em>Foods</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9655691/">https://pmc.ncbi.nlm.nih.gov/articles/PMC9655691/</a>.
+</div>
+<div id="ref-Codex_SoyProtein_175_1989_M2" class="csl-entry" role="listitem">
+Codex Alimentarius Commission. 1989. <em>General Standard for Soy Protein Products (CXS 175-1989)</em>. Codex standard. <a href="https://www.fao.org/input/download/standards/325/CXS_175e.pdf">https://www.fao.org/input/download/standards/325/CXS_175e.pdf</a>.
+</div>
+<div id="ref-Codex_FatsOils_19_1981_M2" class="csl-entry" role="listitem">
+Codex Alimentarius Commission. 2015. <em>Standard for Edible Fats and Oils Not Covered by Individual Standards (CXS 19-1981)</em>. Codex standard. <a href="https://www.fao.org/input/download/standards/74/CXS_019e_2015.pdf">https://www.fao.org/input/download/standards/74/CXS_019e_2015.pdf</a>.
+</div>
+<div id="ref-Codex_CXS19_1981" class="csl-entry" role="listitem">
+Codex Alimentarius Commission (FAO/WHO). 2024. <em>Standard for Edible Fats and Oils Not Covered by Individual Standards (CXS 19-1981)</em>. Official PDF. <a href="https://workspace.fao.org/sites/codex/Standards/CXS%2019-1981/CXS_019e.pdf">https://workspace.fao.org/sites/codex/Standards/CXS%2019-1981/CXS_019e.pdf</a>.
+</div>
+<div id="ref-DGCI_CH15_M2" class="csl-entry" role="listitem">
+DGCI&amp;S. 2007a. <em>Indian Trade Classification (h.s.): Chapter 15 — Animal or Vegetable Fats and Oils and Their Cleavage Products; Prepared Edible Fats; Animal or Vegetable Waxes</em>. Official tariff schedule. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_15.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_15.pdf</a>.
+</div>
+<div id="ref-DGCI_CH35_M2" class="csl-entry" role="listitem">
+DGCI&amp;S. 2007b. <em>Indian Trade Classification (h.s.): Chapter 35 — Albuminoidal Substances; Modified Starches; Glues; Enzymes</em>. Official tariff schedule. <a href="https://dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_35.pdf">https://dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_35.pdf</a>.
+</div>
+<div id="ref-DGCI_CH11_M2" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S). 2007. <em>Indian Trade Classification (h.s.): Chapter 11 — Products of the Milling Industry; Malt; Starches; Inulin; Wheat Gluten</em>. Official tariff schedule. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_11.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_11.pdf</a>.
+</div>
+<div id="ref-DGCI_CH11_F2" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S). 2022. <em>Indian Trade Classification (Harmonised System) - ITC(HS) 2022</em>. Ministry of Commerce; Industry, Government of India.
+</div>
+<div id="ref-DGCI_CH07" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India. 2007a. <em>Indian Trade Classification (h.s.): Chapter 07 — Edible Vegetables and Certain Roots and Tubers</em>. Official PDF. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_07.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_07.pdf</a>.
+</div>
+<div id="ref-DGCI_CH11" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India. 2007b. <em>Indian Trade Classification (h.s.): Chapter 11 — Products of the Milling Industry; Malt; Starches; Inulin; Wheat Gluten</em>. Official PDF. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_11.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_11.pdf</a>.
+</div>
+<div id="ref-DGCI_CH15" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India. 2007c. <em>Indian Trade Classification (h.s.): Chapter 15 — Animal or Vegetable Fats and Oils and Their Cleavage Products; Prepared Edible Fats; Animal or Vegetable Waxes</em>. Official PDF. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_15.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_15.pdf</a>.
+</div>
+<div id="ref-DGCI_CH22" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India. 2007d. <em>Indian Trade Classification (h.s.): Chapter 22 — Beverages, Spirits and Vinegar</em>. Official PDF. <a href="https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_22.pdf">https://www.dgciskol.gov.in/Writereaddata/Downloads/CHP_22.pdf</a>.
+</div>
+<div id="ref-DGCI_CH35" class="csl-entry" role="listitem">
+Directorate General of Commercial Intelligence and Statistics (DGCI&amp;S), Government of India. 2007e. <em>Indian Trade Classification (h.s.): Chapter 35 — Albuminoidal Substances; Modified Starches; Glues; Enzymes (Effective from 1 April 2007)</em>. Official PDF. <a href="https://dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_35.pdf">https://dgciskol.gov.in/Writereaddata/Downloads/2007/CHP_35.pdf</a>.
+</div>
+<div id="ref-FAO_GSFA_1422_M2" class="csl-entry" role="listitem">
+FAO/WHO Codex GSFA. 2025. <em>Acetylated Distarch Adipate (INS 1422) — GSFA Food Additive Details</em>. Online GSFA database. <a href="https://www.fao.org/gsfaonline/additives/details.html?id=152">https://www.fao.org/gsfaonline/additives/details.html?id=152</a>.
+</div>
+<div id="ref-JECFA_AcetylatedDistarch_2016_M2" class="csl-entry" role="listitem">
+FAO/WHO Joint Expert Committee on Food Additives. 2016. <em>Acetylated Distarch Adipate — JECFA Specification Monograph</em>. FAO JECFA Monographs 19. <a href="https://openknowledge.fao.org/server/api/core/bitstreams/130fb981-1d76-4ac8-9485-11006095eb19/content">https://openknowledge.fao.org/server/api/core/bitstreams/130fb981-1d76-4ac8-9485-11006095eb19/content</a>.
+</div>
+<div id="ref-FSSAI_Additives_2022_M2" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2022. <em>Food Safety and Standards (Food Products Standards and Food Additives) Regulations, 2011 – Compendium (18[3.1: Food Additives])</em>. Official PDF. <a href="https://www.fssai.gov.in/upload/uploadfiles/files/Compendium_Food_Additives_Regulations_20_12_2022.pdf">https://www.fssai.gov.in/upload/uploadfiles/files/Compendium_Food_Additives_Regulations_20_12_2022.pdf</a>.
+</div>
+<div id="ref-FSSAI_Label_2020_M2" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2023b. <em>Food Safety and Standards (Labelling and Display) Regulations, 2020 (Version-VI, 22.02.2023)</em>. Official gazette compilation. <a href="https://www.fssai.gov.in/upload/uploadfiles/files/Comp_Labelling.pdf">https://www.fssai.gov.in/upload/uploadfiles/files/Comp_Labelling.pdf</a>.
+</div>
+<div id="ref-FSSAI_Label_2020" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2023a. <em>Food Safety and Standards (Labelling and Display) Regulations, 2020 (Version-VI, 22.02.2023)</em>. Official PDF. <a href="https://www.fssai.gov.in/upload/uploadfiles/files/Comp_Labelling.pdf">https://www.fssai.gov.in/upload/uploadfiles/files/Comp_Labelling.pdf</a>.
+</div>
+<div id="ref-FSSAI_Additives_Chapter3_2024" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2024. <em>Food Product Standards and Food Additives: Chapter 3 — Substances Added to Food (Version 2, 04.11.2024)</em>. Official PDF. <a href="https://fssai.gov.in/upload/uploadfiles/files/Chapter%203_Substances%20added%20to%20food.pdf">https://fssai.gov.in/upload/uploadfiles/files/Chapter%203_Substances%20added%20to%20food.pdf</a>.
+</div>
+<div id="ref-FSSAI_Dairy_2025_M2" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2025a. <em>Food Product Standards: Chapter 2.1 Dairy Products and Analogues</em>. Official PDF. <a href="https://www.fssai.gov.in/upload/uploadfiles/files/Chapter%202_1%20(Dairy%20products%20and%20analogues).pdf">https://www.fssai.gov.in/upload/uploadfiles/files/Chapter%202_1%20(Dairy%20products%20and%20analogues).pdf</a>.
+</div>
+<div id="ref-FSSAI_Dairy_2025" class="csl-entry" role="listitem">
+Food Safety and Standards Authority of India (FSSAI). 2025b. <em>Food Product Standards: Chapter 2.1 Dairy Products and Analogues (Version 3, 07.05.2025)</em>. Official PDF. <a href="https://www.fssai.gov.in/upload/uploadfiles/files/Chapter%202_1_Dairy_products_and_analogues.pdf">https://www.fssai.gov.in/upload/uploadfiles/files/Chapter%202_1_Dairy_products_and_analogues.pdf</a>.
+</div>
+<div id="ref-Codex_CXS19_1981_F2" class="csl-entry" role="listitem">
+General Standard for Edible Fats and Oils Not Covered by Individual Standards, Pub. L. Nos. CXS 19-1981 (1981).
+</div>
+<div id="ref-FSSAI_SolventExtracted_Order_1967" class="csl-entry" role="listitem">
+Government of India (hosted on FSSAI website). 1967. <em>The Solvent Extracted Oil, de-Oiled Meal and Edible Flour (Control) Order, 1967 (as Uploaded)</em>. Official PDF. <a href="https://fssai.gov.in/upload/uploadfiles/files/solvent-Extracted.pdf">https://fssai.gov.in/upload/uploadfiles/files/solvent-Extracted.pdf</a>.
+</div>
+<div id="ref-SSRana_F2" class="csl-entry" role="listitem">
+High Court of Delhi. 2021. <em>Ram Gaua Raksha Dal Vs. Union of India &amp; Ors.</em> Order. <a href="https://indiankanoon.org/doc/189442159/">https://indiankanoon.org/doc/189442159/</a>.
+</div>
+<div id="ref-IndianKanoon_F2" class="csl-entry" role="listitem">
+Indian Kanoon Repository. 2024. <em>Compilation of Food Additive Functional Classes and Statutory Definitions</em>. <a href="https://indiankanoon.org/">https://indiankanoon.org/</a>.
+</div>
+<div id="ref-JECFA_AcetylatedDistarchAdipate" class="csl-entry" role="listitem">
+Joint FAO/WHO Expert Committee on Food Additives (JECFA). 1974. <em>Acetylated Distarch Adipate — WHO Food Additives Series 17</em>. InChem monograph. <a href="https://inchem.org/documents/jecfa/jecmono/v17je12.htm">https://inchem.org/documents/jecfa/jecmono/v17je12.htm</a>.
+</div>
+<div id="ref-lalitha_2026_emf_main" class="csl-entry" role="listitem">
+Lalitha, A. R. 2026a. <em><span class="nocase">Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity</span></em>. Interdisciplinary Systems Research Lab.
+</div>
+<div id="ref-lalitha_2026_supreme_court" class="csl-entry" role="listitem">
+Lalitha, A. R. 2026b. <em><span class="nocase">Indian Supreme Court Defines Hierarchical Classification for Food Products: Overruling Common Parlance Precedents</span></em>. Interdisciplinary Systems Research Lab.
+</div>
+<div id="ref-legitquest_F2" class="csl-entry" role="listitem">
+Legitquest Legal Database. 2024. <em>FSSAI Statutory Mapping for Ingredient Nomenclature</em>. <a href="https://www.legitquest.com/">https://www.legitquest.com/</a>.
+</div>
+<div id="ref-TransFat_Review_2011" class="csl-entry" role="listitem">
+<span class="nocase">Mozaffarian, Dariush et al.</span> 2011. <span>“Trans Fats—Sources, Health Risks and Alternative Approach: A Review.”</span> <em>Journal of Food Science and Technology</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3551118/">https://pmc.ncbi.nlm.nih.gov/articles/PMC3551118/</a>.
+</div>
+<div id="ref-PubChem_Vanillin_1183_M2" class="csl-entry" role="listitem">
+National Center for Biotechnology Information. 2021. <em>Vanillin; CID 1183</em>. PubChem Compound summary. <a href="https://pubchem.ncbi.nlm.nih.gov/compound/1183">https://pubchem.ncbi.nlm.nih.gov/compound/1183</a>.
+</div>
+<div id="ref-PubChem_Vanillin" class="csl-entry" role="listitem">
+National Center for Biotechnology Information (NCBI). 2025a. <em>PubChem Compound Summary for CID 1183: Vanillin</em>. Database record. <a href="https://pubchem.ncbi.nlm.nih.gov/compound/1183">https://pubchem.ncbi.nlm.nih.gov/compound/1183</a>.
+</div>
+<div id="ref-PubChem_SodiumGlycolate" class="csl-entry" role="listitem">
+National Center for Biotechnology Information (NCBI). 2025b. <em>PubChem Compound Summary: Sodium Glycolate (Sodium Hydroxyacetate)</em>. Database record. <a href="https://pubchem.ncbi.nlm.nih.gov/compound/Sodium%20hydroxyacetate">https://pubchem.ncbi.nlm.nih.gov/compound/Sodium%20hydroxyacetate</a>.
+</div>
+<div id="ref-PubChem_SodiumGlycolate_M2" class="csl-entry" role="listitem">
+NCBI. 2022. <em>Sodium Glycolate / Sodium Hydroxyacetate</em>. PubChem and supplier data. <a href="https://www.chembk.com/en/chem/Sodium%20hydroxyacetate">https://www.chembk.com/en/chem/Sodium%20hydroxyacetate</a>.
+</div>
+<div id="ref-Whey_Applications_2015_M2" class="csl-entry" role="listitem">
+<span class="nocase">Pintado, M. E. et al.</span> 2015. <span>“Improved Functional Characteristics of Whey Protein Hydrolysates in Food Applications.”</span> <em>Food Technology and Biotechnology</em>, 231–42. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4662358/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4662358/</a>.
+</div>
+<div id="ref-EssentialOils_FoodApps_2024_M2" class="csl-entry" role="listitem">
+Rodilla, Jesus M., Tiago Rosado, and Eugenia Gallardo. 2024. <span>“Essential Oils: Chemistry and Food Applications.”</span> <em>Foods</em> 13 (4): 1–24. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11011311/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11011311/</a>.
+</div>
+<div id="ref-Maillard_2025" class="csl-entry" role="listitem">
+<span class="nocase">Schaefer, Kevin et al.</span> 2025. <span>“Maillard Reaction: Mechanism, Influencing Parameters, and Relevance in Food Processing.”</span> <em>Molecules</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12154226/">https://pmc.ncbi.nlm.nih.gov/articles/PMC12154226/</a>.
+</div>
+<div id="ref-WCO_CH11_Notes_M2" class="csl-entry" role="listitem">
+World Customs Organization. 2002. <em>Harmonized System Explanatory Notes: Chapter 11 — Products of the Milling Industry; Malt; Starches; Inulin; Wheat Gluten</em>. Explanatory Notes. <a href="https://www.wcoomd.org/-/media/wco/public/global/pdf/topics/nomenclature/instruments-and-tools/hs-nomenclature-older-edition/2002/11.pdf">https://www.wcoomd.org/-/media/wco/public/global/pdf/topics/nomenclature/instruments-and-tools/hs-nomenclature-older-edition/2002/11.pdf</a>.
+</div>
+<div id="ref-Vinegar_Review_2024" class="csl-entry" role="listitem">
+<span class="nocase">Yun, Rong et al.</span> 2024. <span>“Vinegar: A Review of the Microbiology, Biochemistry and Quality Aspects.”</span> <em>Food Research International</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11312487/">https://pmc.ncbi.nlm.nih.gov/articles/PMC11312487/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

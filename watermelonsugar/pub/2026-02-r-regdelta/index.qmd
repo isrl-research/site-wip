@@ -1,0 +1,32 @@
+---
+title: "[Title: Regulatory Delta — Pending LaTeX conversion]"
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+x-contributor:
+  - name: Hitha
+    role: Typesetting
+doc-id: iSRL-26-02-R-RegDelta
+date: February 2026
+doi: 10.5281/zenodo.18719394
+license: "CC BY"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-02-R-RegDelta
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    toc: true
+    number-sections: true
+bibliography: references.bib
+draft: true
+draft-mode: visible
+---
+
+<!-- TODO: Paste LaTeX-converted content here. See TYPESETTING-SOP.md Section 5 for conversion guide. -->

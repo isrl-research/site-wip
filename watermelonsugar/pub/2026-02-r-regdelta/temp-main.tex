@@ -1,0 +1,279 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\usepackage[numbers]{natbib}
+
+% this helps with search engine indexing - l.a.r
+\hypersetup{
+  pdftitle={Regulatory Delta of Food Labelling Laws in India: 
+  A Comparative Analysis of the FSSAI 2011 and 2020 Regulations},
+  pdfauthor={Sai Nikhil Vukka; Lalitha A. R.},
+  pdfsubject={Comparative regulatory analysis of Indian food labelling laws},
+  pdfkeywords={FSSAI 2011, FSSAI 2020, food labelling law, regulatory delta, IFID, Indian Food Informatics Data,Sai Nikhil Vukka,Lalitha A.R.},
+  pdfcreator={LaTeX},
+  pdfproducer={pdfLaTeX}
+}
+
+
+\onehalfspacing
+
+\title{\textbf{Regulatory Delta of Food Labelling Laws in India:\\
+A Comparative Analysis of the FSSAI 2011 and 2020 Regulations}}
+
+\author{
+\textbf{Sai Nikhil Vukka}$^{1}$, 
+\textbf{Lalitha A.\ R.}$^{2}$ \\
+\small
+1.~Research Assistant, Indian Food Informatics Data (IFID) Project, ISRL \\
+\small
+2.~
+Lead Researcher, Interdisciplinary Systems Research Lab (ISRL)
+}
+
+
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This short report summarises the regulatory ``delta'' between the Food Safety and Standards (Packaging and Labelling) Regulations, 2011 and the Food Safety and Standards (Labelling and Display) Regulations, 2020.
+The focus is on the transition toward prescriptive naming, structured allergen declarations, and risk-aware warnings.
+These shifts directly inform the selection of specific data fields in digital ingredient identity layers such as IFID.
+\end{abstract}
+
+%==========================
+% 1 BACKGROUND
+%==========================
+\section{Background}
+
+In 2011, FSSAI notified the \emph{Food Safety and Standards (Packaging and Labelling) Regulations, 2011}, which combined packaging requirements and labelling rules into a single framework.\cite{fssai-2011}
+Roughly a decade later, the authority split packaging and labelling into separate regulations and brought in the \emph{Food Safety and Standards (Labelling and Display) Regulations, 2020}.\cite{fssai-2020-labelling}
+The 2020 move is more than a reshuffle of chapters: it makes labelling more structured, more consumer-facing, and easier to plug into digital compliance tools.\cite{fssai-2020-labelling,fssai-faq-2022,lanpub-india-fopl}
+
+Over this period, both industrial food systems and digital traceability infrastructure in India have grown in complexity.\cite{frontpack-2011,icmrnin-hfss}
+As more product categories emerged and more data and feedback became available, regulators have had opportunities to refine how key information is displayed and standardised.
+This report gives a compact view of how the 2020 regulations shift emphasis compared to 2011, and what that means for people who need to interpret or implement the law in practice.
+
+The shift between the two frameworks can be understood as part of an ongoing evolution in both the packaged food sector and regulatory practice, rather than as a simple before/after contrast.
+The 2011 regulations drew on the industrial food landscape and data that were available at that time, while the 2020 framework reflects additional years of experience, feedback and product diversification.
+In that sense, the later regulations build on the earlier ones as the system as a whole becomes more capable of handling finer-grained labelling expectations.
+
+%==========================
+% 2 REGULATORY DELTA
+%==========================
+\section{Regulatory Delta: 2011 vs 2020}
+
+The differences between the 2011 and 2020 frameworks can be read as part of a longer, iterative process rather than as a sharp break.
+The 2011 regulations were drafted at a time when packaged and industrial foods, as well as digital tracking systems, were at an earlier stage of development, and they reflect the practices and concerns that were salient then.\cite{fssai-2011,frontpack-2011}
+As product ranges expanded, more data accumulated and stakeholder feedback highlighted specific gaps, FSSAI consolidated those learnings into the 2020 Labelling and Display Regulations.\cite{fssai-2020-labelling,fssai-comp-labelling}
+The delta in this section is therefore best read as a record of how the system has been strengthened over time, not as a critique of the earlier framework.
+
+Table~\ref{tab:delta} highlights some of the most visible differences between the 2011 and 2020 labelling rules as reflected in official texts and institutional summaries.\cite{fssai-2011,fssai-2020-labelling,fssai-faq-2022}
+
+\begin{table}[!ht]
+  \centering
+  \caption{Regulatory delta between FSSAI 2011 and 2020 labelling rules}
+  \label{tab:delta}
+  \begin{tabular}{p{4.0cm} p{5cm} p{6cm}}
+    \toprule
+    \textbf{Dimension} & \textbf{2011 Packaging \& Labelling} & \textbf{2020 Labelling \& Display} \\
+    \midrule
+    \textbf{Allergen visibility}
+      & Disclosures primarily embedded in the ingredient list, with responsibility on the consumer to scan the full list.
+      & Priority allergen groups such as cereals containing gluten, milk, peanuts, soy and sulphites are presented through clearer, more standardised declarations. \\
+    \textbf{Naming / ``true nature''}
+      & Provides flexibility for brand-led naming on the principal display panel, guided by general fair-trading and anti-misleading provisions.
+      & Places greater emphasis on the name reflecting the true nature of the food, with more explicit expectations to avoid creating an erroneous impression. \\
+    \textbf{Nutrition information}
+      & Focus on per 100 g/ml declarations for key nutrients; per serving information is less central.
+      & Encourages a clearer pattern for showing nutrition per 100 g/ml \emph{and} per serving, supporting front-of-pack and percentage RDA style interpretations. \\
+    \textbf{Additives and warnings}
+      & Class + name/INS for additives, with generic warning styles for certain substances (for example, colours or preservatives).
+      & Gives more structured attention to specific warnings (for example, for sulphites or particular additives) and clearer wording for sensitive population groups. \\
+    \textbf{Front-of-pack (FoP) thinking}
+      & Labelling can largely be organised around back and side panels, with front-of-pack as one option among many.
+      & Articulates more clearly which elements (such as name, veg/non-veg logo and certain declarations) belong on the principal display panel, creating a base for later FoP policies. \\
+    \textbf{Enforcement posture}
+      & Centres on ensuring information is not false or misleading, with compliance work often document- and text-centric.
+      & The way declarations are structured makes it easier to imagine checklists, digital audits and front-of-pack policies that build on nutrient profile models. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The themes in this table reflect how official regulations and institutional commentaries describe the shift from 2011 to 2020.
+% \cite{fssai-2011,fssai-2020-labelling,fssai-faq-2022,lanpub-india-fopl,who-sear-npm,pandav-2021}
+
+\subsection{What the Law is Aiming to Address}
+
+Read together, these shifts point to a gradual tightening around a few recurring questions.
+
+\paragraph{Managing information density and risk signals.}
+
+\begin{itemize}
+  \item Ensuring that allergens remain visible and recognisable, rather than being overlooked in dense ingredient lists.
+  \item Reducing the chances that product names or descriptors leave consumers with an incomplete or ambiguous sense of what they are buying.
+  \item Bringing more structure to how high fat, sugar and salt profiles are communicated, especially as processed food categories diversify.
+\end{itemize}
+
+\paragraph{Supporting more structured labelling practices.}
+
+\begin{itemize}
+  \item Encouraging standardised phrasing and placement for priority allergen information.
+  \item Clarifying expectations for front-of-pack elements, so that key signals are easier to locate.
+  \item Laying technical groundwork for future tools such as front-of-pack labels informed by nutrient profile models.
+\end{itemize}
+
+For lawyers and compliance teams, this means that purely formal arguments like ``the information is somewhere on the pack'' increasingly give way to questions about prominence, placement and structure.
+The 2020 frame leans towards asking whether the overall label presentation aligns with these expectations in a consistent way.
+
+%==========================
+% 3 PRACTICAL IMPLICATIONS
+%==========================
+\section{Practical Implications for Stakeholders}
+
+From a day-to-day point of view, the 2011--2020 changes nudge both companies and advisors towards more explicit internal systems for tracking allergens, names and nutrition.
+
+\subsection{For Food Businesses}
+
+\begin{itemize}
+  \item \textbf{Allergen tracking becomes more explicit:} manufacturers benefit from maintaining internal mappings between ingredients and standard allergen groups, rather than relying only on free-text descriptions.
+  \item \textbf{Naming policies may require review:} product names and descriptors that were aligned with earlier interpretations may need revisiting to match the ``true nature'' emphasis in the 2020 framework.
+  \item \textbf{Nutrition data hygiene matters more:} keeping consistent, up-to-date values for energy, sugars, fats and sodium supports both regulatory expectations and clearer communication with consumers.
+\end{itemize}
+
+\subsection{For Lawyers and Compliance Teams}
+
+\begin{itemize}
+  \item \textbf{Case work can use more structure:} instead of only reading long labels line by line, advisors can ask whether allergen declarations, names and nutrition panels line up with the specific structures the 2020 regulations describe.
+  \item \textbf{Advice can be more template-driven:} it becomes realistic to build standard checklists for allergens, naming and nutrition that can be reused across clients or product lines.
+\end{itemize}
+
+%==========================
+% QUICK-REFERENCE CHECKLIST
+%==========================
+\subsection*{The Compliance Checklist for Startups}
+
+For founders and early-stage teams, a quick sanity check can be more useful than a long memo.
+A simple checklist that falls out of the 2011--2020 delta is:
+
+\begin{itemize}
+  \item [\phantom{x}] \textbf{Allergen coverage:} Have you identified and labelled all FSSAI priority allergen groups that apply to your product?
+  \item [\phantom{x}] \textbf{Front-of-pack name:} Does the name on the principal display panel reflect the true nature of the food, rather than only a marketing phrase?
+  \item [\phantom{x}] \textbf{Per serving signals:} Is the per-serving nutrition information (including percentage RDA where applicable) clear enough for a consumer to understand the product’s fat, sugar and salt profile at a glance?
+\end{itemize}
+
+Treating these as a recurring checklist rather than a one-time launch task makes it easier to stay aligned with how the 2020 regulations expect labels to behave.
+
+%==========================
+% 4 IMPLICATIONS FOR IFID
+%==========================
+\section{Implications for Digital Ingredient Identity Systems (IFID)}
+
+Because the 2020 regulations transition from unstructured text to specific, standardized declarations, the 'regulatory delta' described here serves as a blueprint for any system—whether a printed label or a digital database—aiming for compliance.
+
+At a bare minimum, an ingredient record in such a system can support:
+
+\begin{itemize}
+  \item \textbf{A canonical ``true nature'' name} plus a list of vernacular or commercial aliases, so that regional naming and compliant labelling language can be linked cleanly.
+  \item \textbf{Structured allergen membership}, for example a small set of flags for cereals containing gluten, milk, peanuts, tree nuts, soy and sulphites, instead of only storing full text ingredient names.
+  \item \textbf{Basic nutrient fields} (energy, total sugars, saturated fat, sodium per 100 g/ml) in a consistent format, so that front-of-pack or HFSS-style rules can be applied programmatically later if needed.
+\end{itemize}
+
+If these fields live in a stable backend identity layer, then future FSSAI amendments---such as a new HFSS threshold or a focus on a particular additive---can be implemented as updated rules that run across existing products, rather than as one-off manual relabelling exercises.
+
+\subsection{Mandatory vs Optional Fields in IFID Records}
+
+For a digital ingredient identity layer to stay aligned with the 2020 regulations and still be useful for future extensions, it helps to separate \emph{mandatory} compliance fields from \emph{optional} but valuable metadata.
+
+\paragraph{Mandatory fields (driven by FSSAI 2020).}
+
+\begin{itemize}
+  \item \textbf{Canonical ``true nature'' name:} a single, standardised name that reflects what the ingredient actually is, to reduce scope for ambiguous naming on labels.
+  \item \textbf{Allergen group membership:} explicit mapping of each ingredient to the relevant FSSAI priority allergen groups (for example cereals containing gluten, milk, peanuts, tree nuts, soy, sulphites) so that allergen statements can be generated consistently.
+  \item \textbf{Core nutrient values:} at least energy, total sugars, saturated fat and sodium per 100 g/ml, to support basic HFSS-style signalling and any future front-of-pack requirements that depend on these nutrients.
+\end{itemize}
+
+\paragraph{Optional metadata (for future-proofing and usability).}
+
+\begin{itemize}
+  \item \textbf{Vernacular and commercial names:} regional aliases and brand-style names that help link consumer-facing labels back to a single canonical ingredient record without losing cultural context.
+  \item \textbf{Versioned compliance rules and flags:} pointers from the ingredient record to external rule-sets (for example ``FSSAI\_2011'', ``FSSAI\_2020'', ``FSSAI\_2025'') so that when regulations change, new rules can be applied to existing IFIDs in an instant audit, without rewriting the underlying identities.
+\end{itemize}
+
+Keeping this distinction clear makes it easier to run the IFID project in a continuous loop: mandatory fields ensure basic regulatory alignment, while optional metadata can be expanded over time as new use-cases and amendments appear.
+
+From a data science point of view, the 2020 structure can also be read as an invitation to build \emph{API-first} compliance systems: once allergens, names and nutrients are represented as stable fields in an ingredient database, they can be exposed through services that run automated checks whenever a recipe changes, a new product is proposed, or a regulation is updated.
+In that sense, the same design that supports paper labels today also lays the groundwork for digital traceability and machine-readable audits in the future.
+
+%==========================
+% 5 CONCLUSION
+%==========================
+\section{Conclusion}
+
+The move from the 2011 Packaging and Labelling Regulations to the 2020 Labelling and Display Regulations marks a gradual shift from mostly text-heavy transparency towards more structured, salient labelling.
+For non-technical readers, the core takeaway is that allergens, naming and nutrition are increasingly treated as fields that can be checked and compared in a more systematic way, rather than as unstructured blocks of text.
+
+For data-oriented projects such as IFID, this same delta is a design clue: if ingredient records are aligned with the way the 2020 rules think about allergens, names and nutrients, then it becomes possible to build shared tools that lawyers, regulators and food businesses can all use, without each group having to redo the basic comparison between 2011 and 2020 from scratch.
+\\\\
+\\\\
+%==========================
+% REFERENCES
+%==========================
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem{fssai-2011}
+Food Safety and Standards Authority of India.
+\newblock \emph{Food Safety and Standards (Packaging and Labelling) Regulations, 2011}.
+\newblock Government of India, 2011.
+
+\bibitem{fssai-2020-labelling}
+Food Safety and Standards Authority of India.
+\newblock \emph{Food Safety and Standards (Labelling and Display) Regulations, 2020}.
+\newblock Government of India, 2020.
+
+\bibitem{fssai-faq-2022}
+Food Safety and Standards Authority of India.
+\newblock Frequently Asked Questions (FAQs) on FSS (Labelling and Display) Regulations, 2020.
+
+\bibitem{lanpub-india-fopl}
+Radhika Pande et al.
+\newblock Front-of-pack nutrition labelling in India.
+\newblock \emph{The Lancet Public Health}, 5(4):e195--e196, 2020.
+
+\bibitem{who-sear-npm}
+World Health Organization.
+\newblock \emph{WHO Nutrient Profile Model for South-East Asia Region}.
+\newblock WHO Regional Office for South-East Asia, 2017.
+
+\bibitem{pandav-2021}
+Chandra Pandav et al.
+\newblock The WHO South-East Asia Region Nutrient Profile Model is quite appropriate for India: an exploration of 31{,}516 food products.
+\newblock \emph{Nutrients}, 13(8):2782, 2021.
+
+\bibitem{icmrnin-hfss}
+Indian Council of Medical Research--National Institute of Nutrition.
+\newblock Dietary guidelines and nutrient thresholds relevant to high fat, sugar and salt (HFSS) foods.
+
+
+\bibitem{frontpack-2011}
+Citizen consumer and civic Action Group.
+\newblock Front of pack labelling in India: background and context.
+
+\bibitem{fssai-comp-labelling}
+Food Safety and Standards Authority of India.
+\newblock Compendium of Food Safety and Standards (Labelling and Display) Regulations, 2020.
+
+
+\end{thebibliography}
+
+\end{document}
