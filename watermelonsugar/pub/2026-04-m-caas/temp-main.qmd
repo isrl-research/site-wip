@@ -1,3 +1,4 @@
+---
 title: "Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists"
 subtitle: "DRAFT PRE REVIEW"
 author:
@@ -18,7 +19,7 @@ license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: [doc-id repeated, e.g. iSRL-26-02-R-RegDelta]
+  number: iSRL-26-03-R-CAAS
 format:
   html:
     toc: true
@@ -211,10 +212,39 @@ The author declares no competing interests.
 ::: {#refs}
 :::
 
-[@groundsource2026]: R. Mayo, O. Zlydenko, D. Cohen, *et al.* Groundsource: A dataset of flood events from news. EarthArXiv, March 2026. <https://doi.org/10.31223/X5RR2K>.
+```bibtex
+@misc{groundsource2026,
+  author    = {R. Mayo and O. Zlydenko and D. Cohen and others},
+  title     = {Groundsource: A dataset of flood events from news},
+  publisher = {EarthArXiv},
+  month     = {March},
+  year      = {2026},
+  doi       = {10.31223/X5RR2K},
+  url       = {https://doi.org/10.31223/X5RR2K}
+}
 
-[@ifidSamplingCorpus2026]: L. A. R. [IFID Sampling Corpus --- placeholder, fill with Zenodo DOI]. Interdisciplinary Systems Research Lab (iSRL), 2026.
+@misc{ifidSamplingCorpus2026,
+  author    = {L. A. R.},
+  title     = {IFID Sampling Corpus --- placeholder, fill with Zenodo DOI},
+  publisher = {Interdisciplinary Systems Research Lab (iSRL)},
+  year      = {2026}
+}
 
-[@cochran1977]: W. G. Cochran. *Sampling Techniques*. John Wiley & Sons, 3rd edition, 1977.
+@book{cochran1977,
+  author    = {W. G. Cochran},
+  title     = {Sampling Techniques},
+  publisher = {John Wiley & Sons},
+  edition   = {3rd},
+  year      = {1977}
+}
 
-[@julious2019]: S. A. Julious. Calculation of confidence intervals for a finite population size. *Pharmaceutical Statistics*, 18(1):115--121, 2019.
+@article{julious2019,
+  author  = {S. A. Julious},
+  title   = {Calculation of confidence intervals for a finite population size},
+  journal = {Pharmaceutical Statistics},
+  volume  = {18},
+  number  = {1},
+  pages   = {115--121},
+  year    = {2019}
+}
+```
