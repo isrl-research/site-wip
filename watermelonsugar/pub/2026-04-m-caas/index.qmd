@@ -1,16 +1,214 @@
 ---
-title: caas-paper
+title: "Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists"
+subtitle: "DRAFT PRE REVIEW"
 author:
   - name: Lalitha A R
     affiliation: iSRL
     orcid: 0009-0001-7466-3531
     email: lalithaar.research@gmail.com
     corresponding: true
+x-contributor:
+  - name: Hitha
+    role: Typesetting
+x-reviewer:
+  - name: [Reviewer name if applicable]
+doc-id: iSRL-26-03-R-CAAS 
+date: March 2026
+doi: 10.5281/zenodo.[record-id]
+license: "CC BY 4.0"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-03-R-CAAS
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    toc: true
+    number-sections: true
 bibliography: references.bib
 draft: true
 draft-mode: visible
-
 ---
 
-## Section
-This is a simple placeholder for the manuscript's main document [@knuth84].
+## Abstract
+Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
+
+They do not hold in fragmented textual spaces.
+# The Problem This Solves {#sec-problem}
+
+Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
+
+They do not hold in fragmented textual spaces.
+
+A fragmented textual space is not simply messy data. It is a domain where the information exists --- recorded somewhere, in some form --- but is distributed across unstructured sources with no shared vocabulary, no authoritative lexicon, and variation patterns that automated similarity measures cannot reliably navigate. The Indian packaged food label space is one example: the same ingredient appears as `maida`, `refined wheat flour`, and `all-purpose flour` across different brands, while `palm oil` and `palmite` look similar but are functionally distinct. A global news archive is another: 2.6 million flood events are embedded in articles across 80 languages, with relative time references, imprecise location language, and no standardised event schema.
+
+In both cases, the data exists. The challenge is not absence but structure: extracting something queryable from something that was written for human reading in a specific context, not for machine consumption across contexts.
+
+Traditional approaches to this problem either require labeled training data (which does not exist when you are building the first dataset in a domain) or rely on similarity thresholds (which fail when high-similarity strings are functionally distinct and low-similarity strings are synonymous). CAAS is neither. It uses a language model as a constrained retrieval and parsing tool --- not a knowledge source --- and builds the validation methodology around the cost structure of the errors it produces.
+
+# Why AI as a Constrained Parser, Not a Generator {#sec-constrained-parser}
+
+The distinction that defines CAAS is what the model is being asked to do.
+
+An unconstrained language model asked for ingredient information about a product it cannot find will often return plausible-sounding ingredients inferred from the product category. Asked what floods occurred in Mumbai last Tuesday, it will approximate. This behaviour --- helpfulness in the face of absence --- is the default and it is catastrophic for data collection. A fabricated entry looks identical to a real one. It corrupts the dataset invisibly, without a flag, without a gap that signals something is wrong.
+
+CAAS uses the model differently. The model is given a retrieval task with a defined source list, a structured output schema, and an explicit instruction: if the information is not present in the permitted sources, return a designated failure token. It is not asked to know. It is asked to fetch and parse, with explicit failure as a first-class output.
+
+The practical implementation has three components. Temperature is set to 0, which makes the model select the highest-probability token at each step and produce identical output for identical input. Sources are whitelisted: the model searches only pre-specified domains in a defined priority order. Failure is standardised: `DATA_NOT_FOUND` (or its equivalent) is the required output when all sources are exhausted, not an approximation and not an empty string.
+
+The result is a system with two modes: it found the data and returned it, or it did not find the data and said so. Both modes are informative. The first populates the dataset. The second marks a gap that can be addressed through additional collection or acknowledged as a limitation. Neither mode silently fabricates.
+
+# The Cost of Error Correction {#sec-error-cost}
+
+The strongest argument for CAAS is not its precision. It is its error economics.
+
+In traditional physical sampling --- a blood test, a field survey, a clinical measurement --- a wrong sample means repeating the physical act. The cost of error correction is the cost of the original collection: the clinician's time, the travel, the reagent. This makes high accuracy a hard requirement before you can afford to act on the data.
+
+In constrained AI-assisted sampling over existing textual data, a wrong extraction means a refetch. The source data already exists. The text is already on a server somewhere. Correcting an extraction error costs one additional API call and a human review of one record. The marginal cost is low.
+
+This asymmetry changes what accuracy level is sufficient. A 99% accurate physical sample with 1% requiring full re-collection is a serious problem. A 99% accurate AI extraction with 1% requiring a refetch is, in most contexts, acceptable --- provided the 1% is identifiable. The validation methodology in CAAS is designed to make errors identifiable: statistical sampling establishes a confidence interval on the error rate, iterative audit converges on systematic error patterns, and explicit failure tokens mark the known gaps.
+
+The framework does not claim that AI extraction is as accurate as careful manual collection. It claims that for many fragmented textual spaces, constrained AI extraction at documented accuracy levels is more useful than no dataset, more honest than an approximated one, and more recoverable when wrong than a physical sampling error.
+
+# The Framework {#sec-framework}
+
+CAAS is not a fixed pipeline. It is a set of decisions that any implementation in a fragmented textual space will need to make, with evidence from two implementations on what those decisions should be and why.
+
+## One Atomic Operation Per API Call {#sec-atomic}
+
+Passing a full document or a large batch to the model and asking it to extract everything produces degraded constraint adherence as the model's attention distributes across multiple tasks simultaneously. In both implementations documented here, constraint violations --- approximations instead of explicit failures, formatting inconsistencies, missed boundary cases --- increased measurably as batch size grew beyond a threshold.
+
+The solution is decomposition. Each API call handles one atomic operation: retrieve the ingredient list for this specific product, or extract the location and timing of this specific flood event from this specific article. The operation is defined narrowly enough that the model can apply the full constraint set reliably.
+
+In the ingredient extraction implementation, the threshold was empirically established at 6 SKUs per batch. Batches above 10 showed measurable constraint violations. Below 6, quality was equivalent but throughput was lower than necessary. The optimal batch size is domain-specific and should be tested rather than assumed.
+
+## Explicit Failure Over Approximation {#sec-explicit-failure}
+
+This decision is described in @sec-constrained-parser and is the single most important constraint in the framework. The system instruction must be unambiguous: when data is absent from permitted sources, return the designated failure token. Do not infer. Do not approximate based on similar cases. Do not fill the gap.
+
+In the ingredient extraction implementation, the system instruction read: *"If ingredient list not found in whitelisted domains, return DATA\_NOT\_FOUND. DO NOT infer typical ingredients from product category. DO NOT approximate based on similar products."*
+
+Of 1,000 products attempted, 104 returned persistent `DATA_NOT_FOUND` across two passes. These 104 were excluded from the corpus. The exclusion is a feature: those products either had no verifiable online ingredient list or were no longer in active distribution. The pipeline returned a clean gap rather than 104 fabricated entries that would have required expensive downstream correction.
+
+In the flood extraction implementation, the equivalent constraint was classification: the model was required to distinguish between reports of actual past floods and articles discussing future warnings or policy --- returning nothing for the latter rather than extracting a plausible but incorrect event record.
+
+## Batch Size as a Quality Variable {#sec-batch-size}
+
+Batch size interacts with constraint adherence in a consistent pattern across both implementations. This is not primarily a cost or speed consideration. It is a quality variable that should be calibrated empirically for each domain and each stage of the pipeline.
+
+In artifact removal and semantic decomposition stages of ingredient processing, batch size was set inversely to string complexity: short strings in batches of 40, complex multi-bracket strings one at a time. The same principle applies in news extraction: article complexity and length affect how reliably the model applies its classification and extraction constraints.
+
+Test a range before committing to a batch size. The optimal value is not predictable from first principles.
+
+## Iterative Human-in-the-Loop Audit {#sec-audit}
+
+Statistical validation establishes a confidence interval on the overall error rate. Iterative audit addresses systematic error patterns --- categories of errors that recur and can be corrected in bulk.
+
+The audit process runs as follows. A first model receives a sample of the extracted strings and identifies error types present. A second model receives the full extraction and flags instances of those specific error types. Human review resolves the flagged cases. Corrections are applied. The cycle repeats until the first model identifies no new error types.
+
+In the ingredient extraction implementation, this converged in four iterations. The pattern across iterations was: 16.7% flagged in iteration 1, 7.1% in iteration 2, edge cases only in iteration 3, zero new error types in iteration 4. The edge cases in iteration 3 were boundary decisions --- `gluten` classified as a grain or a protein, `spirulina` as an additive or a botanical --- that required domain judgment rather than extraction correction. These were held for the classification framework stage, not resolved as cleaning errors.
+
+Convergence does not mean zero errors. It means no new systematic error types are detectable. The residual error rate is quantified by the statistical sampling step.
+
+## Statistical Validation with Finite Population Correction {#sec-validation}
+
+Complete manual validation is not feasible at scale. Statistical sampling with a confidence interval is.
+
+For a population of size $N$, desired confidence level $1 - \alpha$, and margin of error $\delta$, required sample size with finite population correction:
+
+$$
+n = \frac{z_{\alpha/2}^2 \cdot p(1-p)}{\delta^2} \cdot \frac{N}{N - 1 + \dfrac{z_{\alpha/2}^2 \cdot p(1-p)}{\delta^2}}
+$$
+
+Using conservative $p = 0.5$ (maximum variance), $\alpha = 0.05$, $\delta = 0.05$, a population of approximately 2,000 requires a sample of around 130. For the ingredient extraction corpus, 90 extractions from 896 were audited manually. One error was identified: the model merged content from two adjacent sections of a product page. The 95% confidence interval on the population error rate, with finite population correction applied, places the upper bound below 3.6%. Stated as accuracy: the corpus is 98.9% accurate at 95% confidence.
+
+Audit allocation should be risk-stratified: concentrate effort on high-risk subsets (very short strings that may be truncations, very long strings that may be insufficiently decomposed, low-confidence extractions) while maintaining a random component for unbiased population coverage.
+
+# Two Domains, Same Architecture {#sec-two-domains}
+
+The primary evidence that CAAS generalises is not theoretical. It is that two independent implementations, in different domains, by different teams, working on different problems, arrived at the same architectural decisions.
+
+## Case Study 1: Indian Packaged Food Ingredient Vocabulary {#sec-case1}
+
+**The problem.** No reference layer exists that maps the names Indian food labels use to shared ingredient identities. The same substance appears as `maida`, `refined wheat flour`, and `all-purpose flour`. Standard similarity measures would merge `palm oil` and `palmite`, which are functionally distinct, while missing the equivalence of `besan flour` and `chana dal`, which are the same ingredient in different language registers. No ground truth lexicon exists to train a supervised system against.
+
+**The implementation.** 1,000 products were selected across 42 companies and 153 brands from verified Indian market listings. Ingredient lists were retrieved from whitelisted domains (brand official website, Amazon India, BigBasket, Blinkit) at temperature 0, with `DATA_NOT_FOUND` required when all sources were exhausted. Retrieved strings were parsed using a structure-aware algorithm that splits on commas only at nesting depth zero, preserving compound ingredient relationships. Each string then went through a single-purpose artifact removal pass (removing percentages and marketing text, preserving INS codes and preparation specifications) and a semantic decomposition pass with context propagation. The process ran at 6 SKUs per batch for retrieval and scaled inversely with string complexity for subsequent stages.
+
+**Results.** 896 of 1,000 products extracted successfully (89.6%). 104 returned persistent `DATA_NOT_FOUND`. The sampling pipeline produced 1,987 unique variant strings. Combined with ingredient strings from OpenFoodFacts filtered to rows with a verifiable Indian product name and passed through the same pipeline, the final corpus after iterative audit is 2,291 unique ingredient variant strings. Audit of 90 extractions identified 1 error (0.11%). Full methodology documented in **[@ifidSamplingCorpus2026]**.
+
+## Case Study 2: Global Flash Flood Historical Record {#sec-case2}
+
+**The problem.** Hydro-meteorological hazards like flash floods lack a standardised global observation infrastructure. Existing archives capture large, long-lasting events but miss localised and fast-moving floods. The Global Disaster Alert and Coordination System holds approximately 10,000 records --- orders of magnitude fewer than what AI-based forecasting models require for training and validation. The historical record exists, embedded in news archives across 80 languages, but has never been extracted at scale.
+
+**The implementation.** Google's Groundsource framework analysed news reports where flooding was a primary subject, standardised text into English via translation, and used Gemini to apply three constrained extraction tasks: classification (distinguishing actual past flood events from articles about future warnings or policy), temporal reasoning (anchoring relative date references against publication dates), and spatial precision (mapping location references to standardised geographic polygons). The model was not asked to know where floods occurred. It was asked to read a specific article and extract specific structured fields --- with explicit verification criteria for each field rather than open-ended generation [@groundsource2026].
+
+**Results.** 2.6 million historical flood events extracted, spanning more than 150 countries from 2000 to present. Manual review found 60% of extracted events accurate in both location and timing; 82% accurate enough for practical research use. Spatiotemporal matching against GDACS records for 2020--2026 shows Groundsource captured between 85% and 100% of severe events in that reference set, alongside large numbers of smaller localised events the reference set missed entirely.
+
+## What the Convergence Shows {#sec-convergence}
+
+Neither implementation was designed with the other in mind. The decisions they share --- constrain the model's role to retrieval and parsing, require explicit failure for absent data, calibrate batch size empirically, validate statistically --- emerged independently from the same underlying problem: how to collect structured data from a space where the information exists but no ground truth organises it.
+
+The table below shows the architectural correspondence.
+
+| **Decision** | **Ingredient vocabulary** | **Flood record** |
+|---|---|---|
+| Model role | Retrieval and parsing only | Classification, temporal anchoring, spatial extraction |
+| Source constraint | Whitelisted domains in priority order | News reports where flooding is primary subject |
+| Failure handling | `DATA_NOT_FOUND` token | Explicit classification criteria; non-flood articles return nothing |
+| Batch calibration | 6 SKUs per batch (empirical) | Per-article processing with complexity-aware handling |
+| Validation | Statistical sampling + iterative audit | Manual review sample; spatiotemporal matching against reference archive |
+| Accuracy result | 98.9% at 95% confidence | 82% practically useful; 85--100% severe event recall |
+
+: Architectural decisions across two independent CAAS implementations.
+
+The accuracy figures are not directly comparable --- the domains define error differently, and the flood implementation targets a harder extraction problem (temporal and spatial reasoning from prose) than ingredient retrieval from structured label text. What is comparable is the architecture: the same three constraints, applied to the same class of problem, producing usable datasets in spaces where no dataset previously existed.
+
+# What This Does Not Guarantee {#sec-limitations}
+
+Temperature 0 reduces output variation but does not eliminate it. API version changes, infrastructure differences, and floating-point non-determinism across hardware can produce different outputs for identical inputs across sessions. The reproducibility guarantee is strong within a session and weaker across time. Any implementation should log the model version and API configuration used, and treat re-runs after infrastructure changes as requiring re-validation.
+
+The framework does not remove the need for domain judgment. In the ingredient implementation, boundary cases --- whether `gluten` belongs in grains or proteins, whether `spirulina` is an additive or a botanical --- were not resolvable through cleaning. They required a classification framework with explicit criteria for how those categories are defined. CAAS reduces the volume of decisions that require human judgment. It does not eliminate the decisions themselves.
+
+The error rates documented here are domain-specific. A 0.11% error rate for ingredient extraction from structured label text on retail websites is not a prediction for other domains. Text that is more ambiguous, sources that are less reliable, or extraction tasks that require more complex reasoning will produce higher error rates. The validation methodology applies regardless: establish the error rate empirically, state it with a confidence interval, document what was done about systematic errors.
+
+# Where This Applies {#sec-applicability}
+
+CAAS is appropriate when four conditions hold simultaneously.
+
+First, the target information exists in retrievable textual form. The framework cannot collect data that was never recorded. It can only structure data that exists but is unstructured.
+
+Second, no authoritative reference organises the domain. If a canonical lexicon or schema exists, use it. CAAS is for when you are building the first one.
+
+Third, domain-specific variation makes automated similarity measures unreliable. If standard fuzzy matching at reasonable thresholds produces acceptable results, that is simpler and should be preferred. CAAS is for when the variation patterns require something that can read context.
+
+Fourth, the cost of error correction is low relative to the cost of not having the data. In safety-critical applications where downstream decisions are irreversible, the accuracy requirements may be higher than CAAS can reliably achieve without prohibitive validation cost. In research contexts where the dataset is a starting point for further analysis and errors are correctable, the asymmetry holds.
+
+Both case studies satisfy all four conditions. The ingredient vocabulary space has no authoritative Indian lexicon, variation patterns that defeat similarity measures, and corrections that cost a refetch. The flood archive space has no global sensor network, event descriptions embedded in prose across 80 languages, and corrections that cost a re-extraction from an article that remains available.
+
+## Acknowledgements
+
+My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests. Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
+
+This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (iSRL).
+
+## Statements and Declarations
+
+### Funding Declaration
+
+No funding was received to assist with the preparation of this manuscript.
+
+### Author Contribution
+
+L.A.R. was responsible for all aspects of this report, including conceptualization, methodology, writing the original draft, and review and editing.
+
+### Competing Interests
+
+The author declares no competing interests.
+
+## References
+
+::: {#refs}
+:::
+
