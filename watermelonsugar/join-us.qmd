@@ -9,11 +9,19 @@ format:
     css: styles.css
 ---
 
-The most current version of what's open, what's needed, and what's being figured out lives [here](https://github.com/orgs/isrl-research/discussions) — the GitHub discussions are where the thinking happens in real time. If you want to know what the lab is actually working on today, that's the place.
+The most current version of what's open, what's needed, and what's being
+figured out lives [here](https://github.com/orgs/isrl-research/discussions) —
+the GitHub discussions are where the thinking happens in real time. If you want
+to know what the lab is actually working on today, that's the place.
 
-Asking to fill in a form applying for a title would be us faking structure and linearity when there isn't one. The underlying structure that does exist are the threads and plots the problem reveals as we go[^kidding].
+Asking to fill in a form applying for a title would be us faking structure and
+linearity when there isn't one. The underlying structure that does exist are the
+threads and plots the problem reveals as we go[^kidding].
 
-[^kidding]: We thought months back, hey let's create a database of n products and problem solved. *Time skip - few months later* We dug through 1933 Information Science to settle the divorce between butter and milk this February (but we believe in love <33). Oh life, life, when has it been predictable.
+[^kidding]: We thought months back, hey let's create a database of n products
+and problem solved. *Time skip - few months later* We dug through 1933
+Information Science to settle the divorce between butter and milk this February
+(but we believe in love <33). Oh life, life, when has it been predictable.
 
 Here are the major plot lines as we call it.
 
@@ -23,25 +31,49 @@ Here are the major plot lines as we call it.
 
 **Track 1 — Data Profiling**
 
-In the trenches with the data. What ingredients actually appear on Indian food labels? How many ways is `kashmiri chilli` written, and does flattening it to `chilli` destroy something real? This track observes what exists — building and stress-testing taxonomies, finding the signal under the noise, and asking the questions the data can't answer on its own.
+In the trenches with the data. What ingredients actually appear on Indian food
+labels? How many ways is `kashmiri chilli` written, and does flattening it to
+`chilli` destroy something real? This track observes what exists — building and
+stress-testing taxonomies, finding the signal under the noise, and asking the
+questions the data can't answer on its own.
 
-When Track 1 hits a wall — something the label data shows but can't explain — it hands that question to Track 2.
+When Track 1 hits a wall — something the label data shows but can't explain —
+it hands that question to Track 2.
 
-Track 1 at 3 pm: we had to delete the biriyani row :(( [^biriyani]
+Track 1 at 3 pm: we had to delete the biriyani row :([^biriyani]
 
-[^biriyani]: We love biriyani!! But we are working at the atom level right now, not molecules or meals — so it has to only exist on the plate and not in our csv right now. If you want biriyani to exist in our data, join us with [monetary support](fund.qmd) that gets us past the atom stage so we can eventually build molecules.
+[^biriyani]: We love biriyani!! But we are working at the atom level right now,
+not molecules or meals — so it has to only exist on the plate and not in our csv
+right now. If you want biriyani to exist in our data, join us with [monetary
+support](fund.qmd) that gets us past the atom stage so we can eventually build
+molecules.
 
 **Track 2 — Interoperability**
 
-If Track 1 is reading the map, Track 2 is figuring out how our map connects to everyone else's.
+If Track 1 is reading the map, Track 2 is figuring out how our map connects to
+everyone else's.
 
-India already has classification systems — FSSAI regulations, ITC-HS codes, court rulings on what counts as what[^hs]. Global systems exist too — Codex Alimentarius, USDA, Wikidata. This track reads those systems, finds what they assume about ingredient identity, and works out where IFID fits, where it conflicts, and what it would take to make them talk to each other.
+India already has classification systems — FSSAI regulations, ITC-HS codes,
+court rulings on what counts as what[^hs]. Global systems exist too — Codex
+Alimentarius, USDA, Wikidata. This track reads those systems, finds what they
+assume about ingredient identity, and works out where IFID fits, where it
+conflicts, and what it would take to make them talk to each other.
 
-Track 2 takes the questions Track 1 couldn't answer from data alone — *is this a regulatory category or a cultural one? does FSSAI mandate fortification at the ingredient level or the product level?* — and goes looking in the right places.[^t2eg]
+Track 2 takes the questions Track 1 couldn't answer from data alone — *is this
+a regulatory category or a cultural one? does FSSAI mandate fortification at the
+ingredient level or the product level?* — and goes looking in the right
+places.[^t2eg]
 
-[^hs]: For example: fresh alphonso mangoes attract 0% GST as agricultural produce. Processed mango pulp from a GI-tagged variety enters a different regulatory category entirely. The ingredient name isn't just a label — it carries legal and fiscal weight. Track 2 maps that weight.
+[^hs]: For example: fresh alphonso mangoes attract 0% GST as agricultural
+produce. Processed mango pulp from a GI-tagged variety enters a different
+regulatory category entirely. The ingredient name isn't just a label — it
+carries legal and fiscal weight. Track 2 maps that weight.
 
-[^t2eg]: The fortification analysis is a good example of how this works in practice. Track 1 built a 68-entry taxonomy of fortification agents from label data, then handed Track 2 five questions the data couldn't resolve — which categories are legally required to declare fortification, and at what level (product or ingredient)?
+[^t2eg]: The fortification analysis is a good example of how this works in
+practice. Track 1 built a 68-entry taxonomy of fortification agents from label
+data, then handed Track 2 five questions the data couldn't resolve — which
+categories are legally required to declare fortification, and at what level
+(product or ingredient)?
 
 ---
 
@@ -49,17 +81,104 @@ Track 2 takes the questions Track 1 couldn't answer from data alone — *is this
 
 Research doesn't sustain itself.
 
-**Outreach Ops** finds the experts each phase of the research needs — regulatory specialists, food scientists, legal researchers, domain practitioners — and reaches out to bring them in as collaborators or reviewers. Collects experts like pokémon.
+**Outreach Ops** finds the experts each phase of the research needs — regulatory
+specialists, food scientists, legal researchers, domain practitioners — and
+reaches out to bring them in as collaborators or reviewers. Collects experts
+like pokémon.
 
-**Dissemination Ops** gets the outputs out. When a report is ready, someone has to publish it to Zenodo, push the dataset to Kaggle, update the site, file the GitHub release. That someone is this team. Unglamorous, essential, and the reason the work actually exists in the world rather than sitting in a folder.
+**Dissemination Ops** gets the outputs out. When a report is ready, someone has
+to publish it to Zenodo, push the dataset to Kaggle, update the site, file the
+GitHub release. That someone is this team. Unglamorous, essential, and the
+reason the work actually exists in the world rather than sitting in a folder.
+
+---
+
+## If you are an F&B brand
+
+The farmer who grows it. The team that formulates it. The people on the floor
+who make it. The brand that stands behind it. The work we are doing would mean
+nothing without what you have already built. That's where this starts.
+
+IFID is being built as infrastructure, not a database — and infrastructure only
+works if the people it is meant to serve can trust it. Before we ask anything of
+you, we want to show you exactly how we are thinking about protecting what you
+have built.
+
+The governance principles that guide every data decision we make are recorded
+openly in [#20](https://github.com/orgs/isrl-research/discussions/20). The
+access architecture — how data flows, who can see what, and what your brand
+controls — is in [#21](https://github.com/orgs/isrl-research/discussions/21).
+Both are live documents. Both will be revised in conversation with F&B partners
+before anything is finalised.
+
+We are not asking for data yet. The systems have to earn that trust first — the
+governance layer, the access controls, the protections that ensure your
+ingredient data cannot become a targeting instrument in the wrong hands. We are
+building those forts before we ask you to walk through the door.
+
+What we are asking for right now is your experience.
+
+You have seen compliance friction up close. You know where the FSSAI labelling
+process breaks down, where ITC-HS code assignment is ambiguous, where the gap
+between what the regulation says and what a label can practically declare creates
+real operational cost. That knowledge is more valuable to us at this stage than
+any dataset. If something in what we are building resonates — or if something
+looks wrong — we want to hear it. The [GitHub
+discussions](https://github.com/orgs/isrl-research/discussions) are open, or
+write directly to
+[lalithaar.research@gmail.com](mailto:lalithaar.research@gmail.com).
+
+**The Nourish Track — for your R&D, formulation, and nutrition teams**
+
+What does healthy mean in India? Not the global answer. The Indian one — across
+regions, diets, life stages, and the ingredients that have been part of this
+food culture long before any scoring system tried to rank them.
+
+[Discussion #22](https://github.com/orgs/isrl-research/discussions/22) is an
+open interview question for the people inside brands who actually work on this:
+R&D, formulation, nutrition. What does your team consider when defining a
+healthy product? What does the current framework miss? What would a definition
+grounded in Indian dietary reality actually look like?
+
+We are formalising what healthy means in the IFID context — and we cannot do
+that without the people who have spent years working with these ingredients
+professionally. Your team's input shapes what gets built. That thread is where
+it starts.
+
+**Brand partnerships**
+
+IFID's Tier 2 access — brand-controlled, configurable, mediated through an API
+that puts disclosure decisions in your hands — is expected to open in the fourth
+week of April. We will share a concrete timeline and what participation looks
+like then.
+
+In the meantime, the directions we are building toward:
+
+- Automated, deterministic FSSAI-compliant ingredient list generation — no more
+  manual reconciliation of variant strings against a regulation
+- ITC-HS code generation from ingredient identity, traceable and auditable
+  rather than model-guessed
+- Allergen declaration consistency across SKUs, checked against the canonical
+  identity layer rather than label text
+
+If any of this is pulling at you — or if you want to be on the list for when
+Tier 2 opens — write to us at
+[lalithaar.research@gmail.com](mailto:lalithaar.research@gmail.com). And if the
+work itself is something you want to support while it's being built, the
+[funding page](fund.qmd) is there.
 
 ---
 
 **There is no single shape for contributing here.**
 
-You might be here for one problem — a specific question that intersects with work you're already doing, a dataset you have a perspective on, a regulatory nuance the research is missing. That's enough. You don't have to sign up for everything to matter to something.
+You might be here for one problem — a specific question that intersects with
+work you're already doing, a dataset you have a perspective on, a regulatory
+nuance the research is missing. That's enough. You don't have to sign up for
+everything to matter to something.
 
-You might be here for the long run — building alongside the lab across multiple research threads, getting credited and published for what you produce, becoming part of how the coordination point actually functions.
+You might be here for the long run — building alongside the lab across multiple
+research threads, getting credited and published for what you produce, becoming
+part of how the coordination point actually functions.
 
 Both are real. Neither is more valuable than the other.
 
@@ -67,46 +186,82 @@ Both are real. Neither is more valuable than the other.
 
 **The ways people plug in**
 
-*In the trenches* — you have specialised expertise and want to apply it directly to the research. Regulatory systems, food science, data modelling, legal analysis, nutrition, linguistics — if your knowledge is relevant to a live problem, there's likely a discussion thread already open for it. You contribute, you get credited, your name appears where your thinking mattered.
+*In the trenches* — you have specialised expertise and want to apply it directly
+to the research. Regulatory systems, food science, data modelling, legal
+analysis, nutrition, linguistics — if your knowledge is relevant to a live
+problem, there's likely a discussion thread already open for it. You contribute,
+you get credited, your name appears where your thinking mattered.
 
-*Breaking things* — you read the outputs and find where the reasoning fails. This is advisory capacity: you don't need to be embedded in the day-to-day, you need enough context to push back usefully. A monthly report, a discussion thread, a pointed question that sends the research in a better direction. SMEs, practitioners, domain experts — this is usually where you sit.
+*Breaking things* — you read the outputs and find where the reasoning fails.
+This is advisory capacity: you don't need to be embedded in the day-to-day, you
+need enough context to push back usefully. A monthly report, a discussion
+thread, a pointed question that sends the research in a better direction. SMEs,
+practitioners, domain experts — this is usually where you sit.
 
-*Connecting* — you see across domains and want to hold threads together. This is the systems researcher role: not just contributing a piece but understanding how the pieces relate, coordinating between tracks, being the person who notices when two problems are actually the same problem. This is the most embedded role and the most open-ended one.
+*Connecting* — you see across domains and want to hold threads together. This is
+the systems researcher role: not just contributing a piece but understanding how
+the pieces relate, coordinating between tracks, being the person who notices
+when two problems are actually the same problem. This is the most embedded role
+and the most open-ended one.
 
 ---
 
-If something here is pulling at you, the simplest next step is to show up in the [discussions](https://github.com/orgs/isrl-research/discussions) and say so. No form, no application. Just come in.
+If something here is pulling at you, the simplest next step is to show up in
+the [discussions](https://github.com/orgs/isrl-research/discussions) and say
+so. No form, no application. Just come in.
 
 ---
 
-What about my resume then? Here are the formal titles if you want to know more about them.
+What about my resume then? Here are the formal titles if you want to know more
+about them.
 
-*Core Roles* are the people who are here for the long run — embedded across research tracks, present through the messiness, accountable to the lab's direction.
+*Core Roles* are the people who are here for the long run — embedded across
+research tracks, present through the messiness, accountable to the lab's
+direction.
 
-- **Lead Researcher** — the PI. Holds the research direction and is responsible for what the lab produces.
-- **Core Researcher** — sustained contributor across multiple tracks. Understands the system as a whole, not just their piece of it.
-- **Research Ops** — keeps the work sustainable. Admin, automation, coordination — the reason no one is pulling all-nighters.
+- **Lead Researcher** — the PI. Holds the research direction and is responsible
+  for what the lab produces.
+- **Core Researcher** — sustained contributor across multiple tracks. Understands
+  the system as a whole, not just their piece of it.
+- **Research Ops** — keeps the work sustainable. Admin, automation, coordination
+  — the reason no one is pulling all-nighters.
 
-*Collaborative Roles* are for people who are embedded in specific research threads — working on live problems, credited for what they produce.
+*Collaborative Roles* are for people who are embedded in specific research
+threads — working on live problems, credited for what they produce.
 
-- **Visiting Scientist** — professor or PI level. Named collaborator on specific research threads, brings domain authority.
-- **Visiting Research Fellow** — postdoctoral researchers. Independent research experience, can co-lead sub-problems, credited as co-author where contribution warrants.
-- **Visiting Researcher** — PhD candidates actively producing research. Engages on live threads, credited by contribution.
+- **Visiting Scientist** — professor or PI level. Named collaborator on specific
+  research threads, brings domain authority.
+- **Visiting Research Fellow** — postdoctoral researchers. Independent research
+  experience, can co-lead sub-problems, credited as co-author where contribution
+  warrants.
+- **Visiting Researcher** — PhD candidates actively producing research. Engages
+  on live threads, credited by contribution.
 
-*Advisory Roles* are for people who don't need to be in the day-to-day but whose perspective makes the research sharper.
+*Advisory Roles* are for people who don't need to be in the day-to-day but
+whose perspective makes the research sharper.
 
-- **Scientific Advisor** *(domain / topic)* — senior academic who reads the outputs and pushes back on a specific domain. Shapes direction without being embedded.
-- **Industry Advisor** — practitioner or domain expert from industry. Reads, critiques, asks the question that sends the research in a better direction.
-- **Industry Partner** — institutional or organisational collaboration. More hands-on: data access, co-production, embedded in specific research tracks.
+- **Scientific Advisor** *(domain / topic)* — senior academic who reads the
+  outputs and pushes back on a specific domain. Shapes direction without being
+  embedded.
+- **Industry Advisor** — practitioner or domain expert from industry. Reads,
+  critiques, asks the question that sends the research in a better direction.
+- **Industry Partner** — institutional or organisational collaboration. More
+  hands-on: data access, co-production, embedded in specific research tracks.
 
 *Students / New Researchers (Usually BS/MS)*
 
-- **Contributing Researcher** — one sprint. You came in for a specific problem, did the work, got credited. That's real.
-- **Research Assistant** — two or more sprints. More embedded, takes on scoped tasks within a research track.
-- **Researcher** — four or more sprints. Sustained enough to understand how the pieces connect and coordinate within a track. You become a core researcher of iSRL.
+- **Contributing Researcher** — one sprint. You came in for a specific problem,
+  did the work, got credited. That's real.
+- **Research Assistant** — two or more sprints. More embedded, takes on scoped
+  tasks within a research track.
+- **Researcher** — four or more sprints. Sustained enough to understand how the
+  pieces connect and coordinate within a track. You become a core researcher of
+  iSRL.
 
 ---
 
-In a nutshell, if the problem pulls you in — that's your invitation, you belong here. Please join us on the [discussions](https://github.com/orgs/isrl-research/discussions) page.
+In a nutshell, if the problem pulls you in — that's your invitation, you belong
+here. Please join us on the
+[discussions](https://github.com/orgs/isrl-research/discussions) page.
 
 Oh btw, we are really *really* glad you are here with us.

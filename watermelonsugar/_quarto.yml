@@ -12,6 +12,8 @@ website:
      text: Roadmap
    - href: join-us.qmd
      text: Join us
+   - href: fund.qmd
+     text: Funding
    - href: pub/index.qmd
      text: Publications
    - href: https://zenodo.org/communities/isrl/records

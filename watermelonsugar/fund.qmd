@@ -1,8 +1,95 @@
 ---
-title: Monetary Support
+title: Fund the work
 format:
   html:
     toc: false
     reference-location: margin
 ---
 
+A computer once declared Maggi healthier than rice. We are an open research lab
+helping computers understand why the grandma will slap it if it says so — and
+making it learn Indian nutrition truth. We are process open, not just output open.
+
+Not a bug. A feature of how food data works — or doesn't. The system had
+ingredient lists but no way to know what they actually meant. `Maida` and
+`refined wheat flour` are the same thing. `Kashmiri chilli` is not just a noisy
+version of `chilli`. String matching cannot tell the difference. Until a system
+can, nutrition studies run on shaky ground, compliance checks guess, and a
+regulator cannot ask a clean question and trust the answer.
+
+The coordination layer that makes these questions answerable does not exist for
+Indian packaged food. Building it is what we are doing.
+
+That work has produced things we did not expect going in.
+
+A classification framework grounded in ITC-HS codes, FSSAI regulations, and
+Supreme Court rulings — inspired by S.R. Ranganathan's 1933 Colon
+Classification — that assigns ingredient identity across three axes: energy
+profile, material composition, and label function. The first deterministic,
+fully backtraceable framework that quantifies NOVA processing at the ingredient
+level, not the product level.
+
+A sampling methodology for what we call fragmented textual spaces — domains
+where no ground truth exists and the vocabulary itself is part of what you are
+trying to map. Google Research independently converged on the same structural
+problem from flood data. The methods note generalises the approach so other
+domains can use it.
+
+A comparative analysis method — Regulatory Delta Analysis — that reads two
+versions of a law not as text but as data: what changed, what stayed, what the
+delta reveals about the constraints the system is working within. Applied so far
+to FSSAI 2011 vs 2020 and to a century of landmark Supreme Court rulings that
+redefined food classification hierarchy.
+
+896 SKUs. 2,291[^variants] unique ingredient variant strings. All of it open
+under CC BY 4.0 — process and dead ends included — on GitHub.
+
+[^variants]: After dozens of rounds of cleaning from 18k rows of product data
+and 48k ingredient strings by naive comma split.
+
+Sponsorship keeps the infrastructure running. We are open not just in the final
+outputs being open access — the process, dead ends, debates, and learning all
+happen in the open on GitHub.
+
+---
+
+**Our goal: 10 monthly sponsors.**
+
+Ten people who work with food data, nutrition, regulation, or systems
+infrastructure — and want this layer to exist. The first ten sponsors shape what
+the community looks like. Monthly newsletter, name on the supporters page, and
+the knowledge that the 2,292nd variant string got cleaned because you were here.
+
+---
+
+## Support tiers
+
+If you are a GitHub user, the easiest path is [GitHub
+Sponsors](https://github.com/sponsors/isrl-research). If you are in India, we
+prefer UPI — it avoids the conversion fee and more of what you send reaches the
+work directly. UPI details on request.
+
+### Monthly
+
+| Tier | Amount | What it includes |
+|---|---|---|
+| **Data Steward** | $6 / month <br> *(₹570)* | Monthly research newsletter. Name on the iSRL supporters page. |
+| **Research Sustainer** | $18 / month <br> *(~₹1,700)* | Everything above, plus one sub-track prioritisation request per quarter and your name in the outputs of any track you back. |
+| **Founding Sustainer** | $60 / month <br> *(~₹5,700)* | Everything above, plus name and logo on the iSRL org README and website, and your name in all iSRL outputs. |
+
+### One-time
+
+| Tier | Amount | What it includes |
+|---|---|---|
+| **Data Steward** | $18 <br> *(~₹1,700)* | Monthly research newsletter. Name on the iSRL supporters page. |
+| **Research Sustainer** | $60 <br> *(~₹5,700)* | Everything above, plus one sub-track prioritisation request and your name in the outputs of any track you back. |
+| **Founding Sustainer** | $180 <br> *(~₹17,000)* | Everything above, plus name and logo on the iSRL org README and website, and your name in all iSRL outputs. |
+
+::: {.callout-note appearance="minimal"}
+INR equivalents are approximate at current exchange rates. If you would like to
+contribute in INR directly via UPI, write to us at
+[lalithaar.research@gmail.com](mailto:lalithaar.research@gmail.com) and we will
+send you the details.
+:::
+
+[Support on GitHub Sponsors →](https://github.com/sponsors/isrl-research){.btn .btn-primary}
