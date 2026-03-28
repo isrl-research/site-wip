@@ -2,7 +2,7 @@
 title: Come in
 format:
   html:
-    toc: false
+    toc: true
     reference-location: margin
     filters:
     - highlight-span.lua
@@ -29,7 +29,7 @@ When Track 1 hits a wall — something the label data shows but can't explain �
 
 Track 1 at 3 pm: we had to delete the biriyani row :(( [^biriyani]
 
-[^biriyani]: We love biriyani!! But we are working at the atom level right now, not molecules or meals — so it has to only exist on the plate and not in our csv right now. If you want biriyani to exist in our data, join us with [monetary support]() that gets us past the atom stage so we can eventually build molecules.
+[^biriyani]: We love biriyani!! But we are working at the atom level right now, not molecules or meals — so it has to only exist on the plate and not in our csv right now. If you want biriyani to exist in our data, join us with [monetary support](fund.qmd) that gets us past the atom stage so we can eventually build molecules.
 
 **Track 2 — Interoperability**
 
