@@ -8,6 +8,8 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
+x-reviewer:
+  - name: [Reviewer name if applicable]
 doc-id: iSRL-26-02-R-SCFood 
 date: February 2026
 doi: 10.5281/zenodo.18651646

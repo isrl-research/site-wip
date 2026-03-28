@@ -5,8 +5,28 @@ author:
     affiliation: iSRL
     orcid: 0009-0001-7466-3531
     email: lalithaar.research@gmail.com
-    corresponding: true
+    corresponding: 
+x-contributor:
+  - name: Hitha Sunil
+    role: Typesetting
+doc-id: iSRL-26-02-R-EMF
+date: February 2026
+doi: 10.5281/zenodo.18714527
+license: "CC BY 4.0"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-02-R-EMF
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    toc: true
+    number-sections: true
 bibliography: references.bib
+draft: true
+draft-mode: visible
 ---
 
 ::: {.abstract}
@@ -877,7 +897,7 @@ All contributions, critique submissions, and expressions of interest should be d
 
 All critiques submitted in the format described in @sec-app-critique will receive a written response within thirty days. Contributors whose input leads to a modification of the framework will be acknowledged in the subsequent version, with a description of the modification they proposed or supported. Contributions received but not adopted will be acknowledged with an explanation.
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::
