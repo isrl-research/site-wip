@@ -1,0 +1,8 @@
+---
+title: Monetary Support
+format:
+  html:
+    toc: false
+    reference-location: margin
+---
+
