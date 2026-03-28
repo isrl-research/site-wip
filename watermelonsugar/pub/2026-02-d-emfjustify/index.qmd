@@ -9,14 +9,14 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
-doc-id: iSRL-26-02-R-EMFJustify 
+doc-id: iSRL-26-02-D-EMFJustify 
 date: February 2026
 doi: 10.5281/zenodo.18713318
 license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-02-R-EMFJustify 
+  number: iSRL-26-02-D-EMFJustify 
 format:
   html:
     toc: true
