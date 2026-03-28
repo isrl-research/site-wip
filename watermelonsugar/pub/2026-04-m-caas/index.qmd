@@ -8,7 +8,7 @@ author:
     email: lalithaar.research@gmail.com
     corresponding: true
 x-contributor:
-  - name: Hitha
+  - name: Hitha Sunil
     role: Typesetting
 x-reviewer:
   - name: [Reviewer name if applicable]
