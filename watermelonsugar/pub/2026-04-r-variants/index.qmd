@@ -9,7 +9,9 @@ author:
     corresponding: true
 x-contributor:
   - name: Subrat Sethi
+    role:
   - name: Purnendu Shukla
+    role:
 x-reviewer:
   - name: Radhakrishna KV
   - name: Anand S
@@ -447,7 +449,7 @@ My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon w
 
 We are deeply grateful to all contributors of OFF Dataset - one of the core sources which our efforts build upon. Thank you for all that you do. This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL).
 
-## References {#references .unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::
