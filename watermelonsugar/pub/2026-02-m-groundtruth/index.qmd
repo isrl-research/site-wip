@@ -9,14 +9,14 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
-doc-id: iSRL-26-02-R-GroundTruth 
+doc-id: iSRL-26-02-M-GroundTruth 
 date: February 2026
 doi: 10.5281/zenodo.18741725
 license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-02-R-GroundTruth
+  number: iSRL-26-02-M-GroundTruth
 format:
   html:
     toc: true
@@ -313,7 +313,7 @@ This note draws on methods developed in the course of the Indian Food Informatic
 Data (IFID) project at iSRL. The authors thank the researchers whose applied work
 surfaced the need for explicit methodological documentation.
 
-## References
+## References {.unnumbered}
 
 ::: {#refs}
 :::

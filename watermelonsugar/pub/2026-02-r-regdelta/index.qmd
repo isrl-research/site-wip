@@ -141,7 +141,7 @@ The move from the 2011 Packaging and Labelling Regulations to the 2020 Labelling
 
 For data-oriented projects such as IFID, this same delta is a design clue: if ingredient records are aligned with the way the 2020 rules think about allergens, names and nutrients, then it becomes possible to build shared tools that lawyers, regulators and food businesses can all use, without each group having to redo the basic comparison between 2011 and 2020 from scratch.
 
-## References
+## References {.unnumbered}
 
 ::: {#refs}
 :::
