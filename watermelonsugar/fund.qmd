@@ -1,5 +1,6 @@
 ---
 title: Fund the work
+description: "Fund iSRL's open research on Indian food data infrastructure. All outputs CC BY 4.0 — available to researchers, regulators, and industry alike."
 format:
   html:
     toc: false

@@ -9,7 +9,8 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
-doc-id: iSRL-26-02-D-EMFJustify 
+doc-id: iSRL-26-02-D-EMFJustify
+description: "Justification companion to the EMF Tri-Axial Identity Model, providing regulatory, chemical, and trade defensibility notes for each axis score assignment across the model's benchmark ingredient set."
 date: 2026-02-20
 doi: 10.5281/zenodo.18713318
 license: "CC BY 4.0"

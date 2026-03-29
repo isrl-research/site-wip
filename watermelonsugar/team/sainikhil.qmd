@@ -22,6 +22,42 @@ about:
       href: "https://www.linkedin.com/in/sai-nikhil-vukka-iitm"
 ---
 
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sai Nikhil Vukka",
+  "jobTitle": "Research Assistant",
+  "description": "Working on EMF–IFID ingredient classification, vegan standards metadata, and biomedical signal processing at iSRL.",
+  "url": "https://isrl-research.github.io/team/sainikhil.html",
+  "email": "25f2005507@ds.study.iitm.ac.in",
+  "identifier": "https://orcid.org/0009-0007-6717-7512",
+  "sameAs": [
+    "https://orcid.org/0009-0007-6717-7512",
+    "https://github.com/Sai0Nikhil",
+    "https://www.linkedin.com/in/sai-nikhil-vukka-iitm"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  },
+  "affiliation": [
+    {
+      "@type": "Organization",
+      "name": "IIT Madras",
+      "url": "https://www.iitm.ac.in"
+    },
+    {
+      "@type": "Organization",
+      "name": "KL University"
+    }
+  ]
+}
+</script>
+```
+
 ## About
 
 Research Assistant working on food ingredient classification (EMF–IFID), vegan standards metadata, and biomedical signal processing. Interested in how food systems and AI tooling can work together without breaking down in real-world complexity[^1].

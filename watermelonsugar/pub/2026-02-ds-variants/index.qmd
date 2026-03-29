@@ -10,6 +10,7 @@ x-contributor:
   - name: Subrat Sethi
   - name: Purnendu Shukla
 doc-id: iSRL-26-02-DS-Variants
+description: "A mapping of 2,500+ regional ingredient variations observed on Indian food labels, linking label variants to a canonical vocabulary. Note: this dataset has been superseded — the v1 approach was abandoned after finding it conflated noise reduction with meaningful cultural and linguistic variation."
 date: February 2026
 doi: 10.5281/zenodo.1871452
 license: "CC BY"

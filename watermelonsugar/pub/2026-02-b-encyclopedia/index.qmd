@@ -7,6 +7,7 @@ author:
     email: lalithaar.research@gmail.com
     corresponding: true
 doc-id: iSRL-26-02-B-Encyclopedia
+description: "A standardized taxonomy and multi-format dataset (JSON, Markdown, LaTeX) covering 600+ food components — from traditional Ayurvedic botanicals to contemporary industrial additives. Bridges culinary knowledge with international food standards for machine-readable Indian food data systems."
 date: 2026-02-11
 version: v0.1.0
 doi: 10.5281/zenodo.18650863
