@@ -6,7 +6,27 @@ author:
     orcid: 0009-0001-7466-3531
     email: lalithaar.research@gmail.com
     corresponding: true
+x-contributor:
+  - name: Hitha Sunil
+    role: Typesetting
+doc-id: iSRL-26-02-D-EMFJustify 
+date: 2026-02-20
+doi: 10.5281/zenodo.18713318
+license: "CC BY 4.0"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-02-D-EMFJustify
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    toc: true
+    number-sections: true
 bibliography: references.bib
+filters:
+  - ../../contributors.lua
 ---
 
 
@@ -114,4 +134,7 @@ Detailed Functional (F) Score Analysis: Identity Shift Logic and Statutory Basis
 
 ---
 
-## References {#sec-references}
+## References {.unnumbered}
+
+::: {#refs}
+:::

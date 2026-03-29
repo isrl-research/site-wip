@@ -4,4 +4,7 @@ _site/*
 /watermelonsugar/_site/*
 watermelonsugar/_site/
 **/_freeze/
+_site/
+**/temp-main.qmd
+**/temp-main.tex
 **/_manuscript/

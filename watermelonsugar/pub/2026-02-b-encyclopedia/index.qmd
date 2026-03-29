@@ -1,12 +1,37 @@
 ---
-title: 2026-02-b-encyclopedia
-authors:
-  - name: Norah Jones
-    affiliation: The University
-    roles: writing
+title: "Encyclopedia of Indian Food Ingredients"
+author:
+  - name: Lalitha A R
+    affiliation: Interdisciplinary Systems Research Lab (iSRL)
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
     corresponding: true
+doc-id: iSRL-26-02-B-Encyclopedia
+date: 2026-02-11
+version: v0.1.0
+doi: 10.5281/zenodo.18650863
+license: "CC BY 4.0"
+citation:
+  type: dataset
+  publisher: iSRL
+  number: iSRL-26-02-B-Encyclopedia
+format:
+  html:
+    toc: true
 bibliography: references.bib
 ---
 
-## Section
-This is a simple placeholder for the manuscript's main document [@knuth84].
+## Abstract
+
+A standardized taxonomy and multi-format dataset (JSON, Markdown, LaTeX) covering 600+ food components — from traditional Ayurvedic botanicals to contemporary industrial additives. Bridges conventional culinary knowledge with international food standards to establish a machine-readable framework for Indian food data systems.
+
+## Repository
+
+Source data and formats available at: <https://github.com/ifid-data/encyclopedia>
+
+---
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
