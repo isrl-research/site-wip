@@ -11,6 +11,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 x-reviewer:
+  - name: [Reviewer name if applicable]
 doc-id: iSRL-26-04-M-CAAS 
 date: April 2026
 doi: 10.5281/zenodo.[record-id]
@@ -27,8 +28,6 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-filters:
-  - ../../contributors.lua
 draft: true
 draft-mode: visible
 ---
@@ -208,8 +207,7 @@ L.A.R. was responsible for all aspects of this report, including conceptualizati
 
 The author declares no competing interests.
 
-## References {.unnumbered}
+## References
 
 ::: {#refs}
 :::
-

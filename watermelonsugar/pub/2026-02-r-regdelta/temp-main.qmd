@@ -13,7 +13,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-R-RegDelta
-date: 2026-02-21
+date: February 2026
 doi: 10.5281/zenodo.18719394
 license: "CC BY 4.0"
 citation:
@@ -28,8 +28,8 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-filters:
-  - ../../contributors.lua
+draft: true
+draft-mode: visible
 ---
 
 ## Abstract
@@ -48,11 +48,7 @@ The shift between the two frameworks can be understood as part of an ongoing evo
 
 The differences between the 2011 and 2020 frameworks can be read as part of a longer, iterative process rather than as a sharp break. The 2011 regulations were drafted at a time when packaged and industrial foods, as well as digital tracking systems, were at an earlier stage of development, and they reflect the practices and concerns that were salient then. [@fssai-2011; @frontpack-2011] As product ranges expanded, more data accumulated and stakeholder feedback highlighted specific gaps, FSSAI consolidated those learnings into the 2020 Labelling and Display Regulations. [@fssai-2020-labelling; @fssai-comp-labelling] The delta in this section is therefore best read as a record of how the system has been strengthened over time, not as a critique of the earlier framework.
 
-<<<<<<< HEAD
 @tab-delta highlights some of the most visible differences between the 2011 and 2020 labelling rules as reflected in official texts and institutional summaries. [@fssai-2011; @fssai-2020-labelling; @fssai-faq-2022]
-=======
-@tbl-delta highlights some of the most visible differences between the 2011 and 2020 labelling rules as reflected in official texts and institutional summaries. [@fssai-2011; @fssai-2020-labelling; @fssai-faq-2022]
->>>>>>> 45cdf23713eef4aa2cf4a2a604e8858aaf495c9b
 
 | **Dimension** | **2011 Packaging & Labelling** | **2020 Labelling & Display** |
 |---|---|---|
@@ -63,11 +59,7 @@ The differences between the 2011 and 2020 frameworks can be read as part of a lo
 | **Front-of-pack (FoP) thinking** | Labelling can largely be organised around back and side panels, with front-of-pack as one option among many. | Articulates more clearly which elements (such as name, veg/non-veg logo and certain declarations) belong on the principal display panel, creating a base for later FoP policies. |
 | **Enforcement posture** | Centres on ensuring information is not false or misleading, with compliance work often document- and text-centric. | The way declarations are structured makes it easier to imagine checklists, digital audits and front-of-pack policies that build on nutrient profile models. |
 
-<<<<<<< HEAD
 : Regulatory delta between FSSAI 2011 and 2020 labelling rules {#tab-delta}
-=======
-: Regulatory delta between FSSAI 2011 and 2020 labelling rules {#tbl-delta}
->>>>>>> 45cdf23713eef4aa2cf4a2a604e8858aaf495c9b
 
 ## What the Law is Aiming to Address {#sec-aims}
 
@@ -149,7 +141,7 @@ The move from the 2011 Packaging and Labelling Regulations to the 2020 Labelling
 
 For data-oriented projects such as IFID, this same delta is a design clue: if ingredient records are aligned with the way the 2020 rules think about allergens, names and nutrients, then it becomes possible to build shared tools that lawyers, regulators and food businesses can all use, without each group having to redo the basic comparison between 2011 and 2020 from scratch.
 
-## References {.unnumbered}
+## References
 
 ::: {#refs}
 :::
