@@ -24,8 +24,6 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-draft: true
-draft-mode: visible
 ---
 
 ## Abstract
