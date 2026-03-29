@@ -1,5 +1,6 @@
 project:
  type: website
+ draft-mode: visible
 
 website:
  title: "iSRL"

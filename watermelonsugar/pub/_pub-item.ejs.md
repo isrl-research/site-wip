@@ -62,7 +62,7 @@
       <% if (item['doc-id']) { %><span><%= item['doc-id'] %></span><% } %>
       <% if (pubType) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-type"><%= pubType %></span><% } %>
       <% if (item.date) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span><%= item.date %></span><% } %>
-      <% if (item.draft) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-draft" role="note">work in progress</span><% } %>
+      <% if (item.draft) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-draft" role="note">Draft – WIP</span><% } %>
     </p>
 
     <h3 class="pub-title">
