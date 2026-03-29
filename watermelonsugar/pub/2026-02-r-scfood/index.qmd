@@ -173,7 +173,7 @@ The Court directed that:
 
 # Synthesis: The Four-Domain Framework {#sec-synthesis}
 
-@tab-domains synthesizes the current state of classification law across the four primary domains:
+@tbl-domains synthesizes the current state of classification law across the four primary domains:
 
 | **Domain** | **Classification Winner** | **Landmark Case** |
 |---|---|---|
@@ -182,7 +182,7 @@ The Court directed that:
 | Customs | Technical (Engineering) | *Ms Welkin Foods* |
 | Dietary Labels | Biological Origin | *Ram Gaua Raksha Dal* |
 
-: Classification Framework Across Regulatory Domains {#tab-domains}
+: Classification Framework Across Regulatory Domains {#tbl-domains}
 
 # Mandatory Disclosure Requirements: Implications for Food Informatics {#sec-disclosure}
 
