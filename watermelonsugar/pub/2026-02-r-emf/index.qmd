@@ -337,7 +337,7 @@ A DQ of 1.0 indicates correct differentiation of all 35 pairs. Partial scores in
 
 The benchmark is applied to the $E$--$M$--$F$ model in @sec-ch-validation. The validation records, for each test pair, the model coordinates assigned to each member and whether those coordinates produce a differentiated classification outcome. A differentiated outcome requires that the two members of the pair be assigned to different canonical zones (variant, independent canon, or functional tool) or that their coordinate values differ sufficiently to warrant different regulatory and operational treatment.
 
-Critiques of the benchmark---whether challenging the selection of test pairs, the regulatory evidence cited, or the pass/fail criteria---are subject to the contribution protocol in @sec-app-critique. Critique without proposed revision and evidence does not constitute engagement with the benchmark.
+Critiques of the benchmark---whether challenging the selection of test pairs, the regulatory evidence cited, or the pass/fail criteria---are subject to the contribution protocol in [Appendix A](#sec-app-critique). Critique without proposed revision and evidence does not constitute engagement with the benchmark.
 
 # The $E$--$M$--$F$ Tri-Axial Identity Model {#sec-ch-emf}
 
@@ -533,7 +533,7 @@ Each ingredient is assigned a position in a three-dimensional coordinate space: 
 
 The coordinate is not a summary statistic; it is a structured representation preserving the information carried by each dimension. Two ingredients with the same $D$ score (derived in @sec-ch-divorce) may have very different coordinate profiles reflecting different kinds of identity transformation. The coordinate system allows these differences to be traced and reasoned about.
 
-Assignment of coordinates follows the evidence hierarchy: FSSAI regulations and product standards take precedence over general labelling rules; ITC-HS chapter assignments provide independent corroboration; judicial reasoning fills gaps and resolves conflicts. Where evidence is unavailable or conflicting, the assignment is flagged as provisional and subject to revision through the contribution protocol in @sec-app-critique.
+Assignment of coordinates follows the evidence hierarchy: FSSAI regulations and product standards take precedence over general labelling rules; ITC-HS chapter assignments provide independent corroboration; judicial reasoning fills gaps and resolves conflicts. Where evidence is unavailable or conflicting, the assignment is flagged as provisional and subject to revision through the contribution protocol in [Appendix A](#sec-app-critique).
 
 # The Divorce Score ($D$) and Operational Zones {#sec-ch-divorce}
 
@@ -555,7 +555,7 @@ An ingredient can have high $E$ and $M$ while remaining in a source-primary zone
 
 The equal weighting of $E$ and $M$ reflects their complementarity: $E$ describes the transformation history while $M$ describes the resulting state, and cases where these diverge are precisely where both pieces of information are needed to characterise the ingredient accurately.
 
-The weights in @eq-divorce are explicitly provisional. They reflect the best current judgement calibrated against the benchmark cases in @sec-ch-validation. Refinement using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in @sec-app-critique.
+The weights in @eq-divorce are explicitly provisional. They reflect the best current judgement calibrated against the benchmark cases in @sec-ch-validation. Refinement using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in [Appendix A](#sec-app-critique).
 
 ## The Three Operational Zones
 
@@ -793,7 +793,7 @@ The $E$--$M$--$F$ framework uses the ITC-HS as its primary evidence base. HS cod
 
 ## Weight Calibration
 
-The weights in the Divorce Score formula are provisionally assigned and have not been validated against a large empirical dataset of regulatory decisions or expert classifications. The choice of 0.4 for $F$ and 0.3 each for $E$ and $M$ is analytically motivated---the reasoning is set out in @sec-ch-divorce---but it has not been optimised against a ground-truth corpus. Refinement of the weights using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in @sec-app-critique.
+The weights in the Divorce Score formula are provisionally assigned and have not been validated against a large empirical dataset of regulatory decisions or expert classifications. The choice of 0.4 for $F$ and 0.3 each for $E$ and $M$ is analytically motivated---the reasoning is set out in @sec-ch-divorce---but it has not been optimised against a ground-truth corpus. Refinement of the weights using subject matter expert input, expanded benchmark coverage, or Bayesian calibration against regulatory decision data is anticipated and invited through the contribution protocol in [Appendix A](#sec-app-critique).
 
 ## Zone Boundary Precision
 
@@ -831,7 +831,7 @@ Each variant string will carry, as its output: a canonical ID, a zone classifica
 
 The classification of 729 canonical entities will not be completed by computational methods alone. Score assignments in the boundary regions---Zone 1/Zone 2 transitions for moderately processed ingredients, Zone 2/Zone 3 transitions for ingredients with mixed regulatory signals---require domain expertise that food scientists, food lawyers, customs practitioners, and nutritional researchers hold.
 
-The expert input process described in @sec-app-contribute is the mechanism for incorporating this knowledge. What is available computationally is the framework specification, the benchmark as a quality standard, and the variant corpus as the empirical scope of the problem. What domain experts contribute is the evidence-based judgement about where specific ingredients fall within that framework, particularly in the cases that the benchmark was designed to surface as hard.
+The expert input process described in [Appendix B](#sec-app-contribute) is the mechanism for incorporating this knowledge. What is available computationally is the framework specification, the benchmark as a quality standard, and the variant corpus as the empirical scope of the problem. What domain experts contribute is the evidence-based judgement about where specific ingredients fall within that framework, particularly in the cases that the benchmark was designed to surface as hard.
 
 ## Planned Outputs
 
@@ -847,7 +847,7 @@ Salutations to the Goddess who dwells in all beings in the form of intelligence.
 
 This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL). The synthesis draws upon extensive legal research and domain analysis conducted for food informatics applications.
 
-# Appendix A: Critique and Contribution Protocol {#app-critique .unnumbered}
+# Appendix A: Critique and Contribution Protocol {#sec-app-critique .unnumbered}
 
 ## Purpose {.unnumbered}
 
@@ -885,7 +885,7 @@ If the proposed revision would alter a $D$ score, zone threshold, or weight para
 >
 > **Contact:** [Contact details for correspondence]
 
-# Appendix B: Ways to Contribute {#app-contribute .unnumbered}
+# Appendix B: Ways to Contribute {#sec-app-contribute .unnumbered}
 
 The $E$--$M$--$F$ framework is an open research project. Contributions from domain experts are essential to its development. Two engagement pathways are available.
 
@@ -895,7 +895,7 @@ The $E$--$M$--$F$ framework is an open research project. Contributions from doma
 
 All contributions, critique submissions, and expressions of interest should be directed through: <https://isrl-research.github.io/join-us.html>
 
-All critiques submitted in the format described in @sec-app-critique will receive a written response within thirty days. Contributors whose input leads to a modification of the framework will be acknowledged in the subsequent version, with a description of the modification they proposed or supported. Contributions received but not adopted will be acknowledged with an explanation.
+All critiques submitted in the format described in [Appendix A](#sec-app-critique) will receive a written response within thirty days. Contributors whose input leads to a modification of the framework will be acknowledged in the subsequent version, with a description of the modification they proposed or supported. Contributions received but not adopted will be acknowledged with an explanation.
 
 ## References {.unnumbered}
 
