@@ -1,1 +1,9 @@
 /.luarc.json
+/watermelonsugar/_site/
+/.quarto/
+**/*.quarto_ipynb
+_site/*
+/watermelonsugar/_site/*
+watermelonsugar/_site/
+**/_freeze/
+**/_manuscript/
