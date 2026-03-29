@@ -1,5 +1,6 @@
 ---
 title: "Our kinda people <33"
+description: "The people building iSRL — researchers, analysts, and contributors working on Indian food data infrastructure."
 listing:
   id: team-listing
   contents: 

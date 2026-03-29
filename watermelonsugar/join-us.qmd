@@ -1,5 +1,6 @@
 ---
 title: Come in
+description: "Contribute to iSRL. Subject matter experts, advisors, and systems researchers — find your place in the work."
 format:
   html:
     toc: true

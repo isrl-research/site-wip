@@ -11,7 +11,8 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 x-reviewer:
-doc-id: iSRL-26-04-M-CAAS 
+doc-id: iSRL-26-04-M-CAAS
+description: "A framework for constrained AI-assisted sampling in fragmented textual spaces where no ground truth exists and standard survey or ETL assumptions fail — developed for collecting Indian packaged food label data."
 date: April 2026
 doi: 10.5281/zenodo.[record-id]
 license: "CC BY 4.0"

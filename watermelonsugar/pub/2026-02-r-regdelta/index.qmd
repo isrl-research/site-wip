@@ -13,6 +13,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-R-RegDelta
+description: "Summarises the regulatory delta between India's 2011 and 2020 FSSAI food labelling regulations, focusing on transitions toward prescriptive naming, structured allergen declarations, and risk-aware warnings that directly inform IFID data field selection."
 date: 2026-02-21
 doi: 10.5281/zenodo.18719394
 license: "CC BY 4.0"

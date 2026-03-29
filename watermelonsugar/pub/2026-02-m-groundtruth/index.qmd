@@ -9,7 +9,8 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
-doc-id: iSRL-26-02-M-GroundTruth 
+doc-id: iSRL-26-02-M-GroundTruth
+description: "Argues that enacted law and judicial decisions constitute a practically available, historically grounded source of ground truth in emerging domains. Introduces regulatory delta analysis — examining how legislation and case law shift across time — to surface friction points and coordination constraints."
 date: 2026-02-23
 doi: 10.5281/zenodo.18741725
 license: "CC BY 4.0"
