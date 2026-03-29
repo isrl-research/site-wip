@@ -13,7 +13,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-R-RegDelta
-date: February 2026
+date: 2026-02-21
 doi: 10.5281/zenodo.18719394
 license: "CC BY 4.0"
 citation:
@@ -28,6 +28,8 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
+filters:
+  - ../../contributors.lua
 ---
 
 ## Abstract
