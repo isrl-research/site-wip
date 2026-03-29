@@ -5,7 +5,7 @@ listing:
   contents:
     - '**/index.qmd'
   type: custom
-  template: pub-item.ejs.md
+  template: _pub-item.ejs.md
   fields:
     - title
     - date
