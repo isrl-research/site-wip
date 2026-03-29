@@ -1,12 +1,123 @@
 ---
-title: 2026-02-ds-variants
-authors:
-  - name: Norah Jones
-    affiliation: The University
-    roles: writing
+title: Indian Food Ingredients & Label Variants
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
     corresponding: true
-bibliography: references.bib
+x-contributor:
+  - name: Subrat Sethi
+  - name: Purnendu Shukla
+doc-id: iSRL-26-04-R-Data
+date: February 2026
+doi: 10.5281/zenodo.1871452
+license: "CC BY"
+citation:
+  type: report
+  publisher: iSRL
+  number: iSRL-26-04-Data
+
+abstract: |
+  **This dataset has been superseded.** The v1 mapping approach — standardising ingredient
+  label variants to a canonical vocabulary — was found to conflate noise reduction with
+  meaningful cultural and linguistic variation. This document explains why the approach
+  was abandoned and what replaced it.
+
+  A mapping of 2500+ regional ingredient variations as observed in Indian labels.
+  This dataset provides a structured mapping of the diverse ways ingredients are named
+  on Indian food packaging, linking variants (the actual text found on labels) to a
+  canon (a standardised, clean category).
+
+  Example mapping: Canon: Acetic Acid (INS 260) — Variants: acidity regulator 260,
+  vinegar, ins 260, acetic acid (260).
+other-links:
+  - text: "Dataset (CSV)"
+    href: "data/ingredients.csv"
+    icon: "file-earmark-spreadsheet"
 ---
 
-## Section
-This is a simple placeholder for the manuscript's main document [@knuth84].
+::: {.callout-important}
+## This version has been superseded
+
+This dataset is no longer maintained. The v1 approach was found to be structurally
+inadequate for the problem it was designed to solve. The full reasoning is documented
+below. The dataset remains available for reference at the link above.
+
+For current work, see the
+[Identity, Transformation, and Function framework](https://doi.org/10.5281/zenodo.18714526)
+and its [justification companion](https://doi.org/10.5281/zenodo.18713318).
+:::
+
+We released [Indian Food Ingredients & Label Variants](https://doi.org/10.34740/KAGGLE/DSV/14783287) (v1) with the goal of making ingredient label text parseable by machines. The dataset standardised ingredient names — mapping `kashmiri chilli` to `chilli`, for instance — on the assumption that a normalised vocabulary would make automated parsing tractable.
+
+Two problems emerged as data collection continued.
+
+First, the approach trades away information the project is now explicitly committed to preserving. The data makes this concrete.
+
+```{python}
+#| label: load-data
+#| echo: false
+import pandas as pd
+
+df = pd.read_csv("data/ingredients.csv")
+print(df.head())
+```
+
+```{python}
+#| label: chilli-canon
+#| echo: true
+#| code-fold: false
+import pandas as pd
+
+df = pd.read_csv("data/ingredients.csv", header=None, names=["canon", "variant"])
+
+# All variants that map to Chilli in v1
+chilli = df[df["canon"] == "Chilli"].copy()
+
+# The ones that carry regional and variety-level identity
+regional = chilli[chilli["variant"].str.contains(
+    "kashmiri|mathania|jalapeño|lal mirch", case=False
+)].reset_index(drop=True)
+
+print(regional.to_string(index=False))
+```
+
+In v1, every row above maps to `Chilli`. `Kashmiri lal mirch`, `mathania red chilli powder`, `stalkless kashmiri chillies` — all collapsed into the same canon as `chili powder` and `red chilly flakes`.
+
+The brands that wrote these labels did not have to. `Kashmiri chilli` could have been declared as `chilli` — it would have been legally compliant. The choice to name it specifically was a choice to preserve something: a regional identity, a flavour profile, a cultural referent that Indian consumers recognise and reach for. The v1 mapping erases that choice.
+
+This is not only a question of cultural fidelity. Ingredient identity has legal and fiscal consequences. Fresh alphonso mangoes attract 0% GST as an agricultural produce; mango pulp processed from a specific GI-tagged variety enters a different regulatory category. `Kashmiri chilli` carries a Geographical Indication; a generic `chilli` does not. When a mapping table collapses these into one canon, it does not simplify the data — it destroys the signal that downstream regulatory, taxation, and traceability systems depend on. Respecting the taste of India is not a sentiment; it is a data integrity requirement.
+
+Second, the ingredient name space in Indian packaged food is too diverse for automated mapping to be reliable. The problem splits into two structurally different cases:
+
+- **Semantic variants** — spelling differences, typos, punctuation variation — can be resolved with a comprehensive mapping table, because the variation is noise around a stable referent. `Chenna`, `bengal gram flour`, and `chickpea flour` are different names for the same thing. `Palmitate` and `palm oil` are not — they are similar-sounding but distinct ingredients.
+- **Cultural and linguistic variants** — regional names, transliterations, variety-level distinctions (like alphonso mango) — cannot be mapped reliably because the variation itself carries meaning. A model trained on such a mapping would not learn the differences; it would erase them.
+
+Maintaining a single mapping table that handles both cases conflates the problem. In practice, it means tracking every normalisation decision made during data cleaning — effectively a log of every typo fixed across thousands of rows — with no mechanism to distinguish meaningful variation from noise.
+
+The ingredient substrate under development makes this mapping unnecessary. A deterministic identity layer — one that assigns canonical identifiers to ingredients independent of how they are written on any given label — eliminates the need for probabilistic name matching at parse time. Labels are parsed against the substrate, not against a maintained vocabulary of variants.
+
+The v1 dataset will remain available for reference. The label variants mapping will not be maintained going forward.
+
+---
+
+This brings us to the question of how we extract the variants in a way that preserves
+the signal.
+
+How do we formalise that milk solids feels like it should be under milk while butter
+feels different? How do we measure the distance between a variant and its source
+ingredient?
+
+These questions led to a food classification framework inspired by Ranganathan's 1933
+Colon Classification[^cc][^cce] and grounded in Indian judicial and regulatory
+precedents — FSSAI, ITC-HS, court rulings.
+
+[^cc]: Colon Classification (Faceted Classification) by S R Ranganathan, Father of Indian Library Science.
+
+[^cce]: Instead of a flat list, faceted classification lets us express a single object as a set of values across independent dimensions — the way filtering by price, type, and brand on Amazon works, rather than browsing a single ranked list.
+
+- [Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity](https://doi.org/10.5281/zenodo.18714526)
+- [Justification companion](https://doi.org/10.5281/zenodo.18713318)
+
+
