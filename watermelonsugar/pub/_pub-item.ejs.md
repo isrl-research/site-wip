@@ -17,7 +17,7 @@
   .pub-byline { font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem; color: #1a1a1a; margin: 0 0 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; }
   .pub-byline-sep { color: #999; }
   .pub-type { color: #777; }
-  .pub-draft { font-style: italic; color: #888; }
+  .pub-draft { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; background: #e8e0d0; color: #5a4e3a; border-radius: 3px; padding: 0.15em 0.5em; font-style: normal; }
   .pub-title { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-weight: 400; line-height: 1.4; margin: 0 0 0.45rem 0; }
   .pub-title a { color: #1a1a1a; text-decoration: underline; text-decoration-color: #c0b8a8; text-underline-offset: 3px; }
   .pub-title a:hover { text-decoration-color: #1a1a1a; }
@@ -62,7 +62,7 @@
       <% if (item['doc-id']) { %><span><%= item['doc-id'] %></span><% } %>
       <% if (pubType) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-type"><%= pubType %></span><% } %>
       <% if (item.date) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span><%= item.date %></span><% } %>
-      <% if (item.draft) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-draft" role="note">Draft – WIP</span><% } %>
+      <% if (item.draft) { %><span class="pub-draft" role="note">Draft – WIP</span><% } %>
     </p>
 
     <h3 class="pub-title">
