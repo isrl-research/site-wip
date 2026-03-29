@@ -1,0 +1,35 @@
+---
+title: "Sai Nikhil Vukka"
+subtitle: "Research Assistant, iSRL"
+description: "Working on EMF–IFID ingredient classification, vegan standards metadata."
+order: 2
+team-role: "Research Assistant, Track 2"
+team-track: "Core Team 2"
+image: images/sainikhil.png
+about:
+  template: trestles
+  image: images/sainikhil.png
+  image-shape: round
+  links:
+    - icon: envelope
+      text: 25f2005507@ds.study.iitm.ac.in
+      href: "mailto:25f2005507@ds.study.iitm.ac.in"
+    - icon: github
+      text: Sai0Nikhil
+      href: "https://github.com/Sai0Nikhil"
+    - icon: linkedin
+      text: SaiNikhilVukka
+      href: "https://www.linkedin.com/in/sai-nikhil-vukka-iitm"
+---
+
+## About
+
+Research Assistant working on food ingredient classification (EMF–IFID), vegan standards metadata, and biomedical signal processing. Interested in how food systems and AI tooling can work together without breaking down in real-world complexity[^1].
+
+Currently dual-enrolled at IIT Madras (BS Data Science) and KL University (BTech CSE, Honors).
+
+Spending March–April on source-metadata protocols for ethical dietary standards, allergen detection, and IFID's April analysis phase.
+
+Outside the lab: hackathons, Buddhism and Advaita Vedanta, systems design, medieval history, late-night code sessions, and philosophy tangents.
+
+[^1]: This is where EMF lives—the gap between "what the law says an ingredient is" and "what a vegan audit, a startup, and a regulator actually need to know."
