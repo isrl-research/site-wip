@@ -28,3 +28,10 @@ A standardized taxonomy and multi-format dataset (JSON, Markdown, LaTeX) coverin
 ## Repository
 
 Source data and formats available at: <https://github.com/ifid-data/encyclopedia>
+
+---
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
