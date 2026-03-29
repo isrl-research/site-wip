@@ -31,6 +31,8 @@ abstract: |
 
   Example mapping: Canon: Acetic Acid (INS 260) — Variants: acidity regulator 260,
   vinegar, ins 260, acetic acid (260).
+resources:
+  - data/ingredients.csv
 other-links:
   - text: "Dataset (CSV)"
     href: "data/ingredients.csv"
