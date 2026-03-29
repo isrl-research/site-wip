@@ -4,10 +4,10 @@ listing:
   id: team-listing
   contents: 
     - "*.qmd"
-    - "!team-item.ejs.md"
+    - "!_team-item.ejs.md"
 
   type: custom
-  template: team-item.ejs.md
+  template: _team-item.ejs.md
   fields:
     - title
     - subtitle

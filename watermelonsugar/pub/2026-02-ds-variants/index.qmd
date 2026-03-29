@@ -33,6 +33,8 @@ abstract: |
   vinegar, ins 260, acetic acid (260).
 resources:
   - data/ingredients.csv
+filters:
+  - ../../contributors.lua
 other-links:
   - text: "Dataset (CSV)"
     href: "data/ingredients.csv"

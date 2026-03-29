@@ -9,13 +9,13 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-R-SCFood 
-date: February 2026
+date: 2026-02-15
 doi: 10.5281/zenodo.18651646
 license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-02-R-SCFood 
+  number: iSRL-26-02-R-SCFood
 format:
   html:
     toc: true
@@ -24,8 +24,8 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-draft: true
-draft-mode: visible
+filters:
+  - ../../contributors.lua
 ---
 
 ## Abstract
