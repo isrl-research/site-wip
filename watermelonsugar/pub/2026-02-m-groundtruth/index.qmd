@@ -10,7 +10,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-M-GroundTruth 
-date: February 2026
+date: 2026-02-23
 doi: 10.5281/zenodo.18741725
 license: "CC BY 4.0"
 citation:
@@ -25,8 +25,8 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-draft: true
-draft-mode: visible
+filters:
+  - ../../contributors.lua
 ---
 
 

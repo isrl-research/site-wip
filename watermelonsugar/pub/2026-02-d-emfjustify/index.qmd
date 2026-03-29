@@ -10,13 +10,13 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-D-EMFJustify 
-date: February 2026
+date: 2026-02-20
 doi: 10.5281/zenodo.18713318
 license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-02-D-EMFJustify 
+  number: iSRL-26-02-D-EMFJustify
 format:
   html:
     toc: true
@@ -25,8 +25,8 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-draft: true
-draft-mode: visible
+filters:
+  - ../../contributors.lua
 ---
 
 
