@@ -1,9 +1,10 @@
+---
 title: "Sai Nikhil Vukka"
 subtitle: "Research Assistant, iSRL"
 description: "Working on EMF–IFID ingredient classification, vegan standards metadata."
 order: 2
-team-role: "Research Assistant"
-team-track: "Core Team 1"
+team-role: "Research Assistant, Track 2"
+team-track: "Core Team 2"
 image: images/sainikhil.png
 about:
   template: trestles
