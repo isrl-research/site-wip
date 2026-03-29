@@ -42,9 +42,9 @@ The core research team works across two tracks.
 
 **Data profiling** — what data do we actually have? 896 SKUs sampled from verified Indian market listings. 2,291 unique ingredient variant strings extracted and cleaned [^data][^caas]. The same ingredient appearing as `chenna`, `bengal gram flour`, and `chickpea flour` — all documented, none flattened.
 
-[^data]: See [Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India's Packaged Food Labels Actually Say]() for how we collected data.
+[^data]: See [Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India's Packaged Food Labels Actually Say](pub/2026-04-r-variants/index.qmd) for how we collected data.
 
-[^caas]: See [Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists]() for generalizable framework that we can apply to other domains like Google Research did for Flood Data.
+[^caas]: See [Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists](pub/2026-04-m-caas/index.qmd) for generalizable framework that we can apply to other domains like Google Research did for Flood Data.
 
 **Data interoperability** — how do we connect what we have to global data standards? Allergen declaration rules across jurisdictions. Taxonomy metadata. Access architecture. The pieces that make IFID legible to the systems that need to use it.
 
@@ -62,6 +62,6 @@ Open threads, if you want to see where the thinking is live right now:
 
 The "what does healthy mean" question is not just a research question. It is a question that people working in F&B — product development, nutrition, compliance, sourcing — are sitting with every day.
 
-[iSRL-26-XX-R-Nourish](https://github.com/orgs/isrl-research/discussions/22) is the thread for this. If you work in the industry and have a perspective on how healthy is defined, debated, or operationalised in practice — that perspective belongs in the room.
+[iSRL-26-XX-R-Nourish](https://github.com/isrl-research/sandbox-research/discussions/22) is the thread for this. If you work in the industry and have a perspective on how healthy is defined, debated, or operationalised in practice — that perspective belongs in the room.
 
 If this is pulling you, [come in](join-us.qmd).
