@@ -1,46 +1,36 @@
 ```{=html}
 <style>
   .pub-list { list-style: none; padding: 0; margin: 0; }
-  .pub-card { margin-bottom: 1rem; padding: 1.5rem 2rem; background-color: #eeebe3; border-radius: 6px; }
-  .pub-card:last-child { margin-bottom: 0; }
-  .pub-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
-  .pub-docid { font-family: monospace; font-size: 0.72rem; color: #555; letter-spacing: 0.04em; }
-  .pub-date { font-family: 'Source Sans 3', sans-serif; font-size: 0.72rem; color: #555; }
-  .pub-badge { font-family: 'Source Sans 3', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background-color: #f5e6a3; color: #5c4700; padding: 0.15em 0.55em; border-radius: 3px; }
-  .pub-title { font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; margin: 0 0 0.5rem 0; }
-  .pub-title a { color: #1a1a1a; text-decoration: none; }
-  .pub-title a:hover { text-decoration: underline; }
-  .pub-title a:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; border-radius: 2px; }
-  .pub-authors { font-family: 'Source Serif 4', serif; font-size: 0.875rem; color: #444; margin: 0 0 0.9rem 0; }
-  .pub-footer { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-  .pub-doi { font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; color: #444; text-decoration: none; }
+  .pub-entry { padding: 1.75rem 0; border-bottom: 1px solid #d8d4ca; }
+  .pub-entry:first-child { border-top: 1px solid #d8d4ca; }
+  .pub-byline { font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem; color: #1a1a1a; margin: 0 0 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; }
+  .pub-byline-sep { color: #999; }
+  .pub-draft { font-style: italic; color: #888; }
+  .pub-title { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-weight: 400; line-height: 1.4; margin: 0 0 0.45rem 0; }
+  .pub-title a { color: #1a1a1a; text-decoration: underline; text-decoration-color: #c0b8a8; text-underline-offset: 3px; }
+  .pub-title a:hover { text-decoration-color: #1a1a1a; }
+  .pub-title a:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; border-radius: 1px; }
+  .pub-authors { font-family: 'Source Serif 4', serif; font-size: 0.9rem; color: #1a1a1a; margin: 0 0 0.6rem 0; }
+  .pub-links { font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem; color: #555; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .pub-doi { color: #555; text-decoration: none; }
   .pub-doi:hover { text-decoration: underline; }
-  .pub-doi:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; border-radius: 2px; }
-  .pub-license { font-family: 'Source Sans 3', sans-serif; font-size: 0.78rem; color: #555; }
+  .pub-doi:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; border-radius: 1px; }
   @media (max-width: 600px) {
-    .pub-card { padding: 1.1rem 1.25rem; }
-    .pub-title { font-size: 0.98rem; }
+    .pub-title { font-size: 1rem; }
+    .pub-entry { padding: 1.25rem 0; }
   }
 </style>
 
 <ul class="pub-list" role="list">
 <% for (const item of items) { %>
-<li class="pub-card">
+<li class="pub-entry">
   <article>
 
-    <div class="pub-meta" aria-label="Publication metadata">
-      <% if (item['doc-id']) { %>
-      <span class="pub-docid"><%= item['doc-id'] %></span>
-      <% } %>
-      <% if (item.date) { %>
-      <span class="pub-date" aria-label="Published <%= item.date %>">· <%= item.date %></span>
-      <% } %>
-      <% if (item.draft) { %>
-      <span class="pub-badge" role="note" aria-label="Draft — not yet peer reviewed">Draft</span>
-      <% } else if (item.subtitle) { %>
-      <span class="pub-badge" role="note"><%= item.subtitle %></span>
-      <% } %>
-    </div>
+    <p class="pub-byline">
+      <% if (item['doc-id']) { %><span><%= item['doc-id'] %></span><% } %>
+      <% if (item.date) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span><%= item.date %></span><% } %>
+      <% if (item.draft) { %><span class="pub-byline-sep" aria-hidden="true">·</span><span class="pub-draft" role="note" aria-label="work in progress">work in progress</span><% } %>
+    </p>
 
     <h3 class="pub-title">
       <a href="<%- item.path %>"><%= item.title %></a>
@@ -50,17 +40,15 @@
     <p class="pub-authors"><%= item.author %></p>
     <% } %>
 
-    <div class="pub-footer">
+    <div class="pub-links">
       <% if (item.doi && !item.doi.includes('[record-id]')) { %>
       <a class="pub-doi"
          href="https://doi.org/<%= item.doi %>"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="DOI <%= item.doi %>, opens in new tab">doi:<%= item.doi %> <span aria-hidden="true">→</span></a>
+         aria-label="DOI <%= item.doi %>, opens in new tab">doi:<%= item.doi %></a>
       <% } %>
-      <% if (item.license) { %>
-      <span class="pub-license"><%= item.license %></span>
-      <% } %>
+      <% if (item.license) { %><span><%= item.license %></span><% } %>
     </div>
 
   </article>
