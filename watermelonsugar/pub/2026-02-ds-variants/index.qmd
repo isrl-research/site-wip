@@ -9,14 +9,14 @@ author:
 x-contributor:
   - name: Subrat Sethi
   - name: Purnendu Shukla
-doc-id: iSRL-26-04-R-Data
+doc-id: iSRL-26-02-DS-Variants
 date: February 2026
 doi: 10.5281/zenodo.1871452
 license: "CC BY"
 citation:
-  type: report
+  type: dataset
   publisher: iSRL
-  number: iSRL-26-04-Data
+  number: iSRL-26-02-DS-Variants
 
 abstract: |
   **This dataset has been superseded.** The v1 mapping approach — standardising ingredient

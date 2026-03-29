@@ -34,7 +34,7 @@
 </style>
 
 <%
-  const typeMap = { R: 'Report', DS: 'Dataset', M: 'Methods Note', D: 'Data Paper', B: 'Dataset' };
+  const typeMap = { R: 'Report', DS: 'Dataset', M: 'Methods Note', D: 'Data Paper', B: 'Book' };
   function getType(docId) {
     if (!docId) return null;
     const match = (docId + '').match(/iSRL-\d{2}-\d{2}-([A-Za-z]+)-/i);
