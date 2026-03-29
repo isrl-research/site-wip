@@ -1,8 +1,8 @@
 project:
  type: website
- draft-mode: visible
 
 website:
+ draft-mode: visible
  title: "iSRL"
  navbar:
   pinned: true
