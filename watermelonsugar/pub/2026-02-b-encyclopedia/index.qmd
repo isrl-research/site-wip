@@ -7,7 +7,7 @@ author:
     email: lalithaar.research@gmail.com
     corresponding: true
 doc-id: iSRL-26-02-B-Encyclopedia
-date: February 2026
+date: 2026-02-11
 version: v0.1.0
 doi: 10.5281/zenodo.18650863
 license: "CC BY 4.0"

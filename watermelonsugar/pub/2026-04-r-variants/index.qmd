@@ -22,7 +22,7 @@ format:
     toc: true
     number-sections: true
     filters:
-      - contributors.lua
+      - ../../contributors.lua
     theme:
       - default
       - custom.scss
