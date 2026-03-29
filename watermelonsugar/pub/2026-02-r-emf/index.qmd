@@ -25,8 +25,6 @@ format:
     toc: true
     number-sections: true
 bibliography: references.bib
-draft: true
-draft-mode: visible
 ---
 
 ::: {.abstract}
@@ -847,7 +845,7 @@ Salutations to the Goddess who dwells in all beings in the form of intelligence.
 
 This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL). The synthesis draws upon extensive legal research and domain analysis conducted for food informatics applications.
 
-# Appendix A: Critique and Contribution Protocol {#app-critique .unnumbered}
+# Appendix A: Critique and Contribution Protocol {#sec-app-critique .unnumbered}
 
 ## Purpose {.unnumbered}
 
@@ -885,7 +883,7 @@ If the proposed revision would alter a $D$ score, zone threshold, or weight para
 >
 > **Contact:** [Contact details for correspondence]
 
-# Appendix B: Ways to Contribute {#app-contribute .unnumbered}
+# Appendix B: Ways to Contribute {#sec-app-contribute .unnumbered}
 
 The $E$--$M$--$F$ framework is an open research project. Contributions from domain experts are essential to its development. Two engagement pathways are available.
 
