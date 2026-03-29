@@ -52,9 +52,9 @@ Open threads, if you want to see where the thinking is live right now:
 
 - [Allergen Declaration in India — Rules, Reality, and Gaps](https://github.com/orgs/isrl-research/discussions/4)
 - [What Does Healthy Mean in India?](https://github.com/orgs/isrl-research/discussions/22)
-- [EMF Taxonomy — Relationship Tree Structure for Ingredient Expressions](https://github.com/orgs/isrl-research/discussions/)
-- [Taxonomy Metadata — What Should a Canonical Entry Know About Itself?](https://github.com/orgs/isrl-research/discussions/)
-- [Data Governance Principles — Protecting Every Stakeholder in the IFID Ecosystem](https://github.com/orgs/isrl-research/discussions/)
+- [EMF Taxonomy — Relationship Tree Structure for Ingredient Expressions](https://github.com/orgs/isrl-research/discussions/8)
+- [Taxonomy Metadata — What Should a Canonical Entry Know About Itself?](https://github.com/orgs/isrl-research/discussions/6)
+- [Data Governance Principles — Protecting Every Stakeholder in the IFID Ecosystem](https://github.com/orgs/isrl-research/discussions/20)
 
 ---
 
