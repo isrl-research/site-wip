@@ -4,6 +4,9 @@ project:
   - "**/*.qmd"
   - "**/*.ipynb"
 
+execute:
+ freeze: true
+
 website:
  draft-mode: visible
  title: "iSRL"
