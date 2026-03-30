@@ -6,6 +6,47 @@ format:
     reference-location: margin
 ---
 
+```{=html}
+<div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+
+  <!-- GitHub Sponsors -->
+  <div style="flex: 1 1 280px; background-color: #eeebe3; border-radius: 6px; padding: 2rem 2.5rem; display: flex; flex-direction: column;">
+    <p style="font-family: 'Source Sans 3', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin: 0 0 0.6rem 0;">GitHub Sponsors</p>
+    <h2 style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 0.75rem 0;">Sponsor iSRL on GitHub Sponsors</h2>
+    <p style="font-family: 'Source Serif 4', serif; font-size: 1rem; line-height: 1.65; color: #1a1a1a; margin: 0 0 1.5rem 0; flex-grow: 1;">A computer once declared Maggi healthier than rice. We are an open research lab helping computers understand why the grandma will slap it if it says so — and hopefully make it learn Indian nutrition truth. We are process open, not just outputs.</p>
+    <a href="https://github.com/sponsors/isrl-research" style="display: inline-block; background-color: #1a1a1a; color: #f7f6f2; font-family: 'Source Sans 3', sans-serif; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1.25rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.01em; align-self: flex-start;">Sponsor on GitHub →</a>
+  </div>
+
+  <!-- UPI -->
+  <div style="flex: 1 1 280px; background-color: #eeebe3; border-radius: 6px; padding: 2rem 2.5rem; display: flex; flex-direction: column;">
+    <p style="font-family: 'Source Sans 3', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin: 0 0 0.6rem 0;">UPI · India</p>
+    <h2 style="font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 0.75rem 0;">Support iSRL via UPI</h2>
+    <p style="font-family: 'Source Serif 4', serif; font-size: 1rem; line-height: 1.65; color: #1a1a1a; margin: 0 0 1.25rem 0;">No conversion fees — more of what you send reaches the work directly. Scan or use the UPI ID below.</p>
+    <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+      <div id="upi-qr" style="flex-shrink: 0;"></div>
+      <div>
+        <p style="font-family: 'Source Sans 3', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin: 0 0 0.3rem 0;">UPI ID</p>
+        <p style="font-family: monospace; font-size: 1rem; font-weight: 600; color: #1a1a1a; margin: 0 0 0.5rem 0; letter-spacing: 0.02em;">isrl-res@ptyes</p>
+        <p style="font-family: 'Source Serif 4', serif; font-size: 0.875rem; color: #555; margin: 0;">GPay, PhonePe, Paytm, or any bank app.</p>
+      </div>
+    </div>
+    <a href="mailto:lalithaar.research@gmail.com?subject=UPI%20Payment%20%E2%80%94%20iSRL%20Support&body=Hi%2C%0A%0AI%27ve%20made%20a%20UPI%20payment%20to%20isrl-res%40ptyes.%0A%0ATier%3A%20%5BData%20Steward%20%2F%20Research%20Sustainer%20%2F%20Founding%20Sustainer%5D%0AAmount%3A%20%E2%82%B9%0A%0APlease%20find%20my%20payment%20screenshot%20attached.%0A%0AAnything%20else%20I%27d%20like%20to%20say%3A%0A" style="display: inline-block; background-color: #1a1a1a; color: #f7f6f2; font-family: 'Source Sans 3', sans-serif; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1.25rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.01em; align-self: flex-start;">Send payment screenshot →</a>
+  </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+new QRCode(document.getElementById("upi-qr"), {
+  text: "upi://pay?pa=isrl-res@ptyes&pn=iSRL&cu=INR",
+  width: 120,
+  height: 120,
+  colorDark: "#1a1a1a",
+  colorLight: "#eeebe3",
+  correctLevel: QRCode.CorrectLevel.H
+});
+</script>
+```
+
 A computer once declared Maggi healthier than rice. We are an open research lab
 helping computers understand why the grandma will slap it if it says so — and
 making it learn Indian nutrition truth. We are process open, not just output open.
@@ -65,9 +106,8 @@ the knowledge that the 2,292nd variant string got cleaned because you were here.
 ## Support tiers
 
 If you are a GitHub user, the easiest path is [GitHub
-Sponsors](https://github.com/sponsors/isrl-research). If you are in India, we
-prefer UPI — it avoids the conversion fee and more of what you send reaches the
-work directly. UPI details on request.
+Sponsors](https://github.com/sponsors/isrl-research). If you are in India, UPI
+avoids the conversion fee — scan the QR code above.
 
 ### Monthly
 
@@ -84,12 +124,5 @@ work directly. UPI details on request.
 | **Data Steward** | $18 <br> *(~₹1,700)* | Monthly research newsletter. Name on the iSRL supporters page. |
 | **Research Sustainer** | $60 <br> *(~₹5,700)* | Everything above, plus one sub-track prioritisation request and your name in the outputs of any track you back. |
 | **Founding Sustainer** | $180 <br> *(~₹17,000)* | Everything above, plus name and logo on the iSRL org README and website, and your name in all iSRL outputs. |
-
-::: {.callout-note appearance="minimal"}
-INR equivalents are approximate at current exchange rates. If you would like to
-contribute in INR directly via UPI, write to us at
-[lalithaar.research@gmail.com](mailto:lalithaar.research@gmail.com) and we will
-send you the details.
-:::
 
 [Support on GitHub Sponsors →](https://github.com/sponsors/isrl-research){.btn .btn-primary}
