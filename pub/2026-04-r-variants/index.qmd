@@ -248,12 +248,13 @@ The Tamil name on a label stays Tamil. The INS code stays in its FSSAI format. T
 
 ## What This Corpus Makes Possible {#what-this-corpus-makes-possible}
 
-The output of this report is two open datasets:
+The output of this report is an open dataset:
 
-- 896 SKUs with verified ingredient lists, sourced from 42 companies across 8 macro-categories
-- Ingredient variant strings extracted from OFF data, filtered to rows with a verifiable Indian product name, cleaned through the same pipeline
+- Ingredient variant strings extracted from OFF data, filtered to rows with a verifiable Indian product name, cleaned through the same pipeline[^conf]
 
-Combined: a documented vocabulary of 2,291 unique ingredient expressions from Indian packaged food labels, with extraction methodology, constraint architecture, and quality validation documented in full.
+[^conf]: Release of 896 SKUs with verified ingredient lists is withheld to adhere to the stakeholder protection principles as discussed in [iSRL-26-XX-G-Protection: Data Governance Principles — Protecting Every Stakeholder in the IFID Ecosystem #20](https://github.com/isrl-research/sandbox-research/discussions/20) and [iSRL-26-XX-G-Access: Access Architecture — Tiered Data Access for the IFID API #21](https://github.com/isrl-research/sandbox-research/discussions/20).
+
+Combined : a documented vocabulary of 2,291 unique ingredient expressions from Indian packaged food labels, with extraction methodology, constraint architecture, and quality validation documented in full.
 
 The next question the corpus raises is: which of these 2,291 variants refer to the same ingredient, and by what logic? `Maida` and `Refined Wheat Flour` are the same substance. `Palm Oil` and `Palmite` are not, despite surface similarity. `Besan flour` and `chana dal` are related but distinct in preparation state. Answering that question requires a classification framework capable of handling identity, equivalence, and subset relationships across a space where standard similarity measures are unreliable.
 
