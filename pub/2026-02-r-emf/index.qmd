@@ -26,6 +26,36 @@ bibliography: references.bib
 filters:
   - ../../contributors.lua
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity",
+  "@id": "https://doi.org/10.5281/zenodo.18714527",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18714527",
+    "iSRL-26-02-R-EMF"
+  ],
+  "description": "Proposes the EMF Tri-Axial Identity Model for assigning a determinate identity position to any food ingredient using three axes — Anthropogenic Energy (E), Matter (M), and Function (F) — grounded in Indian regulatory instruments and validated against a 35-item benchmark.",
+  "datePublished": "2026-02-20",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-r-emf/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ::: {.abstract}
 Food ingredient classification in India confronts a structural problem that neither label standardisation nor taxonomy alone resolves: the same substance appears under dozens of names across regulatory filings, procurement systems, and consumer labels, while substances that share a name may differ in ways that determine their legal status, tax bracket, and nutritional profile. This report proposes the *E--M--F Tri-Axial Identity Model* as a principled, evidence-grounded framework for assigning a determinate identity position to any food ingredient. The three axes measure, respectively, the invasiveness of the transformation pathway (Anthropogenic Energy, $E$), the degree of departure from the original biological matrix (Matter, $M$), and the degree to which technological function governs regulatory naming and trade classification rather than biological origin (Function, $F$). From these three coordinates, a composite Divorce Score ($D$) is derived that partitions ingredients into three operationally meaningful zones: variants of a biological source, independent canonical entities, and functional tools whose identity is defined by role rather than origin. The framework is grounded in existing Indian regulatory instruments---the FSSAI Labelling and Display Regulations 2020, the Food Products Standards and Food Additives Regulations 2011, and the Indian Trade Classification (Harmonised System)---and validated against judicial reasoning from the Supreme Court of India and the Delhi High Court. A 35-item benchmark tests the discriminatory power of the model and provides a replicable standard for future refinements. The model provides the deterministic ingredient-level substrate on which product-level food classification frameworks can operate with greater precision and consistency.

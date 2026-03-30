@@ -39,6 +39,32 @@ draft-mode: visible
   
 
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Data Acquisition and Ingredient Extraction: Building a Vocabulary of What India's Packaged Food Labels Actually Say",
+  "identifier": "iSRL-26-04-R-Data",
+  "description": "Documents the data acquisition methodology and ingredient extraction process used to build a vocabulary of what India's packaged food labels actually say — from raw label text to structured ingredient strings across 896 SKUs and the Open Food Facts India dataset.",
+  "creativeWorkStatus": "Draft",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-04-r-variants/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ::: {.abstract}
 ### Abstract {.unnumbered}

@@ -26,6 +26,36 @@ bibliography: references.bib
 filters:
   - ../../contributors.lua
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Regulatory Texts and Case Law as Ground Truth in Emerging Domains",
+  "@id": "https://doi.org/10.5281/zenodo.18741725",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18741725",
+    "iSRL-26-02-M-GroundTruth"
+  ],
+  "description": "Argues that enacted law and judicial decisions constitute a practically available, historically grounded source of ground truth in emerging domains. Introduces regulatory delta analysis — examining how legislation and case law shift across time — to surface friction points and coordination constraints.",
+  "datePublished": "2026-02-23",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-m-groundtruth/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 
 ::: {.abstract}
