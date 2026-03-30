@@ -33,6 +33,12 @@ citation:
 
 draft: true
 draft-mode: visible
+resources:
+  - data/variants.csv
+other-links:
+  - text: "Dataset (CSV)"
+    href: "data/variants.csv"
+    icon: "file-earmark-spreadsheet"
   
 
 ---
