@@ -39,8 +39,6 @@ website:
    - href: team/index.qmd
      text: Team
    - about.qmd
-   - text: Research Logs
-     href: logs/index.qmd
    - icon: github
      href: https://github.com/isrl-research
      aria-label: GitHub
