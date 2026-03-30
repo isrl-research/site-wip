@@ -1,9 +1,18 @@
-/.luarc.json
-/watermelonsugar/_site/
+# Build output
+/_site/
 /.quarto/
-**/*.quarto_ipynb
-_site/*
-/watermelonsugar/_site/*
-watermelonsugar/_site/
-**/_freeze/
+
+# Execution/build artifacts
 **/_manuscript/
+# NOTE: **/_freeze/ intentionally NOT ignored — freeze cache must be committed for CI
+
+# Temp files
+**/*.quarto_ipynb
+**/*.quarto_ipynb_?
+**/temp-main.qmd
+**/temp-main.tex
+**/temp-main-preview.html
+
+# Local dev
+/.luarc.json
+watermelonsugar/logs/
