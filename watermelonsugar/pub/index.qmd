@@ -1,5 +1,6 @@
 ---
 title: 'Research Publications'
+description: "iSRL research publications — datasets, reports, and methods notes on Indian food ingredient identity, regulatory analysis, and the EMF Framework."
 listing:
   id: pub-listing
   contents:

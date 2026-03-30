@@ -16,6 +16,7 @@ x-reviewer:
   - name: Radhakrishna KV
   - name: Anand S
 doc-id: iSRL-26-04-R-Data
+description: "Documents the data acquisition methodology and ingredient extraction process used to build a vocabulary of what India's packaged food labels actually say — from raw label text to structured ingredient strings across 896 SKUs and the Open Food Facts India dataset."
 date: March 2026
 format:
   html:
