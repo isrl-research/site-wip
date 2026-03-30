@@ -5,10 +5,10 @@ description: "Working on EMF–IFID ingredient classification, vegan standards m
 order: 2
 team-role: "Research Assistant, Track 2"
 team-track: "Core Team 2"
-image: images/sainikhil.png
+image: images/sainikhil.jpg
 about:
   template: trestles
-  image: images/sainikhil.png
+  image: images/sainikhil.jpg
   image-shape: round
   links:
     - icon: envelope
