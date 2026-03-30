@@ -23,7 +23,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Install Python deps for notebook rendering
-        run: pip install jupyter nbformat
+        run: pip install jupyter nbformat pandas
 
       - name: Render site
         run: quarto render
