@@ -1,13 +1,17 @@
 project:
  type: website
+ render:
+  - "**/*.qmd"
+  - "**/*.ipynb"
 
 website:
  draft-mode: visible
  title: "iSRL"
  site-url: "https://isrl-research.github.io"
  description: "Open research lab building IFID — the data coordination layer for Indian packaged food ingredient identity."
- image: "images/og-image.png"
- favicon: "images/favicon.png"
+ image: "assets/og-image.png"
+ favicon: "assets/isrl-logo-square.png"
+ google-analytics: "G-8PD6FFEJEV"
  open-graph:
   locale: en_US
   site-name: iSRL
