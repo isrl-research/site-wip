@@ -15,7 +15,7 @@ description: "iSRL is an open research lab building IFID — the coordination la
       "description": "Open research lab building IFID — the data coordination layer for Indian packaged food ingredient identity."
     },
     {
-      "@type": "Organization",
+      "@type": "ResearchOrganization",
       "name": "iSRL",
       "alternateName": "Interdisciplinary Systems Research Lab",
       "url": "https://isrl-research.github.io",
