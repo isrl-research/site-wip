@@ -27,10 +27,6 @@ format:
     theme:
       - default
       - custom.scss
-  pdf:
-    toc: true
-    number-sections: true
-doi: 10.5281/zenodo.1871452
 bibliography: references.bib
 license: "CC BY"
 citation:

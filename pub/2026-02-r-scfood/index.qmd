@@ -21,9 +21,6 @@ format:
   html:
     toc: true
     number-sections: true
-  pdf:
-    toc: true
-    number-sections: true
 bibliography: references.bib
 filters:
   - ../../contributors.lua
