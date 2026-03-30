@@ -21,6 +21,37 @@ format:
     toc: true
 bibliography: references.bib
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Encyclopedia of Indian Food Ingredients",
+  "@id": "https://doi.org/10.5281/zenodo.18650863",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18650863",
+    "iSRL-26-02-B-Encyclopedia"
+  ],
+  "description": "A standardized taxonomy and multi-format dataset (JSON, Markdown, LaTeX) covering 600+ food components — from traditional Ayurvedic botanicals to contemporary industrial additives. Bridges culinary knowledge with international food standards for machine-readable Indian food data systems.",
+  "datePublished": "2026-02-11",
+  "version": "v0.1.0",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-b-encyclopedia/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ## Abstract
 

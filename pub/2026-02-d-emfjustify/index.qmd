@@ -26,6 +26,36 @@ bibliography: references.bib
 filters:
   - ../../contributors.lua
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Justification Companion to EMF-Scoring Model",
+  "@id": "https://doi.org/10.5281/zenodo.18713318",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18713318",
+    "iSRL-26-02-D-EMFJustify"
+  ],
+  "description": "Justification companion to the EMF Tri-Axial Identity Model, providing regulatory, chemical, and trade defensibility notes for each axis score assignment across the model's benchmark ingredient set.",
+  "datePublished": "2026-02-20",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-d-emfjustify/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 
 This is a justification companion to the EMF Scoring Model as described in **Identity, Transformation, and Function: A Tri-Axial Model for the Classification of Food Ingredient Identity** [@lalitha_2026_emf_main].

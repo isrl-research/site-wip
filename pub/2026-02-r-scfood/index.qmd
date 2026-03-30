@@ -25,6 +25,36 @@ bibliography: references.bib
 filters:
   - ../../contributors.lua
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Indian Supreme Court Defines Hierarchical Classification Framework for Food Products, Overruling Common Parlance Precedents",
+  "@id": "https://doi.org/10.5281/zenodo.18651646",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18651646",
+    "iSRL-26-02-R-SCFood"
+  ],
+  "description": "Synthesizes landmark Indian judicial decisions in food classification law, documenting the Supreme Court's 2026 ruling that established a hierarchical technical classification framework superseding common parlance interpretation — with significant implications for food informatics and ingredient classification systems.",
+  "datePublished": "2026-02-15",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-r-scfood/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ## Abstract
 

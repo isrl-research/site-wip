@@ -41,6 +41,36 @@ other-links:
     href: "data/ingredients.csv"
     icon: "file-earmark-spreadsheet"
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Indian Food Ingredients & Label Variants",
+  "@id": "https://doi.org/10.5281/zenodo.1871452",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.1871452",
+    "iSRL-26-02-DS-Variants"
+  ],
+  "description": "A mapping of 2,500+ regional ingredient variations observed on Indian food labels, linking label variants to a canonical vocabulary. Note: this dataset has been superseded — the v1 approach was abandoned after finding it conflated noise reduction with meaningful cultural and linguistic variation.",
+  "creativeWorkStatus": "Superseded",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-ds-variants/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ::: {.callout-important}
 ## This version has been superseded

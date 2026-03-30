@@ -30,6 +30,32 @@ filters:
 draft: true
 draft-mode: visible
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Constrained AI-Assisted Sampling for Fragmented Textual Spaces: A Framework for Data Collection Where No Ground Truth Exists",
+  "identifier": "iSRL-26-04-M-CAAS",
+  "description": "A framework for constrained AI-assisted sampling in fragmented textual spaces where no ground truth exists and standard survey or ETL assumptions fail — developed for collecting Indian packaged food label data.",
+  "creativeWorkStatus": "Draft",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-04-m-caas/",
+  "author": {
+    "@type": "Person",
+    "name": "Lalitha A R",
+    "identifier": "https://orcid.org/0009-0001-7466-3531",
+    "sameAs": "https://orcid.org/0009-0001-7466-3531",
+    "email": "lalithaar.research@gmail.com"
+  },
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ## Abstract
 Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.

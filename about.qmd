@@ -1,5 +1,6 @@
 ---
 title: About
+description: "About iSRL — an open, independent research commons building data infrastructure for Indian food systems. Fully async, no institutional affiliation, high-agency culture."
 format:
   html:
     toc: false

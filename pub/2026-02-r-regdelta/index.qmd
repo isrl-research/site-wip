@@ -29,6 +29,44 @@ bibliography: references.bib
 filters:
   - ../../contributors.lua
 ---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Regulatory Delta of Food Labelling Laws in India: A Comparative Analysis of the FSSAI 2011 and 2020 Regulations",
+  "@id": "https://doi.org/10.5281/zenodo.18719394",
+  "identifier": [
+    "https://doi.org/10.5281/zenodo.18719394",
+    "iSRL-26-02-R-RegDelta"
+  ],
+  "description": "Summarises the regulatory delta between India's 2011 and 2020 FSSAI food labelling regulations, focusing on transitions toward prescriptive naming, structured allergen declarations, and risk-aware warnings that directly inform IFID data field selection.",
+  "datePublished": "2026-02-21",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://isrl-research.github.io/pub/2026-02-r-regdelta/",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sai Nikhil Vukka",
+      "identifier": "https://orcid.org/0009-0007-6717-7512",
+      "sameAs": "https://orcid.org/0009-0007-6717-7512"
+    },
+    {
+      "@type": "Person",
+      "name": "Lalitha A R",
+      "identifier": "https://orcid.org/0009-0001-7466-3531",
+      "sameAs": "https://orcid.org/0009-0001-7466-3531",
+      "email": "lalithaar.research@gmail.com"
+    }
+  ],
+  "publisher": {
+    "@type": "ResearchOrganization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
 
 ## Abstract
 
