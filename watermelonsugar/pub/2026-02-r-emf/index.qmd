@@ -10,6 +10,7 @@ x-contributor:
   - name: Hitha Sunil
     role: Typesetting
 doc-id: iSRL-26-02-R-EMF
+description: "Proposes the EMF Tri-Axial Identity Model for assigning a determinate identity position to any food ingredient using three axes — Anthropogenic Energy (E), Matter (M), and Function (F) — grounded in Indian regulatory instruments and validated against a 35-item benchmark."
 date: 2026-02-20
 doi: 10.5281/zenodo.18714527
 license: "CC BY 4.0"

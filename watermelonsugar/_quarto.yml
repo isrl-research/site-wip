@@ -4,6 +4,16 @@ project:
 website:
  draft-mode: visible
  title: "iSRL"
+ site-url: "https://isrl-research.github.io"
+ description: "Open research lab building IFID — the data coordination layer for Indian packaged food ingredient identity."
+ image: "images/og-image.png"
+ favicon: "images/favicon.png"
+ open-graph:
+  locale: en_US
+  site-name: iSRL
+ twitter-card:
+  card-style: summary_large_image
+  site: "@isrl_research"
  navbar:
   pinned: true
   right:
@@ -22,6 +32,11 @@ website:
    - href: team/index.qmd
      text: Team
    - about.qmd
+   - text: Research Logs
+     href: logs/index.qmd
+   - icon: github
+     href: https://github.com/isrl-research
+     aria-label: GitHub
 
 
 format:
@@ -34,6 +49,8 @@ format:
   toc: true
   fontsize: 17px
   backgroundcolor: '#f7f6f2'
-  filters: 
+  include-in-header: _includes/_base-jsonld.html
+  filters:
     - highlight-span.lua
+    - jsonld.lua
   reference-location: margin

@@ -8,7 +8,8 @@ author:
 x-contributor:
   - name: Hitha Sunil
     role: Typesetting
-doc-id: iSRL-26-02-R-SCFood 
+doc-id: iSRL-26-02-R-SCFood
+description: "Synthesizes landmark Indian judicial decisions in food classification law, documenting the Supreme Court's 2026 ruling that established a hierarchical technical classification framework superseding common parlance interpretation — with significant implications for food informatics and ingredient classification systems."
 date: 2026-02-15
 doi: 10.5281/zenodo.18651646
 license: "CC BY 4.0"

@@ -22,6 +22,36 @@ about:
       href: https://linkedin.com/in/lalithaar
 ---
 
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lalitha A R",
+  "jobTitle": "Lead Researcher",
+  "description": "PI at iSRL. Research direction, coordination, and hands-on data profiling in Core Team 1.",
+  "url": "https://isrl-research.github.io/team/lalithaar.html",
+  "email": "lalithaar.research@gmail.com",
+  "identifier": "https://orcid.org/0009-0001-7466-3531",
+  "sameAs": [
+    "https://orcid.org/0009-0001-7466-3531",
+    "https://github.com/lalithaar",
+    "https://linkedin.com/in/lalithaar"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  },
+  "affiliation": {
+    "@type": "Organization",
+    "name": "IIT Madras",
+    "url": "https://www.iitm.ac.in"
+  }
+}
+</script>
+```
+
 Lead Researcher aka PI at iSRL. I set the overall direction for the lab, manage the research agenda, and coordinate across teams — and also do hands-on work in Core Team 1, where my focus is data profiling[^basically][^also]. I tell everyone to rest and take breaks. I am actively working on following this advice myself.
 
 [^basically]: Involves searching "_is humectant or ingredient or process or property of an ingredient in terms of use in food as in is is a property or nature of an ingredient or chemicals or is it an ingredient one can buy standalone by itself or is it like class of ingreidnets that is of that nature as in can one buy 'humectant'_" in google at 2 pm randomly. 

@@ -1,5 +1,6 @@
 ---
 title: Where we started and where we are
+description: "The iSRL research roadmap: how we went from a hackathon question to two research tracks — data profiling and interoperability — building IFID."
 ---
 
 It started with a question that felt almost too simple to ask.
