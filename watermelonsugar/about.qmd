@@ -1,155 +1,59 @@
 ---
 title: About
-description: "About iSRL — Interdisciplinary Systems Research Lab building open data infrastructure for Indian packaged food."
 format:
   html:
-    toc: true
-    toc-location: right
+    toc: false
     reference-location: margin
     filters:
     - highlight-span.lua
     css: styles.css
 ---
 
-```{=html}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About iSRL",
-  "description": "About iSRL — Interdisciplinary Systems Research Lab building open data infrastructure for Indian packaged food.",
-  "url": "https://isrl-research.github.io/about.html",
-  "about": {
-    "@type": "Organization",
-    "name": "iSRL",
-    "alternateName": "Interdisciplinary Systems Research Lab",
-    "url": "https://isrl-research.github.io",
-    "description": "Open research lab building IFID — the data coordination layer for Indian packaged food ingredient identity."
-  }
-}
-</script>
-```
-
 *Ya Devi Sarva Bhuteshu Buddhi Roopena Samsthita,*
 *Namasthasyai Namo Namah*
 
-Salutations to the Goddess who dwells in all beings in the form of intelligence.
-I bow to her again and again.
+---
 
-This is the founding premise of the lab. Not decoration — the philosophical
-chairperson of everything we build.
+iSRL is an open research commons. The intelligence that makes the work sharper
+lives in the people, and the people come from everywhere — regulatory expertise,
+food science, data standards, legal analysis, nutrition, lived experience of the
+systems we are studying.
+
+We couldn't have coined Regulatory Delta Analysis without Lalitha trying to
+explain to Sai how two sets of law could be read as data. We couldn't have seen
+the limits of what we were building for small F&B businesses without Dr. Swati
+pointing it out [in the open](https://github.com/orgs/isrl-research/discussions/20#discussioncomment-16259223).
+We couldn't have known the parallels with how similar systems in completely
+different industries solve this without Thej saying so
+[here](https://github.com/orgs/isrl-research/discussions/6#discussioncomment-16078778).
+
+The debates, the dead ends, the moments where something we were sure about
+turned out to be wrong — all of it happens in public, on GitHub.
 
 ---
 
-## What iSRL is
-
-iSRL is an open research commons. Independent — not affiliated with any
-university, not beholden to any institution's research agenda. We pick one
-problem at a time and go deep, producing work that is open not just in its
-outputs but in its process: the debates, the dead ends, the decisions, the
-things that didn't work. All of it happens in public, on GitHub.
-
-Most research is output-open. A paper gets published, a dataset gets released,
-the CC BY licence gets attached. The messy middle — how the question was framed,
-what was tried before the answer emerged, where the reasoning failed — stays
-internal. We don't think that's the right model for research that is meant to
-serve as public infrastructure. If the work is meant to be used, the work needs
-to be understood. That means showing the process, not just the product.
-
-Our 2026 focus is the Indian Food Informatics Data project — building the
-coordination layer that makes ingredient identity in Indian packaged food
-queryable, interoperable, and stable. The goal is coordination without
-convergence: a system that lets thousands of regional ingredient expressions talk
-to regulatory, trade, and health systems without flattening the diversity that
-makes them meaningful.
-
----
-
-## How it is structured
-
-The lab runs on layered coordination.
-
-**Core researchers** hold the system across sprints. They think about the
-architecture — the classification frameworks, the governance principles, the
-infrastructure that makes domain work possible. They scope the problems, maintain
-the pipelines, and ensure that what one sprint produces is something the next
-sprint can build on. This is domain-agnostic work: the question is always how
-the system should hold, not what any one ingredient or regulation says.
-
-**Domain contributors** come in where their expertise intersects a live problem.
-A food scientist on fortification. A legal researcher on a court ruling. A
-nutritionist on allergen evidence. They don't need to understand the whole
-system — they need to understand their piece of it precisely. The core creates
-the conditions for that contribution to land cleanly; the domain expert produces
-something the system can integrate.
-
-The interface between them is the research problem itself — scoped precisely
-enough for a domain expert to engage with, situated clearly enough in the larger
-system that the contribution has a home.
-
----
-
-## How we work
-
-Fully async. Fully remote. No office, no fixed hours, no check-ins for the sake
+Fully async, fully remote. No office, no fixed hours, no check-ins for the sake
 of check-ins.
 
-What we do keep is a deliberate rhythm. Every third week is off — completely.
-No updates, no pings, no gentle nudges. That week exists because ideas need time
-to settle, and because the people doing this work have lives that deserve
-uninterrupted space. Some of the most useful realisations happen when you stop
-pushing.
+Every third week is off — completely. No pings, no updates, no gentle nudges.
 
-Work weeks are high agency. You know what the deliverable is. You organise your
-time around it. No one is managing your hours.
-
-We are not interested in the appearance of productivity. We are interested in
-the work holding up.
+When it is a working week, it is high agency. You know what the deliverable is.
+You organise your time around it.
 
 ---
 
-## The culture underneath
+Your worth as a person has nothing to do with what you produce here. You are not
+here to impress anyone. You are here to find out what is actually true and
+represent it as clearly as you can.
 
-The lab operates on one premise that doesn't move: your worth as a person has
-nothing to do with your output, your research record, or anything you produce
-here. You are not here to impress anyone. You are here to serve the truth as
-faithfully as you can and represent it as clearly as possible.
+Say no early when the timing isn't right. A clear no now is worth more than a
+yes that quietly unravels.
 
-**Put yourself first.** Before you commit to anything here, ask whether you will
-still get enough sleep, enough rest, enough of your own life. We mean this
-without qualification. Opportunities will always exist. Your wellbeing is not
-renewable on demand.
-
-**Say no early.** A clear no upfront is worth more to us than a reluctant yes
-that slowly unravels. We actively create space for saying no. A half-committed
-presence is harder to work around than an honest absence.
-
-**Full commitment or none.** When you do say yes, we expect the real version of
-that. Not perfection — commitment. Showing up, communicating when things aren't
-working, doing the unglamorous parts without being asked.
-
-**Serve the truth.** Your job is not to defend a position or make the lab look
-good. It is to find out what is actually true, document it clearly, and be
-willing to say when the answer is inconvenient. That is the whole job.
+When you do say yes — not perfection. Commitment. Showing up, communicating when
+things aren't working, doing the unglamorous parts without being asked.
 
 ---
 
-## Before you show up
-
-Some honest questions worth sitting with:
-
-- Can you get enough sleep on a working week and still meet your commitments
-  here?
-- Are you comfortable working without someone checking in on you?
-- Can you communicate clearly — not just when things are going well, but when
-  they aren't?
-- Are you able to say "I don't know" and then go find out?
-- Is there space in your life right now for something that requires your full
-  attention?
-
-If the honest answer to any of these is no right now, that is fine. The timing
-has to be right. Come back when it is.
-
-If the problem is pulling at you and the timing is right — the
-[discussions](https://github.com/orgs/isrl-research/discussions) are open. No
-form, no application. Just come in.
+If the problem is pulling at you, the
+[discussions](https://github.com/orgs/isrl-research/discussions) are where the
+thinking happens in real time. The [join page](join-us.qmd) has the rest.
