@@ -2,7 +2,7 @@
 title: "Encyclopedia of Indian Food Ingredients"
 author:
   - name: Lalitha A R
-    affiliation: Interdisciplinary Systems Research Lab (iSRL)
+    affiliation: iSRL
     orcid: 0009-0001-7466-3531
     email: lalithaar.research@gmail.com
     corresponding: true

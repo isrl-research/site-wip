@@ -2,7 +2,7 @@
 title: "When the Means Become the End: Instrumental-Terminal Goal Inversion in Large Language Models"
 author:
   - name: Lalitha A R
-    affiliation: Interdisciplinary Systems Research Lab (iSRL)
+    affiliation: iSRL
     orcid: 0009-0001-7466-3531
     email: lalithaar.research@gmail.com
     corresponding: true
@@ -172,10 +172,6 @@ Suitable task types:
 3. **Truncation sensitivity**: Progressively shorten outputs from the end. Measure at what point $G_T$-relevant content disappears vs. at what point structural completeness fails. ITGI predicts these diverge, with $G_T$ content concentrated early and structural completion content concentrated late.
 
 **Human baseline.** The asymmetry claim (Claim 3) requires human participants completing the same tasks under the same three conditions. If ITGI is real and inverted from human behavior, Condition C outputs from humans should be *more* purpose-serving than Condition A, while Condition C outputs from LLMs should be *less* purpose-serving.
-
-### Potential collaborators
-
-The Decision Lab (behavioral science consultancy, McGill University) works at exactly the intersection of intention-action gaps, organizational decision-making, and metric design — the human side of this experiment. Their existing measurement instruments for behavioral intention strength [@sheeran2002intention] could be adapted for the human baseline condition. The structural parallel between their work on closing the human intention-action gap and this work on characterizing the LLM inversion is the natural entry point for a conversation.
 
 ---
 
