@@ -61,6 +61,7 @@ draft-mode: visible
 Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
 
 They do not hold in fragmented textual spaces.
+
 # The Problem This Solves {#sec-problem}
 
 Standard data collection methods begin with one of two assumptions. Survey sampling assumes a population you can enumerate: you know the frame, you draw from it, you account for non-response. ETL pipelines assume a schema you can target: you know what fields exist, what types they carry, what cleaning they require. Both assumptions hold comfortably in well-documented domains.
