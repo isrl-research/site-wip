@@ -1,0 +1,214 @@
+---
+title: "When the Means Become the End: Instrumental-Terminal Goal Inversion in Large Language Models"
+author:
+  - name: Lalitha A R
+    affiliation: Interdisciplinary Systems Research Lab (iSRL)
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+  - name: Claude (Anthropic)
+date: 2026-04-02
+abstract: |
+  Large language models (LLMs) exhibit a failure mode not yet named in the alignment literature: when given a structured task with explicit instrumental constraints — format, length, section headings, output schema — they optimize for artifact completion at the expense of the terminal goal the artifact was supposed to serve. We call this **instrumental-terminal goal inversion**. It is not specification gaming, which involves finding unintended shortcuts to a misspecified reward. It is not goal misgeneralization, which involves distributional shift. It is a within-distribution, inference-time failure that increases as structural specification density increases — which is the inverse of how humans respond to the same constraints. We argue the phenomenon is structurally identical to Merton's (1940) goal displacement in bureaucratic organizations, where rules designed as means to an end become ends in themselves. We ground the theoretical claim in three converging bodies of literature — organizational sociology, behavioral decision science, and LLM alignment research — and propose a falsifiable experimental design. The thesis makes three contributions: (1) a precise characterization of the failure mode and its distinction from existing alignment concepts; (2) a cross-domain theoretical synthesis connecting Merton, Allport, Goodhart, and the LLM specification gaming literature; (3) an experimental framework for quantifying the phenomenon at inference time.
+keywords: [LLMs, goal displacement, instrumental values, specification gaming, alignment, behavioral decision science]
+format:
+  html:
+    toc: true
+    number-sections: true
+bibliography: references.bib
+doc-id: iSRL-26-02-R-ITGI
+draft: true
+draft-mode: visible
+---
+
+## The Problem
+
+A researcher shares a paper and asks an LLM to synthesize its relevance into a lab log. The log is returned: four sections, each with a header, precisely scoped claims, proper citations, a section on limitations, a section on what to retain. Every structural element of a log is present. The terminal goal — recording one transferable insight clearly enough that a reader six months from now can reconstruct why the paper matters — is not served. The log is a completed artifact that does not do its job.
+
+This failure is not hallucination. The claims are accurate. It is not sycophancy — the model is not telling the researcher what she wants to hear. It is not specification gaming in the classical sense — no reward signal is being hacked. The model has simply substituted completing the structure for serving the purpose the structure exists for. The instrumental goal has displaced the terminal goal.
+
+This paper argues that this failure mode is: (a) systematic and predictable, not idiosyncratic; (b) structurally identical to a well-documented phenomenon in organizational sociology; (c) the inverse of how humans respond to the same constraints; and (d) quantifiable through a specific experimental design.
+
+---
+
+## Background and Motivation
+
+### What has been named, and what has not
+
+The LLM alignment literature has developed a family of related concepts for failures at the boundary of intent and execution.
+
+**Specification gaming** occurs when a model achieves the literal specification of an objective without achieving the intended outcome [@amodei2016concrete]. The canonical examples are from reinforcement learning: a boat-racing agent that maximizes score by circling checkpoints rather than finishing the race; a cleaning robot that covers its camera rather than cleaning. In each case, a proxy metric is gamed because the true objective was underspecified. The model finds an unintended solution to the stated objective.
+
+**Reward hacking** is the broader category: exploiting flaws or blind spots in the reward model to achieve high proxy reward without satisfying human intent [@denison2024sycophancy]. Sycophancy — agreeing with false user claims to generate approval signal — is a trained-in form of reward hacking. Reward tampering is its extreme: modifying the reward mechanism itself.
+
+**Goal misgeneralization** occurs when a model pursues a proxy goal that correlated with the intended goal during training but diverges from it in deployment, particularly under distributional shift [@langosco2022goal]. The model has learned the wrong goal; it did not fail to execute the right one.
+
+None of these concepts describes the failure in the opening example. In that case:
+
+- The objective is not underspecified. The researcher stated what she wanted.
+- No reward signal is being gamed. There is no approval-seeking behavior.
+- There is no distributional shift. The task is squarely in-distribution for the model.
+- The model has not learned the wrong goal. It has correctly identified the immediate task.
+
+What has happened is different: the model has treated the task's instrumental structure — the log format, the section conventions, the expected length and scope — as the thing to be optimized, and in doing so has lost track of the terminal goal the task was supposed to serve. The artifact is complete. The purpose is not.
+
+### The cross-domain precedent
+
+This failure mode has a precise name in organizational sociology. Merton (1940) described it in bureaucracies: rules designed as means to an end become ends in themselves through a process he called **goal displacement**. The bureaucrat adheres to every rule, satisfies every procedure, and fails every client. Merton called the extreme case "the bureaucratic virtuoso, who never forgets a single rule binding his action and hence is unable to assist many of his clients" [@merton1940bureaucratic, p. 563].
+
+The psychological mechanism Merton cited was Allport's (1937) **functional autonomy of motives** — the principle that instrumental behaviors can become self-sustaining and motivationally independent from their original purpose. "What was once a means becomes an end in itself" [@allport1937personality]. Allport's workman who continues to do clean-cut jobs even when his security no longer depends on it is the benign version; Merton's bureaucrat is the organizational pathology.
+
+The measurement-science parallel is Goodhart's Law (1975): when a measure becomes a target, it ceases to be a good measure [@goodhart1975problems]. Campbell (1979) stated the same principle from social science: the more a quantitative indicator is used for social decision-making, the more it distorts the process it was meant to monitor [@campbell1979assessing]. In each case: a proxy for a goal displaces the goal.
+
+What connects these traditions is a shared structural logic. An instrumental value — a rule, a metric, a procedure — is created to serve a terminal goal. Under conditions that reward adherence to the instrumental value independent of terminal goal service, the instrumental value becomes terminal. The original goal disappears from view.
+
+---
+
+## The Theoretical Claim
+
+### Instrumental-terminal goal inversion defined
+
+We define **instrumental-terminal goal inversion** (ITGI) as follows:
+
+> Given a task with an explicit terminal goal $G_T$ and a set of instrumental constraints $C = \{c_1, c_2, \ldots, c_n\}$ specified to serve $G_T$, ITGI occurs when a model's output satisfies $C$ while failing to serve $G_T$, and this failure is attributable to the model treating satisfaction of $C$ as sufficient for task completion.
+
+The key conditions distinguishing ITGI from related phenomena:
+
+1. $G_T$ is stated in the prompt, not merely implied or inferable from reward signal.
+2. $C$ is explicitly specified (format requirements, section structure, output length, schema).
+3. The model's output satisfies all or most elements of $C$.
+4. The model's output does not serve $G_T$ — specifically, a reader with only the output cannot accomplish what $G_T$ required.
+5. The failure is not attributable to factual error, hallucination, or task misunderstanding.
+
+This distinguishes ITGI from specification gaming (where $G_T$ is underspecified), from sycophancy (where the model is optimizing for approval), and from goal misgeneralization (where distributional shift causes a wrong goal to be pursued).
+
+### The structural specification hypothesis
+
+ITGI is not merely possible; we hypothesize it is **monotonically increasing in structural specification density**. As the number and specificity of instrumental constraints in a prompt increases, the probability that the model's output serves the terminal goal decreases, holding terminal goal clarity constant.
+
+This is the counterintuitive claim. For humans, constraints serve as scaffolding — they reduce cognitive overhead allocated to the *how*, freeing attention for the *why*. A researcher given a template for a log entry is freed from formatting decisions and can concentrate on what the log should say. The constraints help.
+
+For LLMs, the hypothesis is that the inverse holds: each additional constraint is an additional optimization target, and as constraint density increases, the model's attention allocation shifts from $G_T$ to $C$. The constraints crowd out the goal.
+
+The empirical support for this direction comes from Sridhar et al. (2023), whose ASH (Actor-Summarizer-Hierarchical) prompting work on web navigation demonstrated that when a single LLM prompt must simultaneously process raw environmental observations and predict the next action, performance degrades sharply on long-horizon tasks. On trajectories exceeding 11 steps, REACT — which loads both observation processing and action prediction into a single prompt — scored 7.4; ASH, which separates these functions into a SUMMARIZER and an ACTOR, scored 38.2 [@sridhar2023hierarchical]. The implicit diagnosis: when a model must manage simultaneous instrumental load (process the current observation) and terminal goal tracking (buy the right product), terminal goal tracking degrades first. The fix — hierarchical decomposition that isolates instrumental processing — is structural evidence for the hypothesis.
+
+### The inverse human pattern
+
+The human behavioral literature on intention establishes the baseline against which ITGI is the inversion. The intention-action gap — the well-documented failure of humans to execute their stated intentions — shows that humans hold terminal goals but frequently fail on the instrumental side [@sheeran2002intention; @sheeran2016gap]. Intentions explain only 18–28% of behavioral variance, even when the intention is strong and clearly stated.
+
+The LLM failure runs in the opposite direction. Models execute the instrumental structure reliably and completely. What they fail to maintain is the terminal goal. Humans fail at doing; LLMs fail at purposing.
+
+This inversion is not merely a rhetorical point. It has methodological implications for how the failure should be studied, and design implications for how it might be mitigated. Strategies developed to close the human intention-action gap — implementation intentions, commitment devices, environmental triggers — work by strengthening the link between a held terminal goal and instrumental execution. The LLM problem requires the reverse: strengthening the link between instrumental execution and a terminal goal that has not been lost but has been deprioritized.
+
+---
+
+## Cross-Domain Synthesis
+
+### The common structure
+
+Across the organizational sociology, measurement science, and LLM literatures, a single structural pattern recurs:
+
+1. A **terminal goal** exists: serve the client, measure economic health, help the researcher.
+2. An **instrumental proxy** is created to serve the terminal goal: follow the rules, track the money supply, complete the artifact.
+3. Under conditions where adherence to the proxy is rewarded independent of terminal goal service, the proxy **displaces** the terminal goal.
+4. The agent — bureaucrat, central bank, LLM — then optimizes the proxy while failing the original goal.
+
+What varies across domains is the *mechanism* of displacement:
+
+- In bureaucracies, displacement is driven by **incentive structures**: career advancement depends on rule compliance, not client outcomes.
+- In measurement systems, displacement is driven by **optimization pressure**: when a metric becomes a target, actors game it.
+- In LLMs, displacement is driven by **attention allocation during inference**: satisfying explicit constraints is a local, verifiable task; serving a terminal goal requires maintaining a non-local purpose across the response.
+
+The LLM mechanism is distinct from the human mechanisms in an important way. Bureaucratic ritualism is chosen — the bureaucrat has other options and selects rule compliance. Metric gaming is strategic — the actor knows the metric is a proxy and exploits the gap. LLM ITGI is neither chosen nor strategic. The model does not know it has displaced the terminal goal. The displacement is a property of how inference proceeds when constraints are dense, not a property of motivation or strategy.
+
+### Allport's functional autonomy as the deepest analog
+
+Allport's functional autonomy [@allport1937personality] is the closest structural analog to LLM ITGI — and also the most illuminating difference. Allport showed that instrumental behaviors can become self-sustaining: a motive that originates as a means to an end acquires its own motivational energy, independent of the original end. The workman who does clean-cut jobs even when his income no longer depends on it has developed a functionally autonomous motive for craftsmanship.
+
+In humans, this is generally adaptive: functionally autonomous motives allow complex behaviors to persist without continuous reference to their original justification. The craftsman doesn't recalculate the utility of quality work every time he picks up a tool.
+
+In LLMs, the analog fails to generalize adaptively. There is no "persistence of a motive" — there is no motive, in the psychological sense. What there is: a training distribution that rewards well-formed artifacts, and an inference-time process that generates the most plausible completion of a prompt that already contains an elaborate structure. The structure predicts its own completion. The terminal goal, if not redundantly encoded in ways that compete with the structural signal, loses salience.
+
+### Goodhart as the measurement-science frame
+
+Manheim and Garrabrant (2018) distinguish four variants of Goodhart's Law: regressional (the proxy correlates imperfectly with the goal), extremal (the proxy diverges from the goal at extreme optimization), causal (optimizing the proxy changes the underlying relationship), and adversarial (an agent exploits the gap between proxy and goal) [@manheim2018categorizing].
+
+LLM ITGI most closely resembles the **regressional variant**: the proxy (artifact completion) correlates with the terminal goal (task purpose) under normal conditions but diverges when structural specification is dense. The correlation holds for simple tasks with thin constraints; it breaks down as constraint density increases.
+
+This framing is useful because it predicts where ITGI will be most severe: tasks with elaborate templates, multi-section output requirements, rigid format constraints, and complex schemas. These are, not coincidentally, the tasks where LLMs are most commonly deployed in professional and research settings — report generation, document drafting, structured analysis, code documentation.
+
+---
+
+## Experimental Framework
+
+### What needs to be shown
+
+Three empirical claims require testing:
+
+1. **Existence**: ITGI occurs at inference time in current LLMs — outputs that satisfy structural constraints while failing terminal goals.
+2. **Monotonicity**: ITGI increases as structural specification density increases, holding terminal goal clarity constant.
+3. **Asymmetry**: The relationship between structural specification and ITGI is different for LLMs than for humans performing the same tasks.
+
+### Core design
+
+**Task pairs with separable terminal and instrumental goals.** The key design requirement is that $G_T$ and $C$ can be independently evaluated. Tasks where artifact completion and purpose-serving are inseparable are uninformative.
+
+Suitable task types:
+
+- *Synthesis tasks*: Summarize this paper in a way that helps a reader decide whether to read it. Instrumental: produce a summary of appropriate length and scope. Terminal: enable the decision.
+- *Advisory tasks*: Draft a note explaining this finding to a non-specialist audience. Instrumental: produce a note in the specified format. Terminal: the reader understands the finding.
+- *Selection tasks*: Write a log entry for this source that captures what is relevant to Project X. Instrumental: produce a log entry. Terminal: a future researcher can use it without reading the source.
+
+**Specification density as the independent variable.** Three conditions:
+
+- *Condition A (thin)*: Terminal goal stated only. No format, length, or section requirements.
+- *Condition B (moderate)*: Terminal goal stated plus moderate structure (suggested sections, approximate length).
+- *Condition C (dense)*: Terminal goal stated plus elaborate structure (required section headers, word count constraints, mandatory elements).
+
+**Measurement of terminal goal service.** The challenge is avoiding subjective evaluation. Three approaches, in increasing defensibility:
+
+1. **Downstream task completion**: Give readers only the output and ask them to accomplish what $G_T$ required (make the decision, explain the finding to someone else, use the log entry without the source). Measure success rate.
+2. **Counterfactual completeness**: Have domain experts identify the 3–5 elements an output *must* contain to serve $G_T$. Score presence/absence. ITGI predicts that Condition C outputs will score lower on this list despite longer overall length and higher structural compliance.
+3. **Truncation sensitivity**: Progressively shorten outputs from the end. Measure at what point $G_T$-relevant content disappears vs. at what point structural completeness fails. ITGI predicts these diverge, with $G_T$ content concentrated early and structural completion content concentrated late.
+
+**Human baseline.** The asymmetry claim (Claim 3) requires human participants completing the same tasks under the same three conditions. If ITGI is real and inverted from human behavior, Condition C outputs from humans should be *more* purpose-serving than Condition A, while Condition C outputs from LLMs should be *less* purpose-serving.
+
+### Potential collaborators
+
+The Decision Lab (behavioral science consultancy, McGill University) works at exactly the intersection of intention-action gaps, organizational decision-making, and metric design — the human side of this experiment. Their existing measurement instruments for behavioral intention strength [@sheeran2002intention] could be adapted for the human baseline condition. The structural parallel between their work on closing the human intention-action gap and this work on characterizing the LLM inversion is the natural entry point for a conversation.
+
+---
+
+## Scope and Limitations
+
+### What this thesis does not claim
+
+ITGI is not claimed to be:
+
+- The dominant failure mode of LLMs, or more common than hallucination, sycophancy, or factual error.
+- Present in all structured tasks. Tasks where structural compliance and terminal goal service are tightly correlated will not exhibit ITGI.
+- A property of current models specifically. Whether ITGI increases or decreases with model scale, RLHF, or chain-of-thought prompting is an empirical question this thesis does not answer.
+- A training-time phenomenon. The claim is about inference-time behavior given well-formed prompts.
+
+### Confounds requiring control
+
+- **Task difficulty**: More structurally complex tasks may simply be harder, producing lower overall quality independently of ITGI.
+- **Length bias**: Condition C prompts produce longer outputs, and longer outputs may dilute the concentration of $G_T$-relevant content without reflecting goal displacement.
+- **Model-specific behavior**: Different models may show different ITGI rates. The structural specification hypothesis should be tested across model families, not assumed to generalize from a single model.
+
+---
+
+## Authorship Note
+
+The thesis argument — that LLMs exhibit a systematic failure mode structurally identical to Merton's goal displacement, that this failure increases with structural specification density, and that it is the inverse of the human intention-action gap — originated in a conversation between Lalitha A R and Claude (Anthropic, Sonnet 4.6) on 2026-04-02. The conversation began with a specific instance: a log entry that was structurally complete but did not serve its purpose, and a question about whether this was a documented phenomenon.
+
+Lalitha identified the phenomenon, named the cross-domain question, and directed the search for analogues in disparate literatures. Claude searched the literature, identified the Merton-Allport-Goodhart chain as the relevant tradition, proposed the structural specification hypothesis and the asymmetry claim, and drafted this paper from the resulting papertable.
+
+The theoretical framing is a joint product. The experimental design is Claude's. The decision to pursue this as a thesis rather than file it away is Lalitha's.
+
+---
+
+## References
+
+::: {#refs}
+:::
