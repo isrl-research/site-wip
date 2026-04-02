@@ -130,7 +130,7 @@ mark.view-highlight .review-tooltip {
   padding: 0.35rem 0.6rem;
   border-radius: 6px;
   white-space: pre-wrap;
-  max-width: 260px;
+  max-width: 360px;
   min-width: 80px;
   word-break: break-word;
   z-index: 9100;
