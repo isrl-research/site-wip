@@ -196,11 +196,10 @@ ITGI is not claimed to be:
 
 ## Authorship Note
 
-The thesis argument — that LLMs exhibit a systematic failure mode structurally identical to Merton's goal displacement, that this failure increases with structural specification density, and that it is the inverse of the human intention-action gap — originated in a conversation between Lalitha A R and Claude (Anthropic, Sonnet 4.6) on 2026-04-02. The conversation began with a specific instance: a log entry that was structurally complete but did not serve its purpose, and a question about whether this was a documented phenomenon.
+Lalitha A R identified the phenomenon from a specific instance — a log entry that satisfied its structural requirements while failing its purpose — and connected it to an earlier observation documented in the iSRL GitHub discussion (isrl-research/discussions/10). She searched for analogues in the behavioral science literature, found The Decision Lab's treatment of the intention-action gap, and identified the inversion: that the LLM failure runs opposite to the human failure.
 
-Lalitha identified the phenomenon, named the cross-domain question, and directed the search for analogues in disparate literatures. Claude searched the literature, identified the Merton-Allport-Goodhart chain as the relevant tradition, proposed the structural specification hypothesis and the asymmetry claim, and drafted this paper from the resulting papertable.
-
-The theoretical framing is a joint product. The experimental design is Claude's. The decision to pursue this as a thesis rather than file it away is Lalitha's.
+Claude searched the academic literature, confirmed Merton's goal displacement as the relevant organizational sociology tradition, identified Allport and Goodhart as the upstream sources, proposed the structural specification hypothesis as the testable form of the claim, and drafted this paper from the resulting papertable.
+The core observation, the inversion framing, and the cross-domain question are Lalitha's. The literature mapping, experimental design, and written synthesis are Claude's.
 
 ---
 
