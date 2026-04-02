@@ -10,8 +10,13 @@ author:
   - name: Claude (Anthropic)
     affiliation: Anthropic
     note: "AI research assistant. Role described in Appendix A."
+x-contributor:
+  - name: Anushree Balaji
+  - name: Maitri Jain
+  - name: Disha
+  - name: Sharmitha K
 doc-id: iSRL-26-04-R-ALLERGEN
-description: "Reviews the clinical and epidemiological evidence on food allergens in India, maps it against the FSSAI mandatory allergen declaration framework (Labelling and Display Regulations 2020, operationalised July 2022), and derives a three-tier allergen recognition list for the Indian Food Ingredient Database (IFID)."
+description: "Reviews the clinical and epidemiological evidence on food allergens in India, maps it against the FSSAI mandatory allergen declaration framework (Labelling and Display Regulations 2020, operationalised July 2022), and derives a three-tier allergen recognition list for the Indian Food Informatics Data (IFID) project."
 date: "2026-03-31"
 doi: 10.5281/zenodo.[record-id]
 license: "CC BY 4.0"
@@ -40,7 +45,7 @@ draft-mode: visible
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   "name": "Food Allergens in India: What the Evidence Actually Shows",
-  "description": "Reviews the clinical and epidemiological evidence on food allergens in India, maps it against the FSSAI mandatory allergen declaration framework (Labelling and Display Regulations 2020, operationalised July 2022), and derives a three-tier allergen recognition list for the Indian Food Ingredient Database (IFID).",
+  "description": "Reviews the clinical and epidemiological evidence on food allergens in India, maps it against the FSSAI mandatory allergen declaration framework (Labelling and Display Regulations 2020, operationalised July 2022), and derives a three-tier allergen recognition list for the Indian Food Informatics Data (IFID) project.",
   "datePublished": "2026-03-31",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "url": "https://isrl-research.github.io/pub/2026-04-r-allergen/",
@@ -67,7 +72,7 @@ India has among the lowest documented food allergy prevalence in the Asia-Pacifi
 
 India's mandatory allergen declaration framework (FSSAI Regulation 5(14), Food Safety and Standards (Labelling and Display) Regulations, 2020, operationalised 1 July 2022) requires declaration of 8 allergen groups, following the pre-2024 Codex Alimentarius standard [@fssai2020; @codex2024]. Several foods with documented sensitisation in Indian populations are absent from this list, including sesame (8.0% serum-specific IgE in children), rice (double-blind placebo-controlled food challenge (DBPCFC) confirmed), black gram (DBPCFC confirmed), chickpea (anaphylaxis documented), and eggplant (community study data available).
 
-The gap between the regulatory list and the clinical literature is not the whole story. Expanding a mandatory list requires confirmed clinical challenge data, which is structurally difficult to generate at scale under the conditions that currently characterise Indian allergy research infrastructure. This paper documents what the literature says, what the regulation requires, and where they converge and diverge — as the basis for an allergen recognition list for the Indian Food Ingredient Database (IFID). The Codex 2024 revision has since added sesame as mandatory and reclassified soy as recommended; whether FSSAI will align with these changes is not known at the time of writing [@codex2024].
+The gap between the regulatory list and the clinical literature is not the whole story. Expanding a mandatory list requires confirmed clinical challenge data, which is structurally difficult to generate at scale under the conditions that currently characterise Indian allergy research infrastructure. This paper documents what the literature says, what the regulation requires, and where they converge and diverge — as the basis for an allergen recognition list for the Indian Food Informatics Data (IFID) project. The Codex 2024 revision has since added sesame as mandatory and reclassified soy as recommended; whether FSSAI will align with these changes is not known at the time of writing [@codex2024].
 :::
 
 ---
