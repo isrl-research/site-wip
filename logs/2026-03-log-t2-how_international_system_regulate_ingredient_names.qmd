@@ -1,0 +1,109 @@
+---
+title: "The Taxonomy of Taste: How International Systems Regulate Ingredient Names"
+date: 2026-03-31
+categories: [ifid, regulatory, ingredient-identity, international]
+author:
+  - "Radhakrishna MV"
+  - "Gemini (Google)"
+description: "How Canada, the USA, the EU, and Australia-New Zealand maintain official systems for ingredient identity — and why those systems exist."
+draft: true
+draft-mode: visible
+format:
+  html:
+    toc: true
+---
+
+Many countries maintain official "Ingredient Dictionaries" or "Common Name Lists" to ensure that when a manufacturer says "Sugar" or "Milk," it means the same thing on every label.
+
+While National Nutrition Databases (like the USDA's FoodData Central) focus on what's inside the food (vitamins, minerals), Regulatory Identity Lists — often part of a country's food law — define what the ingredient must be called.
+
+Here are the most prominent official systems used to make ingredient identity consistent.
+
+---
+
+## Canada: The "Common Names" List
+
+Canada is perhaps the most explicit. The Canadian Food Inspection Agency (CFIA) maintains a document called "Common Names for Ingredients and Components." It acts as a mandatory thesaurus for food labels.
+
+**The goal:** To prevent vague or deceptive labeling.
+
+**Example:** If a manufacturer uses a mix of butter, cream, and skim milk, they are legally allowed — and sometimes required — to group them under the official common name "Milk Ingredients" to simplify the label for the consumer.
+
+**Exemptions:** It also specifies exactly when you can use generic terms like "Vegetable Oil" versus when you must name the specific plant (e.g., "Palm Oil").
+
+---
+
+## USA: Standards of Identity & "Substances Added to Food"
+
+The FDA maintains Standards of Identity (found in Title 21 of the Code of Federal Regulations). These are "recipes" for over 280 foods.
+
+**Identity clarity:** If a product is labeled "Mayonnaise," it must follow the FDA's official identity (containing specific amounts of vegetable oil and egg yolk). If it doesn't meet the standard, it cannot use that name.
+
+**Database link:** The FDA also maintains the "Substances Added to Food" inventory — a searchable database of every ingredient allowed in the US food supply, including its preferred name.
+
+---
+
+## European Union: FoodEx2 & LanguaL
+
+In the EU, the focus is on standardized taxonomy so that data can be shared across 27+ different languages.
+
+**FoodEx2:** Developed by the EFSA (European Food Safety Authority), this is a hierarchical system with over 30,000 terms. It uses a "Facet" system to describe food.
+
+Example: "Apple" (Base Term) + "Dried" (Processing Facet) + "Organic" (Production Facet).
+
+**LanguaL:** An international framework (used heavily in Europe and the US) that uses thesaurus logic to link different names for the same ingredient globally.
+
+---
+
+## Australia & New Zealand: The Food Standards Code
+
+FSANZ maintains Schedules within their Food Standards Code that act as the source of truth for ingredient identity.
+
+**Schedule 10:** Specifically lists the permitted generic names for ingredients (e.g., when you can say "Fish" instead of naming the specific species).
+
+**Schedule 8:** Lists the official names and INS numbers for all food additives.
+
+---
+
+## Why these lists exist
+
+Without official lists, ingredient identity would be inconsistent. These databases address three structural problems:
+
+- **Allergen transparency:** Ensuring that "Casein" is clearly identified as a milk derivative.
+- **Fraud prevention:** Preventing a manufacturer from calling "High Fructose Corn Syrup" simply "Natural Sweetener."
+- **Data interoperability:** Allowing systems to understand that "Zucker," "Sucre," and "Sugar" all refer to the same substance.
+
+---
+
+## Comparison of identity databases
+
+| Country | Official name of list / database | Primary purpose |
+|---|---|---|
+| Canada | Common Names for Ingredients | Labeling consistency and grouping |
+| USA | CFR Title 21 (Standards of Identity) | Defining "legal" food recipes |
+| EU | FoodEx2 | Scientific data exchange and safety |
+| Australia & NZ | Food Standards Code (Schedules) | Regulating names of additives and fats |
+
+---
+
+## Note on authorship
+
+This document was written by Radhakrishna MV (iSRL) in collaboration with Gemini (Google) on 2026-03-31, as part of Track B research into regulatory ingredient identity systems relevant to the IFID schema.
+
+**What Gemini did:**
+
+- Synthesised the structure and content of official ingredient identity systems across Canada, the USA, the EU, and Australia/New Zealand
+- Drafted prose, examples, and table entries for each jurisdiction
+- Framed the "why these lists exist" section and the three core problems they address
+
+**Constraints the collaboration worked under:**
+
+- This is a survey document, not a primary regulatory analysis. The content describes the purpose and structure of each system; it does not verify current regulatory text against official sources.
+- Regulatory specifics (schedule numbers, CFR citations, EFSA document references) are stated as understood at the time of writing. They should be verified against primary sources before being used in any formal IFID documentation.
+- No claims are made about FSSAI or India-specific regulatory systems; that scope belongs to Track A and separate regulatory research.
+
+**Where the line was drawn:**
+
+The factual claims about each system — what CFIA, FDA, EFSA, and FSANZ maintain and what those systems are designed to do — are Gemini's synthesis from publicly available regulatory documentation. They represent Gemini's understanding of those systems, reviewed and accepted by Radhakrishna MV.
+
+The framing of interoperability and allergen transparency as the motivating problems for these systems is Gemini's interpretation of why the systems are structured as they are. It is grounded in the stated purposes of the official documents.

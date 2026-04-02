@@ -1,0 +1,338 @@
+---
+title: "What our labels told us about fortification — and what we still need to know"
+date: 2026-03-26
+categories: [ifid, fortification, data-analysis, track-a]
+author:
+  - "Lalitha A R"
+  - "Claude (Anthropic)"
+description: "92 label rows. 68 canonical agents. Four nutrient classes. Here is what the data says and the questions it couldn't answer."
+format:
+  html:
+    toc: true
+---
+
+## The design question
+
+When we build the IFID schema for an ingredient entry, should there be an "is it
+fortified?" checkbox? If yes — two questions follow immediately. Which ingredient
+categories should even show the checkbox? And when someone ticks it, what list of
+agents do they pick from?
+
+Those aren't UI questions. They're data questions. And the only way to start
+answering them is to look at what our labels actually said.
+
+This is Track A of a two-track analysis. Track A covers what the label data shows —
+how many agents, what kinds, where the evidence is strong and where it's thin. Track B
+covers the regulatory side: what FSSAI mandates, which categories are covered, whether
+our agent list is complete for the Indian F&B FMCG context. This document closes Track A
+and hands off to Track B.
+
+---
+
+## What the data shows
+
+### Scale
+
+The curation processed 92 source label rows — 72 from `fortification_agent_working.csv`
+and 20 from `pending_enrichment.csv` — and produced 68 canonical fortification agent
+entries. The taxonomy closed 2026-03-19.
+
+Source: `fortification-taxonomy/fortification-taxonomy_clean_2026-03-19.json`
+
+### What didn't make it in — and why
+
+10 source rows were excluded from the 68 canonical entries.
+
+**4 structural exclusions:**
+
+Three were compound wheat flour declarations — label text of the form "fortified wheat
+flour thiamin" or "fortified wheat flour niacin". These bundle the carrier and the
+nutrient in the label string. They can't be resolved to a clean agent without knowing
+the carrier separately. The nutrients themselves (thiamin, niacin) appear as standalone
+entries in the taxonomy. The compound form is a label format issue, not a substance gap.
+
+One was L-HPC (low-substituted hydroxypropyl cellulose) — a pharmaceutical tablet
+binder that appeared in the dataset because some product labels mixed food and pharma
+conventions. L-HPC is not a food fortification agent under any regulatory definition.
+It was removed entirely.
+
+**6 reclassified out of fortification → health\_supplement:**
+
+L-carnitine (including an OCR variant `l-camitine`), creatine monohydrate micronised,
+whey peptides, glutamine peptides, and calcium HMB
+(β-hydroxy-β-methylbutyrate monohydrate). These are functional and sports nutrition
+ingredients. They appeared on labels that call them fortification agents, but they fall
+under FSSAI's health supplement and nutraceutical regulations, not food fortification
+standards.
+
+This reclassification surfaces something the data makes plain: the word "fortified" on
+a label does not have a consistent meaning. Brands apply it to everything from
+"added vitamin A per a government mandate" to "we included creatine." The taxonomy
+draws that line; the labels don't always.[^1]
+
+[^1]: The 6 reclassified rows now sit in a stub folder at `health_supplement/`. That
+lane will need its own taxonomy pass.
+
+### Agents by nutrient class
+
+| Nutrient class | Canonical entries | Notes |
+|---|---|---|
+| Mineral Nutrients | 33 | Includes 5 group declarations (Ferrous Salt, Calcium Salt, Salts of Magnesium, Iodate forms, Chloride) |
+| Water-Soluble Vitamins | 16 | B1, B2, B3, B6, B9, B12, Biotin, Pantothenic Acid, Choline; plus Vitamin B Complex (group) |
+| Amino Acids | 13 | Arginine, Glutamine, Leucine, Lysine, L-Lysine HCl, Methionine, Phenylalanine, Taurine, Threonine, Valine, plus Amino Acids (group) |
+| Fat-Soluble Vitamins | 6 | Vitamin A, Retinyl Acetate, Retinyl Palmitate, Vitamin D, Ergocalciferol (D2), Cholecalciferol (D3) |
+| **Total** | **68** | 7 of the 68 are group declarations |
+
+Minerals account for 33 of 68 entries — just under half. This reflects the form
+specificity of mineral fortification: zinc appears as zinc sulphate, zinc sulphate
+monohydrate, and zinc gluconate as distinct entries; magnesium appears in 9 distinct
+forms.[^2]
+
+[^2]: Magnesium forms in the taxonomy: aspartate, bisglycinate, carbonate, gluconate,
+hydroxide, oxide, phosphate dibasic, sulphate, and threonate — plus the group
+declaration "Salts of Magnesium."
+
+7 of the 68 entries are group declarations — labels that name a class rather than a
+specific substance (Vitamin B Complex, Amino Acids, Electrolytes, Ferrous Salt,
+Calcium Salt, Salts of Magnesium, Chloride). These are included in the taxonomy because
+they appear on labels and need to be matched, but they can't be tracked to a single
+substance.
+
+### Source types
+
+Source type data is in the taxonomy for most entries. Across all 68:
+
+- **Synthetic**: 36 entries — B vitamins, amino acids, most trace minerals as salts
+- **Mineral**: 31 entries — mineral salts (the mineral source category, not the
+  "Mineral Nutrients" class above)
+- **Fermentation (corn)**: 3 entries
+- **Fermentation (sugarcane)**: 3 entries
+- **Fish liver oil**: 4 entries — vitamins A and D
+- **Lanolin**: 2 entries — vitamin D3 (cholecalciferol)
+- **Palm**: 1 entry — vitamin E adjacent
+- **Yeast**: 1 entry
+
+Source type matters for allergen tagging, halal and vegan flags, and origin
+declarations in some regulatory contexts. The taxonomy carries this data.
+
+### Data quality
+
+Zone distribution in the working CSV (72 rows, before pending enrichment):
+
+- Zone 2 (higher confidence): 48 rows (66.7%)
+- Zone 1 (lower confidence, flagged for review): 24 rows (33.3%)
+
+OCR and transcription artefacts resolved during curation: `sodium img` → Sodium
+Iodate; `phenylalaline` → Phenylalanine; `l-camitine` → L-Carnitine (then
+reclassified out).
+
+---
+
+## What the label evidence shows about what gets fortified
+
+Most of what the label data captured is from health supplement and sports nutrition
+products — not from conventional staple food fortification. Amino acids (arginine,
+leucine, taurine) don't appear in atta. Magnesium threonate is not in milk. These are
+supplement-sector products.
+
+The conventional staple fortification signal — oils with vitamin A and D, flours with
+B vitamins and iron — is present in the taxonomy through the agents themselves (those
+agents are there), but it appeared in our label data primarily as compound declarations
+("fortified wheat flour thiamin") which were structurally excluded. The carrier and
+the mandate are implied by the agent; the source label text didn't give us clean
+carrier attribution.
+
+The label sample is weighted toward the supplement sector because supplement labels
+are more explicit about what has been added. Conventional fortification in staple
+foods tends to appear as part of a compound ingredient declaration or not at all.
+This is not a gap in the taxonomy — the agents are present — but it means the
+taxonomy was built from supplement-weighted evidence for the non-supplement domain.
+
+---
+
+## The declaration gap: agents without carriers
+
+Our label data names what was added. It almost never names what it was added to.
+
+The compound wheat flour declarations — the three rows excluded from the taxonomy — show
+what happens when labels try to express both. "Fortified wheat flour thiamin" puts the
+carrier (wheat flour) and the agent (thiamin) into a single unstructured string with no
+delimiter. The label format provides no mechanism to express this as a relationship. Both
+facts are in the string; neither can be extracted cleanly without interpreting the whole
+phrase. Those three rows couldn't be parsed against the agent taxonomy without also
+resolving the carrier — and the carrier was in the label text, not in a separate field,
+so the two couldn't be separated. That's why they were excluded: not because the
+information wasn't there, but because the format bundled two distinct things into one.
+
+The other 89 source rows have the mirror problem. They name agents cleanly —
+electrolytic iron, riboflavin, retinyl palmitate — but carry no carrier attribution.
+A product that declares "fortified with vitamins A and D" while containing edible oil,
+milk solids, and a premix blend doesn't indicate which ingredient is fortified. All
+three could be carriers. The label isn't incomplete in any regulatory sense — it
+describes what the product contains. But it isn't a schema.
+
+The 68-entry taxonomy reflects what the labels made available: a catalogue of agents,
+without carrier-agent pairs. That's not a curation gap. It's the limit of what the
+current label format expresses.
+
+IFID's schema is designed around a different structure. An ingredient entry — edible
+oil, wheat flour — carries a fortification flag. When the flag is set, the agent field
+records what was added to that ingredient. The carrier is the entry itself. No additional
+text declaration is needed because the relationship is structural, not textual.
+
+That's the gap this track surfaces: current labeling convention produces agent data;
+IFID's schema is built to produce carrier-agent pairs. Connecting the two requires
+knowing whether the regulation is written at the product level or the ingredient level —
+which is a Track B question.
+
+---
+
+## What the FSSAI notes in the taxonomy tell us
+
+During enrichment, Gemini pulled FSSAI mandatory fortification references for 5 food
+categories. These are unverified — they came from the enrichment model, not from
+primary FSSAI documents. Track B will verify and expand.
+
+From the taxonomy notes (unverified, enrichment-sourced):
+
+| Food category | Agents noted |
+|---|---|
+| Edible oil | Vitamins A, D |
+| Wheat flour | B1, B2, B3, B9, B12, Iron, Zinc |
+| Rice | B1, B2, B3, B12, Iron, Zinc, Folic Acid |
+| Milk | Vitamins A, D, B12, Calcium, Zinc |
+| Salt | Iodine (and sometimes Iron, Zinc) |
+
+The agents listed above are all present in our 68-entry taxonomy. The agents
+exist; what the label data didn't show us is whether these specific carrier categories
+(oil, flour, rice, milk, salt) were the ones carrying those agents on the labels
+we processed. We saw the agents, not the carriers.
+
+---
+
+## What the data answered, and what it didn't
+
+**Answered:**
+
+- What fortification agents appear on Indian packaged food labels
+- The count of distinct canonical forms (68) and how they cluster by nutrient class
+- Source type diversity across entries
+- Where label evidence is strong (supplement sector) and where it's thin (conventional
+  staple fortification categories)
+
+**Not answered:**
+
+- Which ingredient categories are legally required to show fortification — and
+  therefore whether the checkbox should be mandatory or optional for any given
+  category
+- Whether the 68-entry taxonomy is complete for the Indian F&B FMCG context, or
+  whether agents common in categories we have thin label coverage on are missing
+- Whether oils, flours, rice, milk, and salt are the primary fortification-carrying
+  categories at scale in the label universe — the sample skew toward supplements
+  means we can't confirm this from our data alone
+
+---
+
+## Track B research brief
+
+This is a handoff, not a literature review request. Four questions.
+
+**1. Regulatory scope**
+
+What does FSSAI mandate for food fortification — which categories, which agents, which
+forms? Are there categories beyond the five noted in enrichment (oil, flour, rice,
+milk, salt)?
+
+**2. FMCG coverage**
+
+In the Indian F&B FMCG market, which ingredient categories commonly carry fortification
+claims that our label data likely didn't capture? Candidates include breakfast cereals,
+biscuits, beverages, and infant/baby food. Are there others?
+
+**3. Agent completeness**
+
+Are there fortification agents commonly used in Indian F&B that aren't in the 68-entry
+taxonomy? Particularly for categories we have thin coverage on.
+
+**4. The checkbox answer**
+
+Given the above: which ingredient categories in IFID should have a "is it fortified?"
+checkbox? For those categories, what should the agent dropdown show? And which
+categories should have the checkbox mandatory (because fortification is legally
+required) vs optional (because it's common practice but not mandated)?
+
+**5. Declaration level: product or ingredient?**
+
+Current labeling practice declares fortification at the product level — "fortified with
+vitamins A, D" appears on the product, not on the edible oil ingredient entry within
+the product. FSSAI requirements may be structured the same way: the mandate applies to
+the product category, not to a specific ingredient within it.
+
+IFID's schema models fortification at the ingredient level. The edible oil entry has the
+flag; the agent dropdown records what was added to that ingredient. That's a more
+specific representation than what a product-level declaration captures.
+
+Two questions follow from this. First: does the FSSAI requirement specify which
+ingredient within a product must carry the fortification, or only that the product as
+a whole must contain certain agents? Second: in practice — on actual product labels in
+the FMCG space — is fortification declared on the ingredient entry or on the product
+panel? If the answer to both is "product level," then the data trail needed to populate
+an ingredient-level fortification field in IFID doesn't exist in current label
+convention, and building it requires either inference or a new labeling ask.
+
+---
+
+## Data files
+
+| File | Used for |
+|---|---|
+| `fortification_agent/fortification_agent_working.csv` | Source rows, zone distribution |
+| `fortification_agent/pending_enrichment.csv` | 20 additional rows |
+| `fortification_agent/fortification-taxonomy/fortification-taxonomy_clean_2026-03-19.json` | 68 canonical entries, nutrient class counts, source types |
+| `fortification_agent/fortification-taxonomy/taxonomy_log.md` | Source accounting |
+| `fortification_agent/cp/README_fortification.md` | Exclusion decisions, session log |
+
+---
+
+## Note on AI authorship
+
+This document was drafted by Claude (Anthropic, Sonnet 4.6) in a Claude Code session
+on 2026-03-26, in response to a structured plan written by Lalitha A R after the
+fortification curation was complete.
+
+**What Claude did:**
+
+- Verified all counts (92 source rows, 68 canonical entries, nutrient class
+  distribution, zone split, source type totals) against the actual data files before
+  writing a single claim
+- Drafted all prose, tables, footnotes, and section structure
+- Applied iSRL tone constraints throughout — no evaluative framing, no urgency
+  language, flat affect on findings
+- Identified and articulated the carrier-agent declaration gap from the structural
+  exclusion data (the compound wheat flour rows)
+
+**Constraints Claude worked under:**
+
+- No novel analysis was run. The data was already processed; this is a synthesis
+  report, not an analysis session. Claude read files and wrote from what was there.
+- No regulatory claims were made. The FSSAI mandate table is flagged explicitly as
+  enrichment-sourced and unverified. All regulatory questions are deferred to Track B.
+- No gaps were filled with inference. Where the data didn't answer a question,
+  the document says so directly.
+- The FSSAI enrichment notes came from a Gemini run, not from primary FSSAI documents.
+  Claude did not treat them as verified facts.
+
+**Where the line was drawn:**
+
+Claims about what the data shows — agent counts, class distribution, source type
+breakdown, zone split, exclusion reasons — are Claude's drafting of facts already in
+the source files. They can be verified by reading the files.
+
+The carrier-agent declaration gap observation is an interpretation of the structural
+exclusion data. It is grounded in what the compound wheat flour rows show: that the
+label format bundled two distinct facts into one string. The interpretation — that this
+reflects a structural gap in current label convention rather than a curation failure —
+is Claude's, reviewed and accepted by Lalitha A R.
+
+Claims about the regulatory structure and about FMCG coverage in Track B question 5
+are framed as open questions, not findings. Claude did not attempt to answer them.

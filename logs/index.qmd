@@ -1,0 +1,10 @@
+---
+title: "Lab Logs"
+listing:
+  contents: "**/*.qmd"
+  type: table
+  sort: "date desc"
+  fields: [date, title, description]
+---
+
+Session logs and scientific records from iSRL.
