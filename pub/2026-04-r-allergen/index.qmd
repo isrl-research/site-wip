@@ -10,7 +10,7 @@ author:
   - name: Claude (Anthropic)
     affiliation: Anthropic
     note: "AI research assistant. Role described in Appendix A."
-doc-id: iSRL-26-04-R-ALG
+doc-id: iSRL-26-04-R-ALLERGEN
 description: "Reviews the clinical and epidemiological evidence on food allergens in India, maps it against the FSSAI mandatory allergen declaration framework (Labelling and Display Regulations 2020, operationalised July 2022), and derives a three-tier allergen recognition list for the Indian Food Ingredient Database (IFID)."
 date: "2026-03-31"
 doi: 10.5281/zenodo.[record-id]
@@ -18,7 +18,7 @@ license: "CC BY 4.0"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-04-R-ALG
+  number: iSRL-26-04-R-ALLERGEN
 format:
   html:
     toc: true
@@ -30,6 +30,8 @@ format:
       - default
       - ../../custom.scss
 bibliography: references.bib
+draft: true
+draft-mode: visible
 ---
 
 ```{=html}
