@@ -90,6 +90,7 @@ const ReviewLayer = (() => {
           const mark = document.createElement("mark");
           mark.className = cssClass;
           mark.dataset.comment = comment || "";
+          mark.dataset.annotationText = text; // used for clean unwrapping
           mark.textContent = text;
           // Tooltip span
           if (comment) {
@@ -126,10 +127,13 @@ const ReviewLayer = (() => {
       .querySelectorAll("mark.review-highlight")
       .forEach((m) => {
         const parent = m.parentNode;
-        parent.replaceChild(document.createTextNode(m.textContent), m);
+        // Use stored original text, not textContent (which includes tooltip/button text)
+        parent.replaceChild(document.createTextNode(m.dataset.annotationText || m.firstChild.nodeValue), m);
         parent.normalize();
       });
-    annotations.forEach(({ id, text, comment }) => {
+    // Longest first so shorter strings don't split text nodes that longer ones need
+    const sorted = [...annotations].sort((a, b) => b.text.length - a.text.length);
+    sorted.forEach(({ id, text, comment }) => {
       wrapTextInDOM(root, text, "review-highlight", comment, id);
     });
     updateExportButtonVisibility(annotations.length > 0);
@@ -208,6 +212,20 @@ const ReviewLayer = (() => {
 
   async function saveAnnotation(text, comment) {
     await saveAnnotationToDB(text, comment);
+    await renderHighlights();
+  }
+
+  async function clearAllAnnotations() {
+    if (!confirm("Remove all annotations for this page? This cannot be undone.")) return;
+    const database = await getDB();
+    const annotations = await getAnnotationsForPage();
+    await new Promise((resolve, reject) => {
+      const tx = database.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      annotations.forEach(({ id }) => store.delete(id));
+      tx.oncomplete = resolve;
+      tx.onerror = (e) => reject(e.target.error);
+    });
     await renderHighlights();
   }
 
@@ -356,8 +374,11 @@ const ReviewLayer = (() => {
   // ── Review mode toggle ─────────────────────────────────────────────────────
 
   function updateExportButtonVisibility(hasAnnotations) {
-    const btn = document.getElementById("btn-finish-export");
-    if (btn) btn.style.display = hasAnnotations && reviewModeActive ? "" : "none";
+    const show = hasAnnotations && reviewModeActive;
+    const exp = document.getElementById("btn-finish-export");
+    const clr = document.getElementById("btn-clear-review");
+    if (exp) exp.style.display = show ? "" : "none";
+    if (clr) clr.style.display = show ? "" : "none";
   }
 
   function activateReviewMode() {
@@ -398,5 +419,6 @@ const ReviewLayer = (() => {
     toggleReviewMode,
     exportYAML,
     openViewMode,
+    clearAllAnnotations,
   };
 })();

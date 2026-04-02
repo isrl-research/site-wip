@@ -20,6 +20,7 @@ function Pandoc(doc)
       <button id="btn-review-mode" onclick="ReviewLayer.toggleReviewMode()">Review</button>
       <button id="btn-finish-export" onclick="ReviewLayer.exportYAML()" style="display:none">Finish Review &amp; Export</button>
       <button id="btn-view-review" onclick="ReviewLayer.openViewMode()">View Review</button>
+      <button id="btn-clear-review" onclick="ReviewLayer.clearAllAnnotations()" style="display:none">Clear all</button>
       <input type="file" id="review-yaml-input" accept=".yml,.yaml" style="display:none">
       <span id="review-mode-label"></span>
     </div>

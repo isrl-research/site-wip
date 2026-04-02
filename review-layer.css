@@ -35,6 +35,16 @@
   border-color: #8a8680;
 }
 
+#btn-clear-review {
+  color: #92400e;
+  border-color: #fca5a5;
+}
+
+#btn-clear-review:hover {
+  background: #fef2f2;
+  border-color: #f87171;
+}
+
 #review-mode-label {
   font-size: 0.78rem;
   color: #6b6560;
