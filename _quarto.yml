@@ -58,4 +58,5 @@ format:
   filters:
     - highlight-span.lua
     - jsonld.lua
+    - review-layer.lua
   reference-location: margin

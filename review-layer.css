@@ -1,0 +1,208 @@
+/* review-layer.css — iSRL Review Layer UI */
+
+/* ── Review bar ────────────────────────────────────────────────────────────── */
+#isrl-review-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f7f6f2;
+  border: 1px solid #d4cfc4;
+  border-radius: 2rem;
+  padding: 0.45rem 0.9rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+}
+
+#isrl-review-bar button {
+  background: none;
+  border: 1px solid #b5b0a6;
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  color: #3a3632;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#isrl-review-bar button:hover {
+  background: #ede9e1;
+  border-color: #8a8680;
+}
+
+#review-mode-label {
+  font-size: 0.78rem;
+  color: #6b6560;
+  white-space: nowrap;
+}
+
+/* ── Body state when review mode is active ─────────────────────────────────── */
+body.review-mode-active {
+  cursor: text;
+}
+
+body.review-mode-active ::selection {
+  background: #fde68a;
+}
+
+/* ── Live review highlight (amber) ─────────────────────────────────────────── */
+mark.review-highlight {
+  background-color: #fef3c7;
+  color: inherit;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  margin: 0 0.1em;
+  position: relative;
+  cursor: default;
+}
+
+mark.review-highlight:hover {
+  background-color: #fde68a;
+}
+
+/* ── View mode highlight (lavender) ─────────────────────────────────────────── */
+mark.view-highlight {
+  background-color: #e9d5ff;
+  color: inherit;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  margin: 0 0.1em;
+  position: relative;
+  cursor: default;
+}
+
+mark.view-highlight:hover {
+  background-color: #d8b4fe;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────────── */
+mark.review-highlight .review-tooltip,
+mark.view-highlight .review-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3a3632;
+  color: #f7f6f2;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  max-width: 260px;
+  min-width: 80px;
+  word-break: break-word;
+  z-index: 9100;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+mark.review-highlight:hover .review-tooltip,
+mark.view-highlight:hover .review-tooltip {
+  display: block;
+}
+
+/* ── Comment popup ───────────────────────────────────────────────────────────── */
+.review-comment-popup {
+  position: absolute;
+  z-index: 9200;
+  background: #f7f6f2;
+  border: 1px solid #d4cfc4;
+  border-radius: 10px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14);
+  width: 300px;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.review-comment-popup textarea {
+  width: 100%;
+  border: 1px solid #c8c3b8;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  resize: vertical;
+  background: #ffffff;
+  color: #3a3632;
+  box-sizing: border-box;
+}
+
+.review-comment-popup textarea:focus {
+  outline: none;
+  border-color: #8a8680;
+}
+
+.review-popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.review-popup-save,
+.review-popup-cancel {
+  border-radius: 1rem;
+  padding: 0.25rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  border: 1px solid #b5b0a6;
+  transition: background 0.15s;
+}
+
+.review-popup-save {
+  background: #3a3632;
+  color: #f7f6f2;
+  border-color: #3a3632;
+}
+
+.review-popup-save:hover {
+  background: #5a5450;
+}
+
+.review-popup-cancel {
+  background: none;
+  color: #3a3632;
+}
+
+.review-popup-cancel:hover {
+  background: #ede9e1;
+}
+
+/* ── Reviewer name popup ─────────────────────────────────────────────────────── */
+.review-name-popup {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: 280px;
+}
+
+.review-name-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  color: #6b6560;
+}
+
+.review-name-input {
+  width: 100%;
+  border: 1px solid #c8c3b8;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  background: #ffffff;
+  color: #3a3632;
+  box-sizing: border-box;
+}
+
+.review-name-input:focus {
+  outline: none;
+  border-color: #8a8680;
+}
