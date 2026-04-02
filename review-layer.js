@@ -105,6 +105,7 @@ const ReviewLayer = (() => {
             del.className = "review-delete-btn";
             del.setAttribute("aria-label", "Delete annotation");
             del.textContent = "×";
+            del.onmousedown = (e) => e.preventDefault(); // prevent selection capture on click
             del.onclick = (e) => { e.stopPropagation(); deleteAnnotation(annotationId); };
             mark.appendChild(del);
           }
@@ -127,8 +128,10 @@ const ReviewLayer = (() => {
       .querySelectorAll("mark.review-highlight")
       .forEach((m) => {
         const parent = m.parentNode;
-        // Use stored original text, not textContent (which includes tooltip/button text)
-        parent.replaceChild(document.createTextNode(m.dataset.annotationText || m.firstChild.nodeValue), m);
+        // Reconstruct original text: stored attribute first, then text-node children only
+        const originalText = m.dataset.annotationText ||
+          [...m.childNodes].filter(n => n.nodeType === Node.TEXT_NODE).map(n => n.nodeValue).join("");
+        parent.replaceChild(document.createTextNode(originalText), m);
         parent.normalize();
       });
     // Longest first so shorter strings don't split text nodes that longer ones need
@@ -200,6 +203,7 @@ const ReviewLayer = (() => {
   // ── Selection handler ──────────────────────────────────────────────────────
 
   function handleSelection(e) {
+    if (e.target.closest(".review-delete-btn")) return;
     const sel = window.getSelection();
     if (!sel || sel.isCollapsed || sel.toString().trim() === "") return;
     const selectedText = sel.toString().trim();
