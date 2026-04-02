@@ -28,6 +28,7 @@ $body-bg: #f7f6f2;
 $body-color: #1a1a1a;
 $headings-font-weight: 600;
 $headings-letter-spacing: -0.01em;
+$link-color: #1a56c4;
 
 
 /*-- scss:rules --*/
@@ -35,6 +36,14 @@ $headings-letter-spacing: -0.01em;
 /* ==========================================================================
    3. GLOBAL OVERRIDES (Manuscripts + Pages)
    ========================================================================== */
+
+/* a11y: darken link colour for sufficient contrast on #f7f6f2 background */
+:root {
+  --bs-link-color: #1a56c4;
+  --bs-link-color-rgb: 26, 86, 196;
+  --bs-link-hover-color: #103a8a;
+  --bs-link-hover-color-rgb: 16, 58, 138;
+}
 
 body {
   font-family: $font-family-serif !important;
