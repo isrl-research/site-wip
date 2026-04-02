@@ -65,6 +65,31 @@ mark.review-highlight:hover {
   background-color: #fde68a;
 }
 
+.review-delete-btn {
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 0 0.2em;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.8em;
+  line-height: 1;
+  color: #92400e;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s, background 0.1s;
+  vertical-align: middle;
+}
+
+mark.review-highlight:hover .review-delete-btn {
+  opacity: 1;
+}
+
+.review-delete-btn:hover {
+  background: #fca5a5;
+  color: #7f1d1d;
+}
+
 /* ── View mode highlight (lavender) ─────────────────────────────────────────── */
 mark.view-highlight {
   background-color: #e9d5ff;

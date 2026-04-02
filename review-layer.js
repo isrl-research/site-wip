@@ -68,7 +68,7 @@ const ReviewLayer = (() => {
    * Walk text nodes under `root` and wrap every occurrence of `text` with a
    * <mark> element. Returns true if at least one match was wrapped.
    */
-  function wrapTextInDOM(root, text, cssClass, comment) {
+  function wrapTextInDOM(root, text, cssClass, comment, annotationId) {
     if (!text) return false;
     let found = false;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -98,6 +98,15 @@ const ReviewLayer = (() => {
             tip.textContent = comment;
             mark.appendChild(tip);
           }
+          // Delete button (live highlights only)
+          if (annotationId != null) {
+            const del = document.createElement("button");
+            del.className = "review-delete-btn";
+            del.setAttribute("aria-label", "Delete annotation");
+            del.textContent = "×";
+            del.onclick = (e) => { e.stopPropagation(); deleteAnnotation(annotationId); };
+            mark.appendChild(del);
+          }
           frag.appendChild(mark);
           found = true;
         }
@@ -120,8 +129,8 @@ const ReviewLayer = (() => {
         parent.replaceChild(document.createTextNode(m.textContent), m);
         parent.normalize();
       });
-    annotations.forEach(({ text, comment }) => {
-      wrapTextInDOM(root, text, "review-highlight", comment);
+    annotations.forEach(({ id, text, comment }) => {
+      wrapTextInDOM(root, text, "review-highlight", comment, id);
     });
     updateExportButtonVisibility(annotations.length > 0);
   }
@@ -199,6 +208,17 @@ const ReviewLayer = (() => {
 
   async function saveAnnotation(text, comment) {
     await saveAnnotationToDB(text, comment);
+    await renderHighlights();
+  }
+
+  async function deleteAnnotation(id) {
+    const database = await getDB();
+    await new Promise((resolve, reject) => {
+      const tx = database.transaction(STORE_NAME, "readwrite");
+      tx.objectStore(STORE_NAME).delete(id);
+      tx.oncomplete = resolve;
+      tx.onerror = (e) => reject(e.target.error);
+    });
     await renderHighlights();
   }
 
