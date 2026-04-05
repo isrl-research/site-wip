@@ -49,6 +49,25 @@ What specific values, tags, or categories the lab recognises within each of
 these fields — for example, which tags are valid under veg/non-veg declarations
 — is a separate question. That will be documented as each category is analysed.
 
+::: {.column-margin}
+**A parallel from web development**
+
+Web frameworks separate built-in features from optional add-ons using the same
+pattern. React ships with component rendering and state management; everything
+else — routing, form handling, data fetching — is a plugin you bring in.
+Django's ORM and URL routing are core; authentication backends, payment
+integrations, and admin themes are installed as apps. WordPress's post/page/taxonomy
+model is core; anything else is a plugin.
+
+The shared logic: the framework defines a stable object (a component, a model,
+a post) and leaves the surface open for extension. Downstream developers attach
+to that surface without modifying the object itself.
+
+IFID follows the same pattern. The ingredient record is the stable object.
+The extension surface is open. Third parties attach their metadata to the record
+— they do not redefine what the record is.
+:::
+
 ## What belongs in extensions
 
 Extensions are metadata that a specific use case adds to the core. They are not
@@ -84,22 +103,3 @@ what goes beyond it. Those analyses will be recorded as separate logs.
 
 This log records only the design principle: the taxonomy distinguishes between
 core fields and extension fields, and the extension surface is open by design.
-
-::: {.column-margin}
-**A parallel from web development**
-
-Web frameworks separate built-in features from optional add-ons using the same
-pattern. React ships with component rendering and state management; everything
-else — routing, form handling, data fetching — is a plugin you bring in.
-Django's ORM and URL routing are core; authentication backends, payment
-integrations, and admin themes are installed as apps. WordPress's post/page/taxonomy
-model is core; anything else is a plugin.
-
-The shared logic: the framework defines a stable object (a component, a model,
-a post) and leaves the surface open for extension. Downstream developers attach
-to that surface without modifying the object itself.
-
-IFID follows the same pattern. The ingredient record is the stable object.
-The extension surface is open. Third parties attach their metadata to the record
-— they do not redefine what the record is.
-:::
