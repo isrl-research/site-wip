@@ -1,0 +1,203 @@
+---
+title: "Core and Extension: How IFID Draws the Line on What an Ingredient Record Must Contain"
+description: "Every ingredient in Indian packaged food can be listed dozens of different ways across brands, regions, and languages. IFID builds a shared reference record that holds this identity stable — and this log explains why that record has a fixed part and an open surface, and what that design decision means for anyone who works with food ingredient data in India."
+date: 2026-04-05
+author:
+  - name: Lalitha A R
+    affiliation: iSRL
+    orcid: 0009-0001-7466-3531
+    email: lalithaar.research@gmail.com
+    corresponding: true
+categories: [design-principles, ifid]
+tags: [core-extension, ifid, ingredient-identity, food-labelling, FSSAI, Indian-food-data]
+keywords:
+  - ingredient identity India
+  - packaged food labelling FSSAI
+  - food data infrastructure
+  - ingredient record design
+  - Indian food ecosystem
+  - food label standards India
+status: draft
+license: "CC BY 4.0"
+citation: true
+open-graph:
+  title: "Core and Extension: How IFID Draws the Line on What an Ingredient Record Must Contain"
+  description: "IFID builds a shared reference record for packaged food ingredients in India. This log explains why that record has a fixed part and an open surface — and what that means for consumers, practitioners, media, and regulators."
+  image: ""
+twitter-card:
+  title: "Core and Extension: How IFID Draws the Line on What an Ingredient Record Must Contain"
+  description: "Same ingredient, fifty different names across Indian packaged food labels. IFID is building the reference layer that holds identity stable — here's the design decision that makes it extensible without breaking."
+  card-style: summary
+---
+
+## The problem this design principle is solving
+
+Pick up any packaged food in India. The ingredient list on the back is a legal
+declaration — FSSAI requires it, and manufacturers must comply. But read the
+same ingredient across fifty products from fifty manufacturers, and you will
+find the same substance listed under dozens of different names.
+
+Refined wheat flour. Maida. Wheat flour (refined). Atta (refined).
+
+The substance is the same. The label is not.
+
+This is not a labelling quirk or a compliance failure. It is the structural
+condition of the Indian packaged food market: a vast, multilingual, regionally
+fragmented ecosystem where the same ingredient accumulates names across
+languages, regional conventions, brand preferences, and transliteration choices.
+The result is that no one — not a consumer reading a label, not a journalist
+investigating a product category, not a regulator auditing a supply chain, not a
+researcher analysing 2,000 SKUs — can currently look across labels and say with
+confidence: these are the same thing.
+
+IFID is building the reference layer that makes that possible. It is a shared
+identity record for each ingredient in Indian packaged food — a stable anchor
+that connects the variant names, spellings, and declarations that currently vary
+by brand, region, and language.
+
+This log explains one foundational design decision in how that record is built:
+why the record has a **fixed part** and an **open surface**, and what each of
+those parts is for.
+
+---
+
+## Why this decision matters beyond the lab
+
+The question of what goes into an ingredient record and what doesn't sounds
+like an internal technical choice. It is not. It shapes who can use IFID, for
+what, and without waiting for anyone's permission.
+
+Consider who has a stake in ingredient identity in India:
+
+**A consumer** reading the back of a biscuit packet wants to know whether the
+ingredient listed as "emulsifier 322" is derived from soy — because she has a
+soy allergy and FSSAI's allergen declaration rules are not always followed
+consistently. The name on the label does not help her. A stable, cross-
+referenced identity record would.
+
+**A journalist** investigating a product category — say, ultra-processed snacks
+marketed to children — needs to be able to identify which ingredients recur
+across brands, what their regulatory status is, and whether their presence is
+disclosed consistently. Right now, the name variation across labels makes this
+comparison almost impossible to do at scale.
+
+**A practitioner** — a clinical dietitian, a food technologist, a procurement
+manager at a hospital canteen — needs to know what an ingredient is, not just
+what it is called. They may also need to attach their own data to that
+identity: glycaemic index values, sodium content per serving, allergen
+cross-reactivity information. That annotation work depends on having a stable
+identity to attach it to.
+
+**A regulator** needs to know whether the declarations on a label — allergen
+status, veg/non-veg marking, source qualifiers — correspond to what domestic
+law requires, and whether the same ingredient is being declared consistently
+across manufacturers. That verification work requires a reference, not just a
+list of whatever names happened to appear on labels.
+
+All of these people are working in the same ecosystem. None of their needs are
+identical. The design question is: what does the shared record contain, and what
+does each user bring on their own?
+
+---
+
+## The design: a fixed part and an open surface
+
+Every ingredient record in IFID has two parts.
+
+### The fixed part
+
+The fixed part holds what every legitimate use of the record requires:
+
+- The **canonical name** for the ingredient, and the variant strings that refer
+  to it across labels, languages, and regional conventions
+- The **source** of the ingredient
+- The **legal declarations** that FSSAI mandates — allergen status, veg/non-veg
+  marking, and any source qualifiers required under applicable regulation
+
+This part is defined by IFID and does not change based on who is using the
+record. It is what makes the record a reference rather than just another label.
+
+The specific values recognised within each of these fields — for example, how
+allergen status is determined, what counts as a valid veg/non-veg declaration,
+which source qualifiers are mandatory under which conditions — are determined
+through systematic analysis of each ingredient category, with FSSAI regulations
+as the governing reference. Those analyses are recorded as separate logs and
+linked here as they are completed.
+
+### The open surface
+
+The open surface is everything else. It is not maintained by IFID. It is
+maintained by whoever needs it — and they do not need IFID's permission to
+build it.
+
+A research group studying diet and chronic disease adds glycaemic index values.
+A clinical dietary programme adds sodium content per standard serving. A food
+technology team adds fermentation pathways. A sustainability researcher adds
+carbon intensity estimates. A consumer rights organisation adds their own
+compliance-tracking flags.
+
+Each of these users attaches their information to the stable record beneath.
+They do not redefine what the record is. The identity holds.
+
+::: {.column-margin}
+**The same pattern in software**
+
+Web frameworks have used this design for decades. React ships with component
+rendering and state management; everything else — routing, form handling, data
+fetching — is a package you bring in. Django's ORM and URL routing are core;
+authentication backends, payment integrations, and admin themes are installed
+as apps.
+
+The shared logic: the framework defines a stable object and leaves the surface
+open for extension. Downstream developers attach to that surface without
+modifying the object itself.
+
+IFID follows the same pattern. The ingredient record is the stable object. The
+open surface is yours to extend.
+:::
+
+---
+
+## Why the fixed part must stay bounded
+
+If the fixed part tries to account for every possible use, it becomes unusable
+for any of them.
+
+A record that simultaneously carries clinical dietary metadata, environmental
+impact data, religious compliance tags, and sports-nutrition ratios has no
+coherent identity. It becomes a database of everything anyone might ever want
+to know about an ingredient — which means it is no longer a reference, it is
+a project that can never be finished.
+
+The boundary also protects downstream users from a different risk: dependence.
+If the open surface is well-documented and genuinely open, a research group or
+a media organisation can add their own layer without waiting for IFID to expand.
+The reference record does not become their bottleneck. They build when they are
+ready, on a foundation that is already stable.
+
+---
+
+## What this means if your work involves ingredient identity in India
+
+If you are doing any of the following, this design decision is directly
+relevant to you:
+
+- Comparing ingredient declarations across brands or product categories
+- Verifying whether what a label says matches what domestic law requires
+- Investigating how the same substance is named, disclosed, or obscured across
+  the Indian packaged food market
+- Building a nutrition, compliance, or procurement tool that needs to identify
+  ingredients consistently
+- Reporting on food labelling, food safety, or food policy in India
+
+IFID's fixed record gives you a stable identity to work from. The open surface
+means you bring your own layer — your own values, your own flags, your own
+analysis — without needing to alter what the record is.
+
+What the record contains in its fixed part, category by category, is being
+determined now. The allergen analysis, the veg/non-veg declaration framework,
+the source qualifier mapping — each of these is a separate body of work, linked
+here as it is completed.
+
+This log records the design principle that governs all of it: the record has a
+fixed part and an open surface, and the open surface is open by design.
