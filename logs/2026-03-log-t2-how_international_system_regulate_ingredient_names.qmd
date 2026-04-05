@@ -17,15 +17,13 @@ Many countries maintain official "Ingredient Dictionaries" or "Common Name Lists
 
 While National Nutrition Databases (like the USDA's FoodData Central) focus on what's inside the food (vitamins, minerals), Regulatory Identity Lists — often part of a country's food law — define what the ingredient must be called.
 
-Here are the most prominent official systems used to make ingredient identity consistent.
-
 ---
 
 ## Canada: The "Common Names" List
 
 Canada is perhaps the most explicit. The Canadian Food Inspection Agency (CFIA) maintains a document called "Common Names for Ingredients and Components." It acts as a mandatory thesaurus for food labels.
 
-**The goal:** To prevent vague or deceptive labeling.
+**The goal:** To ensure ingredient groupings and generic names are applied consistently.
 
 **Example:** If a manufacturer uses a mix of butter, cream, and skim milk, they are legally allowed — and sometimes required — to group them under the official common name "Milk Ingredients" to simplify the label for the consumer.
 
@@ -67,10 +65,10 @@ FSANZ maintains Schedules within their Food Standards Code that act as the sourc
 
 ## Why these lists exist
 
-Without official lists, ingredient identity would be inconsistent. These databases address three structural problems:
+Without official lists, ingredient identity would be a mess. These databases address three structural problems:
 
 - **Allergen transparency:** Ensuring that "Casein" is clearly identified as a milk derivative.
-- **Fraud prevention:** Preventing a manufacturer from calling "High Fructose Corn Syrup" simply "Natural Sweetener."
+- **Name standardisation:** Establishing which name a substance must carry — so "High Fructose Corn Syrup," for example, appears under its regulated name and not under an informal descriptor.
 - **Data interoperability:** Allowing systems to understand that "Zucker," "Sucre," and "Sugar" all refer to the same substance.
 
 ---
