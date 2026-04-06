@@ -29,8 +29,7 @@ $body-color: #1a1a1a;
 $headings-font-weight: 600;
 $headings-letter-spacing: -0.01em;
 $link-color: #1a56c4;
-$text-muted: #4a5568;   /* a11y: #6c757d fails contrast on #f7f6f2 (~3.5:1); #4a5568 ~5.6:1 */
-
+$text-muted: black;  
 
 /*-- scss:rules --*/
 
@@ -50,6 +49,10 @@ body {
   font-family: $font-family-serif !important;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
+}
+
+.subtitle.lead {
+  color: $text-muted;
 }
 
 /* Force Headers to Sans-Serif */
