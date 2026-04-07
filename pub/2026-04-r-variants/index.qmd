@@ -28,6 +28,10 @@ format:
       - default
       - custom.scss
     reference-location: margin
+  pdf:
+    documentclass: isrl-report
+    template: ../../_quarto-isrl.tex
+    keep-tex: true
 
 bibliography: references.bib
 license: "CC BY"

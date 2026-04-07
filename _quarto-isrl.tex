@@ -1,0 +1,177 @@
+%% _quarto-isrl.tex
+%% Pandoc/Quarto template for isrl-report.cls
+%% Maps Quarto YAML front matter to iSRL LaTeX cls commands.
+%%
+%% YAML fields consumed:
+%%   title, date, abstract
+%%   author[]:  name, affiliation, orcid, email, corresponding
+%%   x-contributor[]: name, role
+%%   x-reviewer[]:    name, affiliation
+%%   doc-id
+%%   sidenotes: true   (activates sidenotes class option)
+%%
+%% Usage in report front matter:
+%%   format:
+%%     pdf:
+%%       documentclass: ../../isrl-report
+%%       template: ../../_quarto-isrl.tex
+%%       keep-tex: true
+
+%% ── Class options ────────────────────────────────────────────────────────────
+$if(sidenotes)$
+\documentclass[sidenotes]{isrl-report}
+$else$
+\documentclass{isrl-report}
+$endif$
+
+\graphicspath{{../../assets/}}
+
+%% Pandoc list macro
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{calc}
+\providecommand{\real}[1]{#1}
+
+
+%% ── Packages Quarto expects to be present ────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amssymb}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+%% ── Quarto code block / verbatim support ─────────────────────────────────────
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+
+%% ── Tables (Quarto emits longtable by default) ───────────────────────────────
+\usepackage{longtable}
+
+\usepackage{colortbl}
+\arrayrulecolor{black}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+
+\usepackage{etoolbox}
+\AtBeginDocument{%
+  \newcounter{none}%
+}
+\usepackage{booktabs}
+\usepackage{array}
+
+
+%% ── Graphics ─────────────────────────────────────────────────────────────────
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+%% ── URLs ─────────────────────────────────────────────────────────────────────
+\usepackage{url}
+\urlstyle{same}
+
+%% ── Footnotes ────────────────────────────────────────────────────────────────
+\usepackage{footnotehyper}
+\makesavenoteenv{longtable}
+
+%% ── Bibliography (Quarto natbib / biblatex passthrough) ──────────────────────
+$if(natbib)$
+\usepackage[$natbiboptions$]{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+%% ── CSL references (Quarto default) ─────────────────────────────────────────
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2]{%
+  \begin{list}{}{%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\leftmargin}{\cslhangindent}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\itemsep}{6pt}%
+  }%
+}{%
+  \end{list}%
+}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\raggedright #1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\raggedright\setlength{\parskip}{0pt}#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+%% ── Metadata → cls commands ──────────────────────────────────────────────────
+
+\title{$title$}
+\date{$date$}
+
+$if(doc-id)$
+\docid{$doc-id$}
+$endif$
+
+%% Authors — each entry may have name, affiliation, orcid, email
+$for(by-author)$
+\addauthor{$by-author.name.literal$}{$if(by-author.affiliations)$$for(by-author.affiliations)$$it.name$$endfor$$else$iSRL$endif$}
+$endfor$
+
+%% Contributors (x-contributor[]: name, role)
+$for(x-contributor)$
+$if(x-contributor.name)$
+\addcontributor{$x-contributor.name$}{$if(x-contributor.role)$$x-contributor.role$$else$$endif$}
+$endif$
+$endfor$
+
+%% Reviewers (x-reviewer[]: name, affiliation)
+$for(x-reviewer)$
+$if(x-reviewer.name)$
+\addreviewer{$x-reviewer.name$}{$if(x-reviewer.affiliation)$$x-reviewer.affiliation$$else$$endif$}
+$endif$
+$endfor$
+
+%% License override (cls default is CC BY 4.0)
+$if(license)$
+\license{$if(license.text)$$license.text$$else$$license$$endif$}
+$endif$
+
+%% Collab logo (optional second logo on cover)
+$if(collab-logo)$
+\collablogo{$collab-logo$}
+$endif$
+
+%% ── Document ─────────────────────────────────────────────────────────────────
+
+\begin{document}
+
+\maketitle
+
+$if(abstract)$
+\begin{abstractpage}
+$abstract$
+\end{abstractpage}
+$endif$
+
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+\end{document}
