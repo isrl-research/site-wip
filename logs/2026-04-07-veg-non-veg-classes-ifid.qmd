@@ -1,0 +1,203 @@
+---
+title: "Veg/Non-Veg Classes in IFID"
+subtitle: "Taxonomy scaffolding for dietary status tags in the Ingredient Function Identity Database"
+author:
+  - name: Sai Nikhil Vukka
+    affiliation: ISRL
+date: 2026-04-07
+date-format: "DD MMMM YYYY"
+categories: [ifid, taxonomy, dietary-classes, fssai, metadata]
+---
+
+## 1. Why this question matters for IFID
+
+The EMF core assigns every ingredient a stable identity coordinate — E (essence), M (morphology), F (function), D (distance), and Zone — derived from biological source and functional role. This is correct for trade, HS classification, and regulatory alignment. It is deliberately silent on one question: *what was this made from, and does that matter to the consumer eating it?*
+
+For most labelling questions, EMF's silence on origin is a feature, not a defect. Glycerin is glycerin: same E, same M, same F, same D, regardless of whether it came from tallow or soya. That coordinate stability is precisely what makes EMF useful for customs and taxation. But the same stability becomes a liability the moment a consumer, a religious community, or a legal obligation requires the question of source to be answered — not the question of what the ingredient *does*, but where it *came from*.
+
+The glycerin example makes this concrete. EMF places animal-derived and plant-derived glycerin at the same coordinate. That is correct for HS classification. It is a problem for vegan compliance, Ram Gau Raksha Dal mandates, and any standard where the question is *what was this made from*, not *what does it do*. The extension layer exists to answer that question without touching the core identity.
+
+This is not a theoretical gap. In December 2021, the Delhi High Court (*Ram Gaua Raksha Dal v. Union of India & Ors*, W.P.(C) 12055/2021) directed FSSAI and the Central Government to ensure full and complete disclosure of all ingredients by their plant or animal origin, irrespective of percentage used in the product. The Court held that rights under Article 21 (protection of life and personal liberty) and Article 25 (freedom of conscience and religion) are directly implicated by what is placed on the consumer's plate. An ingredient coded only by its function — not its source — cannot satisfy this obligation. IFID, if it is to serve food businesses operating under Indian law, must be able to resolve the source question at ingredient level, not leave it to be re-answered product by product.
+
+The plugin architecture log (April 2026) establishes the general design direction: EMF is the core, dietary classes are metadata layers attached to EMF canons. This log applies that direction specifically to the veg/non-veg question as understood in the Indian regulatory and social context.
+
+---
+
+## 2. What FSSAI currently requires
+
+### The symbol mandate
+
+The Food Safety and Standards (Labelling and Display) Regulations, 2020, published in the Official Gazette on 10 December 2020 (Gazette ID CG-DL-E-19122020-223813) and operative for food business operators from 17 November 2021, establish the following symbol requirements for pre-packaged food:
+
+**Vegetarian food:** A green colour-filled circle inside a square with a green outline, displayed prominently on the principal display panel in close proximity to the product name or brand name, on a contrasting background.
+
+**Non-vegetarian food:** A brown colour-filled triangle inside a square with a brown outline. (The 2020 Regulations changed the earlier brown-filled circle to a triangle, partly to aid consumers with colour blindness, who could previously distinguish the symbols only by colour.)
+
+**Not for human consumption:** A black colour cross inside a square with a black outline — introduced in 2020 to cover items such as ghee for ritual use, worship oils, and pet food.
+
+The symbol must be displayed on the principal display panel and also on pamphlets, leaflets, and advertisements in any media.
+
+### What "vegetarian" and "non-vegetarian" mean under the Regulations
+
+The Regulations define:
+
+- **Vegetarian food:** Any article of food *other than* Non-Vegetarian Food as defined.
+- **Non-vegetarian food:** Every package of food having ingredients including food additives *from animal sources*, but **excluding** milk or milk products, honey, beeswax, carnauba wax, and shellac.
+
+These exclusions are significant and frequently misunderstood: a product containing ghee, butter, milk solids, honey, beeswax coating, or carnauba wax may carry the green (vegetarian) dot even though those ingredients are animal-derived. The law carves these out explicitly.
+
+### Scope: what the mandate covers and what it does not
+
+**Covered:** All pre-packaged food sold in India. The declaration is mandatory irrespective of the percentage of the animal-derived ingredient in the food — a point FSSAI confirmed to the Delhi High Court in 2022 in the Ram Gaua Raksha Dal matter.
+
+**Extended to food service and e-commerce:** Restaurants, airlines, railways, and mobile catering units must display the veg/non-veg logo. E-commerce operators (Swiggy, Zomato, etc.) must publish mandatory labelling information from applicable restaurants on their platforms.
+
+**Exempt categories:** Fresh fruits and vegetables; food served for immediate consumption in settings not covered by Chapter 3 of the Regulations; bulk packaging for industrial or institutional use.
+
+**What the mandate does not address:**
+
+1. It does not define degrees of vegetarianism. There is no regulatory symbol for lacto-vegetarian versus ovo-vegetarian versus lacto-ovo vegetarian. The green dot covers all of them without distinction.
+2. It does not address vegan status. An entirely plant-derived product processed using bone-char sugar, gelatin-fined wine, or animal-tested additives carries the green dot under current law.
+3. It does not address Jain dietary requirements (avoidance of root vegetables, certain additives derived from permitted animal sources under the vegetarian definition).
+4. It does not define "processing aid" disclosure in a way that fully resolves source ambiguity. The <5% compound ingredient exemption (Regulation 2.2.2(d) of the 2011 framework) was the specific gap the Delhi HC directed FSSAI to close — but the regulatory text itself has not been amended to remove the ambiguity at source level.
+
+The law, in short, gives India a binary: vegetarian or non-vegetarian, with a defined set of carve-outs. Everything above and below that binary — finer gradations, vegan status, Jain requirements — is left to market practice, third-party certification, and consumer interpretation.
+
+---
+
+## 3. What classes exist in practice
+
+The binary in law does not match the plurality of choices Indians actually navigate. The following classes appear on labels, in certification schemes, or in widespread consumer use. Where no standard term exists, a working name is given.
+
+### 3.1 Non-vegetarian
+
+**Working definition:** Contains one or more ingredients from animal sources (flesh, organ, fat, or derivatives) other than those carved out by FSSAI (milk products, honey, beeswax, carnauba wax, shellac). This is the class the brown triangle marks.
+
+**Examples:** Chicken curry, fish sauce, gelatin-set desserts, products using tallow-derived glycerin or lard-based shortening without substitution.
+
+### 3.2 Vegetarian (FSSAI sense)
+
+**Working definition:** No ingredient from animal sources other than the FSSAI-excepted list (milk products, honey, beeswax, carnauba wax, shellac). This is the class the green dot marks.
+
+**What it includes by law:** Dairy, honey, shellac glazes. Also includes ingredients processed using animal-derived carriers or processing aids, provided the ingredient itself is not from an excluded animal source.
+
+**Note:** This is the widest vegetarian class — it is what "veg" means on an Indian packet.
+
+### 3.3 Lacto-vegetarian
+
+**Working definition:** Vegetarian (no animal flesh or derivatives) with dairy permitted; eggs excluded. This is the most commonly practised form of vegetarianism in India, associated with most Hindu, Jain (with separate Jain caveats), and many Sikh communities.
+
+**Label reality:** No distinct FSSAI symbol. A product carrying the green dot may or may not contain dairy. Certification bodies and some brands mark "contains dairy" or "dairy-free" separately.
+
+### 3.4 Ovo-vegetarian
+
+**Working definition:** Vegetarian with eggs permitted; dairy excluded. Less common in India as a declared class; more relevant in export labelling and for specific communities.
+
+**Label reality:** No FSSAI symbol. Typically marked informally or via third-party certification for export.
+
+### 3.5 Lacto-ovo vegetarian
+
+**Working definition:** Vegetarian with both dairy and eggs permitted. Standard in Western vegetarian labelling; not separately distinguished in Indian regulatory or common labelling practice, where "veg" implicitly means lacto (dairy-in, egg-out for most consumers) rather than lacto-ovo.
+
+**Note for IFID:** This class matters for ingredient-level resolution where an ingredient may contain egg-derived components (lysozyme, albumin as a fining agent) alongside dairy.
+
+### 3.6 Jain vegetarian
+
+**Working definition:** No animal products including dairy in some stricter interpretations (though most Jain food labelling permits dairy); no root vegetables (onion, garlic, potato, carrot, radish, beetroot, and others that require uprooting the whole plant); avoidance of certain additives even within the FSSAI-vegetarian class; some practitioners avoid eating after sunset.
+
+**Complexity for IFID:** Jain status is not a single standard — there are community and regional variations in which root vegetables are excluded and which additives are acceptable. FSSAI has no Jain symbol. Third-party Jain certification exists (e.g., from Jain associations) but is not uniformly defined.
+
+**Ingredient-level implication:** An ingredient such as onion powder, garlic extract, or beetroot colour is FSSAI-vegetarian (green dot) but non-Jain. IFID must be able to carry a separate Jain-eligibility flag.
+
+### 3.7 Vegan
+
+**Working definition:** No animal products or by-products at any stage — not in ingredients, processing aids, carriers, fining agents, or (for stricter standards) in animal testing of additives. The FSSAI-carved-out ingredients (dairy, honey, shellac, beeswax, carnauba wax) are all excluded under vegan standards.
+
+**Label reality in India:** No regulatory symbol. Third-party logos (Vegan Society UK, local vegan certification bodies) are used voluntarily. The category is growing in urban markets and among export-facing brands.
+
+**Relationship to IFID Vegan Plugin:** The V-Metadata Protocol v0.1 (April 2026 plugin architecture log) is the technical instrument for this class. It is the one class where a dedicated schema already exists; this log notes it as an open item pending publication of the vegan analysis log.
+
+### 3.8 Pescetarian
+
+**Working definition:** Excludes animal flesh except fish and seafood; dairy and eggs may be included. Not a regulated class in India. Appears in some restaurant menus and health-food labelling.
+
+**IFID relevance:** Primarily relevant for SKU-level classification rather than ingredient-level tags, since "fish-derived" is already captured by the non-vegetarian tag. Noted here for completeness.
+
+---
+
+## 4. What IFID will recognise (as of April 2026)
+
+The following dietary status tags will be available as metadata attached at the EMF canon level in IFID. Each tag is a **plugin field**, not a core EMF coordinate. The core is not modified.
+
+| Tag | IFID identifier | Definition within taxonomy | Source-linked? |
+|-----|----------------|---------------------------|---------------|
+| Non-vegetarian | `diet:nonveg` | Contains ingredient from animal source (flesh, organ, fat, or derivative) outside FSSAI exceptions | Yes — Zone 1/2 canons; per-supplier for Zone 3 |
+| Vegetarian (FSSAI) | `diet:veg_fssai` | No animal-source ingredient outside FSSAI exceptions (milk products, honey, beeswax, carnauba wax, shellac permitted) | Yes — source-linked at canon level |
+| Lacto-vegetarian | `diet:lacto_veg` | `diet:veg_fssai` AND no egg-derived ingredients | Yes |
+| Lacto-ovo vegetarian | `diet:lacto_ovo_veg` | `diet:veg_fssai` AND dairy permitted AND egg-derived ingredients permitted | Yes |
+| Jain vegetarian | `diet:jain_veg` | `diet:lacto_veg` (dairy variant) AND no root vegetables AND no excluded additives per Jain convention | Partial — canon-level for root vegetables; requires ruleset for additive edge cases |
+| Vegan | `diet:vegan` | No animal products or by-products in ingredients, processing aids, or carriers; see V-Metadata Protocol v0.1 | Yes — via V-metadata plugin; indeterminate states possible |
+| Non-veg (fish only) | `diet:pescetarian_ok` | Animal-source ingredient is fish or seafood only; no other animal flesh | Partial — useful for SKU-level aggregation |
+
+### Boundary rules
+
+**Ingredients that can fall into more than one class depending on source or processing:**
+
+- **Glycerin (E422):** `diet:veg_fssai` if plant-derived; `diet:nonveg` if tallow-derived. EMF coordinate is identical. Source must be declared at canon level via `origin_type` in V-metadata or equivalent field.
+- **Lactic acid (E270):** `diet:veg_fssai` in all cases (plant or dairy fermentation); `diet:vegan` only if plant-fermented and no dairy carrier. `feedstock_set` distinguishes.
+- **Lecithin (E322):** `diet:veg_fssai` if soya or sunflower; `diet:nonveg` if egg-derived. Source must be declared.
+- **Mono- and diglycerides of fatty acids (E471):** `diet:veg_fssai` or `diet:nonveg` depending on feedstock (vegetable oil vs. animal fat). No visual distinction possible without source metadata.
+- **Carmine / Cochineal (E120):** `diet:nonveg` — insect-derived; outside FSSAI exceptions.
+- **Shellac (E904):** `diet:veg_fssai` — explicitly carved out by FSSAI. `diet:vegan` = No (insect-derived).
+- **Honey:** `diet:veg_fssai` — carved out. `diet:vegan` = No.
+- **Rennet (animal):** `diet:nonveg`. Microbial or fermentation-derived rennet: `diet:veg_fssai`.
+- **Onion powder / garlic extract:** `diet:veg_fssai` = Yes. `diet:jain_veg` = No.
+- **Bone-char processed sugar:** `diet:veg_fssai` = Yes (processing aid, not ingredient). `diet:vegan` = indeterminate / No depending on standard applied.
+
+### Tag assignment method
+
+For Zone 1 and Zone 2 ingredients, tags are assigned at canon level by ISRL using source literature, manufacturer declarations, and regulatory text. The tag applies to all SKUs using that canon unless a supplier-specific override is registered.
+
+For Zone 3 functional tools (glazing agents, emulsifiers, carriers, processing aids), tags are assigned per supplier route, modelled as multiple metadata records on the same EMF node.
+
+A tag of `indeterminate` is a valid output. It means: the canon could fall into either class; source or process evidence is required from the food business operator before a verdict can be issued.
+
+---
+
+## 5. Open questions
+
+**5.1 The vegan boundary**
+The vegan class is the most contested and technically complex. The V-Metadata Protocol v0.1 provides a schema, but the ruleset for processing aids (bone-char sugar, gelatin fining, animal-tested additives) is not yet fully specified for the Indian market. This is the subject of a separate vegan analysis log, currently in preparation. Until that log is published, `diet:vegan` tags in IFID should be treated as provisional.
+
+**5.2 Jain variation**
+Jain dietary rules vary across communities (Digambara, Shvetambara, regional associations) in ways that are not captured by a single tag. The `diet:jain_veg` tag as defined here covers the consensus core (no root vegetables; lacto-vegetarian). Edge cases — multi-layer cooking restrictions, specific additive exclusions, night-eating rules — are out of scope for the current taxonomy and noted as requiring a dedicated Jain dietary plugin.
+
+**5.3 Processing aid disclosure gap**
+FSSAI's <5% compound ingredient exemption leaves a legal grey area for processing aids and carriers. The Delhi HC directed FSSAI to close this gap, but the regulatory text has not been amended as of the date of this log. IFID tags reflect what *should* be disclosed under the court's direction, not merely what current labelling regulations explicitly require. This distinction should be documented in any compliance guidance built on IFID outputs.
+
+**5.4 Minimum common schema across plugins**
+The plugin architecture log identifies the need for a minimum common interface so that `diet:veg_fssai`, `diet:vegan`, and future plugins (allergen, halal, Jain ruleset) can be composed without conflict. This schema has not been finalised. Until it is, each plugin carries its own field definitions.
+
+**5.5 Evidence linking and auditability**
+How a `diet:veg_fssai = true` or `diet:vegan = indeterminate` verdict is traced back to a supplier declaration, certificate, or test report is not yet specified. This is open for both this plugin and the V-Metadata Protocol.
+
+---
+
+## References
+
+**Primary regulatory instrument:**
+Food Safety and Standards Authority of India. (2020). *Food Safety and Standards (Labelling and Display) Regulations, 2020*. Gazette of India, Extraordinary, Gazette ID CG-DL-E-10122020-223635, published 10 December 2020, operative 17 November 2021.
+
+**Case law:**
+*Ram Gaua Raksha Dal v. Union of India & Ors*, W.P.(C) 12055/2021, High Court of Delhi (orders dated 9 December 2021, 22 December 2021, March 2022). Directions on full disclosure of veg/non-veg status irrespective of ingredient percentage; Article 21 and Article 25 implications.
+
+**ISRL primary reference:**
+Vukka, Sai Nikhil & Lalitha A.R. (2026). "Regulatory Delta of Food Labelling Laws in India: A Comparative Analysis of the FSSAI 2011 and 2020 Regulations." *Zenodo*. <https://doi.org/10.5281/zenodo.18719394>
+
+**Companion logs:**
+- Plugin Architecture & Global Dietary Classes (April 2026) — establishes the core-extensibility principle and V-Metadata Protocol v0.1.
+- EMF–Vegan Protocol v0.1 (Vukka & Lalitha A.R., 2026) — available in ISRL sandbox-research logs; vegan analysis log in preparation.
+
+---
+
+*Log status: draft. Tags and boundary rules are provisional pending review by @lalithaar*
