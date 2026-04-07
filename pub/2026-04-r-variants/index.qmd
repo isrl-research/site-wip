@@ -9,10 +9,13 @@ author:
     corresponding: true
 x-contributor:
   - name: Subrat Sethi
-    role:
+    role: SKU Verification
   - name: Purnendu Shukla
     role:
-doc-id: iSRL-26-04-R-Data
+x-reviewer: 
+  - name: Radhakrishna MV
+    affiliation: Contributor, Open Food Facts India
+doc-id: iSRL-26-04-R-variants
 description: "Documents the data acquisition methodology and ingredient extraction process used to build a vocabulary of what India's packaged food labels actually say — from raw label text to structured ingredient strings across 896 SKUs and the Open Food Facts India dataset."
 date: March 2026
 format:
@@ -24,12 +27,15 @@ format:
     theme:
       - default
       - custom.scss
+    reference-location: margin
+
 bibliography: references.bib
 license: "CC BY"
 citation:
   type: report
   publisher: iSRL
-  number: iSRL-26-04-Data
+  number: iSRL-26-04-R-Variants
+
 
 draft: true
 draft-mode: visible
@@ -39,7 +45,9 @@ other-links:
   - text: "Dataset (CSV)"
     href: "data/variants.csv"
     icon: "file-earmark-spreadsheet"
-  
+abstract: |
+  Indian packaged food labels do not share a common ingredient vocabulary. The same substance appears under regional names, transliterations, INS (International Numbering System) codes, and brand-specific terms --- sometimes across labels from the same manufacturer. No reference layer exists that maps these expressions to shared identities. This report documents the construction of a first ingredient variant corpus from two sources: 896 directly sampled products collected from verified Indian market listings, and English ingredient strings from OpenFoodFacts filtered to rows with a traceable Indian product name. Both sets were processed through a constrained parsing pipeline --- one atomic operation per API call, temperature set to 0, explicit failure rather than approximation when data was unavailable. After combining both sources and iterative cleaning, the corpus contains 2,291 unique ingredient variant strings. These variants are not noise to eliminate. They are documentation of how ingredient identity is expressed in practice across Indian commercial food labels. The question of which variants refer to the same ingredient --- and by what logic --- is addressed in EMF Model [@arIdentityTransformationFunction2026].
+
 
 ---
 ```{=html}
@@ -68,11 +76,6 @@ other-links:
 }
 </script>
 ```
-
-::: {.abstract}
-### Abstract {.unnumbered}
-Indian packaged food labels do not share a common ingredient vocabulary. The same substance appears under regional names, transliterations, INS codes, and brand-specific terms --- sometimes across labels from the same manufacturer. No reference layer exists that maps these expressions to shared identities. This report documents the construction of a first ingredient variant corpus from two sources: 896 directly sampled products collected from verified Indian market listings, and English ingredient strings from OpenFoodFacts filtered to rows with a traceable Indian product name. Both sets were processed through a constrained parsing pipeline --- one atomic operation per API call, temperature set to 0, explicit failure rather than approximation when data was unavailable. After combining both sources and iterative cleaning, the corpus contains 2,291 unique ingredient variant strings. These variants are not noise to eliminate. They are documentation of how ingredient identity is expressed in practice across Indian commercial food labels. The question of which variants refer to the same ingredient --- and by what logic --- is addressed in EMF Model [@arIdentityTransformationFunction2026].
-:::
 
 ## The Question That Starts Everything {#the-question-that-starts-everything}
 
@@ -104,7 +107,7 @@ The nutritionist has fifty product samples and is spending half her time cleanin
 
 None of these people are doing it wrong. The wall is not their failure. The wall is that no shared ingredient identity layer exists.
 
-The most serious open effort to build one globally is OpenFoodFacts (OFF). OFF has documented food products across dozens of countries through crowdsourced and scraped contributions. The scale of that work is significant and the intent is the same as this project's: make food data open, structured, and usable. The gap in Indian product coverage that this report documents is not a gap in OFF's effort. It is a direct reflection of how fragmented and underdocumented the Indian packaged food space actually is --- which is precisely what makes the problem worth working on, and precisely what makes collaboration across efforts like these necessary.
+The most serious open effort to build one globally is OpenFoodFacts (OFF). OFF has documented food products across dozens of countries through crowdsourced contributions. The scale of that work is significant and the intent is the same as this project's: make food data open, structured, and usable. The gap in Indian product coverage that this report documents is not a gap in OFF's effort. It is a direct reflection of how fragmented and underdocumented the Indian packaged food space actually is --- which is precisely what makes the problem worth working on, and precisely what makes collaboration across efforts like these necessary.
 
 ## Two Sources, One Problem {#two-sources-one-problem}
 
@@ -116,7 +119,7 @@ OFF contains thousands of English ingredient lists for products with Indian bran
 
 For the purpose of this corpus --- documenting what Indian consumers actually encounter today --- that distinction matters. An ingredient list attached to a product that is not in the Indian market does not reflect the vocabulary Indian food systems use.
 
-The null rates in the OFF data confirm the scale of the gap. Of 19,748 rows in the raw export:
+The null rates in the OFF data confirm the scale of the gap. Of 19,748 rows in the raw export (captured 2 February 2026):
 
 - Only 4,104 pass a minimum filter: brand present, English product name present, English ingredient text present. That is 20.78 percent.
 - `ingredients_text_en` is the only ingredient column with coverage above 1 percent. All 29 other language columns combined add 69 rows to that count.
@@ -157,7 +160,7 @@ Palm oil and palmite are chemically and functionally distinct ingredients. An au
 
 Besan flour and chana dal are the same ingredient in different languages and forms. A similarity measure that does not carry cultural and linguistic knowledge would treat them as unrelated.
 
-These are not edge cases. They are representative of how Indian food labelling works: regional names, transliterations, preparation-state variants, and INS codes all coexist on the same label, sometimes referring to the same thing, sometimes to things that are genuinely distinct. Standard clustering and normalisation algorithms cannot reliably navigate this space. The cost of a silent error --- a wrong merge, a missed distinction --- propagates forward into every analysis built on the vocabulary.
+These are not edge cases. They are representative of how Indian food labelling works: regional names, transliterations, preparation-state variants, and INS codes all coexist on the same label, as do acronyms (such as FOS or TBHQ) and British/American spelling variants. Sometimes referring to the same thing, sometimes to things that are genuinely distinct. Standard clustering and normalisation algorithms cannot reliably navigate this space. The cost of a silent error --- a wrong merge, a missed distinction --- propagates forward into every analysis built on the vocabulary.
 
 The approach used here trades throughput for verifiability: one atomic operation per API call, constrained to prevent approximation, with explicit failure when the data is not there.
 
