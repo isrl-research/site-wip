@@ -473,11 +473,21 @@ Unique Canonical Units      : 662
 
 The 46,635 raw variants and 662 canonical units shown here are from the OFF monograph specifically --- a separate but parallel cleaning process applied to the OFF-derived strings. The 2,291 figure reported in the main body is the combined and deduplicated variant set from both sources, prior to canonical mapping. These are different counts at different stages of the pipeline and are not in conflict.
 
+## Contributors {#contributors .unnumbered}
+
+**Lalitha A R** — Conceptualization, methodology, data curation, formal analysis, writing (original draft), writing (review and editing).
+
+**Subrat Sethi** — Data curation: SKU verification (200 SKUs).
+
+**Purnendu Shukla** — Software: API script execution for ingredient data retrieval.
+
+**Radhakrishna MV** *(Contributor, Open Food Facts India)* — Writing (review and editing): manuscript review for accurate and respectful representation of the Open Food Facts dataset and contributor ecosystem.
+
 ## Acknowledgements {#acknowledgements .unnumbered}
 
 My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon which all my work, including this, quietly rests. Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
 
-We are deeply grateful to all contributors of OFF Dataset - one of the core sources which our efforts build upon. Thank you for all that you do. This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL).
+We are deeply grateful to all contributors of OFF Dataset - one of the core sources which our efforts build upon. Thank you for all that you do. This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (iSRL).
 
 ## References {.unnumbered}
 

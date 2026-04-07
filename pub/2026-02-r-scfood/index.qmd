@@ -297,7 +297,7 @@ My deepest gratitude to Mr. Krishna, whose constancy forms the foundation upon w
 
 Salutations to the Goddess who dwells in all beings in the form of intelligence. I bow to her again and again.
 
-This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (ISRL). The synthesis draws upon extensive legal research and domain analysis conducted for food informatics applications.
+This report was prepared as part of the Indian Food Informatics Data (IFID) project at the Interdisciplinary Systems Research Lab (iSRL). The synthesis draws upon extensive legal research and domain analysis conducted for food informatics applications.
 
 ## References {.unnumbered}
 
