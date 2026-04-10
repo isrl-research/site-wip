@@ -26,6 +26,7 @@ csl: chicago-author-date.csl
 license: "CC BY 4.0"
 draft: true
 draft-mode: visible
+doc-id: iSRL-26-04-R-NeuroCon
 ---
 
 ## The Problem
