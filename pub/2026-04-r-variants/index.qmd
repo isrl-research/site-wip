@@ -29,6 +29,7 @@ format:
       - custom.scss
     reference-location: margin
 
+
 bibliography: references.bib
 license: "CC BY"
 citation:

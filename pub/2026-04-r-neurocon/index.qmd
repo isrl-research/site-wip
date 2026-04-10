@@ -1,0 +1,168 @@
+---
+title: "The Coordinator Problem: Connector Hub Architecture as a Design Principle for Domain-Blind Integration in AI Systems"
+author:
+  - name: Lalitha A R
+    orcid: 0009-0001-7466-3531
+    affiliation: iSRL
+  - name: Claude (Anthropic)
+date: 2026-04-10
+abstract: |
+  Large language models achieve broad capability by training a single substrate across the full distribution of human knowledge, treating cross-domain integration as an emergent property of scale. This design works, and this paper does not argue against it. It argues instead that the brain's solution to the same problem points toward a complementary architectural principle worth testing. Decades of functional neuroimaging research document a consistent finding: the human brain does not integrate across domains through a generalised processor. It maintains discrete functional modules — each performing a domain-specific cognitive function largely autonomously — coordinated by a distinct class of connector hub regions characterised by high participation coefficients and low domain specificity. Critically, connector hub activity scales with the number of modules engaged in a task, not with domain depth. These regions manage coordination without holding domain content. A separate but anatomically overlapping literature on analogical reasoning identifies the rostrolateral prefrontal cortex as the region consistently activated across cross-domain relational comparison tasks, regardless of whether the domains are semantic or visuospatial — suggesting that the architectural conditions for domain-blind coordination may also be the conditions under which cross-domain structural similarity detection becomes possible. Together, these two lines of evidence motivate a design question: what would an AI system look like if it separated domain-native specialist models from a lightweight coordination layer whose training objective is structural integration across module boundaries rather than domain knowledge accumulation — and whose function, over time, might extend to detecting when problems in different domains share the same relational shape? We distinguish this proposal from mixture-of-experts architectures, which operate at the weight level within a single model under a shared loss, and from retrieval-augmented generation, which adds domain specificity as a correction applied after training. We draw on convergent evidence from organisational theory — the T-shaped manager literature and the differentiation-integration framework of Lawrence and Lorsch (1967) — to argue that the structural separation of coordination from domain expertise is not a novel hypothesis but a repeatedly rediscovered principle across human knowledge systems. This paper makes no empirical claims and proposes no implementation. Its contribution is a precise framing of the coordinator problem — what a domain-blind coordination layer would need to do, how it differs from existing architectural approaches, and what experimental directions it opens.
+keywords:
+  - AI architecture
+  - connector hubs
+  - modular cognition
+  - domain-blind coordination
+  - analogical reasoning
+  - mixture of experts
+  - multi-agent systems
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+bibliography: references.bib
+csl: chicago-author-date.csl
+license: "CC BY 4.0"
+draft: true
+draft-mode: visible
+---
+
+## The Problem
+
+Current large language models are built on a single architectural assumption: that the best path to cross-domain reasoning is to expose one model to all domains simultaneously during training, and let integration emerge from the resulting parameter space. The assumption is productive. Models trained this way do transfer across domains; they do apply concepts from one field to problems in another; they do find patterns that transcend domain boundaries. The assumption has earned its place.
+
+This paper does not argue that the assumption is wrong. It argues that the brain solved the same problem differently, that the brain's solution has been empirically characterised in some detail, and that taking it seriously as a design principle opens experimental directions that current architectures do not explore.
+
+The brain does not train a single substrate across all domains. It maintains domain-specific processing modules and coordinates them through a distinct class of regions whose defining property is precisely that they are *not* domain-specific. These connector hub regions manage the integration problem without holding the domain content. The architecture is separable: specialisation happens in one place, coordination happens in another, and the two are functionally distinct.
+
+The question this paper poses is narrow: is there a meaningful AI architecture that reflects this separation? And if there is, what would it need to do that existing approaches do not already do?
+
+---
+
+## Background
+
+### What has been established in the domain-generalist paradigm
+
+The large language model approach treats language modelling over a broad training corpus as the mechanism by which domain knowledge is acquired and cross-domain transfer is enabled. The model learns domain-specific patterns — the vocabulary, the relational structures, the typical inferential moves of a domain — by exposure to enough text from that domain. It learns cross-domain transfer by exposure to text that itself crosses domains: scientific writing that borrows from adjacent fields, interdisciplinary papers, analogical explanations, and so on.
+
+The result is a model that holds domain knowledge and coordination capacity in the same parameter space. When the model encounters a problem, it does not route to a specialist; it retrieves from a generalised substrate that contains everything at once. Retrieval-augmented generation [@lewis2020retrieval] and fine-tuning extend this by adding domain specificity as a correction applied after training: the base model is a generalist, and specialisation is layered on. Mixture-of-experts architectures [@shazeer2017outrageously] pursue a different efficiency: within a single model, a gating network routes each token to a subset of parameter experts. This reduces inference cost without changing the epistemic structure — all experts are trained jointly under the same loss, in the same model, on the same data distribution.
+
+None of these approaches separates coordination from domain expertise at the architectural level. The coordinating function — whatever the model does when it integrates across domains — is distributed throughout the same weights that hold domain content.
+
+### What the brain does instead
+
+Functional neuroimaging research has documented a different structure. The human brain is not organised as a single generalised processor. It is organised as a set of discrete functional modules — each densely interconnected internally, each performing a domain-specific cognitive function — coordinated by a distinct class of regions that do not themselves perform domain-specific computation.
+
+Bertolero, Yeo, and D'Esposito [-@bertolero2015modular] established this architecture empirically across 9,208 experiments and 77 cognitive tasks in the BrainMap database. Using resting-state fMRI and graph-theoretic network analysis, they identified 14 distinct functional modules with strong spatial correspondence to known cognitive functions. They then measured activity at different types of nodes across all tasks. Local nodes within modules — provincial hubs — did not increase activity as more cognitive functions were engaged. Their computational load remained constant regardless of task complexity. Connector nodes — regions with high participation coefficients, meaning their connections were distributed evenly across many modules rather than concentrated within any one — showed a different pattern entirely. Their activity increased proportionally to the number of modules engaged in a task.
+
+This finding has a specific implication. Connector nodes are not doing more of what the domain modules are doing when tasks get more complex. They are doing something else entirely: managing the integration load that increases when many modules must work together, while preserving the autonomy of each module's function. The modules stay modules; the connector nodes handle the coordination between them.
+
+Bertolero et al. [-@bertolero2018mechanistic] extended this to a mechanistic account. Connector hubs do not merely route information between modules; they actively tune the connectivity of their neighbours, reorganising which modules are more or less connected based on current task demands. Individuals with more diversely connected hubs and more modular brain networks show higher cognitive performance across all tasks — not on any specific task, but across the board. The diversity of hub connectivity predicts general integration capacity.
+
+The architectural principle that emerges from this literature is not that specialisation and integration are in tension. It is that they are structurally separable and mutually reinforcing: more modular domain processing combined with more capable coordination produces better outcomes than either alone [@menon2024pfc].
+
+---
+
+## The Architecture in Detail
+
+### Module autonomy is not isolation
+
+A clarification matters here. Saying that domain modules process information autonomously does not mean they are isolated from one another. The brain is not a collection of silos that occasionally exchange messages. It is a network in which modules maintain dense internal connectivity while connector hub regions manage cross-module communication selectively, based on task demands.
+
+The key property of connector hubs is the participation coefficient [@sporns2016modular]: the degree to which a node's connections are distributed evenly across modules rather than concentrated within one. A node with a high participation coefficient is well-connected to many modules. It has access to what each module is doing. But it does not perform any module's function. It is neither a domain specialist nor a blank generalist. It occupies a structurally distinct role: a node that can reach across module boundaries without being defined by any of them.
+
+Gordon et al. [-@gordon2018three] refined this picture further, showing that connector hubs are not a single category. Three distinct sets were identified, each with different task-activation profiles: one set deactivates across tasks, one activates during all tasks, one activates specifically during tasks requiring the configuring of input, transformation, and output processes. This differentiation within the coordinator role is relevant because it suggests coordination is itself a structured function — not a homogeneous relay, but a set of subtypes performing distinct integrative operations.
+
+### What connector hubs actually compute
+
+The literature on connector hub function does not describe these regions as performing structural isomorphism detection — comparing problem shapes across domains and flagging when a problem in one domain has the same relational structure as a solved problem in another. That function is not what the connector hub literature directly documents.
+
+What it documents is routing and tuning: managing which modules are active, how strongly they communicate, and how that connectivity pattern shifts as task demands change. The connector hub's documented computational role is coordination in the sense of network configuration, not in the sense of cross-domain analogy.
+
+The analogical reasoning literature, however, sits adjacent and is worth examining. A meta-analysis of 27 neuroimaging studies on analogical reasoning found that the left rostrolateral prefrontal cortex (rlPFC) is the region most consistently activated across all analogical reasoning tasks, regardless of whether the domain is semantic or visuospatial [@hobeika2016analogical]. The rlPFC is domain-general for analogy. Lesions to the left rlPFC impair analogical reasoning across domains. And the rlPFC is anatomically located within the connector hub regions identified by the modular brain architecture literature.
+
+This anatomical overlap does not establish that connector hubs *are* cross-domain analogy engines. It establishes something more modest: the architectural conditions that define connector hubs — high participation coefficient, domain-distributed connectivity, low domain specificity — are the same conditions under which cross-domain relational comparison is supported. Whether a coordination layer trained into this architectural role would develop the capacity for structural similarity detection across domains is an open question. The brain architecture suggests it is not an implausible one.
+
+Gentner's structure-mapping theory [@gentner1983structure] provides the theoretical vocabulary for what this function would be. Analogy, in the structure-mapping framework, depends on finding relational correspondences between domains — not surface similarity between objects, but systematic similarity between the roles objects play within a relational structure. The function is domain-blind by definition: the same relational structure can exist in two entirely different content domains, and detecting it requires abstracting away from domain content. A coordinator trained to detect such correspondences would not need to know what a domain is about; it would need to know what shape a problem has.
+
+---
+
+## The Distinction from Existing Approaches
+
+### Mixture of experts
+
+Mixture-of-experts architectures [@shazeer2017outrageously; @cai2024moe] are the closest existing analogue to the proposed architecture. MoE models contain multiple sub-networks (experts), with a gating mechanism routing each token to a small subset of experts during inference. This achieves computational efficiency — not all parameters are activated for every input — and produces a form of functional specialisation within the model.
+
+The distinction from the proposed architecture is epistemic rather than computational. In MoE, all experts are trained jointly under the same loss, within the same model, on the same data distribution. The gating network is trained simultaneously with the experts; there is no separation between the coordinator's training objective and the specialists' training objective. The experts are not domain-native in the sense of having been developed to hold a specific domain's knowledge independently of the generalist training regime. They are weight-level subnetworks within a single model that have developed different activation patterns through joint training.
+
+The connector hub analogy is structurally different. Domain-native modules, in the brain, are not trained jointly with the connector hubs under a shared loss. They develop through domain-specific experience and exposure; connector hubs develop separately. The proposed AI architecture would reflect this separation: domain-native specialist models trained on domain-specific corpora, and a coordination layer trained separately — potentially on a different objective entirely, concerned with structural relationships across domains rather than domain content.
+
+### Retrieval-augmented generation
+
+Retrieval-augmented generation [@lewis2020retrieval] adds domain specificity to a generalist model by retrieving relevant documents at inference time and including them in the context window. This is a post-training correction: the base model remains a generalist; specialisation is supplied externally.
+
+The proposed architecture differs in that domain specialists are not corrections applied to a generalist. They are the primary domain processors. The coordinator does not have domain knowledge that gets topped up by retrieval; it does not hold domain knowledge in the first place. The separation is architectural, not a retrieval strategy.
+
+### Current multi-agent systems
+
+Multi-agent systems [@xiao2024dual] distribute tasks across multiple models and coordinate their outputs through an orchestrator. This is the existing approach closest in spirit to the proposed architecture, and it shares the structural separation the brain's architecture exhibits. The limitation documented in current production deployments is coordination overhead: as the number of specialists increases, the coordination tax — communication overhead, latency, context management — grows faster than the benefit [@oreilly2026multiagent]. The orchestrator in most deployed systems is not a model with a distinct training objective for coordination; it is a generalist model given a coordination role through prompting. The coordination capacity is borrowed from the generalist's general capability, not developed as a distinct function.
+
+The proposed architecture asks whether a coordinator trained specifically for structural integration — with its own training objective, on a corpus of cross-domain relational correspondences rather than on domain content — would perform differently from a prompted generalist acting as coordinator. The brain's architecture suggests these are different things. Whether they produce different outcomes in AI systems is the experimental question.
+
+---
+
+## Convergent Evidence from Organisational Theory
+
+The structural separation of coordination from domain expertise is not a new idea. It has been independently arrived at in human knowledge systems across several fields.
+
+Lawrence and Lorsch [-@lawrence1967differentiation] formalised it in organisational theory as the tension between *differentiation* — the development of specialised subunits with their own goals, time horizons, and epistemic norms — and *integration* — the coordination of differentiated subunits toward shared outcomes. Their empirical finding was that high-performing organisations in complex environments achieved both: more differentiated than low performers *and* more integrated. The integrator role in their framework is structurally analogous to the connector hub: a person or unit that coordinates across specialist domains without being a domain specialist, whose effectiveness depends on being trusted by all parties rather than being expert in any one domain.
+
+The T-shaped manager concept [@guest1991tshaped; @johnson1978tshaped] formalises the same principle at the individual level. The vertical bar represents deep domain expertise; the horizontal bar represents the boundary-crossing competencies that enable coordination across specialisms. The horizontal bar is not generalisation in the sense of knowing everything at shallow depth. It is coordination capacity: the ability to integrate across domains without being defined by any of them. The T-shaped manager does not perform the specialist's function; they create the conditions under which specialists can work together.
+
+In legal practice, large firms have independently evolved an analogous structure. Complex multi-practice matters are handled by coordinating partners who assemble and route between domain specialists — IP attorneys, tax attorneys, litigation specialists — without needing deep expertise in each practice area. The coordinating partner's role is not to do the specialist's work but to understand which specialist is needed when, and to translate across the epistemic boundaries between practice groups. The domain specialists remain autonomous; the coordinator holds the integration function.
+
+None of these analogies constitutes proof. They constitute convergent independent discovery of the same structural principle in systems facing the same problem: how to achieve coordination across domain-specialist components without collapsing the specialisation that makes the components useful.
+
+---
+
+## What the Coordinator Would Need to Do
+
+The proposed architecture separates into two components with different requirements.
+
+**Domain-native specialist models** are trained on domain-specific corpora, with training objectives appropriate to their domain. Their epistemic authority is domain-bounded. They do not need to know what other specialists know; they need to produce high-quality domain-specific outputs when queried. The TRM result [@trm2026lessis] — a 7M parameter model achieving competitive performance on structured reasoning tasks — suggests that small, domain-native models may be sufficient for specialist functions that current generalist models handle with far more parameters.
+
+**The coordination layer** is the novel component. Its training objective is not domain content. It is structural: learning to represent problems in terms of their relational structure, to route queries to appropriate specialists, and — potentially — to detect when a problem in one domain shares relational structure with a problem another specialist has encountered. This last function is not a given. It is a hypothesis about what a coordination layer trained at the architectural level of connector hubs might develop. The rlPFC literature suggests the conditions for such a function are present in the analogous brain architecture; whether those conditions can be reproduced in a trained model is an empirical question.
+
+The training corpus for such a coordinator is not obvious. One tractable direction is the history of science: interdisciplinary papers that explicitly transfer frameworks across domains, analogical explanations in scientific pedagogy, and cross-domain problem-solving literature document the function the coordinator would need to perform. Whether a model trained on this corpus would generalise to novel cross-domain structural correspondences rather than memorising the surface forms of known analogies is an open methodological question.
+
+---
+
+## Scope and Limitations
+
+### What this paper does not claim
+
+This paper does not claim that the proposed architecture would outperform current large language models on any benchmark. The claim is architectural and conceptual: that the separation of coordination from domain expertise is a structural principle documented in the brain and independently discovered in human organisational systems, and that AI architecture has not yet explored it at the level the brain implements it.
+
+This paper does not propose an implementation. The training objective for the coordination layer, the mechanism by which specialists and coordinator communicate, the representation format for structural similarity, and the evaluation framework for coordination quality are all open engineering questions. Scoping them is outside the range of what a conceptual paper can usefully do.
+
+This paper does not argue that domain-native training produces better specialists than generalised training in all cases. There are domains where generalised training produces specialists that match or exceed domain-native fine-tuning. The architectural argument is not about which approach produces better specialists; it is about whether the coordination function is better served by a dedicated coordinator with its own training objective than by a generalist model acting as coordinator.
+
+### What remains open
+
+The most significant open question is the training objective for the coordinator. The brain's connector hubs develop their function through experience in a system where domain modules are already developing their functions simultaneously. A training objective that reproduces this developmental condition in a supervised setting does not yet exist.
+
+The evaluation question is similarly open. Current benchmarks evaluate domain performance. Cross-domain transfer is typically evaluated by measuring performance on domain B after training on domain A. Neither evaluates coordination quality directly — the capacity of a coordinator to route appropriately, integrate across specialists, and detect structural correspondences across domain boundaries. Developing such an evaluation framework may be a precondition for testing the architecture.
+
+---
+
+## Authorship Note
+
+Lalitha A R identified the architectural parallel between connector hub function and the proposed AI coordination layer, formulated the question of whether a domain-blind coordinator trained separately from domain specialists would behave differently from a prompted generalist acting as coordinator, and developed the cross-domain isomorphism detection hypothesis as an extension of the connector hub analogy. Claude searched the neuroscience literature, identified the rlPFC analogical reasoning literature as the relevant adjacent body of work, located the organisational theory parallels, built the papertable and bibliography, and drafted this paper from the resulting materials. The core architectural question and the isomorphism extension are Lalitha's. The literature synthesis, the distinction from existing AI architectures, and the written draft are Claude's.
+
+---
+
+## References
+
+::: {#refs}
+:::
