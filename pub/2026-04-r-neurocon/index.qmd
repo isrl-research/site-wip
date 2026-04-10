@@ -158,7 +158,9 @@ The evaluation question is similarly open. Current benchmarks evaluate domain pe
 
 ## Authorship Note
 
-Lalitha A R identified the architectural parallel between connector hub function and the proposed AI coordination layer, formulated the question of whether a domain-blind coordinator trained separately from domain specialists would behave differently from a prompted generalist acting as coordinator, and developed the cross-domain isomorphism detection hypothesis as an extension of the connector hub analogy. Claude searched the neuroscience literature, identified the rlPFC analogical reasoning literature as the relevant adjacent body of work, located the organisational theory parallels, built the papertable and bibliography, and drafted this paper from the resulting materials. The core architectural question and the isomorphism extension are Lalitha's. The literature synthesis, the distinction from existing AI architectures, and the written draft are Claude's.
+Lalitha A R identified the architectural parallel between connector hub function and the proposed AI coordination layer, formulated the question of whether a domain-blind coordinator trained separately from domain specialists would behave differently from a prompted generalist acting as coordinator, developed the cross-domain isomorphism detection hypothesis as an extension of the connector hub analogy, and directed the search for convergent parallels in organisational theory and legal practice. 
+
+Claude searched the neuroscience literature, confirmed the rlPFC analogical reasoning literature as the relevant adjacent body of work, located and verified the organisational theory and law firm parallels on Lalitha's direction, built the papertable and bibliography, and drafted this paper from the resulting materials. The core architectural question, the isomorphism extension, and the cross-domain framing instinct are Lalitha's. The literature retrieval, synthesis, and written draft are Claude's.
 
 ---
 
