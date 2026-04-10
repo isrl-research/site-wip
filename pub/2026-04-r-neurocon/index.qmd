@@ -22,7 +22,6 @@ format:
     toc-depth: 3
     number-sections: true
 bibliography: references.bib
-csl: chicago-author-date.csl
 license: "CC BY 4.0"
 draft: true
 draft-mode: visible
