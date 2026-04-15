@@ -1,12 +1,14 @@
 ---
 title: "Veg/Non-Veg Classes in IFID"
-subtitle: "Taxonomy scaffolding for dietary status tags in the Ingredient Function Identity Database"
+subtitle: "Taxonomy scaffolding for dietary status tags in the Indian Food Informatics Data Project"
 author:
   - name: Sai Nikhil Vukka
     affiliation: ISRL
 date: 2026-04-07
 date-format: "DD MMMM YYYY"
 categories: [ifid, taxonomy, dietary-classes, fssai, metadata]
+draft: true
+draft-mode: visible
 ---
 
 ## 1. Why this question matters for IFID
