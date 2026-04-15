@@ -8,7 +8,7 @@ team-track: "Advisory Network"
 image: images/thejeshgn.jpg
 about:
   template: trestles
-  image: images/thejeshgn.png
+  image: images/thejeshgn.jpg
   image-shape: round
   links:
     - icon: globe
