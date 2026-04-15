@@ -1,0 +1,49 @@
+---
+title: "Thejesh GN"
+subtitle: "Advisor — Open Data Standards, iSRL"
+description: "Independent technologist and co-founder of DataMeet. Advisory network member contributing open data standards expertise to IFID."
+order: 6
+team-role: "Advisor — Open Data Standards"
+team-track: "Advisory Network"
+image: images/thejeshgn.jpg
+about:
+  template: trestles
+  image: images/thejeshgn.png
+  image-shape: round
+  links:
+    - icon: globe
+      text: thejeshgn.com
+      href: https://thejeshgn.com
+    - icon: github
+      text: thejeshgn
+      href: https://github.com/thejeshgn
+draft: true
+draft-mode: visible
+---
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Thejesh GN",
+  "jobTitle": "Advisor — Open Data Standards",
+  "description": "Independent technologist and co-founder of DataMeet. Advisory network member at iSRL.",
+  "url": "https://isrl-research.github.io/team/thejeshgn.html",
+  "sameAs": [
+    "https://thejeshgn.com",
+    "https://github.com/thejeshgn"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  }
+}
+</script>
+```
+
+Advisor — Open Data Standards at iSRL. Thejesh GN ("Thej") is an independent technologist and co-founder of [DataMeet](https://datameet.org/), the largest community of data science and open data enthusiasts in India.
+
+His advisory contribution to IFID came through a working session on open data governance and interoperability for the project — the notes from which are [documented publicly in the iSRL research discussion](https://github.com/orgs/isrl-research/discussions/6#discussioncomment-16078778). The conversation shaped three threads that are now active in IFID's architecture thinking: the plugin/extension model for the metadata schema (core fields that every consumer gets, with specialised communities extending outward without touching the core); the MusicBrainz identifier architecture as a structural analogue for how stable, open ingredient IDs could function across India's food ecosystem; and the BEE Star Label QR precedent as a citable Indian regulatory anchor for the "basic label + machine-readable detail" framing IFID is building toward.
+
+His broader work spans open geospatial data, civic technology, and sustained advocacy for open data standards in India. His blog is at [thejeshgn.com](https://thejeshgn.com) and his projects are on [GitHub](https://github.com/thejeshgn).
