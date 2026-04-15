@@ -5,7 +5,7 @@ description: "Independent technologist and co-founder of DataMeet. Advisory netw
 order: 6
 team-role: "Advisor — Open Data Standards"
 team-track: "Advisory Network"
-image: images/thejeshgn.png
+image: images/thejeshgn.jpg
 about:
   template: trestles
   image: images/thejeshgn.png
@@ -17,6 +17,8 @@ about:
     - icon: github
       text: thejeshgn
       href: https://github.com/thejeshgn
+draft: true
+draft-mode: visible
 ---
 ```{=html}
 <script type="application/ld+json">
