@@ -27,8 +27,6 @@ format:
     theme:
       - default
       - ../../custom.scss
-  pdf:
-    reference-location: document
 bibliography: references.bib
 draft: true
 draft-mode: visible
