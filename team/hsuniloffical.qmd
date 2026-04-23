@@ -1,0 +1,70 @@
+---
+title: "Hitha Sunil"
+subtitle: "Dissemination Ops, iSRL"
+description: "Working on dissemination workflows, communication systems, and structured information delivery."
+order: 4
+team-role: "Dissemination Ops"
+team-track: "Core Team"
+
+image: images/hsunilofficial.jpg
+
+about:
+  template: trestles
+  image: images/hsunilofficial.jpg
+  image-shape: round
+  links:
+    - icon: envelope
+      text: hsunilofficial@gmail.com
+      href: "mailto:hsunilofficial@gmail.com"
+    - icon: github
+      text: hsunilofficial
+      href: https://github.com/hsunilofficial
+    - icon: linkedin
+      text: hsunilofficial
+      href: https://linkedin.com/in/hsunilofficial
+---
+
+```{=html}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hitha Sunil",
+  "jobTitle": "Dissemination Ops",
+  "description": "Working on dissemination workflows, communication systems, and structured information delivery at iSRL.",
+  "url": "https://isrl-research.github.io/team/hsunilofficial.html",
+  "email": "hsunilofficial@gmail.com",
+  "identifier": "https://orcid.org/0009-0003-3747-7910",
+  "sameAs": [
+    "https://orcid.org/0009-0003-3747-7910",
+    "https://github.com/hsunilofficial",
+    "https://linkedin.com/in/hsunilofficial"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "iSRL",
+    "url": "https://isrl-research.github.io"
+  },
+  "affiliation": {
+    "@type": "Organization",
+    "name": "IIT Madras"
+  }
+}
+</script>
+```
+
+Dissemination Ops at iSRL, working on how research gets communicated, structured, and actually reaches people in a usable form.
+
+My focus is on turning complex work into clear, accessible outputs, through documentation, workflows, and structured content systems. I’m particularly interested in how information moves - from raw research to something people can understand, use, and build on.
+
+I’m also part of the technical team at Sahityika (the literary society) of IIT Madras, where I work on localization — contributing to making digital content more accessible across languages. I care deeply about breaking language barriers in digital experiences and enabling information to reach wider, more diverse audiences.
+
+Currently pursuing BS in Data Science and Applications at IIT Madras.
+
+Curiosity is what drives me, especially toward questions at the intersection of biology, technology, and space, and how systems across these domains scale, interact, and remain meaningful in real-world contexts.
+
+I tend to approach things with a systems mindset, breaking down processes, improving consistency, and building routines that actually sustain over time rather than just working once.
+
+Outside the lab: walking routines, fitness discipline, structured schedules, and exploring how small habits compound into long-term change.
+
+I’m interested in building systems that don’t just work once, but keep working consistently over time.
